@@ -2,7 +2,7 @@
 
 import {Stringify} from 'shared-runtime';
 
-function useFoo(a) {
+function useFoo({a}) {
   const fn = () => {
     return () => ({
       value: a.b.c,

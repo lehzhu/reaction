@@ -2,7 +2,7 @@
 
 import {identity, Stringify} from 'shared-runtime';
 
-function useFoo(a) {
+function useFoo({a}) {
   const x = {
     fn() {
       return identity(a.b.c);

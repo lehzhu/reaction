@@ -6,7 +6,7 @@
 
 import {Stringify} from 'shared-runtime';
 
-function useFoo(a) {
+function useFoo({a}) {
   return <Stringify fn={() => a.b.c} shouldInvokeFns={true} />;
 }
 
@@ -25,17 +25,18 @@ import { c as _c } from "react/compiler-runtime"; // @enablePropagateDepsInHIR
 
 import { Stringify } from "shared-runtime";
 
-function useFoo(a) {
+function useFoo(t0) {
   const $ = _c(2);
-  let t0;
+  const { a } = t0;
+  let t1;
   if ($[0] !== a.b.c) {
-    t0 = <Stringify fn={() => a.b.c} shouldInvokeFns={true} />;
+    t1 = <Stringify fn={() => a.b.c} shouldInvokeFns={true} />;
     $[0] = a.b.c;
-    $[1] = t0;
+    $[1] = t1;
   } else {
-    t0 = $[1];
+    t1 = $[1];
   }
-  return t0;
+  return t1;
 }
 
 export const FIXTURE_ENTRYPOINT = {
@@ -47,5 +48,5 @@ export const FIXTURE_ENTRYPOINT = {
 ```
       
 ### Eval output
-(kind: ok) [[ (exception in render) TypeError: Cannot read properties of undefined (reading 'c') ]]
-[[ (exception in render) TypeError: Cannot read properties of undefined (reading 'c') ]]
+(kind: ok) [[ (exception in render) TypeError: Cannot read properties of null (reading 'b') ]]
+<div>{"fn":{"kind":"Function","result":4},"shouldInvokeFns":true}</div>

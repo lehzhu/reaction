@@ -6,7 +6,7 @@
 
 import {Stringify} from 'shared-runtime';
 
-function useFoo(a) {
+function useFoo({a}) {
   return <Stringify fn={() => a.b?.c.d?.e} shouldInvokeFns={true} />;
 }
 
@@ -17,7 +17,6 @@ export const FIXTURE_ENTRYPOINT = {
     {a: null},
     {a: {b: null}},
     {a: {b: {c: {d: null}}}},
-    ,
     {a: {b: {c: {d: {e: 4}}}}},
   ],
 };
@@ -31,17 +30,18 @@ import { c as _c } from "react/compiler-runtime"; // @enablePropagateDepsInHIR
 
 import { Stringify } from "shared-runtime";
 
-function useFoo(a) {
+function useFoo(t0) {
   const $ = _c(2);
-  let t0;
+  const { a } = t0;
+  let t1;
   if ($[0] !== a.b) {
-    t0 = <Stringify fn={() => a.b?.c.d?.e} shouldInvokeFns={true} />;
+    t1 = <Stringify fn={() => a.b?.c.d?.e} shouldInvokeFns={true} />;
     $[0] = a.b;
-    $[1] = t0;
+    $[1] = t1;
   } else {
-    t0 = $[1];
+    t1 = $[1];
   }
-  return t0;
+  return t1;
 }
 
 export const FIXTURE_ENTRYPOINT = {
@@ -51,8 +51,6 @@ export const FIXTURE_ENTRYPOINT = {
     { a: null },
     { a: { b: null } },
     { a: { b: { c: { d: null } } } },
-
-    ,
     { a: { b: { c: { d: { e: 4 } } } } },
   ],
 };
@@ -60,8 +58,7 @@ export const FIXTURE_ENTRYPOINT = {
 ```
       
 ### Eval output
-(kind: ok) <div>{"fn":{"kind":"Function"},"shouldInvokeFns":true}</div>
+(kind: ok) [[ (exception in render) TypeError: Cannot read properties of null (reading 'b') ]]
 <div>{"fn":{"kind":"Function"},"shouldInvokeFns":true}</div>
 <div>{"fn":{"kind":"Function"},"shouldInvokeFns":true}</div>
-[[ (exception in render) TypeError: Cannot read properties of undefined (reading 'b') ]]
-<div>{"fn":{"kind":"Function"},"shouldInvokeFns":true}</div>
+<div>{"fn":{"kind":"Function","result":4},"shouldInvokeFns":true}</div>

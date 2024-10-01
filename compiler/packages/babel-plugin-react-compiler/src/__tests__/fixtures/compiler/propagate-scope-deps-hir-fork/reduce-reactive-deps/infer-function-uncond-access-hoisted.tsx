@@ -2,7 +2,7 @@
 
 import {Stringify} from 'shared-runtime';
 
-function useFoo(a) {
+function useFoo({a}) {
   return <Stringify fn={() => a.b.c} shouldInvokeFns={true} />;
 }
 
