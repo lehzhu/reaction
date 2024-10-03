@@ -4,8 +4,8 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-use react_diagnostics::Diagnostic;
-use react_estree::{
+use reaction_diagnostics::Diagnostic;
+use reaction_estree::{
     AssignmentOperator, AssignmentPropertyOrRestElement, AssignmentTarget, Expression,
     ExpressionOrPrivateIdentifier, ExpressionOrSuper, ForInInit, ForInit, FunctionBody, Identifier,
     ImportDeclarationSpecifier, IntoClass, IntoFunction, JSXElementName, Pattern, Program,
@@ -316,7 +316,7 @@ impl Analyzer {
 impl Visitor for Analyzer {
     fn visit_import_declaration_specifier(
         &mut self,
-        ast: &react_estree::ImportDeclarationSpecifier,
+        ast: &reaction_estree::ImportDeclarationSpecifier,
     ) {
         let kind = self.manager.scope(self.current).kind;
         if kind != ScopeKind::Module {
@@ -351,7 +351,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_class_declaration(&mut self, ast: &react_estree::ClassDeclaration) {
+    fn visit_class_declaration(&mut self, ast: &reaction_estree::ClassDeclaration) {
         if let Some(id) = &ast.class.id {
             let declaration = self.manager.add_declaration(
                 self.current,
@@ -368,7 +368,7 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_class_expression(&mut self, ast: &react_estree::ClassExpression) {
+    fn visit_class_expression(&mut self, ast: &reaction_estree::ClassExpression) {
         self.enter(ScopeKind::Class, |visitor| {
             if let Some(id) = &ast.class.id {
                 let declaration = visitor.manager.add_declaration(
@@ -387,7 +387,7 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_class_property(&mut self, ast: &react_estree::ClassProperty) {
+    fn visit_class_property(&mut self, ast: &reaction_estree::ClassProperty) {
         // Static (non-computed) property names do not introduce a new identifier
         // into any scope
         if ast.is_computed {
@@ -398,7 +398,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_class_private_property(&mut self, ast: &react_estree::ClassPrivateProperty) {
+    fn visit_class_private_property(&mut self, ast: &reaction_estree::ClassPrivateProperty) {
         // Static (non-computed) property names do not introduce a new identifier
         // into any scope
         match &ast.key {
@@ -413,7 +413,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_static_block(&mut self, ast: &react_estree::StaticBlock) {
+    fn visit_static_block(&mut self, ast: &reaction_estree::StaticBlock) {
         self.enter(ScopeKind::StaticBlock, |visitor| {
             for statement in &ast.body {
                 visitor.visit_statement(statement);
@@ -421,7 +421,7 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_method_definition(&mut self, ast: &react_estree::MethodDefinition) {
+    fn visit_method_definition(&mut self, ast: &reaction_estree::MethodDefinition) {
         // Static (non-computed) method names do not introduce a new identifier
         // into any scope
         if ast.is_computed {
@@ -430,7 +430,7 @@ impl Visitor for Analyzer {
         self.visit_function_expression(&ast.value);
     }
 
-    fn visit_function_declaration(&mut self, ast: &react_estree::FunctionDeclaration) {
+    fn visit_function_declaration(&mut self, ast: &reaction_estree::FunctionDeclaration) {
         if let Some(id) = &ast.function.id {
             let declaration = self.manager.add_declaration(
                 self.current,
@@ -447,7 +447,7 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_function_expression(&mut self, ast: &react_estree::FunctionExpression) {
+    fn visit_function_expression(&mut self, ast: &reaction_estree::FunctionExpression) {
         self.enter(ScopeKind::Function, |visitor| {
             if let Some(id) = &ast.function.id {
                 let declaration = visitor.manager.add_declaration(
@@ -466,13 +466,13 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_arrow_function_expression(&mut self, ast: &react_estree::ArrowFunctionExpression) {
+    fn visit_arrow_function_expression(&mut self, ast: &reaction_estree::ArrowFunctionExpression) {
         self.enter(ScopeKind::Function, |visitor| {
             Analyzer::visit_function(visitor, ast);
         });
     }
 
-    fn visit_assignment_expression(&mut self, ast: &react_estree::AssignmentExpression) {
+    fn visit_assignment_expression(&mut self, ast: &reaction_estree::AssignmentExpression) {
         if ast.operator == AssignmentOperator::Equals {
             // "=" operator is a reassignment, straightforward
             match &ast.left {
@@ -564,7 +564,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_block_statement(&mut self, ast: &react_estree::BlockStatement) {
+    fn visit_block_statement(&mut self, ast: &reaction_estree::BlockStatement) {
         // Block statements create a new scope. In cases where we want to avoid
         // the new scope, such as function declarations, we avoid calling this
         // method and visit the block contents directly.
@@ -575,7 +575,7 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_break_statement(&mut self, ast: &react_estree::BreakStatement) {
+    fn visit_break_statement(&mut self, ast: &reaction_estree::BreakStatement) {
         if let Some(label) = self.lookup_break(ast.label.as_ref().map(|ident| ident.name.as_str()))
         {
             let id = label.id;
@@ -593,7 +593,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_catch_clause(&mut self, ast: &react_estree::CatchClause) {
+    fn visit_catch_clause(&mut self, ast: &reaction_estree::CatchClause) {
         // If a catch clause has a param for the value being caught, then
         // a new scope is created for that param.
         if let Some(param) = &ast.param {
@@ -610,7 +610,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_continue_statement(&mut self, ast: &react_estree::ContinueStatement) {
+    fn visit_continue_statement(&mut self, ast: &reaction_estree::ContinueStatement) {
         let range = ast
             .label
             .as_ref()
@@ -640,7 +640,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_for_in_statement(&mut self, ast: &react_estree::ForInStatement) {
+    fn visit_for_in_statement(&mut self, ast: &reaction_estree::ForInStatement) {
         Analyzer::visit_for_in_of(
             self,
             AstNode::from(ast),
@@ -651,7 +651,7 @@ impl Visitor for Analyzer {
         );
     }
 
-    fn visit_for_of_statement(&mut self, ast: &react_estree::ForOfStatement) {
+    fn visit_for_of_statement(&mut self, ast: &reaction_estree::ForOfStatement) {
         Analyzer::visit_for_in_of(
             self,
             AstNode::from(ast),
@@ -662,7 +662,7 @@ impl Visitor for Analyzer {
         );
     }
 
-    fn visit_for_statement(&mut self, ast: &react_estree::ForStatement) {
+    fn visit_for_statement(&mut self, ast: &reaction_estree::ForStatement) {
         let mut for_scope: Option<ScopeId> = None;
         if let Some(init) = &ast.init {
             if let ForInit::VariableDeclaration(init) = init {
@@ -692,7 +692,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_identifier(&mut self, ast: &react_estree::Identifier) {
+    fn visit_identifier(&mut self, ast: &reaction_estree::Identifier) {
         // `Identifier` is tricky in ESTree, because the same node type is used
         // for places that reference variables as those that are string names:
         // `x` is an Identifier, but so is the "y" in `x.y`.
@@ -709,7 +709,7 @@ impl Visitor for Analyzer {
         );
     }
 
-    fn visit_labeled_statement(&mut self, ast: &react_estree::LabeledStatement) {
+    fn visit_labeled_statement(&mut self, ast: &reaction_estree::LabeledStatement) {
         let body = &ast.body;
         let kind = match body {
             Statement::ForStatement(_)
@@ -728,22 +728,22 @@ impl Visitor for Analyzer {
         })
     }
 
-    fn visit_member_expression(&mut self, ast: &react_estree::MemberExpression) {
+    fn visit_member_expression(&mut self, ast: &reaction_estree::MemberExpression) {
         self.visit_expression_or_super(&ast.object);
         if ast.is_computed {
             self.visit_expression_or_private_identifier(&ast.property);
         }
     }
 
-    fn visit_meta_property(&mut self, _ast: &react_estree::MetaProperty) {
+    fn visit_meta_property(&mut self, _ast: &reaction_estree::MetaProperty) {
         // no-op, these are all builtins
     }
 
-    fn visit_private_identifier(&mut self, _ast: &react_estree::PrivateIdentifier) {
+    fn visit_private_identifier(&mut self, _ast: &reaction_estree::PrivateIdentifier) {
         // no-op, these refere to class properties
     }
 
-    fn visit_private_name(&mut self, _ast: &react_estree::PrivateName) {
+    fn visit_private_name(&mut self, _ast: &reaction_estree::PrivateName) {
         // no-op, these refere to class properties
     }
 
@@ -758,14 +758,14 @@ impl Visitor for Analyzer {
         )
     }
 
-    fn visit_property(&mut self, ast: &react_estree::Property) {
+    fn visit_property(&mut self, ast: &reaction_estree::Property) {
         if ast.is_computed {
             self.visit_expression(&ast.key);
         }
         self.visit_expression(&ast.value);
     }
 
-    fn visit_switch_statement(&mut self, ast: &react_estree::SwitchStatement) {
+    fn visit_switch_statement(&mut self, ast: &reaction_estree::SwitchStatement) {
         self.visit_expression(&ast.discriminant);
         let id = self
             .manager
@@ -780,7 +780,7 @@ impl Visitor for Analyzer {
         });
     }
 
-    fn visit_variable_declaration(&mut self, ast: &react_estree::VariableDeclaration) {
+    fn visit_variable_declaration(&mut self, ast: &reaction_estree::VariableDeclaration) {
         let kind = ast.kind;
         for declaration in &ast.declarations {
             Analyzer::visit_declaration_pattern(self, &declaration.id, Some(kind.into()));
@@ -790,7 +790,7 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_jsxattribute(&mut self, ast: &react_estree::JSXAttribute) {
+    fn visit_jsxattribute(&mut self, ast: &reaction_estree::JSXAttribute) {
         // NOTE: skip visiting the attribute name, attributes are like non-computed
         // object properties where the identifier is not a variable reference
         if let Some(value) = &ast.value {
@@ -798,11 +798,11 @@ impl Visitor for Analyzer {
         }
     }
 
-    fn visit_jsxclosing_element(&mut self, _ast: &react_estree::JSXClosingElement) {
+    fn visit_jsxclosing_element(&mut self, _ast: &reaction_estree::JSXClosingElement) {
         // no-op, should not be counted as a reference
     }
 
-    fn visit_jsxidentifier(&mut self, ast: &react_estree::JSXIdentifier) {
+    fn visit_jsxidentifier(&mut self, ast: &reaction_estree::JSXIdentifier) {
         Analyzer::visit_reference_identifier(
             self,
             &ast.name,
@@ -812,24 +812,24 @@ impl Visitor for Analyzer {
         );
     }
 
-    fn visit_jsxfragment(&mut self, ast: &react_estree::JSXFragment) {
+    fn visit_jsxfragment(&mut self, ast: &reaction_estree::JSXFragment) {
         // TODO: record the pragmas
         for child in &ast.children {
             self.visit_jsxchild_item(child);
         }
     }
 
-    fn visit_jsxmember_expression(&mut self, ast: &react_estree::JSXMemberExpression) {
+    fn visit_jsxmember_expression(&mut self, ast: &reaction_estree::JSXMemberExpression) {
         // NOTE: ignore the 'property' since JSX doesn't support computed properties
         self.visit_jsxmember_expression_or_identifier(&ast.object);
     }
 
-    fn visit_jsxnamespaced_name(&mut self, ast: &react_estree::JSXNamespacedName) {
+    fn visit_jsxnamespaced_name(&mut self, ast: &reaction_estree::JSXNamespacedName) {
         // NOTE: ignore the 'name' since it doesn't refer to a variable
         self.visit_jsxidentifier(&ast.namespace);
     }
 
-    fn visit_jsxopening_element(&mut self, ast: &react_estree::JSXOpeningElement) {
+    fn visit_jsxopening_element(&mut self, ast: &reaction_estree::JSXOpeningElement) {
         // TODO: record jsx pragma if root_name is not an FBT name
         let root_name = ast.name.root_name();
 

@@ -1,5 +1,5 @@
 [package]
-name = "react_diagnostics"
+name = "reaction_diagnostics"
 version = "0.1.0"
 publish               = false
 authors.workspace     = true
@@ -15,9 +15,9 @@ repository.workspace  = true
 [dependencies]
 # TODO: extract SourceRange into a separate crate so that 
 # we don't depend on full estree here
-react_estree = { workspace = true }
-# TODO: consider extracting a separate react_miette crate which does
-# the translation from react_diagnostics::Diagnostic to miette::Diagnostic
+reaction_estree = { workspace = true }
+# TODO: consider extracting a separate reaction_miette crate which does
+# the translation from reaction_diagnostics::Diagnostic to miette::Diagnostic
 miette = { workspace = true }
 thiserror = { workspace = true }
 static_assertions = { workspace = true }

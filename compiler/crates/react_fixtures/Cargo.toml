@@ -1,5 +1,5 @@
 [package]
-name = "react_fixtures"
+name = "reaction_fixtures"
 version = "0.1.0"
 publish               = false
 authors.workspace     = true
@@ -14,11 +14,11 @@ repository.workspace  = true
 
 [dev-dependencies]
 insta = { workspace = true }
-react_estree = { workspace = true }
-react_hermes_parser = { workspace = true }
-react_hir = { workspace = true }
-react_optimization = { workspace = true }
-react_semantic_analysis = { workspace = true }
-react_ssa = { workspace = true }
-react_build_hir = { workspace = true }
+reaction_estree = { workspace = true }
+reaction_hermes_parser = { workspace = true }
+reaction_hir = { workspace = true }
+reaction_optimization = { workspace = true }
+reaction_semantic_analysis = { workspace = true }
+reaction_ssa = { workspace = true }
+reaction_build_hir = { workspace = true }
 miette = { workspace = true, features = ["backtrace", "fancy"] }

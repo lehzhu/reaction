@@ -9,7 +9,7 @@ use std::cell::RefCell;
 use std::fmt::Display;
 use std::rc::Rc;
 
-use react_estree::{BinaryOperator, JsValue};
+use reaction_estree::{BinaryOperator, JsValue};
 
 use crate::{Function, IdentifierId, InstructionId, ScopeId, Type};
 

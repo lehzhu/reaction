@@ -1,5 +1,5 @@
 [package]
-name = "react_semantic_analysis"
+name = "reaction_semantic_analysis"
 version = "0.1.0"
 authors.workspace = true
 description.workspace = true
@@ -12,13 +12,13 @@ repository.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-react_diagnostics = { workspace = true }
-react_estree = { workspace = true }
-react_utils = { workspace = true }
+reaction_diagnostics = { workspace = true }
+reaction_estree = { workspace = true }
+reaction_utils = { workspace = true }
 indexmap = { workspace = true }
 
 [dev-dependencies]
-react_hermes_parser = { workspace = true }
+reaction_hermes_parser = { workspace = true }
 insta = { workspace = true }
 miette = { workspace = true, features = ["backtrace", "fancy"] }
 serde_json = { workspace = true }

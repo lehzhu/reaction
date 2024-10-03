@@ -7,13 +7,13 @@
 
 use std::collections::HashSet;
 
-use react_diagnostics::Diagnostic;
-use react_estree::{
+use reaction_diagnostics::Diagnostic;
+use reaction_estree::{
     AssignmentPropertyOrRestElement, AssignmentTarget, BlockStatement, Expression,
     ExpressionOrSpread, ExpressionOrSuper, ForInit, Function, IntoFunction, JsValue, Pattern,
     Statement, VariableDeclaration, VariableDeclarationKind,
 };
-use react_hir::{
+use reaction_hir::{
     ArrayDestructureItem, BlockKind, BranchTerminal, Destructure, DestructurePattern, Environment,
     ForTerminal, GotoKind, Identifier, IdentifierOperand, InstructionKind, InstructionValue,
     JSXAttribute, JSXElement, LValue, LoadGlobal, LoadLocal, ObjectDestructureItem,
@@ -30,7 +30,7 @@ use crate::error::BuildHIRError;
 ///
 /// Failures generally include nonsensical input (`delete 1`) or syntax
 /// that is not yet supported.
-pub fn build(env: &Environment, fun: &Function) -> Result<Box<react_hir::Function>, Diagnostic> {
+pub fn build(env: &Environment, fun: &Function) -> Result<Box<reaction_hir::Function>, Diagnostic> {
     let mut builder = Builder::new(env);
 
     let mut params = Vec::with_capacity(fun.params.len());
@@ -55,10 +55,10 @@ pub fn build(env: &Environment, fun: &Function) -> Result<Box<react_hir::Functio
     }
 
     match &fun.body {
-        Some(react_estree::FunctionBody::BlockStatement(body)) => {
+        Some(reaction_estree::FunctionBody::BlockStatement(body)) => {
             lower_block_statement(env, &mut builder, body)?
         }
-        Some(react_estree::FunctionBody::Expression(body)) => {
+        Some(reaction_estree::FunctionBody::Expression(body)) => {
             lower_expression(env, &mut builder, body)?;
         }
         None => {
@@ -72,18 +72,18 @@ pub fn build(env: &Environment, fun: &Function) -> Result<Box<react_hir::Functio
     // In case the function did not explicitly return, terminate the final
     // block with an explicit `return undefined`. If the function *did* return,
     // this will be unreachable and get pruned later.
-    let implicit_return_value = builder.push(InstructionValue::Primitive(react_hir::Primitive {
+    let implicit_return_value = builder.push(InstructionValue::Primitive(reaction_hir::Primitive {
         value: JsValue::Undefined,
     }));
     builder.terminate(
-        TerminalValue::Return(react_hir::ReturnTerminal {
+        TerminalValue::Return(reaction_hir::ReturnTerminal {
             value: implicit_return_value,
         }),
-        react_hir::BlockKind::Block,
+        reaction_hir::BlockKind::Block,
     );
 
     let body = builder.build()?;
-    Ok(Box::new(react_hir::Function {
+    Ok(Box::new(reaction_hir::Function {
         id: fun.id.as_ref().map(|id| id.name.clone()),
         body,
         params,
@@ -120,7 +120,7 @@ fn lower_statement(
         Statement::BreakStatement(stmt) => {
             let block = builder.resolve_break(stmt.label.as_ref())?;
             builder.terminate(
-                TerminalValue::Goto(react_hir::GotoTerminal {
+                TerminalValue::Goto(reaction_hir::GotoTerminal {
                     block,
                     kind: GotoKind::Break,
                 }),
@@ -130,7 +130,7 @@ fn lower_statement(
         Statement::ContinueStatement(stmt) => {
             let block = builder.resolve_continue(stmt.label.as_ref())?;
             builder.terminate(
-                TerminalValue::Goto(react_hir::GotoTerminal {
+                TerminalValue::Goto(reaction_hir::GotoTerminal {
                     block,
                     kind: GotoKind::Continue,
                 }),
@@ -140,12 +140,12 @@ fn lower_statement(
         Statement::ReturnStatement(stmt) => {
             let value = match &stmt.argument {
                 Some(argument) => lower_expression(env, builder, argument)?,
-                None => builder.push(InstructionValue::Primitive(react_hir::Primitive {
+                None => builder.push(InstructionValue::Primitive(reaction_hir::Primitive {
                     value: JsValue::Undefined,
                 })),
             };
             builder.terminate(
-                TerminalValue::Return(react_hir::ReturnTerminal { value }),
+                TerminalValue::Return(reaction_hir::ReturnTerminal { value }),
                 BlockKind::Block,
             );
         }
@@ -165,7 +165,7 @@ fn lower_statement(
 
             let consequent_block = builder.enter(BlockKind::Block, |builder| {
                 lower_statement(env, builder, &stmt.consequent, None)?;
-                Ok(TerminalValue::Goto(react_hir::GotoTerminal {
+                Ok(TerminalValue::Goto(reaction_hir::GotoTerminal {
                     block: fallthrough_block.id,
                     kind: GotoKind::Break,
                 }))
@@ -175,14 +175,14 @@ fn lower_statement(
                 if let Some(alternate) = &stmt.alternate {
                     lower_statement(env, builder, alternate, None)?;
                 }
-                Ok(TerminalValue::Goto(react_hir::GotoTerminal {
+                Ok(TerminalValue::Goto(reaction_hir::GotoTerminal {
                     block: fallthrough_block.id,
                     kind: GotoKind::Break,
                 }))
             })?;
 
             let test = lower_expression(env, builder, &stmt.test)?;
-            let terminal = TerminalValue::If(react_hir::IfTerminal {
+            let terminal = TerminalValue::If(reaction_hir::IfTerminal {
                 test,
                 consequent: consequent_block,
                 alternate: alternate_block,
@@ -200,7 +200,7 @@ fn lower_statement(
             let init_block = builder.enter(BlockKind::Loop, |builder| {
                 if let Some(ForInit::VariableDeclaration(decl)) = &stmt.init {
                     lower_variable_declaration(env, builder, decl)?;
-                    Ok(TerminalValue::Goto(react_hir::GotoTerminal {
+                    Ok(TerminalValue::Goto(reaction_hir::GotoTerminal {
                         block: test_block.id,
                         kind: GotoKind::Break,
                     }))
@@ -218,7 +218,7 @@ fn lower_statement(
                 .map(|update| {
                     builder.enter(BlockKind::Loop, |builder| {
                         lower_expression(env, builder, update)?;
-                        Ok(TerminalValue::Goto(react_hir::GotoTerminal {
+                        Ok(TerminalValue::Goto(reaction_hir::GotoTerminal {
                             block: test_block.id,
                             kind: GotoKind::Break,
                         }))
@@ -234,7 +234,7 @@ fn lower_statement(
                 };
                 builder.enter_loop(loop_, |builder| {
                     lower_statement(env, builder, &stmt.body, None)?;
-                    Ok(TerminalValue::Goto(react_hir::GotoTerminal {
+                    Ok(TerminalValue::Goto(reaction_hir::GotoTerminal {
                         block: update_block.unwrap_or(test_block.id),
                         kind: GotoKind::Continue,
                     }))
@@ -294,7 +294,7 @@ fn lower_variable_declaration(
                 Pattern::Identifier(id) => {
                     let identifier = env.resolve_variable_declaration(id.as_ref(), &id.name);
                     if let Some(identifier) = identifier {
-                        builder.push(InstructionValue::DeclareLocal(react_hir::DeclareLocal {
+                        builder.push(InstructionValue::DeclareLocal(reaction_hir::DeclareLocal {
                             lvalue: LValue {
                                 identifier: IdentifierOperand {
                                     identifier,
@@ -346,40 +346,40 @@ fn lower_expression(
                 })
             }
         }
-        Expression::Literal(expr) => InstructionValue::Primitive(react_hir::Primitive {
+        Expression::Literal(expr) => InstructionValue::Primitive(reaction_hir::Primitive {
             value: expr.value.clone(),
         }),
-        Expression::NumericLiteral(expr) => InstructionValue::Primitive(react_hir::Primitive {
+        Expression::NumericLiteral(expr) => InstructionValue::Primitive(reaction_hir::Primitive {
             value: JsValue::Number(expr.value),
         }),
-        Expression::BooleanLiteral(expr) => InstructionValue::Primitive(react_hir::Primitive {
+        Expression::BooleanLiteral(expr) => InstructionValue::Primitive(reaction_hir::Primitive {
             value: JsValue::Boolean(expr.value),
         }),
-        Expression::StringLiteral(expr) => InstructionValue::Primitive(react_hir::Primitive {
+        Expression::StringLiteral(expr) => InstructionValue::Primitive(reaction_hir::Primitive {
             value: JsValue::String(expr.value.clone()),
         }),
-        Expression::NullLiteral(_expr) => InstructionValue::Primitive(react_hir::Primitive {
+        Expression::NullLiteral(_expr) => InstructionValue::Primitive(reaction_hir::Primitive {
             value: JsValue::Null,
         }),
         Expression::ArrayExpression(expr) => {
             let mut elements = Vec::with_capacity(expr.elements.len());
             for expr in &expr.elements {
                 let element = match expr {
-                    Some(react_estree::ExpressionOrSpread::SpreadElement(expr)) => Some(
+                    Some(reaction_estree::ExpressionOrSpread::SpreadElement(expr)) => Some(
                         PlaceOrSpread::Spread(lower_expression(env, builder, &expr.argument)?),
                     ),
-                    Some(react_estree::ExpressionOrSpread::Expression(expr)) => {
+                    Some(reaction_estree::ExpressionOrSpread::Expression(expr)) => {
                         Some(PlaceOrSpread::Place(lower_expression(env, builder, expr)?))
                     }
                     None => None,
                 };
                 elements.push(element);
             }
-            InstructionValue::Array(react_hir::Array { elements })
+            InstructionValue::Array(reaction_hir::Array { elements })
         }
 
         Expression::AssignmentExpression(expr) => match expr.operator {
-            react_estree::AssignmentOperator::Equals => {
+            reaction_estree::AssignmentOperator::Equals => {
                 let right = lower_expression(env, builder, &expr.right)?;
                 return lower_assignment(
                     env,
@@ -395,7 +395,7 @@ fn lower_expression(
         Expression::BinaryExpression(expr) => {
             let left = lower_expression(env, builder, &expr.left)?;
             let right = lower_expression(env, builder, &expr.right)?;
-            InstructionValue::Binary(react_hir::Binary {
+            InstructionValue::Binary(reaction_hir::Binary {
                 left,
                 operator: expr.operator,
                 right,
@@ -427,7 +427,7 @@ fn lower_expression(
 
             let callee = lower_expression(env, builder, callee_expr)?;
             let arguments = lower_arguments(env, builder, &expr.arguments)?;
-            InstructionValue::Call(react_hir::Call { callee, arguments })
+            InstructionValue::Call(reaction_hir::Call { callee, arguments })
         }
 
         Expression::JSXElement(expr) => {
@@ -447,10 +447,10 @@ fn lower_arguments(
     let mut arguments = Vec::with_capacity(args.len());
     for arg in args {
         let element = match arg {
-            react_estree::ExpressionOrSpread::SpreadElement(arg) => {
+            reaction_estree::ExpressionOrSpread::SpreadElement(arg) => {
                 PlaceOrSpread::Spread(lower_expression(env, builder, &arg.argument)?)
             }
-            react_estree::ExpressionOrSpread::Expression(arg) => {
+            reaction_estree::ExpressionOrSpread::Expression(arg) => {
                 PlaceOrSpread::Place(lower_expression(env, builder, arg)?)
             }
         };
@@ -463,7 +463,7 @@ fn lower_function<T: IntoFunction>(
     env: &Environment,
     _builder: &mut Builder,
     function: &T,
-) -> Result<react_hir::FunctionExpression, Diagnostic> {
+) -> Result<reaction_hir::FunctionExpression, Diagnostic> {
     let context_identifiers = get_context_identifiers(env, function);
     let mut context = Vec::new();
     let mut seen = HashSet::new();
@@ -480,7 +480,7 @@ fn lower_function<T: IntoFunction>(
     }
     let mut fun = build(env, function.function())?;
     fun.context = context;
-    Ok(react_hir::FunctionExpression {
+    Ok(reaction_hir::FunctionExpression {
         // TODO: collect dependencies!
         dependencies: Default::default(),
         lowered_function: fun,
@@ -490,7 +490,7 @@ fn lower_function<T: IntoFunction>(
 fn lower_jsx_element(
     env: &Environment,
     builder: &mut Builder,
-    expr: &react_estree::JSXElement,
+    expr: &reaction_estree::JSXElement,
 ) -> Result<JSXElement, Diagnostic> {
     let props: Result<Vec<JSXAttribute>, Diagnostic> = expr
         .opening_element
@@ -523,7 +523,7 @@ fn lower_jsx_element(
 fn lower_jsx_attribute(
     _env: &Environment,
     _builder: &mut Builder,
-    _attr: &react_estree::JSXAttributeOrSpread,
+    _attr: &reaction_estree::JSXAttributeOrSpread,
 ) -> Result<JSXAttribute, Diagnostic> {
     todo!("lower jsx attribute")
 }
@@ -531,7 +531,7 @@ fn lower_jsx_attribute(
 fn lower_jsx_child(
     _env: &Environment,
     _builder: &mut Builder,
-    _child: &react_estree::JSXChildItem,
+    _child: &reaction_estree::JSXChildItem,
 ) -> Result<IdentifierOperand, Diagnostic> {
     todo!("lower jsx child")
 }
@@ -562,7 +562,7 @@ fn lower_assignment_pattern(
     Ok(match lvalue {
         Pattern::Identifier(lvalue) => {
             let identifier = lower_identifier_for_assignment(env, builder, kind, lvalue)?;
-            builder.push(InstructionValue::StoreLocal(react_hir::StoreLocal {
+            builder.push(InstructionValue::StoreLocal(reaction_hir::StoreLocal {
                 lvalue: LValue { identifier, kind },
                 value,
             }))
@@ -716,7 +716,7 @@ fn lower_identifier_for_assignment(
     env: &Environment,
     _builder: &mut Builder,
     kind: InstructionKind,
-    node: &react_estree::Identifier,
+    node: &reaction_estree::Identifier,
 ) -> Result<IdentifierOperand, Diagnostic> {
     match kind {
         InstructionKind::Reassign => {
@@ -729,7 +729,7 @@ fn lower_identifier_for_assignment(
             } else {
                 // Reassigning a global
                 Err(
-                    Diagnostic::invalid_react(BuildHIRError::ReassignedGlobal, node.range)
+                    Diagnostic::invalid_reaction(BuildHIRError::ReassignedGlobal, node.range)
                         .annotate(format!("Cannot reassign `{}`", &node.name), node.range),
                 )
             }

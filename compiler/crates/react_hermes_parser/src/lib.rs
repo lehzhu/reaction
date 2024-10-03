@@ -12,8 +12,8 @@ use generated_extension::{Context, FromHermes};
 use hermes::parser::{HermesParser, ParserDialect, ParserFlags};
 use hermes::utf::utf8_with_surrogates_to_string;
 use juno_support::NullTerminatedBuf;
-use react_diagnostics::Diagnostic;
-use react_estree::Program;
+use reaction_diagnostics::Diagnostic;
+use reaction_estree::Program;
 
 pub fn parse(source: &str, _file: &str) -> Result<Program, Vec<Diagnostic>> {
     let buf = NullTerminatedBuf::from_str_check(source);

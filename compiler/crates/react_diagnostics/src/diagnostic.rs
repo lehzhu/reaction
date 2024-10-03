@@ -9,7 +9,7 @@ use std::error::Error;
 use std::fmt::{Debug, Display, Write};
 
 use miette::SourceSpan;
-use react_estree::SourceRange;
+use reaction_estree::SourceRange;
 use static_assertions::assert_impl_all;
 use thiserror::Error;
 
@@ -118,7 +118,7 @@ impl Diagnostic {
 
     /// Creates a new InvalidReact Diagnostic.
     /// Additional locations can be added with the `.annotate()` function.
-    pub fn invalid_react<T: 'static + DiagnosticDisplay>(
+    pub fn invalid_reaction<T: 'static + DiagnosticDisplay>(
         message: T,
         range: Option<SourceRange>,
     ) -> Self {

@@ -25,7 +25,7 @@ use hermes::parser::{
 };
 use hermes::utf::utf8_with_surrogates_to_string;
 use juno_support::NullTerminatedBuf;
-use react_estree::{
+use reaction_estree::{
     ArrowFunctionExpression, AssignmentProperty, Class, ClassBody, ClassDeclaration,
     ClassExpression, Expression, ExpressionOrSpread, Function, FunctionBody, FunctionDeclaration,
     FunctionExpression, Identifier, Number, Pattern, SourceRange, TemplateElement,

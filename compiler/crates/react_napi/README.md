@@ -1,4 +1,4 @@
-# react_napi
+# reaction_napi
 
 This crate uses [napi-rs](https://napi.rs/) to expose React Compiler's analysis to JavaScript via the [Node-API](https://nodejs.org/api/n-api.html#node-api).
 

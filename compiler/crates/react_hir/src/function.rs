@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 use indexmap::IndexMap;
-use react_diagnostics::Diagnostic;
+use reaction_diagnostics::Diagnostic;
 
 use crate::{BasicBlock, BlockId, FunctionExpression, IdentifierOperand, InstrIx, Instruction};
 

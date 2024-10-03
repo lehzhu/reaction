@@ -7,9 +7,9 @@
 
 use std::collections::HashSet;
 
-use react_estree::IntoFunction;
-use react_hir::Environment;
-use react_semantic_analysis::{DeclarationId, ScopeView};
+use reaction_estree::IntoFunction;
+use reaction_hir::Environment;
+use reaction_semantic_analysis::{DeclarationId, ScopeView};
 
 pub(crate) fn get_context_identifiers<T: IntoFunction>(
     env: &Environment,

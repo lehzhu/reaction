@@ -83,7 +83,7 @@ impl InstructionIdGenerator {
     }
 }
 
-/// Uniquely identifies a reactive scope
+/// Uniquely identifies a reactionive scope
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Hash, Debug)]
 pub struct ScopeId(pub(crate) u32);
 

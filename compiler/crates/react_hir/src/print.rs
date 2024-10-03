@@ -7,8 +7,8 @@
 
 use std::fmt::{Result, Write};
 
-use react_estree::JsValue;
-use react_utils::ensure_sufficient_stack;
+use reaction_estree::JsValue;
+use reaction_utils::ensure_sufficient_stack;
 
 use crate::{
     ArrayDestructureItem, BasicBlock, DestructurePattern, Function, Identifier, IdentifierOperand,

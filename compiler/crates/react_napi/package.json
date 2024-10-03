@@ -1,5 +1,5 @@
 {
-    "name": "@react/forget-napi",
+    "name": "@reaction/forget-napi",
     "version": "0.0.1",
     "description": "JavaScript package exposing parts of React Forget compiler APIs via napi",
     "main": "dist/index.js",
@@ -9,7 +9,7 @@
     ],
     "private": true,
     "scripts": {
-      "build": "napi build --platform --release --js-package-name @react/forget-napi --js dist/index.js --dts dist/index.d.ts && mv *.node dist/"
+      "build": "napi build --platform --release --js-package-name @reaction/forget-napi --js dist/index.js --dts dist/index.d.ts && mv *.node dist/"
     },
     "dependencies": {
     },

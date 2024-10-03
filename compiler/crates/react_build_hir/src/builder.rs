@@ -8,8 +8,8 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use react_diagnostics::Diagnostic;
-use react_hir::{
+use reaction_diagnostics::Diagnostic;
+use reaction_hir::{
     initialize_hir, BasicBlock, BlockId, BlockKind, Blocks, Environment, GotoKind, IdentifierData,
     IdentifierOperand, InstrIx, Instruction, InstructionIdGenerator, InstructionValue, Terminal,
     TerminalValue, Type, HIR,
@@ -198,7 +198,7 @@ impl<'e> Builder<'e> {
             Err(error) => (
                 Err(error),
                 // TODO: add a `Terminal::Error` variant
-                TerminalValue::Goto(react_hir::GotoTerminal {
+                TerminalValue::Goto(reaction_hir::GotoTerminal {
                     block: current.id,
                     kind: GotoKind::Break,
                 }),
@@ -240,8 +240,8 @@ impl<'e> Builder<'e> {
     /// we synthesize a temporary identifier to store the possibly-missing value
     /// into, and emit a later StoreLocal for the original identifier
     #[allow(dead_code)]
-    pub(crate) fn make_temporary(&self) -> react_hir::Identifier {
-        react_hir::Identifier {
+    pub(crate) fn make_temporary(&self) -> reaction_hir::Identifier {
+        reaction_hir::Identifier {
             id: self.environment.next_identifier_id(),
             name: None,
             data: Rc::new(RefCell::new(IdentifierData {
@@ -257,7 +257,7 @@ impl<'e> Builder<'e> {
     /// provided but cannot be resolved.
     pub(crate) fn resolve_break(
         &self,
-        label: Option<&react_estree::Identifier>,
+        label: Option<&reaction_estree::Identifier>,
     ) -> Result<BlockId, Diagnostic> {
         for scope in self.scopes.iter().rev() {
             match (label, scope.label()) {
@@ -282,7 +282,7 @@ impl<'e> Builder<'e> {
     /// provided but cannot be resolved.
     pub(crate) fn resolve_continue(
         &self,
-        label: Option<&react_estree::Identifier>,
+        label: Option<&reaction_estree::Identifier>,
     ) -> Result<BlockId, Diagnostic> {
         for scope in self.scopes.iter().rev() {
             match scope {

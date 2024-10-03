@@ -1,5 +1,5 @@
 [package]
-name = "react_napi"
+name = "reaction_napi"
 version = "0.1.0"
 publish               = false
 authors.workspace     = true
@@ -14,10 +14,10 @@ repository.workspace  = true
 crate-type = ["cdylib"]
 
 [dependencies]
-react_diagnostics = { workspace = true }
-react_hermes_parser = { workspace = true }
-react_estree = { workspace = true }
-react_semantic_analysis = { workspace = true }
+reaction_diagnostics = { workspace = true }
+reaction_hermes_parser = { workspace = true }
+reaction_estree = { workspace = true }
+reaction_semantic_analysis = { workspace = true }
 napi        = { version = "2.13.3", features = ["serde-json", "async"] }
 napi-derive = { version = "2.12" }
 serde_json = { workspace = true }

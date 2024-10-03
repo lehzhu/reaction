@@ -9,7 +9,7 @@ use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 
-use react_diagnostics::Diagnostic;
+use reaction_diagnostics::Diagnostic;
 
 use crate::{
     initialize_hir, BasicBlock, BlockRewriter, BlockRewriterAction, DeclareLocal, Environment,
@@ -147,13 +147,13 @@ pub fn inline_use_memo(env: &Environment, fun: &mut Function) -> Result<(), Diag
                     // Additional validation
                     // TODO: this should be part of a separate validation pass
                     if !lambda.lowered_function.params.is_empty() {
-                        return Err(Diagnostic::invalid_react(
+                        return Err(Diagnostic::invalid_reaction(
                             "useMemo callbacks may not accept any arguments",
                             None,
                         ));
                     }
                     if lambda.lowered_function.is_async || lambda.lowered_function.is_generator {
-                        return Err(Diagnostic::invalid_react(
+                        return Err(Diagnostic::invalid_reaction(
                             "useMemo callbacks may not be async or generator functions",
                             None,
                         ));

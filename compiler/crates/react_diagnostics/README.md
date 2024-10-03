@@ -1,4 +1,4 @@
-# react_diagnostics
+# reaction_diagnostics
 
 Types for representing compiler diagnostics. Includes a general-purpose representation
 of diagnostics with related information which can be converted into `miette::Diagnostic` to exploit miette's pretty printing of errors. 

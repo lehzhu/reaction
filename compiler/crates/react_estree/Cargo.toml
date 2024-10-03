@@ -1,5 +1,5 @@
 [package]
-name = "react_estree"
+name = "reaction_estree"
 version = "0.1.0"
 publish               = false
 authors.workspace     = true
@@ -19,4 +19,4 @@ serde_json = { workspace = true }
 static_assertions = { workspace = true }
 
 [build-dependencies]
-react_estree_codegen = { workspace = true }
+reaction_estree_codegen = { workspace = true }

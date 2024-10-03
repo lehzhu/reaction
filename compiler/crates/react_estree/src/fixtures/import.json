@@ -79,12 +79,12 @@
               "column": 25
             }
           },
-          "value": "react",
+          "value": "reaction",
           "range": [
             18,
             25
           ],
-          "raw": "'react'"
+          "raw": "'reaction'"
         },
         "attributes": [],
         "importKind": "value",

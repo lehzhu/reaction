@@ -7,7 +7,7 @@
 
 use std::collections::HashSet;
 
-use react_diagnostics::{invariant, Diagnostic};
+use reaction_diagnostics::{invariant, Diagnostic};
 use thiserror::Error;
 
 use crate::{

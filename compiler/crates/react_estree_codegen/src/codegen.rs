@@ -147,7 +147,7 @@ impl Grammar {
             #![allow(unused_variables)]
             #![allow(clippy::enum_variant_names)]
 
-            use react_estree::*;
+            use reaction_estree::*;
             use hermes::parser::{NodePtr, NodeKind, NodeLabel };
             use hermes::utf::{utf8_with_surrogates_to_string};
             use crate::generated_extension::*;

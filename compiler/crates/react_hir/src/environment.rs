@@ -9,8 +9,8 @@ use std::cell::{Cell, RefCell};
 use std::collections::HashMap;
 use std::rc::Rc;
 
-use react_estree::ESTreeNode;
-use react_semantic_analysis::{DeclarationId, ScopeManager, ScopeView};
+use reaction_estree::ESTreeNode;
+use reaction_semantic_analysis::{DeclarationId, ScopeManager, ScopeView};
 
 use crate::{
     BlockId, Features, Identifier, IdentifierData, IdentifierId, MutableRange, Registry, Type,

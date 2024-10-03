@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 use napi_derive::napi;
-use react_diagnostics::Diagnostic;
-use react_semantic_analysis::{analyze, AnalyzeOptions};
+use reaction_diagnostics::Diagnostic;
+use reaction_semantic_analysis::{analyze, AnalyzeOptions};
 
 pub const GLOBALS: &[&str] = &[
     "AggregateError",
@@ -81,7 +81,7 @@ pub const GLOBALS: &[&str] = &[
 
 #[napi]
 pub fn parse(source: String, options: ParseOptions) -> ParseResult {
-    let program = match react_hermes_parser::parse(&source, &options.file) {
+    let program = match reaction_hermes_parser::parse(&source, &options.file) {
         Ok(program) => program,
         Err(diagnostics) => {
             return ParseResult {

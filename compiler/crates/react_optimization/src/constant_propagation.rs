@@ -7,13 +7,13 @@
 
 use std::collections::HashMap;
 
-use react_diagnostics::Diagnostic;
-use react_estree::{BinaryOperator, JsValue};
-use react_hir::{
+use reaction_diagnostics::Diagnostic;
+use reaction_estree::{BinaryOperator, JsValue};
+use reaction_hir::{
     initialize_hir, merge_consecutive_blocks, BlockKind, Environment, Function, GotoKind,
     GotoTerminal, IdentifierId, InstructionValue, LoadGlobal, Primitive, TerminalValue,
 };
-use react_ssa::eliminate_redundant_phis;
+use reaction_ssa::eliminate_redundant_phis;
 
 pub fn constant_propagation(env: &Environment, fun: &mut Function) -> Result<(), Diagnostic> {
     let mut constants = Constants::default();
