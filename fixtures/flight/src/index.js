@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {use, Suspense, useState, startTransition} from 'react';
-import ReactDOM from 'react-dom/client';
-import {createFromFetch, encodeReply} from 'react-server-dom-webpack/client';
+import * as React from 'reaction';
+import {use, Suspense, useState, startTransition} from 'reaction';
+import ReactDOM from 'reaction-dom/client';
+import {createFromFetch, encodeReply} from 'reaction-server-dom-webpack/client';
 
 // TODO: This should be a dependency of the App but we haven't implemented CSS in Node yet.
 import './style.css';

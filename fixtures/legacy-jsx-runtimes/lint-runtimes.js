@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * @emails react-core
+ * @emails reaction-core
  */
 
 'use strict';
@@ -33,10 +33,10 @@ async function lint(folder) {
   const eslint = esLints.cjs;
 
   const results = await eslint.lintFiles([
-    __dirname + '/' + folder + '/cjs/react-jsx-dev-runtime.development.js',
-    __dirname + '/' + folder + '/cjs/react-jsx-dev-runtime.production.min.js',
-    __dirname + '/' + folder + '/cjs/react-jsx-runtime.development.js',
-    __dirname + '/' + folder + '/cjs/react-jsx-runtime.production.min.js',
+    __dirname + '/' + folder + '/cjs/reaction-jsx-dev-runtime.development.js',
+    __dirname + '/' + folder + '/cjs/reaction-jsx-dev-runtime.production.min.js',
+    __dirname + '/' + folder + '/cjs/reaction-jsx-runtime.development.js',
+    __dirname + '/' + folder + '/cjs/reaction-jsx-runtime.production.min.js',
   ]);
   if (
     results.some(result => result.errorCount > 0 || result.warningCount > 0)
@@ -51,10 +51,10 @@ async function lint(folder) {
 
 async function lintEverything() {
   console.log(`Linting known bundles...`);
-  await lint('react-14');
-  await lint('react-15');
-  await lint('react-16');
-  await lint('react-17');
+  await lint('reaction-14');
+  await lint('reaction-15');
+  await lint('reaction-16');
+  await lint('reaction-17');
 }
 
 lintEverything().catch(error => {

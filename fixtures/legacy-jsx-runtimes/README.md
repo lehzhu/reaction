@@ -2,7 +2,7 @@
 
 This is an internal testing fixture for the special JSX runtime versions released for 0.14, 15, and 16.
 
-They are checked into the corresponding `react-*/cjs/*` folders.
+They are checked into the corresponding `reaction-*/cjs/*` folders.
 
 Run the full regression suite:
 

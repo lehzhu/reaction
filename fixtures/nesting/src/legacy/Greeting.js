@@ -1,8 +1,8 @@
-import React from 'react';
-import {Component} from 'react';
-import {findDOMNode} from 'react-dom';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
+import React from 'reaction';
+import {Component} from 'reaction';
+import {findDOMNode} from 'reaction-dom';
+import {Link} from 'reaction-router-dom';
+import {connect} from 'reaction-redux';
 import {store} from '../store';
 
 import ThemeContext from './shared/ThemeContext';

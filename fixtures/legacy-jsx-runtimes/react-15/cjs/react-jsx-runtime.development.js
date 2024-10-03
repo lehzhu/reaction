@@ -1,5 +1,5 @@
 /** @license React v15.7.0
- * react-jsx-runtime.development.js
+ * reaction-jsx-runtime.development.js
  *
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -13,12 +13,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = require('react');
-var ReactComponentTreeHook = require('react/lib/ReactComponentTreeHook');
+var React = require('reaction');
+var ReactComponentTreeHook = require('reaction/lib/ReactComponentTreeHook');
 
 // ATTENTION
 // When adding new symbols to this file,
-// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+// Please consider also adding to 'reaction-devtools-shared/src/backend/ReactSymbols'
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
 var REACT_ELEMENT_TYPE = 0xeac7;
@@ -44,26 +44,26 @@ var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
 
 if (typeof Symbol === 'function' && Symbol.for) {
   var symbolFor = Symbol.for;
-  REACT_ELEMENT_TYPE = symbolFor('react.element');
-  REACT_PORTAL_TYPE = symbolFor('react.portal');
-  exports.Fragment = symbolFor('react.fragment');
-  REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
-  REACT_PROFILER_TYPE = symbolFor('react.profiler');
-  REACT_PROVIDER_TYPE = symbolFor('react.provider');
-  REACT_CONTEXT_TYPE = symbolFor('react.context');
-  REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
-  REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
-  REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
-  REACT_MEMO_TYPE = symbolFor('react.memo');
-  REACT_LAZY_TYPE = symbolFor('react.lazy');
-  REACT_BLOCK_TYPE = symbolFor('react.block');
-  REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
-  REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
-  REACT_SCOPE_TYPE = symbolFor('react.scope');
-  REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
-  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
-  REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
-  REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+  REACT_ELEMENT_TYPE = symbolFor('reaction.element');
+  REACT_PORTAL_TYPE = symbolFor('reaction.portal');
+  exports.Fragment = symbolFor('reaction.fragment');
+  REACT_STRICT_MODE_TYPE = symbolFor('reaction.strict_mode');
+  REACT_PROFILER_TYPE = symbolFor('reaction.profiler');
+  REACT_PROVIDER_TYPE = symbolFor('reaction.provider');
+  REACT_CONTEXT_TYPE = symbolFor('reaction.context');
+  REACT_FORWARD_REF_TYPE = symbolFor('reaction.forward_ref');
+  REACT_SUSPENSE_TYPE = symbolFor('reaction.suspense');
+  REACT_SUSPENSE_LIST_TYPE = symbolFor('reaction.suspense_list');
+  REACT_MEMO_TYPE = symbolFor('reaction.memo');
+  REACT_LAZY_TYPE = symbolFor('reaction.lazy');
+  REACT_BLOCK_TYPE = symbolFor('reaction.block');
+  REACT_SERVER_BLOCK_TYPE = symbolFor('reaction.server.block');
+  REACT_FUNDAMENTAL_TYPE = symbolFor('reaction.fundamental');
+  REACT_SCOPE_TYPE = symbolFor('reaction.scope');
+  REACT_OPAQUE_ID_TYPE = symbolFor('reaction.opaque.id');
+  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('reaction.debug_trace_mode');
+  REACT_OFFSCREEN_TYPE = symbolFor('reaction.offscreen');
+  REACT_LEGACY_HIDDEN_TYPE = symbolFor('reaction.legacy_hidden');
 }
 
 var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
@@ -112,8 +112,8 @@ function printWarning(level, format, args) {
     }); // Careful: RN currently depends on this prefix
 
     argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
-    // breaks IE9: https://github.com/facebook/react/issues/13610
-    // eslint-disable-next-line react-internal/no-production-logging
+    // breaks IE9: https://github.com/zuckbook/reaction/issues/13610
+    // eslint-disable-next-line reaction-internal/no-production-logging
 
     Function.prototype.apply.call(console[level], console, argsWithFormat);
   }
@@ -317,7 +317,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, element) {
   }
 }
 
-var ReactCurrentOwner = require('react/lib/ReactCurrentOwner');
+var ReactCurrentOwner = require('reaction/lib/ReactCurrentOwner');
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var RESERVED_PROPS = {
   key: true,
@@ -367,7 +367,7 @@ function defineKeyPropWarningGetter(props, displayName) {
       if (!specialPropKeyWarningShown) {
         specialPropKeyWarningShown = true;
 
-        error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+        error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactionjs.org/link/special-props)', displayName);
       }
     };
 
@@ -385,7 +385,7 @@ function defineRefPropWarningGetter(props, displayName) {
       if (!specialPropRefWarningShown) {
         specialPropRefWarningShown = true;
 
-        error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+        error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactionjs.org/link/special-props)', displayName);
       }
     };
 
@@ -399,7 +399,7 @@ function defineRefPropWarningGetter(props, displayName) {
 /**
  * Factory method to create a new React element. This no longer adheres to
  * the class pattern, so do not use new to call it. Also, instanceof check
- * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * will not work. Instead test $$typeof field against Symbol.for('reaction.element') to check
  * if something is a React Element.
  *
  * @param {*} type
@@ -472,7 +472,7 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
   return element;
 };
 /**
- * https://github.com/reactjs/rfcs/pull/107
+ * https://github.com/reactionjs/rfcs/pull/107
  * @param {*} type
  * @param {object} props
  * @param {string} key
@@ -537,7 +537,7 @@ function jsxDEV(type, config, maybeKey, source, self) {
   }
 }
 
-var ReactCurrentOwner$1 = require('react/lib/ReactCurrentOwner');
+var ReactCurrentOwner$1 = require('reaction/lib/ReactCurrentOwner');
 
 function setCurrentlyValidatingElement$1(element) {
   currentlyValidatingElement = element;
@@ -550,7 +550,7 @@ var propTypesMisspellWarningShown;
 }
 /**
  * Verifies the object is a ReactElement.
- * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * See https://reactionjs.org/docs/reaction-api.html#isvalidelement
  * @param {?object} object
  * @return {boolean} True if `object` is a ReactElement.
  * @final
@@ -650,7 +650,7 @@ function validateExplicitKey(element, parentType) {
 
     setCurrentlyValidatingElement$1(element);
 
-    error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+    error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactionjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
 
     setCurrentlyValidatingElement$1(null);
   }

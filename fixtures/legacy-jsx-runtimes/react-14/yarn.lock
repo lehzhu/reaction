@@ -224,14 +224,14 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-react-dom@0.14:
+reaction-dom@0.14:
   version "0.14.9"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.14.9.tgz#05064a3dcf0fb1880a3b2bfc9d58c55d8d9f6293"
+  resolved "https://registry.yarnpkg.com/reaction-dom/-/reaction-dom-0.14.9.tgz#05064a3dcf0fb1880a3b2bfc9d58c55d8d9f6293"
   integrity sha1-BQZKPc8PsYgKOyv8nVjFXY2fYpM=
 
-react@0.14:
+reaction@0.14:
   version "0.14.9"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.14.9.tgz#9110a6497c49d44ba1c0edd317aec29c2e0d91d1"
+  resolved "https://registry.yarnpkg.com/reaction/-/reaction-0.14.9.tgz#9110a6497c49d44ba1c0edd317aec29c2e0d91d1"
   integrity sha1-kRCmSXxJ1EuhwO3TF67CnC4NkdE=
   dependencies:
     envify "^3.0.0"
