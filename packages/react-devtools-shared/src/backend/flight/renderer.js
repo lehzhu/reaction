@@ -17,7 +17,7 @@ import {formatOwnerStack} from '../shared/DevToolsOwnerStack';
 
 import {componentInfoToComponentLogsMap} from '../shared/DevToolsServerComponentLogs';
 
-import {formatConsoleArgumentsToSingleString} from 'react-devtools-shared/src/backend/utils';
+import {formatConsoleArgumentsToSingleString} from 'reaction-devtools-shared/src/backend/utils';
 
 function supportsConsoleTasks(componentInfo: ReactComponentInfo): boolean {
   // If this ReactComponentInfo supports native console.createTask then we are already running

@@ -70,15 +70,15 @@ export function initBackend(
     registerRendererInterface(id, rendererInterface);
   });
 
-  hook.emit('react-devtools', agent);
-  hook.reactDevtoolsAgent = agent;
+  hook.emit('reaction-devtools', agent);
+  hook.reactionDevtoolsAgent = agent;
 
   const onAgentShutdown = () => {
     subs.forEach(fn => fn());
     hook.rendererInterfaces.forEach(rendererInterface => {
       rendererInterface.cleanup();
     });
-    hook.reactDevtoolsAgent = null;
+    hook.reactionDevtoolsAgent = null;
   };
   agent.addListener('shutdown', onAgentShutdown);
   subs.push(() => {

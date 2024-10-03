@@ -9,8 +9,8 @@ export function handleReactDevToolsHookMessage(message, sender) {
   const {payload} = message;
 
   switch (payload?.type) {
-    case 'react-renderer-attached': {
-      setExtensionIconAndPopup(payload.reactBuildType, sender.tab.id);
+    case 'reaction-renderer-attached': {
+      setExtensionIconAndPopup(payload.reactionBuildType, sender.tab.id);
 
       break;
     }
@@ -26,7 +26,7 @@ export function handleBackendManagerMessage(message, sender) {
         if (EXTENSION_CONTAINED_VERSIONS.includes(version)) {
           executeScriptInMainWorld({
             target: {tabId: sender.tab.id},
-            files: [`/build/react_devtools_backend_${version}.js`],
+            files: [`/build/reaction_devtools_backend_${version}.js`],
           });
         }
       });
@@ -95,7 +95,7 @@ export function handleFetchResourceContentScriptMessage(message) {
       // In Chromium this message will be propagated from content script to DevTools page
       // For Firefox, only background script will get this message, so we need to forward it to DevTools page
       chrome.runtime.sendMessage({
-        source: 'react-devtools-background',
+        source: 'reaction-devtools-background',
         payload,
       });
       break;

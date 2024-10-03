@@ -1,6 +1,6 @@
 /* global chrome */
 
-import type {BrowserTheme} from 'react-devtools-shared/src/devtools/views/DevTools';
+import type {BrowserTheme} from 'reaction-devtools-shared/src/devtools/views/DevTools';
 
 export function getBrowserTheme(): BrowserTheme {
   if (__IS_CHROME__) {

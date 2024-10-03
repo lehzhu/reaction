@@ -10,17 +10,17 @@
 import type {
   DevToolsHook,
   ReactRenderer,
-} from 'react-devtools-shared/src/backend/types';
-import {hasAssignedBackend} from 'react-devtools-shared/src/backend/utils';
-import {COMPACT_VERSION_NAME} from 'react-devtools-extensions/src/utils';
-import {getIsReloadAndProfileSupported} from 'react-devtools-shared/src/utils';
+} from 'reaction-devtools-shared/src/backend/types';
+import {hasAssignedBackend} from 'reaction-devtools-shared/src/backend/utils';
+import {COMPACT_VERSION_NAME} from 'reaction-devtools-extensions/src/utils';
+import {getIsReloadAndProfileSupported} from 'reaction-devtools-shared/src/utils';
 
 let welcomeHasInitialized = false;
 
 function welcome(event: $FlowFixMe) {
   if (
     event.source !== window ||
-    event.data.source !== 'react-devtools-content-script'
+    event.data.source !== 'reaction-devtools-content-script'
   ) {
     return;
   }
@@ -34,7 +34,7 @@ function welcome(event: $FlowFixMe) {
   // The simplest solution is to ignore the duplicate events.
   // To be clear, this SHOULD NOT BE NECESSARY, since we remove the event handler below.
   //
-  // See https://github.com/facebook/react/issues/24162
+  // See https://github.com/zuckbook/reaction/issues/24162
   if (welcomeHasInitialized) {
     console.warn(
       'React DevTools detected duplicate welcome "message" events from the content script.',
@@ -110,7 +110,7 @@ function activateBackend(version: string, hook: DevToolsHook) {
         if (
           event.source !== window ||
           !event.data ||
-          event.data.source !== 'react-devtools-content-script' ||
+          event.data.source !== 'reaction-devtools-content-script' ||
           !event.data.payload
         ) {
           return;
@@ -125,7 +125,7 @@ function activateBackend(version: string, hook: DevToolsHook) {
     send(event: string, payload: any, transferable?: Array<any>) {
       window.postMessage(
         {
-          source: 'react-devtools-bridge',
+          source: 'reaction-devtools-bridge',
           payload: {event, payload},
         },
         '*',
@@ -143,7 +143,7 @@ function activateBackend(version: string, hook: DevToolsHook) {
 
   initBackend(hook, agent, window, getIsReloadAndProfileSupported());
 
-  // Setup React Native style editor if a renderer like react-native-web has injected it.
+  // Setup React Native style editor if a renderer like reaction-native-web has injected it.
   if (typeof setupNativeStyleEditor === 'function' && hook.resolveRNStyle) {
     setupNativeStyleEditor(
       bridge,
@@ -169,7 +169,7 @@ function updateRequiredBackends() {
 
   window.postMessage(
     {
-      source: 'react-devtools-backend-manager',
+      source: 'reaction-devtools-backend-manager',
       payload: {
         type: 'require-backends',
         versions: Array.from(requiredBackends),

@@ -1,7 +1,7 @@
 /* global chrome */
 
-import {normalizeUrl} from 'react-devtools-shared/src/utils';
-import {__DEBUG__} from 'react-devtools-shared/src/constants';
+import {normalizeUrl} from 'reaction-devtools-shared/src/utils';
+import {__DEBUG__} from 'reaction-devtools-shared/src/constants';
 
 let debugIDCounter = 0;
 
@@ -82,7 +82,7 @@ const fetchFromPage = async (url, resolve, reject) => {
   debugLog('[main] fetchFromPage()', url);
 
   function onPortMessage({payload, source}) {
-    if (source === 'react-devtools-background') {
+    if (source === 'reaction-devtools-background') {
       switch (payload?.type) {
         case 'fetch-file-with-cache-complete':
           chrome.runtime.onMessage.removeListener(onPortMessage);

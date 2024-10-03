@@ -182,15 +182,15 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       handleDevToolsPageMessage(message);
       break;
     }
-    case 'react-devtools-fetch-resource-content-script': {
+    case 'reaction-devtools-fetch-resource-content-script': {
       handleFetchResourceContentScriptMessage(message);
       break;
     }
-    case 'react-devtools-backend-manager': {
+    case 'reaction-devtools-backend-manager': {
       handleBackendManagerMessage(message, sender);
       break;
     }
-    case 'react-devtools-hook': {
+    case 'reaction-devtools-hook': {
       handleReactDevToolsHookMessage(message, sender);
     }
   }

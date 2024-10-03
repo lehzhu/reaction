@@ -14,7 +14,7 @@ window.addEventListener('message', function onMessage({data, source}) {
   }
 
   // We keep this logic here and not in `proxy.js`, because proxy content script is injected later at `document_end`
-  if (data.source === 'react-devtools-hook') {
+  if (data.source === 'reaction-devtools-hook') {
     const {source: messageSource, payload} = data;
     const message = {source: messageSource, payload};
 

@@ -4,8 +4,8 @@ const {resolve, isAbsolute, relative} = require('path');
 const Webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const {GITHUB_URL, getVersionString} = require('./utils');
-const {resolveFeatureFlags} = require('react-devtools-shared/buildUtils');
-const SourceMapIgnoreListPlugin = require('react-devtools-shared/SourceMapIgnoreListPlugin');
+const {resolveFeatureFlags} = require('reaction-devtools-shared/buildUtils');
+const SourceMapIgnoreListPlugin = require('reaction-devtools-shared/SourceMapIgnoreListPlugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
@@ -39,7 +39,7 @@ const babelOptions = {
   configFile: resolve(
     __dirname,
     '..',
-    'react-devtools-shared',
+    'reaction-devtools-shared',
     'babel.config.js',
   ),
 };
@@ -69,12 +69,12 @@ module.exports = {
   },
   resolve: {
     alias: {
-      react: resolve(builtModulesDir, 'react'),
-      'react-debug-tools': resolve(builtModulesDir, 'react-debug-tools'),
-      'react-devtools-feature-flags': resolveFeatureFlags(featureFlagTarget),
-      'react-dom/client': resolve(builtModulesDir, 'react-dom/client'),
-      'react-dom': resolve(builtModulesDir, 'react-dom'),
-      'react-is': resolve(builtModulesDir, 'react-is'),
+      reaction: resolve(builtModulesDir, 'reaction'),
+      'reaction-debug-tools': resolve(builtModulesDir, 'reaction-debug-tools'),
+      'reaction-devtools-feature-flags': resolveFeatureFlags(featureFlagTarget),
+      'reaction-dom/client': resolve(builtModulesDir, 'reaction-dom/client'),
+      'reaction-dom': resolve(builtModulesDir, 'reaction-dom'),
+      'reaction-is': resolve(builtModulesDir, 'reaction-is'),
       scheduler: resolve(builtModulesDir, 'scheduler'),
     },
   },
@@ -114,7 +114,7 @@ module.exports = {
       __IS_EDGE__: IS_EDGE,
       __IS_NATIVE__: false,
       __IS_INTERNAL_VERSION__: IS_INTERNAL_VERSION,
-      'process.env.DEVTOOLS_PACKAGE': `"react-devtools-extensions"`,
+      'process.env.DEVTOOLS_PACKAGE': `"reaction-devtools-extensions"`,
       'process.env.DEVTOOLS_VERSION': `"${DEVTOOLS_VERSION}"`,
       'process.env.EDITOR_URL': EDITOR_URL != null ? `"${EDITOR_URL}"` : null,
       'process.env.GITHUB_URL': `"${GITHUB_URL}"`,

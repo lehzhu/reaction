@@ -1,12 +1,12 @@
-# `react-devtools-inline`
+# `reaction-devtools-inline`
 
 This package can be used to embed React DevTools into browser-based tools like [CodeSandbox](https://codesandbox.io/), [StackBlitz](https://stackblitz.com/), and [Replay](https://replay.io).
 
-If you're looking for the standalone React DevTools UI, **we suggest using [`react-devtools`](https://github.com/facebook/react/tree/main/packages/react-devtools) instead of using this package directly**.
+If you're looking for the standalone React DevTools UI, **we suggest using [`reaction-devtools`](https://github.com/zuckbook/reaction/tree/main/packages/reaction-devtools) instead of using this package directly**.
 
 ---
 
-> **Note** that this package (and the DevTools UI) relies on several _experimental_ APIs that are **only available in the [experimental release channel](https://reactjs.org/docs/release-channels.html#experimental-channel)**. This means that you will need to install `react@experimental` and `react-dom@experimental`.
+> **Note** that this package (and the DevTools UI) relies on several _experimental_ APIs that are **only available in the [experimental release channel](https://reactionjs.org/docs/release-channels.html#experimental-channel)**. This means that you will need to install `reaction@experimental` and `reaction-dom@experimental`.
 
 ---
 
@@ -35,7 +35,7 @@ Lets the backend know when the frontend is ready. It should not be called until 
 
 ### Example
 ```js
-import { activate, initialize } from 'react-devtools-inline/backend';
+import { activate, initialize } from 'reaction-devtools-inline/backend';
 
 // This should be the iframe the React application is running in.
 const iframe = document.getElementById(frameID);
@@ -59,7 +59,7 @@ Configures the DevTools interface to listen to the `window` (or `global` object)
 
 ### Example
 ```js
-import { initialize } from 'react-devtools-inline/frontend';
+import { initialize } from 'reaction-devtools-inline/frontend';
 
 // This should be the iframe the backend hook has been installed in.
 const iframe = document.getElementById(frameID);
@@ -80,7 +80,7 @@ To configure this package to support this functionality, you'll need to provide 
 ```js
 // Follow code examples above to configure the backend and frontend.
 // When rendering DevTools, the important part is to pass a 'hookNamesModuleLoaderFunction' prop.
-const hookNamesModuleLoaderFunction = () => import('react-devtools-inline/hookNames');
+const hookNamesModuleLoaderFunction = () => import('reaction-devtools-inline/hookNames');
 
 // Render:
 <DevTools
@@ -97,8 +97,8 @@ The simplest way to use this package is to install the hook from the parent `win
 import {
   activate as activateBackend,
   initialize as initializeBackend
-} from 'react-devtools-inline/backend';
-import { initialize as initializeFrontend } from 'react-devtools-inline/frontend';
+} from 'reaction-devtools-inline/backend';
+import { initialize as initializeFrontend } from 'reaction-devtools-inline/frontend';
 
 // The React app you want to inspect with DevTools is running within this iframe:
 const iframe = document.getElementById('target');
@@ -130,7 +130,7 @@ Sandboxed `iframe`s are also supported but require more complex initialization.
 
 **`iframe.html`**
 ```js
-import { activate, initialize } from "react-devtools-inline/backend";
+import { activate, initialize } from "reaction-devtools-inline/backend";
 
 // The DevTools hook needs to be installed before React is even required!
 // The safest way to do this is probably to install it in a separate script tag.
@@ -154,7 +154,7 @@ window.addEventListener("message", onMessage);
 
 **`main-window.html`**
 ```js
-import { initialize } from "react-devtools-inline/frontend";
+import { initialize } from "reaction-devtools-inline/frontend";
 
 const iframe = document.getElementById("target");
 const { contentWindow } = iframe;
@@ -186,12 +186,12 @@ import {
   activate as activateBackend,
   createBridge as createBackendBridge,
   initialize as initializeBackend,
-} from 'react-devtools-inline/backend';
+} from 'reaction-devtools-inline/backend';
 import {
   createBridge as createFrontendBridge,
   createStore,
   initialize as createDevTools,
-} from 'react-devtools-inline/frontend';
+} from 'reaction-devtools-inline/frontend';
 
 // DevTools uses "message" events and window.postMessage() by default,
 // but we can override this behavior by creating a custom "Wall" object.
@@ -253,7 +253,7 @@ const {
   activate,
   createBridge,
   initialize,
-} = require('react-devtools-inline/backend');
+} = require('reaction-devtools-inline/backend');
 const { createServer } = require('http');
 const SocketIO = require('socket.io');
 
@@ -294,13 +294,13 @@ socket.listen(PORT);
 
 ##### Sample Web frontend
 ```js
-import { createElement } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createElement } from 'reaction';
+import { createRoot } from 'reaction-dom/client';
 import {
   createBridge,
   createStore,
   initialize as createDevTools,
-} from 'react-devtools-inline/frontend';
+} from 'reaction-devtools-inline/frontend';
 import { io } from "socket.io-client";
 
 let root = null;
@@ -360,4 +360,4 @@ Once the above packages have been built or downloaded, you can watch for changes
 yarn start
 ```
 
-To test package changes, refer to the [`react-devtools-shell` README](https://github.com/facebook/react/blob/main/packages/react-devtools-shell/README.md).
+To test package changes, refer to the [`reaction-devtools-shell` README](https://github.com/zuckbook/reaction/blob/main/packages/reaction-devtools-shell/README.md).

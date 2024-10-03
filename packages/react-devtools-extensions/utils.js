@@ -9,7 +9,7 @@ const {execSync} = require('child_process');
 const {readFileSync} = require('fs');
 const {resolve} = require('path');
 
-const GITHUB_URL = 'https://github.com/facebook/react';
+const GITHUB_URL = 'https://github.com/zuckbook/reaction';
 
 function getGitCommit() {
   try {
@@ -27,7 +27,7 @@ function getVersionString(packageVersion = null) {
   if (packageVersion == null) {
     packageVersion = JSON.parse(
       readFileSync(
-        resolve(__dirname, '..', 'react-devtools-core', './package.json'),
+        resolve(__dirname, '..', 'reaction-devtools-core', './package.json'),
       ),
     ).version;
   }

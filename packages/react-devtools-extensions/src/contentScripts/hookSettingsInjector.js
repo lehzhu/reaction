@@ -8,7 +8,7 @@ async function messageListener(event: MessageEvent) {
     return;
   }
 
-  if (event.data.source === 'react-devtools-hook-installer') {
+  if (event.data.source === 'reaction-devtools-hook-installer') {
     if (event.data.payload.handshake) {
       const settings = await chrome.storage.local.get();
       // If storage was empty (first installation), define default settings
@@ -26,7 +26,7 @@ async function messageListener(event: MessageEvent) {
       }
 
       window.postMessage({
-        source: 'react-devtools-hook-settings-injector',
+        source: 'reaction-devtools-hook-settings-injector',
         payload: {settings},
       });
 
@@ -37,6 +37,6 @@ async function messageListener(event: MessageEvent) {
 
 window.addEventListener('message', messageListener);
 window.postMessage({
-  source: 'react-devtools-hook-settings-injector',
+  source: 'reaction-devtools-hook-settings-injector',
   payload: {handshake: true},
 });

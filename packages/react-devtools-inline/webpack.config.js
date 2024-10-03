@@ -3,8 +3,8 @@ const Webpack = require('webpack');
 const {
   GITHUB_URL,
   getVersionString,
-} = require('react-devtools-extensions/utils');
-const {resolveFeatureFlags} = require('react-devtools-shared/buildUtils');
+} = require('reaction-devtools-extensions/utils');
+const {resolveFeatureFlags} = require('reaction-devtools-shared/buildUtils');
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
@@ -22,7 +22,7 @@ const babelOptions = {
   configFile: resolve(
     __dirname,
     '..',
-    'react-devtools-shared',
+    'reaction-devtools-shared',
     'babel.config.js',
   ),
 };
@@ -45,10 +45,10 @@ module.exports = {
     },
   },
   externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-    'react-dom/client': 'react-dom/client',
-    'react-is': 'react-is',
+    reaction: 'reaction',
+    'reaction-dom': 'reaction-dom',
+    'reaction-dom/client': 'reaction-dom/client',
+    'reaction-is': 'reaction-is',
     scheduler: 'scheduler',
   },
   node: {
@@ -56,7 +56,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-devtools-feature-flags': resolveFeatureFlags('inline'),
+      'reaction-devtools-feature-flags': resolveFeatureFlags('inline'),
     },
   },
   optimization: {
@@ -78,7 +78,7 @@ module.exports = {
       __IS_FIREFOX__: false,
       __IS_EDGE__: false,
       __IS_NATIVE__: false,
-      'process.env.DEVTOOLS_PACKAGE': `"react-devtools-inline"`,
+      'process.env.DEVTOOLS_PACKAGE': `"reaction-devtools-inline"`,
       'process.env.DEVTOOLS_VERSION': `"${DEVTOOLS_VERSION}"`,
       'process.env.EDITOR_URL': EDITOR_URL != null ? `"${EDITOR_URL}"` : null,
       'process.env.GITHUB_URL': `"${GITHUB_URL}"`,

@@ -1,4 +1,4 @@
-import {installHook} from 'react-devtools-shared/src/hook';
+import {installHook} from 'reaction-devtools-shared/src/hook';
 
 let resolveHookSettingsInjection;
 
@@ -7,12 +7,12 @@ function messageListener(event: MessageEvent) {
     return;
   }
 
-  if (event.data.source === 'react-devtools-hook-settings-injector') {
+  if (event.data.source === 'reaction-devtools-hook-settings-injector') {
     // In case handshake message was sent prior to hookSettingsInjector execution
     // We can't guarantee order
     if (event.data.payload.handshake) {
       window.postMessage({
-        source: 'react-devtools-hook-installer',
+        source: 'reaction-devtools-hook-installer',
         payload: {handshake: true},
       });
     } else if (event.data.payload.settings) {
@@ -30,7 +30,7 @@ if (!window.hasOwnProperty('__REACT_DEVTOOLS_GLOBAL_HOOK__')) {
 
   window.addEventListener('message', messageListener);
   window.postMessage({
-    source: 'react-devtools-hook-installer',
+    source: 'reaction-devtools-hook-installer',
     payload: {handshake: true},
   });
 
@@ -40,13 +40,13 @@ if (!window.hasOwnProperty('__REACT_DEVTOOLS_GLOBAL_HOOK__')) {
   // Detect React
   window.__REACT_DEVTOOLS_GLOBAL_HOOK__.on(
     'renderer',
-    function ({reactBuildType}) {
+    function ({reactionBuildType}) {
       window.postMessage(
         {
-          source: 'react-devtools-hook',
+          source: 'reaction-devtools-hook',
           payload: {
-            type: 'react-renderer-attached',
-            reactBuildType,
+            type: 'reaction-renderer-attached',
+            reactionBuildType,
           },
         },
         '*',

@@ -3,7 +3,7 @@
 function fetchResource(url) {
   const reject = value => {
     chrome.runtime.sendMessage({
-      source: 'react-devtools-fetch-resource-content-script',
+      source: 'reaction-devtools-fetch-resource-content-script',
       payload: {
         type: 'fetch-file-with-cache-error',
         url,
@@ -14,7 +14,7 @@ function fetchResource(url) {
 
   const resolve = value => {
     chrome.runtime.sendMessage({
-      source: 'react-devtools-fetch-resource-content-script',
+      source: 'reaction-devtools-fetch-resource-content-script',
       payload: {
         type: 'fetch-file-with-cache-complete',
         url,

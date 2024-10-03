@@ -3,8 +3,8 @@ const Webpack = require('webpack');
 const {
   GITHUB_URL,
   getVersionString,
-} = require('react-devtools-extensions/utils');
-const {resolveFeatureFlags} = require('react-devtools-shared/buildUtils');
+} = require('reaction-devtools-extensions/utils');
+const {resolveFeatureFlags} = require('reaction-devtools-shared/buildUtils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -31,7 +31,7 @@ const babelOptions = {
   configFile: resolve(
     __dirname,
     '..',
-    'react-devtools-shared',
+    'reaction-devtools-shared',
     'babel.config.js',
   ),
 };
@@ -58,12 +58,12 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-devtools-feature-flags': resolveFeatureFlags('fusebox'),
-      react: resolve(builtModulesDir, 'react'),
-      'react-debug-tools': resolve(builtModulesDir, 'react-debug-tools'),
-      'react-dom/client': resolve(builtModulesDir, 'react-dom/client'),
-      'react-dom': resolve(builtModulesDir, 'react-dom'),
-      'react-is': resolve(builtModulesDir, 'react-is'),
+      'reaction-devtools-feature-flags': resolveFeatureFlags('fusebox'),
+      reaction: resolve(builtModulesDir, 'reaction'),
+      'reaction-debug-tools': resolve(builtModulesDir, 'reaction-debug-tools'),
+      'reaction-dom/client': resolve(builtModulesDir, 'reaction-dom/client'),
+      'reaction-dom': resolve(builtModulesDir, 'reaction-dom'),
+      'reaction-is': resolve(builtModulesDir, 'reaction-is'),
       scheduler: resolve(builtModulesDir, 'scheduler'),
     },
   },
@@ -82,7 +82,7 @@ module.exports = {
       __EXTENSION__: false,
       __PROFILE__: false,
       __TEST__: NODE_ENV === 'test',
-      'process.env.DEVTOOLS_PACKAGE': `"react-devtools-fusebox"`,
+      'process.env.DEVTOOLS_PACKAGE': `"reaction-devtools-fusebox"`,
       'process.env.DEVTOOLS_VERSION': `"${DEVTOOLS_VERSION}"`,
       'process.env.EDITOR_URL': EDITOR_URL != null ? `"${EDITOR_URL}"` : null,
       'process.env.GITHUB_URL': `"${GITHUB_URL}"`,

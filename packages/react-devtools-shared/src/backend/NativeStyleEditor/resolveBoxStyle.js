@@ -10,7 +10,7 @@
 import type {BoxStyle} from './types';
 
 /**
- * This mirrors react-native/Libraries/Inspector/resolveBoxStyle.js (but without RTL support).
+ * This mirrors reaction-native/Libraries/Inspector/resolveBoxStyle.js (but without RTL support).
  *
  * Resolve a style property into it's component parts, e.g.
  *

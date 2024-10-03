@@ -7,12 +7,12 @@
  * @flow
  */
 
-import type {DevToolsHook} from 'react-devtools-shared/src/backend/types';
+import type {DevToolsHook} from 'reaction-devtools-shared/src/backend/types';
 
-import Agent from 'react-devtools-shared/src/backend/agent';
-import Bridge from 'react-devtools-shared/src/bridge';
-import {initBackend} from 'react-devtools-shared/src/backend';
-import setupNativeStyleEditor from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+import Agent from 'reaction-devtools-shared/src/backend/agent';
+import Bridge from 'reaction-devtools-shared/src/bridge';
+import {initBackend} from 'reaction-devtools-shared/src/backend';
+import setupNativeStyleEditor from 'reaction-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 
 import {COMPACT_VERSION_NAME} from './utils';
 

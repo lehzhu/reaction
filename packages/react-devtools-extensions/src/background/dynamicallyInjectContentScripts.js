@@ -2,7 +2,7 @@
 
 const contentScriptsToInject = [
   {
-    id: '@react-devtools/proxy',
+    id: '@reaction-devtools/proxy',
     js: ['build/proxy.js'],
     matches: ['<all_urls>'],
     persistAcrossSessions: true,
@@ -10,7 +10,7 @@ const contentScriptsToInject = [
     world: chrome.scripting.ExecutionWorld.ISOLATED,
   },
   {
-    id: '@react-devtools/file-fetcher',
+    id: '@reaction-devtools/file-fetcher',
     js: ['build/fileFetcher.js'],
     matches: ['<all_urls>'],
     persistAcrossSessions: true,
@@ -18,7 +18,7 @@ const contentScriptsToInject = [
     world: chrome.scripting.ExecutionWorld.ISOLATED,
   },
   {
-    id: '@react-devtools/hook',
+    id: '@reaction-devtools/hook',
     js: ['build/installHook.js'],
     matches: ['<all_urls>'],
     persistAcrossSessions: true,
@@ -26,7 +26,7 @@ const contentScriptsToInject = [
     world: chrome.scripting.ExecutionWorld.MAIN,
   },
   {
-    id: '@react-devtools/hook-settings-injector',
+    id: '@reaction-devtools/hook-settings-injector',
     js: ['build/hookSettingsInjector.js'],
     matches: ['<all_urls>'],
     persistAcrossSessions: true,
@@ -44,7 +44,7 @@ async function dynamicallyInjectContentScripts() {
     // Note: the "world" option in registerContentScripts is only available in Chrome v102+
     // It's critical since it allows us to directly run scripts on the "main" world on the page
     // "document_start" allows it to run before the page's scripts
-    // so the hook can be detected by react reconciler
+    // so the hook can be detected by reaction reconciler
     await chrome.scripting.registerContentScripts(contentScriptsToInject);
   } catch (error) {
     console.error(error);

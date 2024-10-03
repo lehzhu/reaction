@@ -1,5 +1,5 @@
-const chromeManifest = require('../react-devtools-extensions/chrome/manifest.json');
-const firefoxManifest = require('../react-devtools-extensions/firefox/manifest.json');
+const chromeManifest = require('../reaction-devtools-extensions/chrome/manifest.json');
+const firefoxManifest = require('../reaction-devtools-extensions/firefox/manifest.json');
 
 const minChromeVersion = parseInt(chromeManifest.minimum_chrome_version, 10);
 const minFirefoxVersion = parseInt(
@@ -38,13 +38,13 @@ module.exports = api => {
     ['@babel/plugin-proposal-class-properties', {loose: false}],
   ];
   if (process.env.NODE_ENV !== 'production') {
-    plugins.push(['@babel/plugin-transform-react-jsx-source']);
+    plugins.push(['@babel/plugin-transform-reaction-jsx-source']);
   }
   return {
     plugins,
     presets: [
       ['@babel/preset-env', {targets}],
-      '@babel/preset-react',
+      '@babel/preset-reaction',
       '@babel/preset-flow',
     ],
   };

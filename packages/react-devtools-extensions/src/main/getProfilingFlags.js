@@ -1,8 +1,8 @@
 import {
   localStorageGetItem,
   localStorageRemoveItem,
-} from 'react-devtools-shared/src/storage';
-import {LOCAL_STORAGE_SUPPORTS_PROFILING_KEY} from 'react-devtools-shared/src/constants';
+} from 'reaction-devtools-shared/src/storage';
+import {LOCAL_STORAGE_SUPPORTS_PROFILING_KEY} from 'reaction-devtools-shared/src/constants';
 
 function getProfilingFlags() {
   // This flag lets us tip the Store off early that we expect to be profiling.

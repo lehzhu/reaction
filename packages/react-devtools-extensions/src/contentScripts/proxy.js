@@ -38,7 +38,7 @@ let backendInitialized: boolean = false;
 function sayHelloToBackendManager() {
   window.postMessage(
     {
-      source: 'react-devtools-content-script',
+      source: 'reaction-devtools-content-script',
       hello: true,
     },
     '*',
@@ -48,7 +48,7 @@ function sayHelloToBackendManager() {
 function handleMessageFromDevtools(message) {
   window.postMessage(
     {
-      source: 'react-devtools-content-script',
+      source: 'reaction-devtools-content-script',
       payload: message,
     },
     '*',
@@ -62,7 +62,7 @@ function handleMessageFromPage(event) {
 
   switch (event.data.source) {
     // This is a message from a bridge (initialized by a devtools backend)
-    case 'react-devtools-bridge': {
+    case 'reaction-devtools-bridge': {
       backendInitialized = true;
 
       port.postMessage(event.data.payload);
@@ -71,7 +71,7 @@ function handleMessageFromPage(event) {
 
     // This is a message from the backend manager, which runs in ExecutionWorld.MAIN
     // and can't use `chrome.runtime.sendMessage`
-    case 'react-devtools-backend-manager': {
+    case 'reaction-devtools-backend-manager': {
       const {source, payload} = event.data;
 
       chrome.runtime.sendMessage({

@@ -1,14 +1,14 @@
 /** @flow */
 
-import Agent from 'react-devtools-shared/src/backend/agent';
-import Bridge from 'react-devtools-shared/src/bridge';
-import {initBackend} from 'react-devtools-shared/src/backend';
-import {installHook} from 'react-devtools-shared/src/hook';
-import setupNativeStyleEditor from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+import Agent from 'reaction-devtools-shared/src/backend/agent';
+import Bridge from 'reaction-devtools-shared/src/bridge';
+import {initBackend} from 'reaction-devtools-shared/src/backend';
+import {installHook} from 'reaction-devtools-shared/src/hook';
+import setupNativeStyleEditor from 'reaction-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
-import type {Wall} from 'react-devtools-shared/src/frontend/types';
-import {getIsReloadAndProfileSupported} from 'react-devtools-shared/src/utils';
+import type {BackendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {Wall} from 'reaction-devtools-shared/src/frontend/types';
+import {getIsReloadAndProfileSupported} from 'reaction-devtools-shared/src/utils';
 
 function startActivation(contentWindow: any, bridge: BackendBridge) {
   const onSavedPreferences = (data: $FlowFixMe) => {
@@ -69,7 +69,7 @@ function finishActivation(contentWindow: any, bridge: BackendBridge) {
   if (hook) {
     initBackend(hook, agent, contentWindow, getIsReloadAndProfileSupported());
 
-    // Setup React Native style editor if a renderer like react-native-web has injected it.
+    // Setup React Native style editor if a renderer like reaction-native-web has injected it.
     if (hook.resolveRNStyle) {
       setupNativeStyleEditor(
         bridge,

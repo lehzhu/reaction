@@ -29,7 +29,7 @@ import {
   ElementTypeTracingMarker,
   ElementTypeVirtual,
   StrictMode,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import {
   deletePathInObject,
   getDisplayName,
@@ -41,14 +41,14 @@ import {
   setInObject,
   utfEncodeString,
   filterOutLocationComponentFilters,
-} from 'react-devtools-shared/src/utils';
+} from 'reaction-devtools-shared/src/utils';
 import {
   formatConsoleArgumentsToSingleString,
   gt,
   gte,
   parseSourceFromComponentStack,
   serializeToString,
-} from 'react-devtools-shared/src/backend/utils';
+} from 'reaction-devtools-shared/src/backend/utils';
 import {
   cleanForBridge,
   copyWithDelete,
@@ -67,7 +67,7 @@ import {
   TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS,
   TREE_OPERATION_UPDATE_TREE_BASE_DURATION,
 } from '../../constants';
-import {inspectHooksOfFiber} from 'react-debug-tools';
+import {inspectHooksOfFiber} from 'reaction-debug-tools';
 import {
   CONCURRENT_MODE_NUMBER,
   CONCURRENT_MODE_SYMBOL_STRING,
@@ -90,7 +90,7 @@ import {
   MEMO_SYMBOL_STRING,
   SERVER_CONTEXT_SYMBOL_STRING,
 } from '../shared/ReactSymbols';
-import {enableStyleXFeatures} from 'react-devtools-feature-flags';
+import {enableStyleXFeatures} from 'reaction-devtools-feature-flags';
 
 import {componentInfoToComponentLogsMap} from '../shared/DevToolsServerComponentLogs';
 
@@ -116,7 +116,7 @@ import {getStyleXData} from '../StyleX/utils';
 import {createProfilingHooks} from '../profilingHooks';
 
 import type {GetTimelineData, ToggleProfilingStatus} from '../profilingHooks';
-import type {Fiber, FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber, FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {
   ChangeDescription,
   CommitDataBackend,
@@ -140,8 +140,8 @@ import type {
   ComponentFilter,
   ElementType,
   Plugins,
-} from 'react-devtools-shared/src/frontend/types';
-import type {Source} from 'react-devtools-shared/src/shared/types';
+} from 'reaction-devtools-shared/src/frontend/types';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 import {getSourceLocationByFiber} from './DevToolsFiberComponentStack';
 import {formatOwnerStack} from '../shared/DevToolsOwnerStack';
 
@@ -960,7 +960,7 @@ export function attach(
       getLaneLabelMap,
       currentDispatcherRef: getDispatcherRef(renderer),
       workTagMap: ReactTypeOfWork,
-      reactVersion: version,
+      reactionVersion: version,
     });
 
     // Pass the Profiling hooks to the reconciler for it to call during render.
@@ -1462,7 +1462,7 @@ export function attach(
         // However, it has some special behavior (like disconnecting
         // an alternate and turning into real Suspense) which breaks DevTools.
         // For now, ignore it, and only show it once it gets hydrated.
-        // https://github.com/bvaughn/react-devtools-experimental/issues/197
+        // https://github.com/bvaughn/reaction-devtools-experimental/issues/197
         return true;
       case HostPortal:
       case HostText:
@@ -1527,7 +1527,7 @@ export function attach(
       }
     }
 
-    /* DISABLED: https://github.com/facebook/react/pull/28417
+    /* DISABLED: https://github.com/zuckbook/reaction/pull/28417
     if (hideElementsWithPaths.size > 0) {
       const source = getSourceForFiber(fiber);
 
@@ -4578,7 +4578,7 @@ export function attach(
         ((mostRecentlyInspectedElement: any): InspectedElement),
         path,
       );
-      const key = `$reactTemp${count}`;
+      const key = `$reactionTemp${count}`;
 
       window[key] = value;
 
@@ -4693,7 +4693,7 @@ export function attach(
           id,
           responseID: requestID,
           message:
-            'Unsupported hook in the react-debug-tools package: ' +
+            'Unsupported hook in the reaction-debug-tools package: ' +
             error.message,
         };
       }

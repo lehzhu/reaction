@@ -1,13 +1,13 @@
 {
-  "name": "react-devtools-inline",
+  "name": "reaction-devtools-inline",
   "version": "6.0.0",
-  "description": "Embed react-devtools within a website",
+  "description": "Embed reaction-devtools within a website",
   "license": "MIT",
   "main": "./dist/backend.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react-devtools-inline"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-devtools-inline"
   },
   "files": [
     "dist",
@@ -29,10 +29,10 @@
     "@babel/core": "^7.11.1",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-transform-flow-strip-types": "^7.10.4",
-    "@babel/plugin-transform-react-jsx-source": "^7.10.5",
+    "@babel/plugin-transform-reaction-jsx-source": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-flow": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-reaction": "^7.10.4",
     "@playwright/test": "^1.16.3",
     "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^9.0.0",

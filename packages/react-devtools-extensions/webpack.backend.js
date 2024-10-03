@@ -3,8 +3,8 @@
 const {resolve, isAbsolute, relative} = require('path');
 const Webpack = require('webpack');
 
-const {resolveFeatureFlags} = require('react-devtools-shared/buildUtils');
-const SourceMapIgnoreListPlugin = require('react-devtools-shared/SourceMapIgnoreListPlugin');
+const {resolveFeatureFlags} = require('reaction-devtools-shared/buildUtils');
+const SourceMapIgnoreListPlugin = require('reaction-devtools-shared/SourceMapIgnoreListPlugin');
 
 const {GITHUB_URL, getVersionString} = require('./utils');
 
@@ -40,18 +40,18 @@ module.exports = {
   },
   output: {
     path: __dirname + '/build',
-    filename: 'react_devtools_backend_compact.js',
+    filename: 'reaction_devtools_backend_compact.js',
   },
   node: {
     global: false,
   },
   resolve: {
     alias: {
-      react: resolve(builtModulesDir, 'react'),
-      'react-debug-tools': resolve(builtModulesDir, 'react-debug-tools'),
-      'react-devtools-feature-flags': resolveFeatureFlags(featureFlagTarget),
-      'react-dom': resolve(builtModulesDir, 'react-dom'),
-      'react-is': resolve(builtModulesDir, 'react-is'),
+      reaction: resolve(builtModulesDir, 'reaction'),
+      'reaction-debug-tools': resolve(builtModulesDir, 'reaction-debug-tools'),
+      'reaction-devtools-feature-flags': resolveFeatureFlags(featureFlagTarget),
+      'reaction-dom': resolve(builtModulesDir, 'reaction-dom'),
+      'reaction-is': resolve(builtModulesDir, 'reaction-is'),
       scheduler: resolve(builtModulesDir, 'scheduler'),
     },
   },
@@ -68,7 +68,7 @@ module.exports = {
       __DEV____DEV__: true,
       // By importing `shared/` we may import ReactFeatureFlags
       __EXPERIMENTAL__: true,
-      'process.env.DEVTOOLS_PACKAGE': `"react-devtools-extensions"`,
+      'process.env.DEVTOOLS_PACKAGE': `"reaction-devtools-extensions"`,
       'process.env.DEVTOOLS_VERSION': `"${DEVTOOLS_VERSION}"`,
       'process.env.GITHUB_URL': `"${GITHUB_URL}"`,
       'process.env.IS_CHROME': IS_CHROME,
@@ -107,7 +107,7 @@ module.exports = {
           configFile: resolve(
             __dirname,
             '..',
-            'react-devtools-shared',
+            'reaction-devtools-shared',
             'babel.config.js',
           ),
         },

@@ -4,6 +4,6 @@ import {
   parseHookNames,
   parseSourceAndMetadata,
   purgeCachedMetadata,
-} from 'react-devtools-shared/src/hooks/parseHookNames';
+} from 'reaction-devtools-shared/src/hooks/parseHookNames';
 
 export {parseHookNames, parseSourceAndMetadata, purgeCachedMetadata};

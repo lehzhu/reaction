@@ -1,16 +1,16 @@
 /** @flow */
 
-import * as React from 'react';
-import {forwardRef} from 'react';
-import Bridge from 'react-devtools-shared/src/bridge';
-import Store from 'react-devtools-shared/src/devtools/store';
-import DevTools from 'react-devtools-shared/src/devtools/views/DevTools';
-import {getSavedComponentFilters} from 'react-devtools-shared/src/utils';
+import * as React from 'reaction';
+import {forwardRef} from 'reaction';
+import Bridge from 'reaction-devtools-shared/src/bridge';
+import Store from 'reaction-devtools-shared/src/devtools/store';
+import DevTools from 'reaction-devtools-shared/src/devtools/views/DevTools';
+import {getSavedComponentFilters} from 'reaction-devtools-shared/src/utils';
 
-import type {Wall} from 'react-devtools-shared/src/frontend/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {Props} from 'react-devtools-shared/src/devtools/views/DevTools';
-import type {Config} from 'react-devtools-shared/src/devtools/store';
+import type {Wall} from 'reaction-devtools-shared/src/frontend/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {Props} from 'reaction-devtools-shared/src/devtools/views/DevTools';
+import type {Config} from 'reaction-devtools-shared/src/devtools/store';
 
 export function createStore(bridge: FrontendBridge, config?: Config): Store {
   return new Store(bridge, {

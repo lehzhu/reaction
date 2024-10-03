@@ -7,11 +7,11 @@
  * @flow
  */
 
-import Agent from 'react-devtools-shared/src/backend/agent';
+import Agent from 'reaction-devtools-shared/src/backend/agent';
 import resolveBoxStyle from './resolveBoxStyle';
-import isArray from 'react-devtools-shared/src/isArray';
+import isArray from 'reaction-devtools-shared/src/isArray';
 
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
+import type {BackendBridge} from 'reaction-devtools-shared/src/bridge';
 import type {RendererID} from '../types';
 import type {StyleAndLayout} from './types';
 
@@ -132,7 +132,7 @@ function measureStyle(
 
   instance.measure((x, y, width, height, left, top) => {
     // RN Android sometimes returns undefined here. Don't send measurements in this case.
-    // https://github.com/jhen0409/react-native-debugger/issues/84#issuecomment-304611817
+    // https://github.com/jhen0409/reaction-native-debugger/issues/84#issuecomment-304611817
     if (typeof x !== 'number') {
       bridge.send(
         'NativeStyleEditor_styleAndLayout',

@@ -7,7 +7,7 @@
  * @flow strict-local
  */
 
-import {enableLogger} from 'react-devtools-feature-flags';
+import {enableLogger} from 'reaction-devtools-feature-flags';
 
 export type LoggerEvent =
   | {

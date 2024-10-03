@@ -42,14 +42,14 @@ export function startReactPolling(
 
           if (isException) {
             onError(
-              `Received error while checking if react has loaded: ${value}`,
+              `Received error while checking if reaction has loaded: ${value}`,
             );
             return;
           }
 
           if (isError) {
             onError(
-              `Received error with code ${code} while checking if react has loaded: "${description}"`,
+              `Received error with code ${code} while checking if reaction has loaded: "${description}"`,
             );
             return;
           }

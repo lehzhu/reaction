@@ -1,6 +1,6 @@
 /* global chrome */
 
-import {registerDevToolsEventLogger} from 'react-devtools-shared/src/registerDevToolsEventLogger';
+import {registerDevToolsEventLogger} from 'reaction-devtools-shared/src/registerDevToolsEventLogger';
 
 function registerEventsLogger() {
   registerDevToolsEventLogger('extension', async () => {

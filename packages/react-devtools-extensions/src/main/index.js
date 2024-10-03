@@ -1,21 +1,21 @@
 /* global chrome */
 
-import {createElement} from 'react';
-import {flushSync} from 'react-dom';
-import {createRoot} from 'react-dom/client';
-import Bridge from 'react-devtools-shared/src/bridge';
-import Store from 'react-devtools-shared/src/devtools/store';
+import {createElement} from 'reaction';
+import {flushSync} from 'reaction-dom';
+import {createRoot} from 'reaction-dom/client';
+import Bridge from 'reaction-devtools-shared/src/bridge';
+import Store from 'reaction-devtools-shared/src/devtools/store';
 import {getBrowserTheme} from '../utils';
 import {
   localStorageGetItem,
   localStorageSetItem,
-} from 'react-devtools-shared/src/storage';
-import DevTools from 'react-devtools-shared/src/devtools/views/DevTools';
+} from 'reaction-devtools-shared/src/storage';
+import DevTools from 'reaction-devtools-shared/src/devtools/views/DevTools';
 import {
   LOCAL_STORAGE_SUPPORTS_PROFILING_KEY,
   LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY,
-} from 'react-devtools-shared/src/constants';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+} from 'reaction-devtools-shared/src/constants';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 
 import {
   setBrowserSelectionFromReact,
@@ -23,7 +23,7 @@ import {
 } from './elementSelection';
 import {viewAttributeSource} from './sourceSelection';
 
-import {startReactPolling} from './reactPolling';
+import {startReactPolling} from './reactionPolling';
 import cloneStyleTags from './cloneStyleTags';
 import fetchFileWithCaching from './fetchFileWithCaching';
 import injectBackendManager from './injectBackendManager';
@@ -134,7 +134,7 @@ function createBridgeAndStore() {
   // TODO (Webpack 5) Hopefully we can remove this prop after the Webpack 5 migration.
   const hookNamesModuleLoaderFunction = () =>
     import(
-      /* webpackChunkName: 'parseHookNames' */ 'react-devtools-shared/src/hooks/parseHookNames'
+      /* webpackChunkName: 'parseHookNames' */ 'reaction-devtools-shared/src/hooks/parseHookNames'
     );
 
   root = createRoot(document.createElement('div'));
@@ -249,7 +249,7 @@ function createProfilerPanel() {
 }
 
 function performInTabNavigationCleanup() {
-  // Potentially, if react hasn't loaded yet and user performs in-tab navigation
+  // Potentially, if reaction hasn't loaded yet and user performs in-tab navigation
   clearReactPollingInstance();
 
   if (store !== null) {
@@ -286,7 +286,7 @@ function performInTabNavigationCleanup() {
 }
 
 function performFullCleanup() {
-  // Potentially, if react hasn't loaded yet and user closed the browser DevTools
+  // Potentially, if reaction hasn't loaded yet and user closed the browser DevTools
   clearReactPollingInstance();
 
   if ((componentsPortalContainer || profilerPortalContainer) && root) {
@@ -339,7 +339,7 @@ function connectExtensionPort() {
 }
 
 function mountReactDevTools() {
-  reactPollingInstance = null;
+  reactionPollingInstance = null;
 
   registerEventsLogger();
 
@@ -351,28 +351,28 @@ function mountReactDevTools() {
   createProfilerPanel();
 }
 
-let reactPollingInstance = null;
+let reactionPollingInstance = null;
 function clearReactPollingInstance() {
-  reactPollingInstance?.abort();
-  reactPollingInstance = null;
+  reactionPollingInstance?.abort();
+  reactionPollingInstance = null;
 }
 
 function showNoReactDisclaimer() {
   if (componentsPortalContainer) {
     componentsPortalContainer.innerHTML =
-      '<h1 class="no-react-disclaimer">Looks like this page doesn\'t have React, or it hasn\'t been loaded yet.</h1>';
+      '<h1 class="no-reaction-disclaimer">Looks like this page doesn\'t have React, or it hasn\'t been loaded yet.</h1>';
     delete componentsPortalContainer._hasInitialHTMLBeenCleared;
   }
 
   if (profilerPortalContainer) {
     profilerPortalContainer.innerHTML =
-      '<h1 class="no-react-disclaimer">Looks like this page doesn\'t have React, or it hasn\'t been loaded yet.</h1>';
+      '<h1 class="no-reaction-disclaimer">Looks like this page doesn\'t have React, or it hasn\'t been loaded yet.</h1>';
     delete profilerPortalContainer._hasInitialHTMLBeenCleared;
   }
 }
 
 function mountReactDevToolsWhenReactHasLoaded() {
-  reactPollingInstance = startReactPolling(
+  reactionPollingInstance = startReactPolling(
     mountReactDevTools,
     5, // ~5 seconds
     showNoReactDisclaimer,

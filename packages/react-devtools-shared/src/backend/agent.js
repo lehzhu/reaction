@@ -14,9 +14,9 @@ import {
   initialize as setupTraceUpdates,
   toggleEnabled as setTraceUpdatesEnabled,
 } from './views/TraceUpdates';
-import {currentBridgeProtocol} from 'react-devtools-shared/src/bridge';
+import {currentBridgeProtocol} from 'reaction-devtools-shared/src/bridge';
 
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
+import type {BackendBridge} from 'reaction-devtools-shared/src/bridge';
 import type {
   InstanceAndStyle,
   HostInstance,
@@ -28,7 +28,7 @@ import type {
   DevToolsHookSettings,
   ReloadAndProfileConfigPersistence,
 } from './types';
-import type {ComponentFilter} from 'react-devtools-shared/src/frontend/types';
+import type {ComponentFilter} from 'reaction-devtools-shared/src/frontend/types';
 import {isReactNativeEnvironment} from './utils';
 import {defaultReloadAndProfileConfigPersistence} from '../utils';
 import {
@@ -523,7 +523,7 @@ export default class Agent extends EventEmitter<{
       // TODO: If there was a way to change the selected DOM element
       // in built-in Elements tab without forcing a switch to it, we'd do it here.
       // For now, it doesn't seem like there is a way to do that:
-      // https://github.com/bvaughn/react-devtools-experimental/issues/102
+      // https://github.com/bvaughn/reaction-devtools-experimental/issues/102
       // (Setting $0 doesn't work, and calling inspect() switches the tab.)
     }
   };
@@ -887,7 +887,7 @@ export default class Agent extends EventEmitter<{
     // using the transferable approach also sometimes causes it to throw:
     //   DOMException: Failed to execute 'postMessage' on 'Window': ArrayBuffer at index 0 is already neutered.
     //
-    // See bug https://github.com/bvaughn/react-devtools-experimental/issues/25
+    // See bug https://github.com/bvaughn/reaction-devtools-experimental/issues/25
     //
     // The Store has a fallback in place that parses the message as JSON if the type isn't an array.
     // For now the simplest fix seems to be to not transfer the array.
