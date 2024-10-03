@@ -7,4 +7,4 @@
  * @flow
  */
 
-export {prerender} from './src/server/react-flight-dom-server.browser';
+export {prerender} from './src/server/reaction-flight-dom-server.browser';

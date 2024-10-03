@@ -10,10 +10,10 @@
 import type {
   Request,
   ReactClientValue,
-} from 'react-server/src/ReactFlightServer';
-import type {Destination} from 'react-server/src/ReactServerStreamConfigNode';
+} from 'reaction-server/src/ReactFlightServer';
+import type {Destination} from 'reaction-server/src/ReactServerStreamConfigNode';
 import type {ClientManifest} from './ReactFlightServerConfigWebpackBundler';
-import type {ServerManifest} from 'react-client/src/ReactFlightClientConfig';
+import type {ServerManifest} from 'reaction-client/src/ReactFlightClientConfig';
 import type {Busboy} from 'busboy';
 import type {Writable} from 'stream';
 import type {Thenable} from 'shared/ReactTypes';
@@ -27,7 +27,7 @@ import {
   startFlowing,
   stopFlowing,
   abort,
-} from 'react-server/src/ReactFlightServer';
+} from 'reaction-server/src/ReactFlightServer';
 
 import {
   createResponse,
@@ -38,12 +38,12 @@ import {
   resolveFileChunk,
   resolveFileComplete,
   getRoot,
-} from 'react-server/src/ReactFlightReplyServer';
+} from 'reaction-server/src/ReactFlightReplyServer';
 
 import {
   decodeAction,
   decodeFormState,
-} from 'react-server/src/ReactFlightActionServer';
+} from 'reaction-server/src/ReactFlightActionServer';
 
 export {
   registerServerReference,
@@ -51,9 +51,9 @@ export {
   createClientModuleProxy,
 } from '../ReactFlightWebpackReferences';
 
-import type {TemporaryReferenceSet} from 'react-server/src/ReactFlightServerTemporaryReferences';
+import type {TemporaryReferenceSet} from 'reaction-server/src/ReactFlightServerTemporaryReferences';
 
-export {createTemporaryReferenceSet} from 'react-server/src/ReactFlightServerTemporaryReferences';
+export {createTemporaryReferenceSet} from 'reaction-server/src/ReactFlightServerTemporaryReferences';
 
 export type {TemporaryReferenceSet};
 

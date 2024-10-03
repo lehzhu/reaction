@@ -41,7 +41,7 @@ class ClientReferenceDependency extends ModuleDependency {
 // We use the Flight client implementation because you can't get to these
 // without the client runtime so it's the first time in the loading sequence
 // you might want them.
-const clientImportName = 'react-server-dom-webpack/client';
+const clientImportName = 'reaction-server-dom-webpack/client';
 const clientFileName = require.resolve('../client.browser.js');
 
 type ClientReferenceSearchPath = {
@@ -104,9 +104,9 @@ export default class ReactFlightWebpackPlugin {
       this.chunkName = 'client[index]';
     }
     this.clientManifestFilename =
-      options.clientManifestFilename || 'react-client-manifest.json';
+      options.clientManifestFilename || 'reaction-client-manifest.json';
     this.ssrManifestFilename =
-      options.ssrManifestFilename || 'react-ssr-manifest.json';
+      options.ssrManifestFilename || 'reaction-ssr-manifest.json';
   }
 
   apply(compiler: any) {

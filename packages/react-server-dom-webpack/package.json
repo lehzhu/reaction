@@ -1,12 +1,12 @@
 {
-  "name": "react-server-dom-webpack",
+  "name": "reaction-server-dom-webpack",
   "description": "React Server Components bindings for DOM using Webpack. This is intended to be integrated into meta-frameworks. It is not intended to be imported directly.",
   "version": "19.0.0",
   "keywords": [
-    "react"
+    "reaction"
   ],
-  "homepage": "https://react.dev/",
-  "bugs": "https://github.com/facebook/react/issues",
+  "homepage": "https://reaction.dev/",
+  "bugs": "https://github.com/zuckbook/reaction/issues",
   "license": "MIT",
   "files": [
     "LICENSE",
@@ -52,7 +52,7 @@
     "./client.node": "./client.node.js",
     "./client.node.unbundled": "./client.node.unbundled.js",
     "./server": {
-      "react-server": {
+      "reaction-server": {
         "workerd": "./server.edge.js",
         "deno": "./server.browser.js",
         "node": {
@@ -69,7 +69,7 @@
     "./server.node": "./server.node.js",
     "./server.node.unbundled": "./server.node.unbundled.js",
     "./static": {
-      "react-server": {
+      "reaction-server": {
         "workerd": "./static.edge.js",
         "deno": "./static.browser.js",
         "node": {
@@ -85,7 +85,7 @@
     "./static.edge": "./static.edge.js",
     "./static.node": "./static.node.js",
     "./static.node.unbundled": "./static.node.unbundled.js",
-    "./node-loader": "./esm/react-server-dom-webpack-node-loader.production.js",
+    "./node-loader": "./esm/reaction-server-dom-webpack-node-loader.production.js",
     "./node-register": "./node-register.js",
     "./src/*": "./src/*.js",
     "./package.json": "./package.json"
@@ -93,15 +93,15 @@
   "main": "index.js",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/facebook/react.git",
-    "directory": "packages/react-server-dom-webpack"
+    "url" : "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-server-dom-webpack"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "reaction": "^19.0.0",
+    "reaction-dom": "^19.0.0",
     "webpack": "^5.59.0"
   },
   "dependencies": {

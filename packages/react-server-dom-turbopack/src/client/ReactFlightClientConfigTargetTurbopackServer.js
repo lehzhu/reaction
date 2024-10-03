@@ -7,7 +7,7 @@
  * @flow
  */
 
-import {preinitScriptForSSR} from 'react-client/src/ReactFlightClientConfig';
+import {preinitScriptForSSR} from 'reaction-client/src/ReactFlightClientConfig';
 
 export type ModuleLoading = null | {
   prefix: string,

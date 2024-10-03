@@ -16,4 +16,4 @@ export {
   registerClientReference,
   createClientModuleProxy,
   createTemporaryReferenceSet,
-} from './src/server/react-flight-dom-server.edge';
+} from './src/server/reaction-flight-dom-server.edge';

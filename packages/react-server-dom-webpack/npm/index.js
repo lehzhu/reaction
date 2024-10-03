@@ -9,4 +9,4 @@
 
 'use strict';
 
-throw new Error('Use react-server-dom-webpack/client instead.');
+throw new Error('Use reaction-server-dom-webpack/client instead.');

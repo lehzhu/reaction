@@ -17,7 +17,7 @@ import type {
   ImportMetadata,
   ImportManifestEntry,
 } from '../shared/ReactFlightImportMetadata';
-import type {ModuleLoading} from 'react-client/src/ReactFlightClientConfig';
+import type {ModuleLoading} from 'reaction-client/src/ReactFlightClientConfig';
 
 import {
   ID,
@@ -26,9 +26,9 @@ import {
   isAsyncImport,
 } from '../shared/ReactFlightImportMetadata';
 
-import {prepareDestinationWithChunks} from 'react-client/src/ReactFlightClientConfig';
+import {prepareDestinationWithChunks} from 'reaction-client/src/ReactFlightClientConfig';
 
-import {loadChunk} from 'react-client/src/ReactFlightClientConfig';
+import {loadChunk} from 'reaction-client/src/ReactFlightClientConfig';
 
 export type SSRModuleMap = null | {
   [clientId: string]: {

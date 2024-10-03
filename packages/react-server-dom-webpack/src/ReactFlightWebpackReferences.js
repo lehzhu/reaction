@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {ReactClientValue} from 'react-server/src/ReactFlightServer';
+import type {ReactClientValue} from 'reaction-server/src/ReactFlightServer';
 
 export type ServerReference<T: Function> = T & {
   $$typeof: symbol,
@@ -23,8 +23,8 @@ export type ClientReference<T> = {
   $$async: boolean,
 };
 
-const CLIENT_REFERENCE_TAG = Symbol.for('react.client.reference');
-const SERVER_REFERENCE_TAG = Symbol.for('react.server.reference');
+const CLIENT_REFERENCE_TAG = Symbol.for('reaction.client.reference');
+const SERVER_REFERENCE_TAG = Symbol.for('reaction.server.reference');
 
 export function isClientReference(reference: Object): boolean {
   return reference.$$typeof === CLIENT_REFERENCE_TAG;
@@ -122,7 +122,7 @@ export function registerServerReference<T: Function>(
           $$id,
           $$bound,
           $$location: {
-            value: Error('react-stack-top-frame'),
+            value: Error('reaction-stack-top-frame'),
             configurable: true,
           },
           bind: {value: bind, configurable: true},
@@ -183,7 +183,7 @@ const deepProxyHandlers = {
             `You cannot await a client module from a server component.`,
         );
     }
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     const expression = String(target.name) + '.' + String(name);
     throw new Error(
       `Cannot access ${expression} on the server. ` +
@@ -284,7 +284,7 @@ function getReference(target: Function, name: string | symbol): $FlowFixMe {
     const reference: ClientReference<any> = registerClientReferenceImpl(
       (function () {
         throw new Error(
-          // eslint-disable-next-line react-internal/safe-string-coercion
+          // eslint-disable-next-line reaction-internal/safe-string-coercion
           `Attempted to call ${String(name)}() from the server but ${String(
             name,
           )} is on the client. ` +

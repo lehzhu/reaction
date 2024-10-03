@@ -71,17 +71,17 @@ export async function resolve(
   // We stash this in case we end up needing to resolve export * statements later.
   stashedResolve = defaultResolve;
 
-  if (!context.conditions.includes('react-server')) {
+  if (!context.conditions.includes('reaction-server')) {
     context = {
       ...context,
-      conditions: [...context.conditions, 'react-server'],
+      conditions: [...context.conditions, 'reaction-server'],
     };
     if (!warnedAboutConditionsFlag) {
       warnedAboutConditionsFlag = true;
-      // eslint-disable-next-line react-internal/no-production-logging
+      // eslint-disable-next-line reaction-internal/no-production-logging
       console.warn(
-        'You did not run Node.js with the `--conditions react-server` flag. ' +
-          'Any "react-server" override will only work with ESM imports.',
+        'You did not run Node.js with the `--conditions reaction-server` flag. ' +
+          'Any "reaction-server" override will only work with ESM imports.',
       );
     }
   }
@@ -408,7 +408,7 @@ function transformServerModule(
 
     newSrc += '\n\n;';
     newSrc +=
-      'import {registerServerReference} from "react-server-dom-webpack/server";\n';
+      'import {registerServerReference} from "reaction-server-dom-webpack/server";\n';
     if (mappings) {
       mappings += ';;';
     }
@@ -536,7 +536,7 @@ async function parseExportNamesInto(
               sourceType: 'module',
             }).body;
           } catch (x) {
-            // eslint-disable-next-line react-internal/no-production-logging
+            // eslint-disable-next-line reaction-internal/no-production-logging
             console.error('Error parsing %s %s', url, x.message);
             continue;
           }
@@ -585,7 +585,7 @@ async function transformClientModule(
   }
 
   let newSrc =
-    'import {registerClientReference} from "react-server-dom-webpack/server";\n';
+    'import {registerClientReference} from "reaction-server-dom-webpack/server";\n';
   for (let i = 0; i < names.length; i++) {
     const name = names[i];
     if (name === 'default') {
@@ -690,7 +690,7 @@ async function transformModuleIfNeeded(
       },
     });
   } catch (x) {
-    // eslint-disable-next-line react-internal/no-production-logging
+    // eslint-disable-next-line reaction-internal/no-production-logging
     console.error('Error parsing %s %s', url, x.message);
     return source;
   }

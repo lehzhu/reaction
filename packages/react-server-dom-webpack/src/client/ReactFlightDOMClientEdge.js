@@ -12,14 +12,14 @@ import type {Thenable, ReactCustomFormAction} from 'shared/ReactTypes.js';
 import type {
   Response as FlightResponse,
   FindSourceMapURLCallback,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
-import type {ReactServerValue} from 'react-client/src/ReactFlightReplyClient';
+import type {ReactServerValue} from 'reaction-client/src/ReactFlightReplyClient';
 
 import type {
   SSRModuleMap,
   ModuleLoading,
-} from 'react-client/src/ReactFlightClientConfig';
+} from 'reaction-client/src/ReactFlightClientConfig';
 
 type SSRManifest = {
   moduleMap: SSRModuleMap,
@@ -32,16 +32,16 @@ import {
   reportGlobalError,
   processBinaryChunk,
   close,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
 import {
   processReply,
   createServerReference as createServerReferenceImpl,
-} from 'react-client/src/ReactFlightReplyClient';
+} from 'reaction-client/src/ReactFlightReplyClient';
 
-import type {TemporaryReferenceSet} from 'react-client/src/ReactFlightTemporaryReferences';
+import type {TemporaryReferenceSet} from 'reaction-client/src/ReactFlightTemporaryReferences';
 
-export {createTemporaryReferenceSet} from 'react-client/src/ReactFlightTemporaryReferences';
+export {createTemporaryReferenceSet} from 'reaction-client/src/ReactFlightTemporaryReferences';
 
 export type {TemporaryReferenceSet};
 

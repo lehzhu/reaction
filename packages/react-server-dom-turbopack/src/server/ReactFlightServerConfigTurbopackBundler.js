@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {ReactClientValue} from 'react-server/src/ReactFlightServer';
+import type {ReactClientValue} from 'reaction-server/src/ReactFlightServer';
 import type {
   ImportMetadata,
   ImportManifestEntry,

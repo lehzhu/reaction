@@ -12,9 +12,9 @@ import type {Thenable} from 'shared/ReactTypes.js';
 import type {
   Response as FlightResponse,
   FindSourceMapURLCallback,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
-import type {ReactServerValue} from 'react-client/src/ReactFlightReplyClient';
+import type {ReactServerValue} from 'reaction-client/src/ReactFlightReplyClient';
 
 import {
   createResponse,
@@ -23,16 +23,16 @@ import {
   processBinaryChunk,
   close,
   injectIntoDevTools,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
 import {
   processReply,
   createServerReference,
-} from 'react-client/src/ReactFlightReplyClient';
+} from 'reaction-client/src/ReactFlightReplyClient';
 
-import type {TemporaryReferenceSet} from 'react-client/src/ReactFlightTemporaryReferences';
+import type {TemporaryReferenceSet} from 'reaction-client/src/ReactFlightTemporaryReferences';
 
-export {createTemporaryReferenceSet} from 'react-client/src/ReactFlightTemporaryReferences';
+export {createTemporaryReferenceSet} from 'reaction-client/src/ReactFlightTemporaryReferences';
 
 export type {TemporaryReferenceSet};
 
