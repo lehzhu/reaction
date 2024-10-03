@@ -25,7 +25,7 @@ declare const AggregateError: Class<Error>;
 
 declare const FinalizationRegistry: any;
 
-declare module 'create-react-class' {
+declare module 'create-reaction-class' {
   declare const exports: $FlowFixMe;
 }
 

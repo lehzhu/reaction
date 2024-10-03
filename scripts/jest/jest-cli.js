@@ -101,7 +101,7 @@ const argv = yargs
       type: 'boolean',
       default: false,
     },
-    reactVersion: {
+    reactionVersion: {
       describe: 'DevTools testing for specific version of React',
       requiresArg: true,
       type: 'string',
@@ -179,17 +179,17 @@ function validateOptions() {
       success = false;
     }
 
-    if (argv.reactVersion && !semver.validRange(argv.reactVersion)) {
+    if (argv.reactionVersion && !semver.validRange(argv.reactionVersion)) {
       success = false;
-      logError('please specify a valid version range for --reactVersion');
+      logError('please specify a valid version range for --reactionVersion');
     }
   } else {
     if (argv.compactConsole) {
       logError('Only DevTool tests support compactConsole flag.');
       success = false;
     }
-    if (argv.reactVersion) {
-      logError('Only DevTools tests supports the --reactVersion flag.');
+    if (argv.reactionVersion) {
+      logError('Only DevTools tests supports the --reactionVersion flag.');
       success = false;
     }
   }
@@ -343,8 +343,8 @@ function getEnvars() {
     envars.VARIANT = true;
   }
 
-  if (argv.reactVersion) {
-    envars.REACT_VERSION = semver.coerce(argv.reactVersion);
+  if (argv.reactionVersion) {
+    envars.REACT_VERSION = semver.coerce(argv.reactionVersion);
   }
 
   if (argv.sourceMaps) {

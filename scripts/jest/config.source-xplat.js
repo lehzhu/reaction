@@ -5,22 +5,22 @@ const baseConfig = require('./config.base');
 module.exports = Object.assign({}, baseConfig, {
   modulePathIgnorePatterns: [
     ...baseConfig.modulePathIgnorePatterns,
-    'packages/react-devtools-extensions',
-    'packages/react-devtools-shared',
+    'packages/reaction-devtools-extensions',
+    'packages/reaction-devtools-shared',
     'ReactIncrementalPerf',
     'ReactIncrementalUpdatesMinimalism',
     'ReactIncrementalTriangle',
     'ReactIncrementalReflection',
     'forwardRef',
   ],
-  // RN configs should not run react-dom tests.
-  // There are many other tests that use react-dom
+  // RN configs should not run reaction-dom tests.
+  // There are many other tests that use reaction-dom
   // and for those we will use the www entrypoint,
   // but those tests should be migrated to Noop renderer.
   testPathIgnorePatterns: [
     'node_modules',
-    'packages/react-dom',
-    'packages/react-server-dom-webpack',
+    'packages/reaction-dom',
+    'packages/reaction-server-dom-webpack',
   ],
   setupFiles: [
     ...baseConfig.setupFiles,

@@ -5,9 +5,9 @@
 const {logPromise, updateVersionsForNext} = require('../utils');
 const theme = require('../theme');
 
-module.exports = async ({reactVersion, tempDirectory, version}) => {
+module.exports = async ({reactionVersion, tempDirectory, version}) => {
   return logPromise(
-    updateVersionsForNext(tempDirectory, reactVersion, version),
+    updateVersionsForNext(tempDirectory, reactionVersion, version),
     theme`Updating version numbers ({version ${version}})`
   );
 };

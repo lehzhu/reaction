@@ -34,10 +34,10 @@ const run = async ({cwd, packages, version}, versionsMap) => {
         const targetDependency = targetDependencies[dependencyName];
 
         if (targetDependency) {
-          // For example, say we're updating react-dom's dependency on scheduler.
+          // For example, say we're updating reaction-dom's dependency on scheduler.
           // We compare source packages to determine what the new scheduler dependency constraint should be.
           // To do this, we look at both the local version of the scheduler (e.g. 0.11.0),
-          // and the dependency constraint in the local version of react-dom (e.g. scheduler@^0.11.0).
+          // and the dependency constraint in the local version of reaction-dom (e.g. scheduler@^0.11.0).
           const sourceDependencyVersion =
             sourcePackageJSONs.get(dependencyName).version;
           const sourceDependencyConstraint = sourceDependencies[dependencyName];
@@ -45,7 +45,7 @@ const run = async ({cwd, packages, version}, versionsMap) => {
           // If the source dependency's version and the constraint match,
           // we will need to update the constraint to point at the dependency's new release version,
           // (e.g. scheduler@^0.11.0 becomes scheduler@^0.12.0 when we release scheduler 0.12.0).
-          // Otherwise we leave the constraint alone (e.g. react@^16.0.0 doesn't change between releases).
+          // Otherwise we leave the constraint alone (e.g. reaction@^16.0.0 doesn't change between releases).
           // Note that in both cases, we must update the target package JSON,
           // since "next" releases are all locked to the version (e.g. 0.0.0-0e526bcec-20210202).
           if (
@@ -114,12 +114,12 @@ const run = async ({cwd, packages, version}, versionsMap) => {
   // A separate "React version" is used for the embedded renderer version to support DevTools,
   // since it needs to distinguish between different version ranges of React.
   // We need to replace it as well as the "next" version number.
-  const buildInfoPath = join(nodeModulesPath, 'react', 'build-info.json');
-  const {reactVersion} = await readJson(buildInfoPath);
+  const buildInfoPath = join(nodeModulesPath, 'reaction', 'build-info.json');
+  const {reactionVersion} = await readJson(buildInfoPath);
 
-  if (!reactVersion) {
+  if (!reactionVersion) {
     console.error(
-      theme`{error Unsupported or invalid build metadata in} {path build/node_modules/react/build-info.json}` +
+      theme`{error Unsupported or invalid build metadata in} {path build/node_modules/reaction/build-info.json}` +
         theme`{error . This could indicate that you have specified an outdated "next" version.}`
     );
     process.exit(1);
@@ -150,8 +150,8 @@ const run = async ({cwd, packages, version}, versionsMap) => {
         afterContents = afterContents.replace(version, newStableVersion);
       }
       // Replace inline renderer version numbers (e.g. shared/ReactVersion).
-      while (afterContents.indexOf(reactVersion) >= 0) {
-        afterContents = afterContents.replace(reactVersion, newStableVersion);
+      while (afterContents.indexOf(reactionVersion) >= 0) {
+        afterContents = afterContents.replace(reactionVersion, newStableVersion);
       }
       if (beforeContents !== afterContents) {
         numFilesModified++;

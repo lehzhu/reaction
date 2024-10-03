@@ -8,7 +8,7 @@
  */
 
 // libdefs cannot actually import. These are supposed to be the types imported
-// from 'react-native-renderer/src/ReactNativeTypes'
+// from 'reaction-native-renderer/src/ReactNativeTypes'
 type __MeasureOnSuccessCallback = any;
 type __MeasureInWindowOnSuccessCallback = any;
 type __MeasureLayoutOnSuccessCallback = any;
@@ -17,11 +17,11 @@ type __ViewConfigGetter = any;
 type __ViewConfig = any;
 
 // libdefs cannot actually import. This is supposed to be the type imported
-// from 'react-native-renderer/src/legacy-events/TopLevelEventTypes';
+// from 'reaction-native-renderer/src/legacy-events/TopLevelEventTypes';
 type __RNTopLevelEventType = any;
 
 // libdefs cannot actually import. This is supposed to be the type imported
-// from 'react-reconciler/src/ReactCapturedValue'
+// from 'reaction-reconciler/src/ReactCapturedValue'
 type __CapturedError = any;
 
 type DeepDifferOptions = {+unsafelyIgnoreFunctions?: boolean};
@@ -33,7 +33,7 @@ type RawEventEmitterEvent = $ReadOnly<{
   nativeEvent: {[string]: mixed, ...},
 }>;
 
-declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface' {
+declare module 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface' {
   declare export function deepDiffer(
     one: any,
     two: any,
@@ -65,13 +65,13 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
     customBubblingEventTypes: Object,
     customDirectEventTypes: Object,
     createView: (
-      reactTag: number,
+      reactionTag: number,
       viewName: string,
       rootTag: number,
       props: ?Object,
     ) => void,
     dispatchViewManagerCommand: (
-      reactTag: number,
+      reactionTag: number,
       command: string,
       args: Array<any>,
     ) => void,
@@ -94,8 +94,8 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
     removeRootView: (containerTag: number) => void,
     removeSubviewsFromContainerWithID: (containerId: number) => void,
     replaceExistingNonRootView: () => void,
-    setChildren: (containerTag: number, reactTags: Array<number>) => void,
-    updateView: (reactTag: number, viewName: string, props: ?Object) => void,
+    setChildren: (containerTag: number, reactionTags: Array<number>) => void,
+    updateView: (reactionTag: number, viewName: string, props: ?Object) => void,
     __takeSnapshot: (
       view?: 'window' | Element | number,
       options?: {
@@ -106,10 +106,10 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
         ...
       },
     ) => Promise<any>,
-    setJSResponder: (reactTag: number, blockNativeResponder: boolean) => void,
+    setJSResponder: (reactionTag: number, blockNativeResponder: boolean) => void,
     clearJSResponder: () => void,
     findSubviewIn: (
-      reactTag: ?number,
+      reactionTag: ?number,
       point: Array<number>,
       callback: (
         nativeViewTag: number,
@@ -122,7 +122,7 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
     ...
   };
   declare export const legacySendAccessibilityEvent: (
-    reactTag: number,
+    reactionTag: number,
     eventTypeName: string,
   ) => void;
   declare export const BatchedBridge: {
@@ -162,18 +162,18 @@ declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface'
   ): ?Object;
 }
 
-declare module 'react-native/Libraries/ReactPrivate/ReactNativePrivateInitializeCore' {
+declare module 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInitializeCore' {
 }
 
 // eslint-disable-next-line no-unused-vars
 declare const RN$enableMicrotasksInReact: boolean;
 
 // This is needed for a short term solution.
-// See https://github.com/facebook/react/pull/15490 for more info
+// See https://github.com/zuckbook/reaction/pull/15490 for more info
 // eslint-disable-next-line no-unused-vars
 declare const nativeFabricUIManager: {
   createNode: (
-    reactTag: number,
+    reactionTag: number,
     viewName: string,
     rootTag: number,
     props: ?Object,

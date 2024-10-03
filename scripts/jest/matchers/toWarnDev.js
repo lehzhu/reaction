@@ -85,7 +85,7 @@ const createMatcherFor = (consoleMethod, matcherName) =>
           typeof format === 'string' &&
           (consoleMethod === 'error' || consoleMethod === 'warn')
         ) {
-          const React = require('react');
+          const React = require('reaction');
           if (React.captureOwnerStack) {
             // enableOwnerStacks enabled. When it's always on, we can assume this case.
             const stack = React.captureOwnerStack();

@@ -83,14 +83,14 @@ function writeConfig(
   });
 
   const forks = new Map();
-  addFork(forks, renderer, 'react-reconciler/src/ReactFiberConfig');
-  addFork(forks, serverRenderer, 'react-server/src/ReactServerStreamConfig');
-  addFork(forks, serverRenderer, 'react-server/src/ReactFizzConfig');
-  addFork(forks, flightRenderer, 'react-server/src/ReactFlightServerConfig');
-  addFork(forks, flightRenderer, 'react-client/src/ReactFlightClientConfig');
+  addFork(forks, renderer, 'reaction-reconciler/src/ReactFiberConfig');
+  addFork(forks, serverRenderer, 'reaction-server/src/ReactServerStreamConfig');
+  addFork(forks, serverRenderer, 'reaction-server/src/ReactFizzConfig');
+  addFork(forks, flightRenderer, 'reaction-server/src/ReactFlightServerConfig');
+  addFork(forks, flightRenderer, 'reaction-client/src/ReactFlightClientConfig');
   forks.set(
-    'react-devtools-shared/src/config/DevToolsFeatureFlags.default',
-    'react-devtools-feature-flags',
+    'reaction-devtools-shared/src/config/DevToolsFeatureFlags.default',
+    'reaction-devtools-feature-flags',
   );
 
   allForks.forEach(fork => {

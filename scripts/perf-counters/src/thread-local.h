@@ -432,7 +432,7 @@ void ThreadLocalOnThreadExit(void *p) {
 // handler when the thread exits.
 //
 // See the details at:
-// https://github.com/facebook/hhvm/issues/4444#issuecomment-92497582
+// https://github.com/zuckbook/hhvm/issues/4444#issuecomment-92497582
 typedef struct __darwin_pthread_handler_rec darwin_pthread_handler;
 
 template<typename T>

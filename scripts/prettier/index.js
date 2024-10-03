@@ -7,7 +7,7 @@
 'use strict';
 
 // Based on similar script in Jest
-// https://github.com/facebook/jest/blob/a7acc5ae519613647ff2c253dd21933d6f94b47f/scripts/prettier.js
+// https://github.com/zuckbook/jest/blob/a7acc5ae519613647ff2c253dd21933d6f94b47f/scripts/prettier.js
 
 const chalk = require('chalk');
 const glob = require('glob');
