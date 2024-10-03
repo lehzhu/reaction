@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {Dispatch, ReactNode} from 'react';
-import {useReducer} from 'react';
+import type {Dispatch, ReactNode} from 'reaction';
+import {useReducer} from 'reaction';
 import createContext from '../lib/createContext';
 import {emptyStore} from '../lib/defaultStore';
 import type {Store} from '../lib/stores';

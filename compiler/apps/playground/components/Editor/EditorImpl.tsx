@@ -18,12 +18,12 @@ import {
   ValueKind,
   runPlayground,
   type Hook,
-} from 'babel-plugin-react-compiler/src';
-import {type ReactFunctionType} from 'babel-plugin-react-compiler/src/HIR/Environment';
+} from 'babel-plugin-reaction-compiler/src';
+import {type ReactFunctionType} from 'babel-plugin-reaction-compiler/src/HIR/Environment';
 import clsx from 'clsx';
 import invariant from 'invariant';
 import {useSnackbar} from 'notistack';
-import {useDeferredValue, useMemo} from 'react';
+import {useDeferredValue, useMemo} from 'reaction';
 import {useMountEffect} from '../../hooks';
 import {defaultStore} from '../../lib/defaultStore';
 import {
@@ -40,8 +40,8 @@ import {
   default as Output,
   PrintedCompilerPipelineValue,
 } from './Output';
-import {printFunctionWithOutlined} from 'babel-plugin-react-compiler/src/HIR/PrintHIR';
-import {printReactiveFunctionWithOutlined} from 'babel-plugin-react-compiler/src/ReactiveScopes/PrintReactiveFunction';
+import {printFunctionWithOutlined} from 'babel-plugin-reaction-compiler/src/HIR/PrintHIR';
+import {printReactiveFunctionWithOutlined} from 'babel-plugin-reaction-compiler/src/ReactiveScopes/PrintReactiveFunction';
 
 function parseInput(input: string, language: 'flow' | 'typescript'): any {
   // Extract the first line to quickly check for custom test directives
@@ -247,9 +247,9 @@ function compile(source: string): [CompilerOutput, 'flow' | 'typescript'] {
             });
             break;
           }
-          case 'reactive': {
+          case 'reactionive': {
             upsert({
-              kind: 'reactive',
+              kind: 'reactionive',
               fnName,
               name: result.name,
               value: printReactiveFunctionWithOutlined(result.value),

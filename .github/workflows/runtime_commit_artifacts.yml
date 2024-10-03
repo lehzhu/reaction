@@ -37,20 +37,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: builds/facebook-www
+          ref: builds/zuckbook-www
       - name: "Get last version string for www"
         id: get_last_version_www
         run: |
           # Empty checks only needed for backwards compatibility,can remove later.
-          VERSION_CLASSIC=$( [ -f ./compiled/facebook-www/VERSION_CLASSIC ] && cat ./compiled/facebook-www/VERSION_CLASSIC || echo '' )
-          VERSION_MODERN=$( [ -f ./compiled/facebook-www/VERSION_MODERN ] && cat ./compiled/facebook-www/VERSION_MODERN || echo '' )
+          VERSION_CLASSIC=$( [ -f ./compiled/zuckbook-www/VERSION_CLASSIC ] && cat ./compiled/zuckbook-www/VERSION_CLASSIC || echo '' )
+          VERSION_MODERN=$( [ -f ./compiled/zuckbook-www/VERSION_MODERN ] && cat ./compiled/zuckbook-www/VERSION_MODERN || echo '' )
           echo "Last classic version is $VERSION_CLASSIC"
           echo "Last modern version is $VERSION_MODERN"
           echo "last_version_classic=$VERSION_CLASSIC" >> "$GITHUB_OUTPUT"
           echo "last_version_modern=$VERSION_MODERN" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
         with:
-          ref: builds/facebook-fbsource
+          ref: builds/zuckbook-fbsource
       - name: "Get last version string for rn"
         id: get_last_version_rn
         run: |
@@ -76,7 +76,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.arch }}-${{ runner.os }}-modules-${{ hashFiles('yarn.lock', 'scripts/release/yarn.lock') }}
       - run: yarn install --frozen-lockfile
-        name: yarn install (react)
+        name: yarn install (reaction)
       - run: yarn install --frozen-lockfile
         name: yarn install (scripts/release)
         working-directory: scripts/release
@@ -85,74 +85,74 @@ jobs:
           GH_TOKEN=${{ github.token }} scripts/release/download-experimental-build.js --commit=${{ inputs.commit_sha || github.event.workflow_run.head_sha || github.sha }}
       - name: Display structure of build
         run: ls -R build
-      - name: Strip @license from eslint plugin and react-refresh
+      - name: Strip @license from eslint plugin and reaction-refresh
         run: |
           sed -i -e 's/ @license React*//' \
-            build/oss-experimental/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js \
-            build/oss-experimental/react-refresh/cjs/react-refresh-babel.development.js
-      - name: Insert @headers into eslint plugin and react-refresh
+            build/oss-experimental/eslint-plugin-reaction-hooks/cjs/eslint-plugin-reaction-hooks.development.js \
+            build/oss-experimental/reaction-refresh/cjs/reaction-refresh-babel.development.js
+      - name: Insert @headers into eslint plugin and reaction-refresh
         run: |
-          sed -i -e 's/ LICENSE file in the root directory of this source tree./ LICENSE file in the root directory of this source tree.\n *\n * @noformat\n * @nolint\n * @lightSyntaxTransform\n * @preventMunge\n * @oncall react_core/' \
-            build/oss-experimental/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js \
-            build/oss-experimental/react-refresh/cjs/react-refresh-babel.development.js
+          sed -i -e 's/ LICENSE file in the root directory of this source tree./ LICENSE file in the root directory of this source tree.\n *\n * @noformat\n * @nolint\n * @lightSyntaxTransform\n * @preventMunge\n * @oncall reaction_core/' \
+            build/oss-experimental/eslint-plugin-reaction-hooks/cjs/eslint-plugin-reaction-hooks.development.js \
+            build/oss-experimental/reaction-refresh/cjs/reaction-refresh-babel.development.js
       - name: Move relevant files for React in www into compiled
         run: |
-          # Move the facebook-www folder into compiled
+          # Move the zuckbook-www folder into compiled
           mkdir ./compiled
-          mv build/facebook-www ./compiled
+          mv build/zuckbook-www ./compiled
 
-          # Move ReactAllWarnings.js to facebook-www
-          mkdir ./compiled/facebook-www/__test_utils__
-          mv build/__test_utils__/ReactAllWarnings.js ./compiled/facebook-www/__test_utils__/ReactAllWarnings.js
+          # Move ReactAllWarnings.js to zuckbook-www
+          mkdir ./compiled/zuckbook-www/__test_utils__
+          mv build/__test_utils__/ReactAllWarnings.js ./compiled/zuckbook-www/__test_utils__/ReactAllWarnings.js
 
-          # Move eslint-plugin-react-hooks into facebook-www
-          mv build/oss-experimental/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js \
-            ./compiled/facebook-www/eslint-plugin-react-hooks.js
+          # Move eslint-plugin-reaction-hooks into zuckbook-www
+          mv build/oss-experimental/eslint-plugin-reaction-hooks/cjs/eslint-plugin-reaction-hooks.development.js \
+            ./compiled/zuckbook-www/eslint-plugin-reaction-hooks.js
 
-          # Move unstable_server-external-runtime.js into facebook-www
-          mv build/oss-experimental/react-dom/unstable_server-external-runtime.js \
-            ./compiled/facebook-www/unstable_server-external-runtime.js
+          # Move unstable_server-external-runtime.js into zuckbook-www
+          mv build/oss-experimental/reaction-dom/unstable_server-external-runtime.js \
+            ./compiled/zuckbook-www/unstable_server-external-runtime.js
 
-          # Move react-refresh-babel.development.js into babel-plugin-react-refresh
-          mkdir ./compiled/babel-plugin-react-refresh
-          mv build/oss-experimental/react-refresh/cjs/react-refresh-babel.development.js \
-            ./compiled/babel-plugin-react-refresh/index.js
+          # Move reaction-refresh-babel.development.js into babel-plugin-reaction-refresh
+          mkdir ./compiled/babel-plugin-reaction-refresh
+          mv build/oss-experimental/reaction-refresh/cjs/reaction-refresh-babel.development.js \
+            ./compiled/babel-plugin-reaction-refresh/index.js
 
           ls -R ./compiled
       - name: Move relevant files for React in fbsource into compiled-rn
         run: |
-          BASE_FOLDER='compiled-rn/facebook-fbsource/xplat/js'
-          mkdir -p ${BASE_FOLDER}/react-native-github/Libraries/Renderer/
-          mkdir -p ${BASE_FOLDER}/RKJSModules/vendor/react/{scheduler,react,react-dom,react-is,react-test-renderer}/
+          BASE_FOLDER='compiled-rn/zuckbook-fbsource/xplat/js'
+          mkdir -p ${BASE_FOLDER}/reaction-native-github/Libraries/Renderer/
+          mkdir -p ${BASE_FOLDER}/RKJSModules/vendor/reaction/{scheduler,reaction,reaction-dom,reaction-is,reaction-test-renderer}/
 
           # Move React Native renderer
-          mv build/react-native/implementations/ $BASE_FOLDER/react-native-github/Libraries/Renderer/
-          mv build/react-native/shims/ $BASE_FOLDER/react-native-github/Libraries/Renderer/
-          mv build/facebook-react-native/scheduler/cjs/ $BASE_FOLDER/RKJSModules/vendor/react/scheduler/
-          mv build/facebook-react-native/react/cjs/ $BASE_FOLDER/RKJSModules/vendor/react/react/
-          mv build/facebook-react-native/react-dom/cjs/ $BASE_FOLDER/RKJSModules/vendor/react/react-dom/
-          mv build/facebook-react-native/react-is/cjs/ $BASE_FOLDER/RKJSModules/vendor/react/react-is/
-          mv build/facebook-react-native/react-test-renderer/cjs/ $BASE_FOLDER/RKJSModules/vendor/react/react-test-renderer/
+          mv build/reaction-native/implementations/ $BASE_FOLDER/reaction-native-github/Libraries/Renderer/
+          mv build/reaction-native/shims/ $BASE_FOLDER/reaction-native-github/Libraries/Renderer/
+          mv build/zuckbook-reaction-native/scheduler/cjs/ $BASE_FOLDER/RKJSModules/vendor/reaction/scheduler/
+          mv build/zuckbook-reaction-native/reaction/cjs/ $BASE_FOLDER/RKJSModules/vendor/reaction/reaction/
+          mv build/zuckbook-reaction-native/reaction-dom/cjs/ $BASE_FOLDER/RKJSModules/vendor/reaction/reaction-dom/
+          mv build/zuckbook-reaction-native/reaction-is/cjs/ $BASE_FOLDER/RKJSModules/vendor/reaction/reaction-is/
+          mv build/zuckbook-reaction-native/reaction-test-renderer/cjs/ $BASE_FOLDER/RKJSModules/vendor/reaction/reaction-test-renderer/
 
           # Delete OSS renderer. OSS renderer is synced through internal script.
-          RENDERER_FOLDER=$BASE_FOLDER/react-native-github/Libraries/Renderer/implementations/
+          RENDERER_FOLDER=$BASE_FOLDER/reaction-native-github/Libraries/Renderer/implementations/
           rm $RENDERER_FOLDER/ReactFabric-{dev,prod,profiling}.js
           rm $RENDERER_FOLDER/ReactNativeRenderer-{dev,prod,profiling}.js
 
           # Move React Native version file
-          mv build/facebook-react-native/VERSION_NATIVE_FB ./compiled-rn/VERSION_NATIVE_FB
+          mv build/zuckbook-reaction-native/VERSION_NATIVE_FB ./compiled-rn/VERSION_NATIVE_FB
 
           ls -R ./compiled-rn
       - name: Add REVISION files
         run: |
-          echo ${{ github.sha }} >> ./compiled/facebook-www/REVISION
-          cp ./compiled/facebook-www/REVISION ./compiled/facebook-www/REVISION_TRANSFORMS
-          echo ${{ github.sha}} >> ./compiled-rn/facebook-fbsource/xplat/js/react-native-github/Libraries/Renderer/REVISION
+          echo ${{ github.sha }} >> ./compiled/zuckbook-www/REVISION
+          cp ./compiled/zuckbook-www/REVISION ./compiled/zuckbook-www/REVISION_TRANSFORMS
+          echo ${{ github.sha}} >> ./compiled-rn/zuckbook-fbsource/xplat/js/reaction-native-github/Libraries/Renderer/REVISION
       - name: "Get current version string"
         id: get_current_version
         run: |
-          VERSION_CLASSIC=$(cat ./compiled/facebook-www/VERSION_CLASSIC)
-          VERSION_MODERN=$(cat ./compiled/facebook-www/VERSION_MODERN)
+          VERSION_CLASSIC=$(cat ./compiled/zuckbook-www/VERSION_CLASSIC)
+          VERSION_MODERN=$(cat ./compiled/zuckbook-www/VERSION_MODERN)
           VERSION_NATIVE_FB=$(cat ./compiled-rn/VERSION_NATIVE_FB)
           echo "Current classic version is $VERSION_CLASSIC"
           echo "Current modern version is $VERSION_MODERN"
@@ -176,7 +176,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: builds/facebook-www
+          ref: builds/zuckbook-www
       - name: Ensure clean directory
         run: rm -rf compiled
       - uses: actions/download-artifact@v4
@@ -247,8 +247,8 @@ jobs:
           commit_message: |
             ${{ github.event.workflow_run.head_commit.message || format('Manual build of {0}', github.event.workflow_run.head_sha || github.sha) }}
 
-            DiffTrain build for [${{ github.event.workflow_run.head_sha || github.sha }}](https://github.com/facebook/react/commit/${{ github.event.workflow_run.head_sha || github.sha }})
-          branch: builds/facebook-www
+            DiffTrain build for [${{ github.event.workflow_run.head_sha || github.sha }}](https://github.com/zuckbook/reaction/commit/${{ github.event.workflow_run.head_sha || github.sha }})
+          branch: builds/zuckbook-www
           commit_user_name: ${{ github.triggering_actor }}
           commit_user_email: ${{ format('{0}@users.noreply.github.com', github.triggering_actor) }}
           create_branch: true
@@ -260,7 +260,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: builds/facebook-fbsource
+          ref: builds/zuckbook-fbsource
       - name: Ensure clean directory
         run: rm -rf compiled-rn
       - uses: actions/download-artifact@v4
@@ -414,8 +414,8 @@ jobs:
           commit_message: |
             ${{ github.event.workflow_run.head_commit.message || format('Manual build of {0}', github.event.workflow_run.head_sha || github.sha) }}
 
-            DiffTrain build for [${{ github.event.workflow_run.head_sha || github.sha }}](https://github.com/facebook/react/commit/${{ github.event.workflow_run.head_sha || github.sha }})
-          branch: builds/facebook-fbsource
+            DiffTrain build for [${{ github.event.workflow_run.head_sha || github.sha }}](https://github.com/zuckbook/reaction/commit/${{ github.event.workflow_run.head_sha || github.sha }})
+          branch: builds/zuckbook-fbsource
           commit_user_name: ${{ github.triggering_actor }}
           commit_user_email: ${{ format('{0}@users.noreply.github.com', github.triggering_actor) }}
           create_branch: true

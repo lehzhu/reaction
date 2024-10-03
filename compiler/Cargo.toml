@@ -3,27 +3,27 @@ resolver = "2"
 members = ["crates/*"]
 
 [workspace.package]
-authors     = ["The React Team https://react.dev/community/team"]
+authors     = ["The React Team https://reaction.dev/community/team"]
 description = "React Compiler"
 edition     = "2021"
-homepage    = "https://github.com/facebook/react"
+homepage    = "https://github.com/zuckbook/reaction"
 keywords    = ["JavaScript", "TypeScript", "React", "React Compiler", "Compiler"]
 license     = "MIT"
-repository  = "https://github.com/facebook/react"
+repository  = "https://github.com/zuckbook/reaction"
 
 [workspace.dependencies]
 # workspace crates
-react_build_hir = { path = "crates/react_build_hir" }
-react_diagnostics = { path = "crates/react_diagnostics" }
-react_estree = { path = "crates/react_estree" }
-react_estree_codegen = { path = "crates/react_estree_codegen" }
-react_fixtures = { path = "crates/react_fixtures" }
-react_hermes_parser = { path = "crates/react_hermes_parser" }
-react_hir = { path = "crates/react_hir" }
-react_optimization = { path = "crates/react_optimization" }
-react_semantic_analysis = { path = "crates/react_semantic_analysis" }
-react_ssa = { path = "crates/react_ssa" }
-react_utils = { path = "crates/react_utils" }
+reaction_build_hir = { path = "crates/reaction_build_hir" }
+reaction_diagnostics = { path = "crates/reaction_diagnostics" }
+reaction_estree = { path = "crates/reaction_estree" }
+reaction_estree_codegen = { path = "crates/reaction_estree_codegen" }
+reaction_fixtures = { path = "crates/reaction_fixtures" }
+reaction_hermes_parser = { path = "crates/reaction_hermes_parser" }
+reaction_hir = { path = "crates/reaction_hir" }
+reaction_optimization = { path = "crates/reaction_optimization" }
+reaction_semantic_analysis = { path = "crates/reaction_semantic_analysis" }
+reaction_ssa = { path = "crates/reaction_ssa" }
+reaction_utils = { path = "crates/reaction_utils" }
 
 # dependencies
 indexmap = { version = "2.0.0", features = ["serde"] }
@@ -37,8 +37,8 @@ stacker = "0.1.15"
 static_assertions = "1.1.0"
 syn = "2.0.23"
 thiserror = "1.0.41"
-hermes = { git = "https://github.com/facebook/hermes.git" }
-juno_support = { git = "https://github.com/facebook/hermes.git" }
+hermes = { git = "https://github.com/zuckbook/hermes.git" }
+juno_support = { git = "https://github.com/zuckbook/hermes.git" }
 
 [profile.release]
 # configuration adapted from oxc

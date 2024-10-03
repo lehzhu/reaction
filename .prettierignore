@@ -1,27 +1,27 @@
-# react runtime
+# reaction runtime
 build
 
-packages/react-devtools-core/dist
-packages/react-devtools-extensions/chrome/build
-packages/react-devtools-extensions/firefox/build
-packages/react-devtools-extensions/edge/build
-packages/react-devtools-extensions/shared/build
-packages/react-devtools-extensions/src/ErrorTesterCompiled.js
-packages/react-devtools-fusebox/dist
-packages/react-devtools-inline/dist
-packages/react-devtools-shared/src/hooks/__tests__/__source__/__compiled__/
-packages/react-devtools-shared/src/hooks/__tests__/__source__/__untransformed__/
-packages/react-devtools-shell/dist
-packages/react-devtools-timeline/dist
-packages/react-devtools-timeline/static
+packages/reaction-devtools-core/dist
+packages/reaction-devtools-extensions/chrome/build
+packages/reaction-devtools-extensions/firefox/build
+packages/reaction-devtools-extensions/edge/build
+packages/reaction-devtools-extensions/shared/build
+packages/reaction-devtools-extensions/src/ErrorTesterCompiled.js
+packages/reaction-devtools-fusebox/dist
+packages/reaction-devtools-inline/dist
+packages/reaction-devtools-shared/src/hooks/__tests__/__source__/__compiled__/
+packages/reaction-devtools-shared/src/hooks/__tests__/__source__/__untransformed__/
+packages/reaction-devtools-shell/dist
+packages/reaction-devtools-timeline/dist
+packages/reaction-devtools-timeline/static
 
-# react compiler
+# reaction compiler
 compiler/**/dist
 compiler/**/__tests__/fixtures/**/*.expect.md
 compiler/**/.next
 
 # contains invalid graphql`...` which results in a promise rejection error from `yarn prettier-all`.
-compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.todo-kitchensink.js
+compiler/packages/babel-plugin-reaction-compiler/src/__tests__/fixtures/compiler/error.todo-kitchensink.js
 
 compiler/crates
 compiler/apps/playground/public

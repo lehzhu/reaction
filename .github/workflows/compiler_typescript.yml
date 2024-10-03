@@ -30,7 +30,7 @@ jobs:
 
   # Hardcoded to improve parallelism
   lint:
-    name: Lint babel-plugin-react-compiler
+    name: Lint babel-plugin-reaction-compiler
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,11 +45,11 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.arch }}-${{ runner.os }}-modules-${{ hashFiles('compiler/**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
-      - run: yarn workspace babel-plugin-react-compiler lint
+      - run: yarn workspace babel-plugin-reaction-compiler lint
 
   # Hardcoded to improve parallelism
   jest:
-    name: Jest babel-plugin-react-compiler
+    name: Jest babel-plugin-reaction-compiler
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.arch }}-${{ runner.os }}-modules-${{ hashFiles('compiler/**/yarn.lock') }}
       - run: yarn install --frozen-lockfile
-      - run: yarn workspace babel-plugin-react-compiler jest
+      - run: yarn workspace babel-plugin-reaction-compiler jest
 
   test:
     name: Test ${{ matrix.workspace_name }}

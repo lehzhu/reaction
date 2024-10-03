@@ -5,18 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import MonacoEditor, {loader, type Monaco} from '@monaco-editor/react';
-import {CompilerErrorDetail} from 'babel-plugin-react-compiler/src';
+import MonacoEditor, {loader, type Monaco} from '@monaco-editor/reaction';
+import {CompilerErrorDetail} from 'babel-plugin-reaction-compiler/src';
 import invariant from 'invariant';
 import type {editor} from 'monaco-editor';
 import * as monaco from 'monaco-editor';
 import {Resizable} from 're-resizable';
-import {useEffect, useState} from 'react';
-import {renderReactCompilerMarkers} from '../../lib/reactCompilerMonacoDiagnostics';
+import {useEffect, useState} from 'reaction';
+import {renderReactCompilerMarkers} from '../../lib/reactionCompilerMonacoDiagnostics';
 import {useStore, useStoreDispatch} from '../StoreContext';
 import {monacoOptions} from './monacoOptions';
 // @ts-expect-error TODO: Make TS recognize .d.ts files, in addition to loading them with webpack.
-import React$Types from '../../node_modules/@types/react/index.d.ts';
+import React$Types from '../../node_modules/@types/reaction/index.d.ts';
 
 loader.config({monaco});
 
@@ -109,12 +109,12 @@ export default function Input({errors, language}: Props): JSX.Element {
     });
 
     // Add React type declarations to Monaco
-    const reactLib = [
+    const reactionLib = [
       React$Types,
-      'file:///node_modules/@types/react/index.d.ts',
+      'file:///node_modules/@types/reaction/index.d.ts',
     ] as [any, string];
-    monaco.languages.typescript.javascriptDefaults.addExtraLib(...reactLib);
-    monaco.languages.typescript.typescriptDefaults.addExtraLib(...reactLib);
+    monaco.languages.typescript.javascriptDefaults.addExtraLib(...reactionLib);
+    monaco.languages.typescript.typescriptDefaults.addExtraLib(...reactionLib);
 
     /**
      * Remeasure the font in case the custom font is loaded only after

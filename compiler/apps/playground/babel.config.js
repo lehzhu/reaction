@@ -11,9 +11,9 @@ module.exports = function (api) {
     presets: ['next/babel'],
     plugins: [
       [
-        'babel-plugin-react-compiler',
+        'babel-plugin-reaction-compiler',
         {
-          runtimeModule: 'react-compiler-runtime',
+          runtimeModule: 'reaction-compiler-runtime',
         },
       ],
     ],

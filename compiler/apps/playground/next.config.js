@@ -9,7 +9,7 @@ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const path = require('path');
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactionStrictMode: true,
   webpack: (config, options) => {
     // Load *.d.ts files as strings using https://webpack.js.org/guides/asset-modules/#source-assets.
     config.module.rules.push({
@@ -29,9 +29,9 @@ const nextConfig = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      'react-compiler-runtime': path.resolve(
+      'reaction-compiler-runtime': path.resolve(
         __dirname,
-        '../../packages/react-compiler-runtime'
+        '../../packages/reaction-compiler-runtime'
       ),
     };
     config.resolve.fallback = {

@@ -11,13 +11,13 @@ import {
   CodeIcon,
   DocumentAddIcon,
   InformationCircleIcon,
-} from '@heroicons/react/outline';
-import MonacoEditor, {DiffEditor} from '@monaco-editor/react';
-import {type CompilerError} from 'babel-plugin-react-compiler/src';
+} from '@heroicons/reaction/outline';
+import MonacoEditor, {DiffEditor} from '@monaco-editor/reaction';
+import {type CompilerError} from 'babel-plugin-reaction-compiler/src';
 import parserBabel from 'prettier/plugins/babel';
 import * as prettierPluginEstree from 'prettier/plugins/estree';
 import * as prettier from 'prettier/standalone';
-import {memo, ReactNode, useEffect, useState} from 'react';
+import {memo, ReactNode, useEffect, useState} from 'reaction';
 import {type Store} from '../../lib/stores';
 import TabbedWindow from '../TabbedWindow';
 import {monacoOptions} from './monacoOptions';
@@ -38,7 +38,7 @@ export type PrintedCompilerPipelineValue =
       fnName: string | null;
       value: string;
     }
-  | {kind: 'reactive'; name: string; fnName: string | null; value: string}
+  | {kind: 'reactionive'; name: string; fnName: string | null; value: string}
   | {kind: 'debug'; name: string; fnName: string | null; value: string};
 
 export type CompilerOutput =
@@ -77,7 +77,7 @@ async function tabify(
           }
           break;
         }
-        case 'reactive': {
+        case 'reactionive': {
           const prev = concattedResults.get(passName);
           const next = result.value;
           if (prev != null) {
@@ -196,7 +196,7 @@ function Output({store, compilerOutput}: Props): JSX.Element {
   for (const [passName, results] of compilerOutput.results) {
     for (const result of results) {
       let currResult = '';
-      if (result.kind === 'hir' || result.kind === 'reactive') {
+      if (result.kind === 'hir' || result.kind === 'reactionive') {
         currResult += `function ${result.fnName}\n\n${result.value}`;
       }
       if (currResult !== lastResult) {

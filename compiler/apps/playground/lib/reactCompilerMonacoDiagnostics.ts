@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {Monaco} from '@monaco-editor/react';
+import {Monaco} from '@monaco-editor/reaction';
 import {
   CompilerErrorDetail,
   ErrorSeverity,
-} from 'babel-plugin-react-compiler/src';
+} from 'babel-plugin-reaction-compiler/src';
 import {MarkerSeverity, type editor} from 'monaco-editor';
 
 function mapReactCompilerSeverityToMonaco(

@@ -33,17 +33,17 @@ const canaryChannelLabel = 'rc';
 const rcNumber = 0;
 
 const stablePackages = {
-  'eslint-plugin-react-hooks': '5.1.0',
-  'jest-react': '0.16.0',
-  react: ReactVersion,
-  'react-art': ReactVersion,
-  'react-dom': ReactVersion,
-  'react-server-dom-webpack': ReactVersion,
-  'react-server-dom-turbopack': ReactVersion,
-  'react-is': ReactVersion,
-  'react-reconciler': '0.31.0',
-  'react-refresh': '0.16.0',
-  'react-test-renderer': ReactVersion,
+  'eslint-plugin-reaction-hooks': '5.1.0',
+  'jest-reaction': '0.16.0',
+  reaction: ReactVersion,
+  'reaction-art': ReactVersion,
+  'reaction-dom': ReactVersion,
+  'reaction-server-dom-webpack': ReactVersion,
+  'reaction-server-dom-turbopack': ReactVersion,
+  'reaction-is': ReactVersion,
+  'reaction-reconciler': '0.31.0',
+  'reaction-refresh': '0.16.0',
+  'reaction-test-renderer': ReactVersion,
   'use-subscription': '1.10.0',
   'use-sync-external-store': '1.4.0',
   scheduler: '0.25.0',
@@ -52,7 +52,7 @@ const stablePackages = {
 // These packages do not exist in the @canary or @latest channel, only
 // @experimental. We don't use semver, just the commit sha, so this is just a
 // list of package names instead of a map.
-const experimentalPackages = ['react-markup'];
+const experimentalPackages = ['reaction-markup'];
 
 module.exports = {
   ReactVersion,
