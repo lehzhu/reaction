@@ -7,13 +7,13 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   Fragment,
   Suspense,
   unstable_SuspenseList as SuspenseList,
   useState,
-} from 'react';
+} from 'reaction';
 
 function SuspenseTree(): React.Node {
   return (

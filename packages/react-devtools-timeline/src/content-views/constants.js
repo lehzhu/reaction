@@ -194,45 +194,45 @@ export function updateColorsToMatchTheme(element: Element): boolean {
     USER_TIMING_HOVER: computedStyle.getPropertyValue(
       '--color-timeline-user-timing-hover',
     ),
-    REACT_IDLE: computedStyle.getPropertyValue('--color-timeline-react-idle'),
+    REACT_IDLE: computedStyle.getPropertyValue('--color-timeline-reaction-idle'),
     REACT_IDLE_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-idle-hover',
+      '--color-timeline-reaction-idle-hover',
     ),
     REACT_RENDER: computedStyle.getPropertyValue(
-      '--color-timeline-react-render',
+      '--color-timeline-reaction-render',
     ),
     REACT_RENDER_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-render-hover',
+      '--color-timeline-reaction-render-hover',
     ),
     REACT_RENDER_TEXT: computedStyle.getPropertyValue(
-      '--color-timeline-react-render-text',
+      '--color-timeline-reaction-render-text',
     ),
     REACT_COMMIT: computedStyle.getPropertyValue(
-      '--color-timeline-react-commit',
+      '--color-timeline-reaction-commit',
     ),
     REACT_COMMIT_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-commit-hover',
+      '--color-timeline-reaction-commit-hover',
     ),
     REACT_COMMIT_TEXT: computedStyle.getPropertyValue(
-      '--color-timeline-react-commit-text',
+      '--color-timeline-reaction-commit-text',
     ),
     REACT_LAYOUT_EFFECTS: computedStyle.getPropertyValue(
-      '--color-timeline-react-layout-effects',
+      '--color-timeline-reaction-layout-effects',
     ),
     REACT_LAYOUT_EFFECTS_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-layout-effects-hover',
+      '--color-timeline-reaction-layout-effects-hover',
     ),
     REACT_LAYOUT_EFFECTS_TEXT: computedStyle.getPropertyValue(
-      '--color-timeline-react-layout-effects-text',
+      '--color-timeline-reaction-layout-effects-text',
     ),
     REACT_PASSIVE_EFFECTS: computedStyle.getPropertyValue(
-      '--color-timeline-react-passive-effects',
+      '--color-timeline-reaction-passive-effects',
     ),
     REACT_PASSIVE_EFFECTS_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-passive-effects-hover',
+      '--color-timeline-reaction-passive-effects-hover',
     ),
     REACT_PASSIVE_EFFECTS_TEXT: computedStyle.getPropertyValue(
-      '--color-timeline-react-passive-effects-text',
+      '--color-timeline-reaction-passive-effects-text',
     ),
     REACT_RESIZE_BAR: computedStyle.getPropertyValue('--color-resize-bar'),
     REACT_RESIZE_BAR_ACTIVE: computedStyle.getPropertyValue(
@@ -245,28 +245,28 @@ export function updateColorsToMatchTheme(element: Element): boolean {
       '--color-resize-bar-dot',
     ),
     REACT_SCHEDULE: computedStyle.getPropertyValue(
-      '--color-timeline-react-schedule',
+      '--color-timeline-reaction-schedule',
     ),
     REACT_SCHEDULE_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-schedule-hover',
+      '--color-timeline-reaction-schedule-hover',
     ),
     REACT_SUSPENSE_REJECTED_EVENT: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-rejected',
+      '--color-timeline-reaction-suspense-rejected',
     ),
     REACT_SUSPENSE_REJECTED_EVENT_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-rejected-hover',
+      '--color-timeline-reaction-suspense-rejected-hover',
     ),
     REACT_SUSPENSE_RESOLVED_EVENT: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-resolved',
+      '--color-timeline-reaction-suspense-resolved',
     ),
     REACT_SUSPENSE_RESOLVED_EVENT_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-resolved-hover',
+      '--color-timeline-reaction-suspense-resolved-hover',
     ),
     REACT_SUSPENSE_UNRESOLVED_EVENT: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-unresolved',
+      '--color-timeline-reaction-suspense-unresolved',
     ),
     REACT_SUSPENSE_UNRESOLVED_EVENT_HOVER: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-unresolved-hover',
+      '--color-timeline-reaction-suspense-unresolved-hover',
     ),
     REACT_THROWN_ERROR: computedStyle.getPropertyValue(
       '--color-timeline-thrown-error',
@@ -275,14 +275,14 @@ export function updateColorsToMatchTheme(element: Element): boolean {
       '--color-timeline-thrown-error-hover',
     ),
     REACT_WORK_BORDER: computedStyle.getPropertyValue(
-      '--color-timeline-react-work-border',
+      '--color-timeline-reaction-work-border',
     ),
     SCROLL_CARET: computedStyle.getPropertyValue('--color-scroll-caret'),
     SCRUBBER_BACKGROUND: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-rejected',
+      '--color-timeline-reaction-suspense-rejected',
     ),
     SEARCH_RESULT_FILL: computedStyle.getPropertyValue(
-      '--color-timeline-react-suspense-rejected',
+      '--color-timeline-reaction-suspense-rejected',
     ),
     SCRUBBER_BORDER: computedStyle.getPropertyValue(
       '--color-timeline-text-color',

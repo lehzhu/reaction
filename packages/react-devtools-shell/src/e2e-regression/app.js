@@ -2,8 +2,8 @@
 
 // This test harness mounts each test app as a separate root to test multi-root applications.
 
-import * as React from 'react';
-import * as ReactDOMClient from 'react-dom/client';
+import * as React from 'reaction';
+import * as ReactDOMClient from 'reaction-dom/client';
 import ListApp from '../e2e-apps/ListApp';
 
 function mountApp(App: () => React$Node) {

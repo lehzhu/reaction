@@ -9,7 +9,7 @@
 
 import type {ViewState} from './types';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   Suspense,
   useContext,
@@ -17,11 +17,11 @@ import {
   useLayoutEffect,
   useRef,
   useState,
-} from 'react';
-import {SettingsContext} from 'react-devtools-shared/src/devtools/views/Settings/SettingsContext';
-import {ProfilerContext} from 'react-devtools-shared/src/devtools/views/Profiler/ProfilerContext';
-import NoProfilingData from 'react-devtools-shared/src/devtools/views/Profiler/NoProfilingData';
-import RecordingInProgress from 'react-devtools-shared/src/devtools/views/Profiler/RecordingInProgress';
+} from 'reaction';
+import {SettingsContext} from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsContext';
+import {ProfilerContext} from 'reaction-devtools-shared/src/devtools/views/Profiler/ProfilerContext';
+import NoProfilingData from 'reaction-devtools-shared/src/devtools/views/Profiler/NoProfilingData';
+import RecordingInProgress from 'reaction-devtools-shared/src/devtools/views/Profiler/RecordingInProgress';
 import {updateColorsToMatchTheme} from './content-views/constants';
 import {TimelineContext} from './TimelineContext';
 import CanvasPage from './CanvasPage';

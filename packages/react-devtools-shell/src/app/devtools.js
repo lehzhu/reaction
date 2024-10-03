@@ -1,13 +1,13 @@
 /** @flow */
 
-import {createElement} from 'react';
-import {createRoot} from 'react-dom/client';
+import {createElement} from 'reaction';
+import {createRoot} from 'reaction-dom/client';
 import {
   activate as activateBackend,
   initialize as initializeBackend,
-} from 'react-devtools-inline/backend';
-import {initialize as initializeFrontend} from 'react-devtools-inline/frontend';
-import {initDevTools} from 'react-devtools-shared/src/devtools';
+} from 'reaction-devtools-inline/backend';
+import {initialize as initializeFrontend} from 'reaction-devtools-inline/frontend';
+import {initDevTools} from 'reaction-devtools-shared/src/devtools';
 
 // This is a pretty gross hack to make the runtime loaded named-hooks-code work.
 // TODO (Webpack 5) Hoepfully we can remove this once we upgrade to Webpack 5.
@@ -56,7 +56,7 @@ mountButton.addEventListener('click', function () {
 
 // TODO (Webpack 5) Hopefully we can remove this prop after the Webpack 5 migration.
 function hookNamesModuleLoaderFunction() {
-  return import('react-devtools-inline/hookNames');
+  return import('reaction-devtools-inline/hookNames');
 }
 
 inject('dist/app-index.js', () => {

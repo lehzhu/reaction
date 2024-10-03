@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import Immutable from 'immutable';
 
 const set = new Set(['abc', 123]);

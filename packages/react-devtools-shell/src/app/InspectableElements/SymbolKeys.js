@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 
 const base = Object.create(Object.prototype, {
   enumerableStringBase: {

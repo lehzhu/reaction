@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {StrictMode} from 'react';
+import * as React from 'reaction';
+import {StrictMode} from 'reaction';
 
 export default function PartiallyStrictApp(): React.Node {
   return (

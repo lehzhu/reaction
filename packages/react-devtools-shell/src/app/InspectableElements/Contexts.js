@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {createContext, Component, useContext, useState} from 'react';
+import * as React from 'reaction';
+import {createContext, Component, useContext, useState} from 'reaction';
 import PropTypes from 'prop-types';
 
 import type {ReactContext} from 'shared/ReactTypes';

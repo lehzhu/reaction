@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {useState} from 'react';
+import * as React from 'reaction';
+import {useState} from 'reaction';
 
 export default function Toggle() {
   const [show, setShow] = useState(false);

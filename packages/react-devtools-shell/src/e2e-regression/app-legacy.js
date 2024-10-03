@@ -2,11 +2,11 @@
 
 // This test harness mounts each test app as a separate root to test multi-root applications.
 
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from 'reaction';
+import * as ReactDOM from 'reaction-dom';
 import ListApp from '../e2e-apps/ListApp';
 import ListAppLegacy from '../e2e-apps/ListAppLegacy';
-import {gte} from 'react-devtools-shared/src/backend/utils';
+import {gte} from 'reaction-devtools-shared/src/backend/utils';
 
 const version = process.env.E2E_APP_REACT_VERSION;
 

@@ -24,7 +24,7 @@ import type {
   UserTimingMark,
 } from './types';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   formatDuration,
   formatTimestamp,
@@ -49,15 +49,15 @@ type Props = {
 function getReactMeasureLabel(type: ReactMeasureType): string | null {
   switch (type) {
     case 'commit':
-      return 'react commit';
+      return 'reaction commit';
     case 'render-idle':
-      return 'react idle';
+      return 'reaction idle';
     case 'render':
-      return 'react render';
+      return 'reaction render';
     case 'layout-effects':
-      return 'react layout effects';
+      return 'reaction layout effects';
     case 'passive-effects':
-      return 'react passive effects';
+      return 'reaction passive effects';
     default:
       return null;
   }

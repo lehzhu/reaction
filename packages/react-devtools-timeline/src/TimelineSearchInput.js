@@ -7,10 +7,10 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useContext} from 'react';
-import {createPortal} from 'react-dom';
-import SearchInput from 'react-devtools-shared/src/devtools/views/SearchInput';
+import * as React from 'reaction';
+import {useContext} from 'reaction';
+import {createPortal} from 'reaction-dom';
+import SearchInput from 'reaction-devtools-shared/src/devtools/views/SearchInput';
 import {TimelineContext} from './TimelineContext';
 import {TimelineSearchContext} from './TimelineSearchContext';
 

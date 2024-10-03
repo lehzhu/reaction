@@ -10,7 +10,7 @@
 import type {Interaction, Point} from './view-base';
 import type {ReactEventInfo, TimelineData, ViewState} from './types';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   Fragment,
   useContext,
@@ -19,8 +19,8 @@ import {
   useRef,
   useState,
   useCallback,
-} from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
+} from 'reaction';
+import AutoSizer from 'reaction-virtualized-auto-sizer';
 
 import {
   HorizontalPanAndZoomView,
@@ -54,7 +54,7 @@ import {TimelineSearchContext} from './TimelineSearchContext';
 import {TimelineContext} from './TimelineContext';
 import CanvasPageContextMenu from './CanvasPageContextMenu';
 
-import type {ContextMenuRef} from 'react-devtools-shared/src/devtools/ContextMenu/types';
+import type {ContextMenuRef} from 'reaction-devtools-shared/src/devtools/ContextMenu/types';
 
 import styles from './CanvasPage.css';
 
@@ -192,7 +192,7 @@ function AutoSizedCanvas({
   const schedulingEventsViewRef = useRef<null | SchedulingEventsView>(null);
   const suspenseEventsViewRef = useRef<null | SuspenseEventsView>(null);
   const componentMeasuresViewRef = useRef<null | ComponentMeasuresView>(null);
-  const reactMeasuresViewRef = useRef<null | ReactMeasuresView>(null);
+  const reactionMeasuresViewRef = useRef<null | ReactMeasuresView>(null);
   const flamechartViewRef = useRef<null | FlamechartView>(null);
   const networkMeasuresViewRef = useRef<null | NetworkMeasuresView>(null);
   const snapshotsViewRef = useRef<null | SnapshotsView>(null);
@@ -319,7 +319,7 @@ function AutoSizedCanvas({
       schedulingEventsViewRef.current = schedulingEventsView;
       schedulingEventsViewWrapper = createViewHelper(
         schedulingEventsView,
-        'react updates',
+        'reaction updates',
       );
     }
 
@@ -339,15 +339,15 @@ function AutoSizedCanvas({
       );
     }
 
-    const reactMeasuresView = new ReactMeasuresView(
+    const reactionMeasuresView = new ReactMeasuresView(
       surface,
       defaultFrame,
       data,
     );
-    reactMeasuresViewRef.current = reactMeasuresView;
-    const reactMeasuresViewWrapper = createViewHelper(
-      reactMeasuresView,
-      'react scheduling',
+    reactionMeasuresViewRef.current = reactionMeasuresView;
+    const reactionMeasuresViewWrapper = createViewHelper(
+      reactionMeasuresView,
+      'reaction scheduling',
       true,
       true,
     );
@@ -363,7 +363,7 @@ function AutoSizedCanvas({
       componentMeasuresViewRef.current = componentMeasuresView;
       componentMeasuresViewWrapper = createViewHelper(
         componentMeasuresView,
-        'react components',
+        'reaction components',
       );
     }
 
@@ -438,8 +438,8 @@ function AutoSizedCanvas({
     if (suspenseEventsViewWrapper !== null) {
       rootView.addSubview(suspenseEventsViewWrapper);
     }
-    if (reactMeasuresViewWrapper !== null) {
-      rootView.addSubview(reactMeasuresViewWrapper);
+    if (reactionMeasuresViewWrapper !== null) {
+      rootView.addSubview(reactionMeasuresViewWrapper);
     }
     if (componentMeasuresViewWrapper !== null) {
       rootView.addSubview(componentMeasuresViewWrapper);
@@ -486,7 +486,7 @@ function AutoSizedCanvas({
     //
     // TODO It would be nice to remove this call for performance reasons.
     // To do that, we'll need to address the UX bug with VerticalScrollOverflowView.
-    // For more info see: https://github.com/facebook/react/pull/22005#issuecomment-896953399
+    // For more info see: https://github.com/zuckbook/reaction/pull/22005#issuecomment-896953399
     surface.displayIfNeeded();
 
     canvas.style.cursor = surface.getCurrentCursor() || 'default';
@@ -559,9 +559,9 @@ function AutoSizedCanvas({
       };
     }
 
-    const {current: reactMeasuresView} = reactMeasuresViewRef;
-    if (reactMeasuresView) {
-      reactMeasuresView.onHover = measure => {
+    const {current: reactionMeasuresView} = reactionMeasuresViewRef;
+    if (reactionMeasuresView) {
+      reactionMeasuresView.onHover = measure => {
         if (!hoveredEvent || hoveredEvent.measure !== measure) {
           updateHoveredEvent({
             ...EMPTY_CONTEXT_INFO,
@@ -670,9 +670,9 @@ function AutoSizedCanvas({
       );
     }
 
-    const reactMeasuresView = reactMeasuresViewRef.current;
-    if (reactMeasuresView) {
-      reactMeasuresView.setHoveredMeasure(
+    const reactionMeasuresView = reactionMeasuresViewRef.current;
+    if (reactionMeasuresView) {
+      reactionMeasuresView.setHoveredMeasure(
         hoveredEvent ? hoveredEvent.measure : null,
       );
     }

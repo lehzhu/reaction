@@ -1,8 +1,8 @@
 /** @flow */
 
-import * as React from 'react';
-import {Fragment} from 'react';
-import {createPortal} from 'react-dom';
+import * as React from 'reaction';
+import {Fragment} from 'reaction';
+import {createPortal} from 'reaction-dom';
 
 export default function Iframe(): React.Node {
   return (

@@ -236,11 +236,11 @@ function processEventDispatch(
   const data = event.args.data;
   const type = data.type;
 
-  if (type.startsWith('react-')) {
+  if (type.startsWith('reaction-')) {
     const stackTrace = data.stackTrace;
     if (stackTrace) {
       const topFrame = stackTrace[stackTrace.length - 1];
-      if (topFrame.url.includes('/react-dom.')) {
+      if (topFrame.url.includes('/reaction-dom.')) {
         // Filter out fake React events dispatched by invokeGuardedCallbackDev.
         return;
       }
@@ -476,9 +476,9 @@ function processTimelineEvent(
       }
       break;
     case 'blink.user_timing':
-      if (name.startsWith('--react-version-')) {
-        const [reactVersion] = name.slice(16).split('-');
-        currentProfilerData.reactVersion = reactVersion;
+      if (name.startsWith('--reaction-version-')) {
+        const [reactionVersion] = name.slice(16).split('-');
+        currentProfilerData.reactionVersion = reactionVersion;
       } else if (name.startsWith('--profiler-version-')) {
         const [versionString] = name.slice(19).split('-');
         profilerVersion = parseInt(versionString, 10);
@@ -487,7 +487,7 @@ function processTimelineEvent(
             `This version of profiling data (${versionString}) is not supported by the current profiler.`,
           );
         }
-      } else if (name.startsWith('--react-lane-labels-')) {
+      } else if (name.startsWith('--reaction-lane-labels-')) {
         const [laneLabelTuplesString] = name.slice(20).split('-');
         updateLaneToLabelMap(currentProfilerData, laneLabelTuplesString);
       } else if (name.startsWith('--component-')) {
@@ -739,7 +739,7 @@ function processTimelineEvent(
           currentProfilerData,
           state.measureStack,
         );
-      } else if (name.startsWith('--react-internal-module-start-')) {
+      } else if (name.startsWith('--reaction-internal-module-start-')) {
         const stackFrameStart = name.slice(30);
 
         if (!state.internalModuleStackStringSet.has(stackFrameStart)) {
@@ -749,7 +749,7 @@ function processTimelineEvent(
 
           state.internalModuleCurrentStackFrame = parsedStackFrameStart;
         }
-      } else if (name.startsWith('--react-internal-module-stop-')) {
+      } else if (name.startsWith('--reaction-internal-module-stop-')) {
         const stackFrameStop = name.slice(29);
 
         if (!state.internalModuleStackStringSet.has(stackFrameStop)) {
@@ -954,7 +954,7 @@ function processReactComponentMeasure(
 function preprocessFlamechart(rawData: TimelineEvent[]): Flamechart {
   let parsedData;
   try {
-    parsedData = importFromChromeTimeline(rawData, 'react-devtools');
+    parsedData = importFromChromeTimeline(rawData, 'reaction-devtools');
   } catch (error) {
     // Assume any Speedscope errors are caused by bad profiles
     const errorToRethrow = new InvalidProfileError(error.message);
@@ -1026,7 +1026,7 @@ export default async function preprocessData(
     nativeEvents: [],
     networkMeasures: [],
     otherUserTimingMarks: [],
-    reactVersion: null,
+    reactionVersion: null,
     schedulingEvents: [],
     snapshots: [],
     snapshotHeight: 0,

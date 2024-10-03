@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import * as React from 'react';
-import {useState} from 'react';
-import {createRoot} from 'react-dom/client';
+import * as React from 'reaction';
+import {useState} from 'reaction';
+import {createRoot} from 'reaction-dom/client';
 
 function createContainer() {
   const container = document.createElement('div');

@@ -4,8 +4,8 @@
 
 import semver from 'semver';
 
-import {createElement} from 'react';
-import {createRoot} from 'react-dom/client';
+import {createElement} from 'reaction';
+import {createRoot} from 'reaction-dom/client';
 
 import DeeplyNestedComponents from './DeeplyNestedComponents';
 import Iframe from './Iframe';
@@ -31,14 +31,14 @@ ignoreErrors([
   'Warning: Unsafe lifecycle methods',
   'Warning: %s is deprecated in StrictMode.', // findDOMNode
   'Warning: ReactDOM.render was removed in React 19',
-  'Warning: react-test-renderer is deprecated',
+  'Warning: reaction-test-renderer is deprecated',
   // Ignore prefixed and not prefixed since I don't know which
   // React versions are being tested by this code.
   'Legacy context API',
   'Unsafe lifecycle methods',
   '%s is deprecated in StrictMode.', // findDOMNode
   'ReactDOM.render was removed in React 19',
-  'react-test-renderer is deprecated',
+  'reaction-test-renderer is deprecated',
 ]);
 ignoreWarnings([
   'Warning: componentWillReceiveProps has been renamed',
@@ -81,7 +81,7 @@ function mountStrictApp(App) {
 
 function mountLegacyApp(App: () => React$Node) {
   // $FlowFixMe[prop-missing]: These are removed in 19.
-  const {render, unmountComponentAtNode} = require('react-dom');
+  const {render, unmountComponentAtNode} = require('reaction-dom');
 
   function LegacyRender() {
     return createElement(App);

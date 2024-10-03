@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {c as useMemoCache} from 'react/compiler-runtime';
+import * as React from 'reaction';
+import {c as useMemoCache} from 'reaction/compiler-runtime';
 
 export default function UseMemoCache(): React.Node {
   useMemoCache(1);

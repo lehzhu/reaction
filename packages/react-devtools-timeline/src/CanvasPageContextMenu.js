@@ -7,12 +7,12 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useMemo} from 'react';
+import * as React from 'reaction';
+import {useMemo} from 'reaction';
 import {copy} from 'clipboard-js';
 import prettyMilliseconds from 'pretty-ms';
 
-import ContextMenuContainer from 'react-devtools-shared/src/devtools/ContextMenu/ContextMenuContainer';
+import ContextMenuContainer from 'reaction-devtools-shared/src/devtools/ContextMenu/ContextMenuContainer';
 
 import {getBatchRange} from './utils/getBatchRange';
 import {moveStateToRange} from './view-base/utils/scrollState';
@@ -21,7 +21,7 @@ import {MAX_ZOOM_LEVEL, MIN_ZOOM_LEVEL} from './view-base/constants';
 import type {
   ContextMenuItem,
   ContextMenuRef,
-} from 'react-devtools-shared/src/devtools/ContextMenu/types';
+} from 'reaction-devtools-shared/src/devtools/ContextMenu/types';
 import type {
   ReactEventInfo,
   ReactMeasure,

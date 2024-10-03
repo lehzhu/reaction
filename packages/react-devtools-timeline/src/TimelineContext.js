@@ -9,7 +9,7 @@
 
 import type {ReactContext, RefObject} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   useContext,
@@ -17,8 +17,8 @@ import {
   useRef,
   useState,
   useSyncExternalStore,
-} from 'react';
-import {StoreContext} from 'react-devtools-shared/src/devtools/views/context';
+} from 'reaction';
+import {StoreContext} from 'reaction-devtools-shared/src/devtools/views/context';
 
 import type {
   HorizontalScrollStateChangeCallback,

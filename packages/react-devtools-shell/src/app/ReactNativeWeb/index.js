@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useState} from 'react';
-import {Button, Text, View} from 'react-native-web';
+import * as React from 'reaction';
+import {Fragment, useState} from 'reaction';
+import {Button, Text, View} from 'reaction-native-web';
 
 export default function ReactNativeWeb(): React.Node {
   const [backgroundColor, setBackgroundColor] = useState('purple');

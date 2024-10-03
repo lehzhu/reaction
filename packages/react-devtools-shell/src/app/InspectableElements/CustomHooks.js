@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   forwardRef,
@@ -20,8 +20,8 @@ import {
   useOptimistic,
   useState,
   use,
-} from 'react';
-import {useFormState, useFormStatus} from 'react-dom';
+} from 'reaction';
+import {useFormState, useFormStatus} from 'reaction-dom';
 
 const object = {
   string: 'abc',

@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useRef, useState} from 'react';
+import * as React from 'reaction';
+import {useRef, useState} from 'reaction';
 
 export default function App(): React.Node {
   return <List />;

@@ -7,19 +7,19 @@
  * @noflow
  */
 
-import * as React from 'react';
-import {createRoot} from 'react-dom/client';
+import * as React from 'reaction';
+import {createRoot} from 'reaction-dom/client';
 import {
   activate as activateBackend,
   createBridge as createBackendBridge,
   initialize as initializeBackend,
-} from 'react-devtools-inline/backend';
+} from 'reaction-devtools-inline/backend';
 import {
   createBridge as createFrontendBridge,
   createStore,
   initialize as createDevTools,
-} from 'react-devtools-inline/frontend';
-import {__DEBUG__} from 'react-devtools-shared/src/constants';
+} from 'reaction-devtools-inline/frontend';
+import {__DEBUG__} from 'reaction-devtools-shared/src/constants';
 
 function inject(contentDocument, sourcePath, callback) {
   const script = contentDocument.createElement('script');

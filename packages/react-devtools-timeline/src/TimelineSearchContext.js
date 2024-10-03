@@ -9,8 +9,8 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
-import {createContext, useMemo, useReducer} from 'react';
+import * as React from 'reaction';
+import {createContext, useMemo, useReducer} from 'reaction';
 
 import type {ReactComponentMeasure, TimelineData, ViewState} from './types';
 

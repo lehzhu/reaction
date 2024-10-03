@@ -1,7 +1,7 @@
 /** @flow */
 
-import * as React from 'react';
-import {Fragment, useEffect, useRef, useState} from 'react';
+import * as React from 'reaction';
+import {Fragment, useEffect, useRef, useState} from 'reaction';
 
 // $FlowFixMe[missing-local-annot]
 function WarnDuringRender({children = null}) {

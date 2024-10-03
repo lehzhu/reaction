@@ -7,10 +7,10 @@
  * @flow
  */
 
-import {createResource} from 'react-devtools-shared/src/devtools/cache';
+import {createResource} from 'reaction-devtools-shared/src/devtools/cache';
 import {importFile} from './import-worker';
 
-import type {Resource} from 'react-devtools-shared/src/devtools/cache';
+import type {Resource} from 'reaction-devtools-shared/src/devtools/cache';
 import type {TimelineData} from './types';
 import type {ImportWorkerOutputData} from './import-worker/index';
 

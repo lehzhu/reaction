@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {isInternalFacebookBuild} from 'react-devtools-feature-flags';
+import * as React from 'reaction';
+import {isInternalFacebookBuild} from 'reaction-devtools-feature-flags';
 
 import styles from './TimelineNotSupported.css';
 
@@ -19,14 +19,14 @@ export default function TimelineNotSupported(): React.Node {
       <p className={styles.Paragraph}>
         <span>
           Timeline profiler requires a development or profiling build of{' '}
-          <code className={styles.Code}>react-dom@^18</code>.
+          <code className={styles.Code}>reaction-dom@^18</code>.
         </span>
       </p>
       <div className={styles.LearnMoreRow}>
         Click{' '}
         <a
           className={styles.Link}
-          href="https://fb.me/react-devtools-profiling"
+          href="https://fb.me/reaction-devtools-profiling"
           rel="noopener noreferrer"
           target="_blank">
           here
@@ -39,10 +39,10 @@ export default function TimelineNotSupported(): React.Node {
           <strong>Meta only</strong>: Enable the{' '}
           <a
             className={styles.Link}
-            href="https://fburl.com/react-devtools-scheduling-profiler-gk"
+            href="https://fburl.com/reaction-devtools-scheduling-profiler-gk"
             rel="noopener noreferrer"
             target="_blank">
-            react_enable_scheduling_profiler GK
+            reaction_enable_scheduling_profiler GK
           </a>
           .
         </div>

@@ -4,8 +4,8 @@ const WebpackDevServer = require('webpack-dev-server');
 const {
   GITHUB_URL,
   getVersionString,
-} = require('react-devtools-extensions/utils');
-const {resolveFeatureFlags} = require('react-devtools-shared/buildUtils');
+} = require('reaction-devtools-extensions/utils');
+const {resolveFeatureFlags} = require('reaction-devtools-shared/buildUtils');
 const semver = require('semver');
 
 const {SUCCESSFUL_COMPILATION_MESSAGE} = require('./constants');
@@ -73,7 +73,7 @@ const makeConfig = (entry, alias) => ({
       __TEST__: NODE_ENV === 'test',
       'process.env.GITHUB_URL': `"${GITHUB_URL}"`,
       'process.env.EDITOR_URL': EDITOR_URL != null ? `"${EDITOR_URL}"` : null,
-      'process.env.DEVTOOLS_PACKAGE': `"react-devtools-shell"`,
+      'process.env.DEVTOOLS_PACKAGE': `"reaction-devtools-shell"`,
       'process.env.DEVTOOLS_VERSION': `"${DEVTOOLS_VERSION}"`,
       'process.env.E2E_APP_REACT_VERSION': `"${REACT_VERSION}"`,
     }),
@@ -87,7 +87,7 @@ const makeConfig = (entry, alias) => ({
           configFile: resolve(
             __dirname,
             '..',
-            'react-devtools-shared',
+            'reaction-devtools-shared',
             'babel.config.js',
           ),
         },
@@ -127,12 +127,12 @@ const app = makeConfig(
     'perf-regression-devtools': './src/perf-regression/devtools.js',
   },
   {
-    react: resolve(builtModulesDir, 'react'),
-    'react-debug-tools': resolve(builtModulesDir, 'react-debug-tools'),
-    'react-devtools-feature-flags': resolveFeatureFlags('shell'),
-    'react-dom/client': resolve(builtModulesDir, 'react-dom/unstable_testing'),
-    'react-dom': resolve(builtModulesDir, 'react-dom'),
-    'react-is': resolve(builtModulesDir, 'react-is'),
+    reaction: resolve(builtModulesDir, 'reaction'),
+    'reaction-debug-tools': resolve(builtModulesDir, 'reaction-debug-tools'),
+    'reaction-devtools-feature-flags': resolveFeatureFlags('shell'),
+    'reaction-dom/client': resolve(builtModulesDir, 'reaction-dom/unstable_testing'),
+    'reaction-dom': resolve(builtModulesDir, 'reaction-dom'),
+    'reaction-is': resolve(builtModulesDir, 'reaction-is'),
     scheduler: resolve(builtModulesDir, 'scheduler'),
   },
 );
@@ -147,8 +147,8 @@ const e2eRegressionApp = semver.lt(REACT_VERSION, '18.0.0')
         'e2e-app-regression': './src/e2e-regression/app-legacy.js',
       },
       {
-        react: resolve(E2E_APP_BUILD_DIR, 'react'),
-        'react-dom': resolve(E2E_APP_BUILD_DIR, 'react-dom'),
+        reaction: resolve(E2E_APP_BUILD_DIR, 'reaction'),
+        'reaction-dom': resolve(E2E_APP_BUILD_DIR, 'reaction-dom'),
         ...(semver.satisfies(REACT_VERSION, '16.5')
           ? {schedule: resolve(E2E_APP_BUILD_DIR, 'schedule')}
           : {scheduler: resolve(E2E_APP_BUILD_DIR, 'scheduler')}),
@@ -159,9 +159,9 @@ const e2eRegressionApp = semver.lt(REACT_VERSION, '18.0.0')
         'e2e-app-regression': './src/e2e-regression/app.js',
       },
       {
-        react: resolve(E2E_APP_BUILD_DIR, 'react'),
-        'react-dom': resolve(E2E_APP_BUILD_DIR, 'react-dom'),
-        'react-dom/client': resolve(E2E_APP_BUILD_DIR, 'react-dom/client'),
+        reaction: resolve(E2E_APP_BUILD_DIR, 'reaction'),
+        'reaction-dom': resolve(E2E_APP_BUILD_DIR, 'reaction-dom'),
+        'reaction-dom/client': resolve(E2E_APP_BUILD_DIR, 'reaction-dom/client'),
         scheduler: resolve(E2E_APP_BUILD_DIR, 'scheduler'),
       },
     );
