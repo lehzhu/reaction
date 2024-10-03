@@ -20,7 +20,7 @@ import ReactNativeGlobalResponderHandler from './ReactNativeGlobalResponderHandl
 import ResponderEventPlugin from './legacy-events/ResponderEventPlugin';
 
 // Module provided by RN:
-import {RCTEventEmitter} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+import {RCTEventEmitter} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
 /**
  * Register the event emitter with the native bridge

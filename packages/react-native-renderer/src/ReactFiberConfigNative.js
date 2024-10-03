@@ -14,7 +14,7 @@ import {
   ReactNativeViewConfigRegistry,
   UIManager,
   deepFreezeAndThrowOnMutationInDev,
-} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
 import {create, diff} from './ReactNativeAttributePayload';
 import {
@@ -29,8 +29,8 @@ import {
   DefaultEventPriority,
   NoEventPriority,
   type EventPriority,
-} from 'react-reconciler/src/ReactEventPriorities';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+} from 'reaction-reconciler/src/ReactEventPriorities';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 
 import {REACT_CONTEXT_TYPE} from 'shared/ReactSymbols';
 import type {ReactContext} from 'shared/ReactTypes';
@@ -41,8 +41,8 @@ import {
   getInspectorDataForInstance,
 } from './ReactNativeFiberInspector';
 
-export {default as rendererVersion} from 'shared/ReactVersion'; // TODO: Consider exporting the react-native version.
-export const rendererPackageName = 'react-native-renderer';
+export {default as rendererVersion} from 'shared/ReactVersion'; // TODO: Consider exporting the reaction-native version.
+export const rendererPackageName = 'reaction-native-renderer';
 export const extraDevToolsConfig = {
   getInspectorDataForInstance,
   getInspectorDataForViewTag,
@@ -104,13 +104,13 @@ function recursivelyUncacheFiberNode(node: Instance | TextInstance) {
   }
 }
 
-export * from 'react-reconciler/src/ReactFiberConfigWithNoPersistence';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoHydration';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoScopes';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoTestSelectors';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoMicrotasks';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoResources';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoSingletons';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoPersistence';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoHydration';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoScopes';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoTestSelectors';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoMicrotasks';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoResources';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoSingletons';
 
 export function appendInitialChild(
   parentInstance: Instance,
@@ -140,7 +140,7 @@ export function createInstance(
   const updatePayload = create(props, viewConfig.validAttributes);
 
   UIManager.createView(
-    tag, // reactTag
+    tag, // reactionTag
     viewConfig.uiViewClassName, // viewName
     rootContainerInstance, // rootTag
     updatePayload, // props
@@ -173,7 +173,7 @@ export function createTextInstance(
   const tag = allocateTag();
 
   UIManager.createView(
-    tag, // reactTag
+    tag, // reactionTag
     'RCTRawText', // viewName
     rootContainerInstance, // rootTag
     {text: text}, // props
@@ -205,7 +205,7 @@ export function finalizeInitialChildren(
 
   UIManager.setChildren(
     parentInstance._nativeTag, // containerTag
-    nativeTags, // reactTags
+    nativeTags, // reactionTags
   );
 
   return false;
@@ -268,7 +268,7 @@ export function shouldSetTextContent(type: string, props: Props): boolean {
   // But creates an additional child Fiber for raw text children.
   // No additional native views are created though.
   // It's not clear to me which is better so I'm deferring for now.
-  // More context @ github.com/facebook/react/pull/8560#discussion_r92111303
+  // More context @ github.com/zuckbook/reaction/pull/8560#discussion_r92111303
   return false;
 }
 
@@ -347,7 +347,7 @@ export function appendChildToContainer(
   const childTag = typeof child === 'number' ? child : child._nativeTag;
   UIManager.setChildren(
     parentInstance, // containerTag
-    [childTag], // reactTags
+    [childTag], // reactionTags
   );
 }
 
@@ -357,7 +357,7 @@ export function commitTextUpdate(
   newText: string,
 ): void {
   UIManager.updateView(
-    textInstance, // reactTag
+    textInstance, // reactionTag
     'RCTRawText', // viewName
     {text: newText}, // props
   );
@@ -390,7 +390,7 @@ export function commitUpdate(
   // view invalidation for certain components (eg RCTTextInput) on iOS.
   if (updatePayload != null) {
     UIManager.updateView(
-      instance._nativeTag, // reactTag
+      instance._nativeTag, // reactionTag
       viewConfig.uiViewClassName, // viewName
       updatePayload, // props
     );

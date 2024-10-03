@@ -8,7 +8,7 @@
  */
 
 import type {ReactNodeList} from 'shared/ReactTypes';
-import type {ErrorInfo} from 'react-server/src/ReactFizzServer';
+import type {ErrorInfo} from 'reaction-server/src/ReactFizzServer';
 
 import ReactVersion from 'shared/ReactVersion';
 
@@ -17,7 +17,7 @@ import {
   startWork as startFizzWork,
   startFlowing as startFizzFlowing,
   abort as abortFizz,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import {
   createResumableState,

@@ -7,7 +7,7 @@
 
 'use strict';
 
-// TODO: Move flattenStyle into react
+// TODO: Move flattenStyle into reaction
 
 function flattenStyle() {}
 

@@ -11,4 +11,4 @@ export {
   prerenderToNodeStream,
   resumeAndPrerenderToNodeStream,
   version,
-} from './src/server/react-dom-server.node';
+} from './src/server/reaction-dom-server.node';

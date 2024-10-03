@@ -19,7 +19,7 @@ import ReactDOMSharedInternals from 'shared/ReactDOMSharedInternals';
 import {
   getCrossOriginString,
   getCrossOriginStringAs,
-} from 'react-dom-bindings/src/shared/crossOriginStrings';
+} from 'reaction-dom-bindings/src/shared/crossOriginStrings';
 
 export function prefetchDNS(href: string) {
   if (__DEV__) {

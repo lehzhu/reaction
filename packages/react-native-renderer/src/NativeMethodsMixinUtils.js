@@ -34,7 +34,7 @@ export function mountSafeCallback_NOT_REALLY_SAFE(
     // define isMounted() anymore, so those checks didn't do anything.
 
     // They caused false positive warning noise so we removed them:
-    // https://github.com/facebook/react-native/issues/18868#issuecomment-413579095
+    // https://github.com/zuckbook/reaction-native/issues/18868#issuecomment-413579095
 
     // However, this means that the callback is NOT guaranteed to be safe
     // for host components. The solution we should implement is to make

@@ -8,7 +8,7 @@
  */
 
 import {disableLegacyMode} from 'shared/ReactFeatureFlags';
-import {DiscreteEventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import {DiscreteEventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 
 import ReactSharedInternals from 'shared/ReactSharedInternals';
 
@@ -52,7 +52,7 @@ function flushSyncImpl<R>(fn: (() => R) | void): R | void {
 declare function flushSyncErrorInBuildsThatSupportLegacyMode<R>(fn: () => R): R;
 declare function flushSyncErrorInBuildsThatSupportLegacyMode(void): void;
 function flushSyncErrorInBuildsThatSupportLegacyMode() {
-  // eslint-disable-next-line react-internal/prod-error-codes
+  // eslint-disable-next-line reaction-internal/prod-error-codes
   throw new Error(
     'Expected this build of React to not support legacy mode but it does. This is a bug in React.',
   );

@@ -8,7 +8,7 @@
  */
 
 import type {Node, HostComponent} from './ReactNativeTypes';
-import type {ElementRef, ElementType} from 'react';
+import type {ElementRef, ElementType} from 'reaction';
 
 // Modules provided by RN:
 import {
@@ -17,18 +17,18 @@ import {
   getNodeFromPublicInstance,
   getNativeTagFromPublicInstance,
   getInternalInstanceHandleFromPublicInstance,
-} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
 import {
   findHostInstance,
   findHostInstanceWithWarning,
-} from 'react-reconciler/src/ReactFiberReconciler';
-import {doesFiberContain} from 'react-reconciler/src/ReactFiberTreeReflection';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
+import {doesFiberContain} from 'reaction-reconciler/src/ReactFiberTreeReflection';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
 import {
   current as currentOwner,
   isRendering,
-} from 'react-reconciler/src/ReactCurrentFiber';
+} from 'reaction-reconciler/src/ReactCurrentFiber';
 
 export function findHostInstance_DEPRECATED<TElementType: ElementType>(
   componentOrHandle: ?(ElementRef<TElementType> | number),

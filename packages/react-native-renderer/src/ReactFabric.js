@@ -8,8 +8,8 @@
  */
 
 import type {ReactPortal, ReactNodeList} from 'shared/ReactTypes';
-import type {ElementRef, Element, ElementType} from 'react';
-import type {FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {ElementRef, Element, ElementType} from 'reaction';
+import type {FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {RenderRootOptions} from './ReactNativeTypes';
 
 import './ReactFabricInjection';
@@ -24,13 +24,13 @@ import {
   defaultOnUncaughtError,
   defaultOnCaughtError,
   defaultOnRecoverableError,
-} from 'react-reconciler/src/ReactFiberReconciler';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
 
-import {createPortal as createPortalImpl} from 'react-reconciler/src/ReactPortal';
+import {createPortal as createPortalImpl} from 'reaction-reconciler/src/ReactPortal';
 import {setBatchingImplementation} from './legacy-events/ReactGenericBatching';
 
 import {getInspectorDataForInstance} from './ReactNativeFiberInspector';
-import {LegacyRoot, ConcurrentRoot} from 'react-reconciler/src/ReactRootTags';
+import {LegacyRoot, ConcurrentRoot} from 'reaction-reconciler/src/ReactRootTags';
 import {
   findHostInstance_DEPRECATED,
   findNodeHandle,
@@ -42,7 +42,7 @@ import {
 import {getPublicInstanceFromInternalInstanceHandle} from './ReactFiberConfigFabric';
 
 // Module provided by RN:
-import {ReactFiberErrorDialog} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+import {ReactFiberErrorDialog} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 import {disableLegacyMode} from 'shared/ReactFeatureFlags';
 
 if (typeof ReactFiberErrorDialog.showErrorDialog !== 'function') {

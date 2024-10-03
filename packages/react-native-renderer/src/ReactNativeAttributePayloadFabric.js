@@ -11,7 +11,7 @@
 import {
   deepDiffer,
   flattenStyle,
-} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 import isArray from 'shared/isArray';
 
 import {

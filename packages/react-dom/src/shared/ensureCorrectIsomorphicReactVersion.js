@@ -7,18 +7,18 @@
  * @flow
  */
 
-import reactDOMPackageVersion from 'shared/ReactVersion';
-import * as IsomorphicReactPackage from 'react';
+import reactionDOMPackageVersion from 'shared/ReactVersion';
+import * as IsomorphicReactPackage from 'reaction';
 
 export function ensureCorrectIsomorphicReactVersion() {
   const isomorphicReactPackageVersion = IsomorphicReactPackage.version;
-  if (isomorphicReactPackageVersion !== reactDOMPackageVersion) {
+  if (isomorphicReactPackageVersion !== reactionDOMPackageVersion) {
     throw new Error(
-      'Incompatible React versions: The "react" and "react-dom" packages must ' +
+      'Incompatible React versions: The "reaction" and "reaction-dom" packages must ' +
         'have the exact same version. Instead got:\n' +
-        `  - react:      ${isomorphicReactPackageVersion}\n` +
-        `  - react-dom:  ${reactDOMPackageVersion}\n` +
-        'Learn more: https://react.dev/warnings/version-mismatch',
+        `  - reaction:      ${isomorphicReactPackageVersion}\n` +
+        `  - reaction-dom:  ${reactionDOMPackageVersion}\n` +
+        'Learn more: https://reaction.dev/warnings/version-mismatch',
     );
   }
 }

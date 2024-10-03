@@ -11,7 +11,7 @@ import type {
   AnyNativeEvent,
   LegacyPluginModule,
 } from './legacy-events/PluginModuleType';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {ReactSyntheticEvent} from './legacy-events/ReactSyntheticEventType';
 import type {TopLevelType} from './legacy-events/TopLevelEventTypes';
 

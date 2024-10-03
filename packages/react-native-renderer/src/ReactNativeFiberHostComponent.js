@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {ElementRef} from 'react';
+import type {ElementRef} from 'reaction';
 import type {
   HostComponent,
   MeasureInWindowOnSuccessCallback,
@@ -22,7 +22,7 @@ import type {Instance} from './ReactFiberConfigNative';
 import {
   TextInputState,
   UIManager,
-} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
 import {create} from './ReactNativeAttributePayload';
 import {

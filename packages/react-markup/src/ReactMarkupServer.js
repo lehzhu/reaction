@@ -8,12 +8,12 @@
  */
 
 import type {ReactNodeList} from 'shared/ReactTypes';
-import type {LazyComponent} from 'react/src/ReactLazy';
-import type {ErrorInfo} from 'react-server/src/ReactFizzServer';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
+import type {ErrorInfo} from 'reaction-server/src/ReactFizzServer';
 
 import ReactVersion from 'shared/ReactVersion';
 
-import ReactSharedInternalsServer from 'react-server/src/ReactSharedInternalsServer';
+import ReactSharedInternalsServer from 'reaction-server/src/ReactSharedInternalsServer';
 import ReactSharedInternalsClient from 'shared/ReactSharedInternals';
 
 import {
@@ -21,21 +21,21 @@ import {
   startWork as startFlightWork,
   startFlowing as startFlightFlowing,
   abort as abortFlight,
-} from 'react-server/src/ReactFlightServer';
+} from 'reaction-server/src/ReactFlightServer';
 
 import {
   createResponse as createFlightResponse,
   getRoot as getFlightRoot,
   processStringChunk as processFlightStringChunk,
   close as closeFlight,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
 import {
   createRequest as createFizzRequest,
   startWork as startFizzWork,
   startFlowing as startFizzFlowing,
   abort as abortFizz,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import {
   createResumableState,

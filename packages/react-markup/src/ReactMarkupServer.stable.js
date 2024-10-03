@@ -7,5 +7,5 @@
  * @flow
  */
 
-// eslint-disable-next-line react-internal/prod-error-codes
-throw new Error('react-markup should not get built in stable');
+// eslint-disable-next-line reaction-internal/prod-error-codes
+throw new Error('reaction-markup should not get built in stable');

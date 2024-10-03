@@ -9,7 +9,7 @@ import isArray from 'shared/isArray';
 
 import {enableOwnerStacks} from 'shared/ReactFeatureFlags';
 
-import {runWithFiberInDEV} from 'react-reconciler/src/ReactCurrentFiber';
+import {runWithFiberInDEV} from 'reaction-reconciler/src/ReactCurrentFiber';
 
 let hasError = false;
 let caughtError = null;

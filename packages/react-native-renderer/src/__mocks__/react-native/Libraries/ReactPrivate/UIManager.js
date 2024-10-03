@@ -77,12 +77,12 @@ const RCTUIManager = {
     return roots.map(tag => dumpSubtree(tag, 0)).join('\n');
   },
   clearJSResponder: jest.fn(),
-  createView: jest.fn(function createView(reactTag, viewName, rootTag, props) {
-    if (views.has(reactTag)) {
-      throw new Error(`Created two native views with tag ${reactTag}`);
+  createView: jest.fn(function createView(reactionTag, viewName, rootTag, props) {
+    if (views.has(reactionTag)) {
+      throw new Error(`Created two native views with tag ${reactionTag}`);
     }
 
-    views.set(reactTag, {
+    views.set(reactionTag, {
       children: [],
       parent: null,
       props: props,
@@ -92,7 +92,7 @@ const RCTUIManager = {
   dispatchViewManagerCommand: jest.fn(),
   sendAccessibilityEvent: jest.fn(),
   setJSResponder: jest.fn(),
-  setChildren: jest.fn(function setChildren(parentTag, reactTags) {
+  setChildren: jest.fn(function setChildren(parentTag, reactionTags) {
     autoCreateRoot(parentTag);
 
     // Native doesn't actually check this but it seems like a good idea
@@ -101,7 +101,7 @@ const RCTUIManager = {
     }
 
     // This logic ported from iOS (RCTUIManager.m)
-    reactTags.forEach((tag, i) => {
+    reactionTags.forEach((tag, i) => {
       insertSubviewAtIndex(parentTag, tag, i);
     });
   }),

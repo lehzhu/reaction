@@ -44,14 +44,14 @@ const RCTFabricUIManager = {
     return result.join('\n');
   },
   createNode: jest.fn(
-    function createNode(reactTag, viewName, rootTag, props, eventTarget) {
-      if (allocatedTags.has(reactTag)) {
-        throw new Error(`Created two native views with tag ${reactTag}`);
+    function createNode(reactionTag, viewName, rootTag, props, eventTarget) {
+      if (allocatedTags.has(reactionTag)) {
+        throw new Error(`Created two native views with tag ${reactionTag}`);
       }
 
-      allocatedTags.add(reactTag);
+      allocatedTags.add(reactionTag);
       return {
-        reactTag: reactTag,
+        reactionTag: reactionTag,
         viewName: viewName,
         props: props,
         children: [],
@@ -60,7 +60,7 @@ const RCTFabricUIManager = {
   ),
   cloneNode: jest.fn(function cloneNode(node) {
     return {
-      reactTag: node.reactTag,
+      reactionTag: node.reactionTag,
       viewName: node.viewName,
       props: node.props,
       children: node.children,
@@ -69,7 +69,7 @@ const RCTFabricUIManager = {
   cloneNodeWithNewChildren: jest.fn(
     function cloneNodeWithNewChildren(node, children) {
       return {
-        reactTag: node.reactTag,
+        reactionTag: node.reactionTag,
         viewName: node.viewName,
         props: node.props,
         children: children ?? [],
@@ -79,7 +79,7 @@ const RCTFabricUIManager = {
   cloneNodeWithNewProps: jest.fn(
     function cloneNodeWithNewProps(node, newPropsDiff) {
       return {
-        reactTag: node.reactTag,
+        reactionTag: node.reactionTag,
         viewName: node.viewName,
         props: {...node.props, ...newPropsDiff},
         children: node.children,
@@ -95,7 +95,7 @@ const RCTFabricUIManager = {
       }
 
       return {
-        reactTag: node.reactTag,
+        reactionTag: node.reactionTag,
         viewName: node.viewName,
         props: {...node.props, ...newPropsDiff},
         children,

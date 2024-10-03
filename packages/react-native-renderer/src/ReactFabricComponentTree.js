@@ -13,7 +13,7 @@ import type {
   Props,
   TextInstance,
 } from './ReactFiberConfigFabric';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import {getPublicInstance} from './ReactFiberConfigFabric';
 
 // `node` is typed incorrectly here. The proper type should be `PublicInstance`.

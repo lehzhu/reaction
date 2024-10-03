@@ -11,4 +11,4 @@ export {
   prerender,
   resumeAndPrerender,
   version,
-} from './src/server/react-dom-server.edge';
+} from './src/server/reaction-dom-server.edge';

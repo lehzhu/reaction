@@ -14,19 +14,19 @@ import type {
   ResumableState,
   HoistableState,
   FormatContext,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
-import {pushStartInstance as pushStartInstanceImpl} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+import {pushStartInstance as pushStartInstanceImpl} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
 import type {
   Destination,
   Chunk,
   PrecomputedChunk,
-} from 'react-server/src/ReactServerStreamConfig';
+} from 'reaction-server/src/ReactServerStreamConfig';
 
-import type {FormStatus} from 'react-dom-bindings/src/shared/ReactDOMFormActions';
+import type {FormStatus} from 'reaction-dom-bindings/src/shared/ReactDOMFormActions';
 
-import {NotPending} from 'react-dom-bindings/src/shared/ReactDOMFormActions';
+import {NotPending} from 'reaction-dom-bindings/src/shared/ReactDOMFormActions';
 
 import hasOwnProperty from 'shared/hasOwnProperty';
 
@@ -36,14 +36,14 @@ export const isPrimaryRenderer = false;
 // Disable Client Hooks
 export const supportsClientAPIs = false;
 
-import {stringToChunk} from 'react-server/src/ReactServerStreamConfig';
+import {stringToChunk} from 'reaction-server/src/ReactServerStreamConfig';
 
 export type {
   RenderState,
   ResumableState,
   HoistableState,
   FormatContext,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
 export {
   getChildFormatContext,
@@ -75,9 +75,9 @@ export {
   completeResumableState,
   emitEarlyPreloads,
   doctypeChunk,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
-import escapeTextForBrowser from 'react-dom-bindings/src/server/escapeTextForBrowser';
+import escapeTextForBrowser from 'reaction-dom-bindings/src/server/escapeTextForBrowser';
 
 export function pushStartInstance(
   target: Array<Chunk | PrecomputedChunk>,

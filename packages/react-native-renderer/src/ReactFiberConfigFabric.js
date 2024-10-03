@@ -19,9 +19,9 @@ import {
   DefaultEventPriority,
   DiscreteEventPriority,
   type EventPriority,
-} from 'react-reconciler/src/ReactEventPriorities';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
-import {HostText} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactEventPriorities';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
+import {HostText} from 'reaction-reconciler/src/ReactWorkTags';
 
 // Modules provided by RN:
 import {
@@ -31,7 +31,7 @@ import {
   createPublicTextInstance,
   type PublicInstance as ReactNativePublicInstance,
   type PublicTextInstance,
-} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
 const {
   createNode,
@@ -63,8 +63,8 @@ import {
 import {REACT_CONTEXT_TYPE} from 'shared/ReactSymbols';
 import type {ReactContext} from 'shared/ReactTypes';
 
-export {default as rendererVersion} from 'shared/ReactVersion'; // TODO: Consider exporting the react-native version.
-export const rendererPackageName = 'react-native-renderer';
+export {default as rendererVersion} from 'shared/ReactVersion'; // TODO: Consider exporting the reaction-native version.
+export const rendererPackageName = 'reaction-native-renderer';
 export const extraDevToolsConfig = {
   getInspectorDataForInstance,
   getInspectorDataForViewTag,
@@ -139,12 +139,12 @@ if (registerEventHandler) {
   registerEventHandler(dispatchEvent);
 }
 
-export * from 'react-reconciler/src/ReactFiberConfigWithNoMutation';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoHydration';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoScopes';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoTestSelectors';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoResources';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoSingletons';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoMutation';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoHydration';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoScopes';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoTestSelectors';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoResources';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoSingletons';
 
 export function appendInitialChild(
   parentInstance: Instance,
@@ -178,7 +178,7 @@ export function createInstance(
   const updatePayload = create(props, viewConfig.validAttributes);
 
   const node = createNode(
-    tag, // reactTag
+    tag, // reactionTag
     viewConfig.uiViewClassName, // viewName
     rootContainerInstance, // rootTag
     updatePayload, // props
@@ -219,7 +219,7 @@ export function createTextInstance(
   nextReactTag += 2;
 
   const node = createNode(
-    tag, // reactTag
+    tag, // reactionTag
     'RCTRawText', // viewName
     rootContainerInstance, // rootTag
     {text: text}, // props
@@ -337,7 +337,7 @@ export function shouldSetTextContent(type: string, props: Props): boolean {
   // But creates an additional child Fiber for raw text children.
   // No additional native views are created though.
   // It's not clear to me which is better so I'm deferring for now.
-  // More context @ github.com/facebook/react/pull/8560#discussion_r92111303
+  // More context @ github.com/zuckbook/reaction/pull/8560#discussion_r92111303
   return false;
 }
 

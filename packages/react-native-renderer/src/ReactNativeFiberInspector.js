@@ -7,27 +7,27 @@
  * @flow
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {TouchedViewDataAtPoint, InspectorData} from './ReactNativeTypes';
 
 import {
   findCurrentHostFiber,
   findCurrentFiberUsingSlowPath,
-} from 'react-reconciler/src/ReactFiberTreeReflection';
+} from 'reaction-reconciler/src/ReactFiberTreeReflection';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
-import {HostComponent} from 'react-reconciler/src/ReactWorkTags';
+import {HostComponent} from 'reaction-reconciler/src/ReactWorkTags';
 // Module provided by RN:
 import {
   UIManager,
   getNodeFromPublicInstance,
-} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 import {enableGetInspectorDataForInstanceInProduction} from 'shared/ReactFeatureFlags';
 import {getClosestInstanceFromNode} from './ReactNativeComponentTree';
 import {
   getNodeFromInternalInstanceHandle,
   findNodeHandle,
 } from './ReactNativePublicCompat';
-import {getStackByFiberInDevAndProd} from 'react-reconciler/src/ReactFiberComponentStack';
+import {getStackByFiberInDevAndProd} from 'reaction-reconciler/src/ReactFiberComponentStack';
 
 const emptyObject = {};
 if (__DEV__) {

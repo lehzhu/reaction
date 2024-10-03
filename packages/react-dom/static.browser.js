@@ -11,4 +11,4 @@ export {
   prerender,
   resumeAndPrerender,
   version,
-} from './src/server/react-dom-server.browser';
+} from './src/server/reaction-dom-server.browser';

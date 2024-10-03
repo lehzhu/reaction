@@ -8,7 +8,7 @@
  * @flow
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {TopLevelType} from './TopLevelEventTypes';
 
 export type DispatchConfig = {

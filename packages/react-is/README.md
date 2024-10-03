@@ -1,4 +1,4 @@
-# `react-is`
+# `reaction-is`
 
 This package allows you to test arbitrary values and see if they're a particular React element type.
 
@@ -6,10 +6,10 @@ This package allows you to test arbitrary values and see if they're a particular
 
 ```sh
 # Yarn
-yarn add react-is
+yarn add reaction-is
 
 # NPM
-npm install react-is
+npm install reaction-is
 ```
 
 ## Usage
@@ -17,8 +17,8 @@ npm install react-is
 ### Determining if a Component is Valid
 
 ```js
-import React from "react";
-import * as ReactIs from "react-is";
+import React from "reaction";
+import * as ReactIs from "reaction-is";
 
 class ClassComponent extends React.Component {
   render() {
@@ -47,8 +47,8 @@ ReactIs.isValidElementType(Context.Consumer); // true
 #### Context
 
 ```js
-import React from "react";
-import * as ReactIs from 'react-is';
+import React from "reaction";
+import * as ReactIs from 'reaction-is';
 
 const ThemeContext = React.createContext("blue");
 
@@ -61,8 +61,8 @@ ReactIs.typeOf(<ThemeContext.Consumer />) === ReactIs.ContextConsumer; // true
 #### Element
 
 ```js
-import React from "react";
-import * as ReactIs from 'react-is';
+import React from "reaction";
+import * as ReactIs from 'reaction-is';
 
 ReactIs.isElement(<div />); // true
 ReactIs.typeOf(<div />) === ReactIs.Element; // true
@@ -71,8 +71,8 @@ ReactIs.typeOf(<div />) === ReactIs.Element; // true
 #### Fragment
 
 ```js
-import React from "react";
-import * as ReactIs from 'react-is';
+import React from "reaction";
+import * as ReactIs from 'reaction-is';
 
 ReactIs.isFragment(<></>); // true
 ReactIs.typeOf(<></>) === ReactIs.Fragment; // true
@@ -81,9 +81,9 @@ ReactIs.typeOf(<></>) === ReactIs.Fragment; // true
 #### Portal
 
 ```js
-import React from "react";
-import ReactDOM from "react-dom";
-import * as ReactIs from 'react-is';
+import React from "reaction";
+import ReactDOM from "reaction-dom";
+import * as ReactIs from 'reaction-is';
 
 const div = document.createElement("div");
 const portal = ReactDOM.createPortal(<div />, div);
@@ -95,8 +95,8 @@ ReactIs.typeOf(portal) === ReactIs.Portal; // true
 #### StrictMode
 
 ```js
-import React from "react";
-import * as ReactIs from 'react-is';
+import React from "reaction";
+import * as ReactIs from 'reaction-is';
 
 ReactIs.isStrictMode(<React.StrictMode />); // true
 ReactIs.typeOf(<React.StrictMode />) === ReactIs.StrictMode; // true

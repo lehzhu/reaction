@@ -15,11 +15,11 @@ import type {TopLevelType} from './legacy-events/TopLevelEventTypes';
 import SyntheticEvent from './legacy-events/SyntheticEvent';
 
 // Module provided by RN:
-import {ReactNativeViewConfigRegistry} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+import {ReactNativeViewConfigRegistry} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 import accumulateInto from './legacy-events/accumulateInto';
 import getListener from './ReactNativeGetListener';
 import forEachAccumulated from './legacy-events/forEachAccumulated';
-import {HostComponent} from 'react-reconciler/src/ReactWorkTags';
+import {HostComponent} from 'reaction-reconciler/src/ReactWorkTags';
 
 const {customBubblingEventTypes, customDirectEventTypes} =
   ReactNativeViewConfigRegistry;

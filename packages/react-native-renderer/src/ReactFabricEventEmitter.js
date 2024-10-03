@@ -11,7 +11,7 @@ import type {
   AnyNativeEvent,
   LegacyPluginModule,
 } from './legacy-events/PluginModuleType';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {ReactSyntheticEvent} from './legacy-events/ReactSyntheticEventType';
 import type {
   RNTopLevelEventType,
@@ -28,7 +28,7 @@ import accumulateInto from './legacy-events/accumulateInto';
 import getListener from './ReactNativeGetListener';
 import {runEventsInBatch} from './legacy-events/EventBatching';
 
-import {RawEventEmitter} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+import {RawEventEmitter} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 import {getPublicInstance} from './ReactFiberConfigFabric';
 
 export {getListener, registrationNameModules as registrationNames};

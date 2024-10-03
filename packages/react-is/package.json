@@ -1,22 +1,22 @@
 {
-  "name": "react-is",
+  "name": "reaction-is",
   "version": "19.0.0",
   "description": "Brand checking of React Elements.",
   "main": "index.js",
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react-is"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-is"
   },
   "keywords": [
-    "react"
+    "reaction"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/facebook/react/issues"
+    "url": "https://github.com/zuckbook/reaction/issues"
   },
-  "homepage": "https://react.dev/",
+  "homepage": "https://reaction.dev/",
   "files": [
     "LICENSE",
     "README.md",

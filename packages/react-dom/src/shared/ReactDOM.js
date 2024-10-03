@@ -11,8 +11,8 @@ import type {ReactNodeList} from 'shared/ReactTypes';
 
 import ReactVersion from 'shared/ReactVersion';
 
-import {isValidContainer} from 'react-dom-bindings/src/client/ReactDOMContainer';
-import {createPortal as createPortalImpl} from 'react-reconciler/src/ReactPortal';
+import {isValidContainer} from 'reaction-dom-bindings/src/client/ReactDOMContainer';
+import {createPortal as createPortalImpl} from 'reaction-reconciler/src/ReactPortal';
 import {flushSync} from './ReactDOMFlushSync';
 
 import {
@@ -27,7 +27,7 @@ import {
   requestFormReset,
   useFormStatus,
   useFormState,
-} from 'react-dom-bindings/src/shared/ReactDOMFormActions';
+} from 'reaction-dom-bindings/src/shared/ReactDOMFormActions';
 
 if (__DEV__) {
   if (
@@ -43,7 +43,7 @@ if (__DEV__) {
   ) {
     console.error(
       'React depends on Map and Set built-in types. Make sure that you load a ' +
-        'polyfill in older browsers. https://reactjs.org/link/react-polyfills',
+        'polyfill in older browsers. https://reactionjs.org/link/reaction-polyfills',
     );
   }
 }

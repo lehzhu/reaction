@@ -14,7 +14,7 @@ import type {
   ElementType,
   MixedElement,
   AbstractComponent,
-} from 'react';
+} from 'reaction';
 
 export type MeasureOnSuccessCallback = (
   x: number,

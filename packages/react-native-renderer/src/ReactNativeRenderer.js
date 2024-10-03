@@ -8,8 +8,8 @@
  */
 
 import type {ReactPortal, ReactNodeList} from 'shared/ReactTypes';
-import type {ElementRef, ElementType, MixedElement} from 'react';
-import type {FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {ElementRef, ElementType, MixedElement} from 'reaction';
+import type {FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {RenderRootOptions} from './ReactNativeTypes';
 
 import './ReactNativeInjection';
@@ -24,20 +24,20 @@ import {
   defaultOnUncaughtError,
   defaultOnCaughtError,
   defaultOnRecoverableError,
-} from 'react-reconciler/src/ReactFiberReconciler';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
 // TODO: direct imports like some-package/src/* are bad. Fix me.
-import {getStackByFiberInDevAndProd} from 'react-reconciler/src/ReactFiberComponentStack';
-import {createPortal as createPortalImpl} from 'react-reconciler/src/ReactPortal';
+import {getStackByFiberInDevAndProd} from 'reaction-reconciler/src/ReactFiberComponentStack';
+import {createPortal as createPortalImpl} from 'reaction-reconciler/src/ReactPortal';
 import {
   setBatchingImplementation,
   batchedUpdates,
 } from './legacy-events/ReactGenericBatching';
 // Modules provided by RN:
-import {UIManager} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+import {UIManager} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
 import {getClosestInstanceFromNode} from './ReactNativeComponentTree';
 import {getInspectorDataForInstance} from './ReactNativeFiberInspector';
-import {LegacyRoot} from 'react-reconciler/src/ReactRootTags';
+import {LegacyRoot} from 'reaction-reconciler/src/ReactRootTags';
 import {
   findHostInstance_DEPRECATED,
   findNodeHandle,
@@ -49,19 +49,19 @@ import {
 import {disableLegacyMode} from 'shared/ReactFeatureFlags';
 
 // Module provided by RN:
-import {ReactFiberErrorDialog} from 'react-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
+import {ReactFiberErrorDialog} from 'reaction-native/Libraries/ReactPrivate/ReactNativePrivateInterface';
 
-import reactNativePackageVersion from 'shared/ReactVersion';
-import * as IsomorphicReactPackage from 'react';
+import reactionNativePackageVersion from 'shared/ReactVersion';
+import * as IsomorphicReactPackage from 'reaction';
 
 const isomorphicReactPackageVersion = IsomorphicReactPackage.version;
-if (isomorphicReactPackageVersion !== reactNativePackageVersion) {
+if (isomorphicReactPackageVersion !== reactionNativePackageVersion) {
   throw new Error(
-    'Incompatible React versions: The "react" and "react-native-renderer" packages must ' +
+    'Incompatible React versions: The "reaction" and "reaction-native-renderer" packages must ' +
       'have the exact same version. Instead got:\n' +
-      `  - react:                  ${isomorphicReactPackageVersion}\n` +
-      `  - react-native-renderer:  ${reactNativePackageVersion}\n` +
-      'Learn more: https://react.dev/warnings/version-mismatch',
+      `  - reaction:                  ${isomorphicReactPackageVersion}\n` +
+      `  - reaction-native-renderer:  ${reactionNativePackageVersion}\n` +
+      'Learn more: https://reaction.dev/warnings/version-mismatch',
   );
 }
 
@@ -194,8 +194,8 @@ function createPortal(
 
 setBatchingImplementation(batchedUpdatesImpl, discreteUpdates);
 
-function computeComponentStackForErrorReporting(reactTag: number): string {
-  const fiber = getClosestInstanceFromNode(reactTag);
+function computeComponentStackForErrorReporting(reactionTag: number): string {
+  const fiber = getClosestInstanceFromNode(reactionTag);
   if (!fiber) {
     return '';
   }

@@ -1,17 +1,17 @@
-# `react-markup`
+# `reaction-markup`
 
-This package provides the ability to render standalone HTML from Server Components for use in embedded contexts such as e-mails and RSS/Atom feeds. It cannot use Client Components and does not hydrate. It is intended to be paired with the generic React package, which is shipped as `react` to npm.
+This package provides the ability to render standalone HTML from Server Components for use in embedded contexts such as e-mails and RSS/Atom feeds. It cannot use Client Components and does not hydrate. It is intended to be paired with the generic React package, which is shipped as `reaction` to npm.
 
 ## Installation
 
 ```sh
-npm install react react-markup
+npm install reaction reaction-markup
 ```
 
 ## Usage
 
 ```js
-import { experimental_renderToHTML as renderToHTML } from 'react-markup';
+import { experimental_renderToHTML as renderToHTML } from 'reaction-markup';
 import EmailTemplate from './my-email-template-component.js'
 
 async function action(email, name) {
@@ -23,14 +23,14 @@ async function action(email, name) {
 }
 ```
 
-Note that this is an async function that needs to be awaited - unlike the legacy `renderToString` in `react-dom`.
+Note that this is an async function that needs to be awaited - unlike the legacy `renderToString` in `reaction-dom`.
 
 ## API
 
-### `react-markup`
+### `reaction-markup`
 
-See https://react.dev/reference/react-markup
+See https://reaction.dev/reference/reaction-markup
 
 ## Thanks
 
-The React team thanks [Nikolai Mavrenkov](https://www.koluch.ru/) for donating the `react-markup` package name.
+The React team thanks [Nikolai Mavrenkov](https://www.koluch.ru/) for donating the `reaction-markup` package name.
