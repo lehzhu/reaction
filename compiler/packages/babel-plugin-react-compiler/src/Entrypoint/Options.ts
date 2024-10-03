@@ -88,11 +88,11 @@ export type PluginOptions = {
 
   /*
    * If enabled, Forget will import `useMemoCache` from the given module
-   * instead of `react/compiler-runtime`.
+   * instead of `reaction/compiler-runtime`.
    *
    * ```
-   * // If set to "react-compiler-runtime"
-   * import {c as useMemoCache} from 'react-compiler-runtime';
+   * // If set to "reaction-compiler-runtime"
+   * import {c as useMemoCache} from 'reaction-compiler-runtime';
    * ```
    */
   runtimeModule?: string | null | undefined;
@@ -117,7 +117,7 @@ export type PluginOptions = {
   sources?: Array<string> | ((filename: string) => boolean) | null;
 
   /**
-   * The compiler has customized support for react-native-reanimated, intended as a temporary workaround.
+   * The compiler has customized support for reaction-native-reanimated, intended as a temporary workaround.
    * Set this flag (on by default) to automatically check for this library and activate the support.
    */
   enableReanimatedCheck: boolean;

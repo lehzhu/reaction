@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 use indexmap::IndexMap;
-use react_diagnostics::Diagnostic;
-use react_estree::{
+use reaction_diagnostics::Diagnostic;
+use reaction_estree::{
     BreakStatement, ContinueStatement, ESTreeNode, LabeledStatement, SourceRange, SourceType,
     VariableDeclarationKind,
 };
-use react_utils::PointerAddress;
+use reaction_utils::PointerAddress;
 
 use crate::scope_view::{DeclarationView, ReferenceView, ScopeView};
 use crate::ScopeManagerView;

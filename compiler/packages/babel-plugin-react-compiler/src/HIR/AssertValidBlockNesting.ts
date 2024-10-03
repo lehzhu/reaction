@@ -37,7 +37,7 @@ import {
  * }
  * ```
  *
- * Scope = reactive scope whose range has been correctly aligned and merged.
+ * Scope = reactionive scope whose range has been correctly aligned and merged.
  */
 type Block =
   | ({

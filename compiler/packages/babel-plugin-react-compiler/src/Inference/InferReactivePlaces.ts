@@ -32,41 +32,41 @@ import DisjointSet from '../Utils/DisjointSet';
 import {assertExhaustive} from '../Utils/utils';
 
 /*
- * Infers which `Place`s are reactive, ie may *semantically* change
- * over the course of the component/hook's lifetime. Places are reactive
- * if they derive from source source of reactivity, which includes the
+ * Infers which `Place`s are reactionive, ie may *semantically* change
+ * over the course of the component/hook's lifetime. Places are reactionive
+ * if they derive from source source of reactionivity, which includes the
  * following categories.
  *
  * ## Props
  *
- * Props may change so they're reactive:
+ * Props may change so they're reactionive:
  *
  * ## Hooks
  *
- * Hooks may access state or context, which can change so they're reactive.
+ * Hooks may access state or context, which can change so they're reactionive.
  *
- * ## Mutation with reactive operands
+ * ## Mutation with reactionive operands
  *
- * Any value that is mutated in an instruction that also has reactive operands
- * could cause the modified value to capture a reference to the reactive value,
- * making the mutated value reactive.
+ * Any value that is mutated in an instruction that also has reactionive operands
+ * could cause the modified value to capture a reference to the reactionive value,
+ * making the mutated value reactionive.
  *
  * Ex:
  * ```
  * function Component(props) {
- *    const x = {}; // not yet reactive
+ *    const x = {}; // not yet reactionive
  *    x.y = props.y;
  * }
  * ```
  *
- * Here `x` is modified in an instruction that has a reactive operand (`props.y`)
- * so x becomes reactive.
+ * Here `x` is modified in an instruction that has a reactionive operand (`props.y`)
+ * so x becomes reactionive.
  *
- * ## Conditional assignment based on a reactive condition
+ * ## Conditional assignment based on a reactionive condition
  *
- * Conditionally reassigning a variable based on a condition which is reactive means
+ * Conditionally reassigning a variable based on a condition which is reactionive means
  * that the value being assigned could change, hence that variable also becomes
- * reactive.
+ * reactionive.
  *
  * ```
  * function Component(props) {
@@ -80,14 +80,14 @@ import {assertExhaustive} from '../Utils/utils';
  * }
  * ```
  *
- * Here `x` is never assigned a reactive value (it is assigned the constant 1 or 2) but
- * the condition, `props.cond`, is reactive, and therefore `x` could change reactively too.
+ * Here `x` is never assigned a reactionive value (it is assigned the constant 1 or 2) but
+ * the condition, `props.cond`, is reactionive, and therefore `x` could change reactionively too.
  *
  *
  * # Algorithm
  *
- * The algorithm uses a fixpoint iteration in order to propagate reactivity "forward" through
- * the control-flow graph. We track whether each IdentifierId is reactive and terminate when
+ * The algorithm uses a fixpoint iteration in order to propagate reactionivity "forward" through
+ * the control-flow graph. We track whether each IdentifierId is reactionive and terminate when
  * there are no changes after a given pass over the CFG.
  *
  * Note that in Forget it's possible to create a "readonly" reference to a value where
@@ -103,17 +103,17 @@ import {assertExhaustive} from '../Utils/utils';
  *
  * Here `z` is never used to mutate the value, but it is aliasing `x` which
  * is mutated after the creation of the alias. The pass needs to account for
- * values which become reactive via mutability, and propagate this reactivity
+ * values which become reactionive via mutability, and propagate this reactionivity
  * to these readonly aliases. Using forward data flow is insufficient since
  * this information needs to propagate "backwards" from the `x.push(props.input)`
  * to the previous `z = [x]` line. We use a fixpoint iteration even if the
  * program has no back edges to accomplish this.
  */
 export function inferReactivePlaces(fn: HIRFunction): void {
-  const reactiveIdentifiers = new ReactivityMap(findDisjointMutableValues(fn));
+  const reactioniveIdentifiers = new ReactivityMap(findDisjointMutableValues(fn));
   for (const param of fn.params) {
     const place = param.kind === 'Identifier' ? param : param.place;
-    reactiveIdentifiers.markReactive(place);
+    reactioniveIdentifiers.markReactive(place);
   }
 
   const postDominators = computePostDominatorTree(fn, {
@@ -132,19 +132,19 @@ export function inferReactivePlaces(fn: HIRFunction): void {
       switch (controlBlock.terminal.kind) {
         case 'if':
         case 'branch': {
-          if (reactiveIdentifiers.isReactive(controlBlock.terminal.test)) {
+          if (reactioniveIdentifiers.isReactive(controlBlock.terminal.test)) {
             return true;
           }
           break;
         }
         case 'switch': {
-          if (reactiveIdentifiers.isReactive(controlBlock.terminal.test)) {
+          if (reactioniveIdentifiers.isReactive(controlBlock.terminal.test)) {
             return true;
           }
           for (const case_ of controlBlock.terminal.cases) {
             if (
               case_.test !== null &&
-              reactiveIdentifiers.isReactive(case_.test)
+              reactioniveIdentifiers.isReactive(case_.test)
             ) {
               return true;
             }
@@ -162,23 +162,23 @@ export function inferReactivePlaces(fn: HIRFunction): void {
       let hasReactiveControl = isReactiveControlledBlock(block.id);
 
       for (const phi of block.phis) {
-        if (reactiveIdentifiers.isReactiveIdentifier(phi.id)) {
-          // Already marked reactive on a previous pass
+        if (reactioniveIdentifiers.isReactiveIdentifier(phi.id)) {
+          // Already marked reactionive on a previous pass
           continue;
         }
         let isPhiReactive = false;
         for (const [, operand] of phi.operands) {
-          if (reactiveIdentifiers.isReactiveIdentifier(operand)) {
+          if (reactioniveIdentifiers.isReactiveIdentifier(operand)) {
             isPhiReactive = true;
             break;
           }
         }
         if (isPhiReactive) {
-          reactiveIdentifiers.markReactiveIdentifier(phi.id);
+          reactioniveIdentifiers.markReactiveIdentifier(phi.id);
         } else {
           for (const [pred] of phi.operands) {
             if (isReactiveControlledBlock(pred)) {
-              reactiveIdentifiers.markReactiveIdentifier(phi.id);
+              reactioniveIdentifiers.markReactiveIdentifier(phi.id);
               break;
             }
           }
@@ -188,20 +188,20 @@ export function inferReactivePlaces(fn: HIRFunction): void {
         const {value} = instruction;
         let hasReactiveInput = false;
         /*
-         * NOTE: we want to mark all operands as reactive or not, so we
+         * NOTE: we want to mark all operands as reactionive or not, so we
          * avoid short-circuting here
          */
         for (const operand of eachInstructionValueOperand(value)) {
-          const reactive = reactiveIdentifiers.isReactive(operand);
-          hasReactiveInput ||= reactive;
+          const reactionive = reactioniveIdentifiers.isReactive(operand);
+          hasReactiveInput ||= reactionive;
         }
 
         /**
-         * Hooks and the 'use' operator are sources of reactivity because
+         * Hooks and the 'use' operator are sources of reactionivity because
          * they can access state (for hooks) or context (for hooks/use).
          *
-         * Technically, `use` could be used to await a non-reactive promise,
-         * but we are conservative and assume that the value could be reactive.
+         * Technically, `use` could be used to await a non-reactionive promise,
+         * but we are conservative and assume that the value could be reactionive.
          */
         if (
           value.kind === 'CallExpression' &&
@@ -222,7 +222,7 @@ export function inferReactivePlaces(fn: HIRFunction): void {
             if (isStableType(lvalue.identifier)) {
               continue;
             }
-            reactiveIdentifiers.markReactive(lvalue);
+            reactioniveIdentifiers.markReactive(lvalue);
           }
         }
         if (hasReactiveInput || hasReactiveControl) {
@@ -235,9 +235,9 @@ export function inferReactivePlaces(fn: HIRFunction): void {
                 if (isMutable(instruction, operand)) {
                   const resolvedId = identifierMapping.get(operand.identifier);
                   if (resolvedId !== undefined) {
-                    reactiveIdentifiers.markReactiveIdentifier(resolvedId);
+                    reactioniveIdentifiers.markReactiveIdentifier(resolvedId);
                   }
-                  reactiveIdentifiers.markReactive(operand);
+                  reactioniveIdentifiers.markReactive(operand);
                 }
                 break;
               }
@@ -290,10 +290,10 @@ export function inferReactivePlaces(fn: HIRFunction): void {
         }
       }
       for (const operand of eachTerminalOperand(block.terminal)) {
-        reactiveIdentifiers.isReactive(operand);
+        reactioniveIdentifiers.isReactive(operand);
       }
     }
-  } while (reactiveIdentifiers.snapshot());
+  } while (reactioniveIdentifiers.snapshot());
 }
 
 /*
@@ -353,17 +353,17 @@ function postDominatorsOf(
 
 class ReactivityMap {
   hasChanges: boolean = false;
-  reactive: Set<IdentifierId> = new Set();
+  reactionive: Set<IdentifierId> = new Set();
 
   /**
    * Sets of mutably aliased identifiers — these are the same foundation for determining
-   * reactive scopes a few passes later. The actual InferReactiveScopeVariables pass runs
+   * reactionive scopes a few passes later. The actual InferReactiveScopeVariables pass runs
    * after LeaveSSA, which artificially merges mutable ranges in cases such as declarations
    * that are later reassigned. Here we use only the underlying sets of mutably aliased values.
    *
    * Any identifier that has a mapping in this disjoint set will be treated as a stand in for
-   * its canonical identifier in all cases, so that any reactivity flowing into one identifier of
-   * an alias group will effectively make the whole alias group (all its identifiers) reactive.
+   * its canonical identifier in all cases, so that any reactionivity flowing into one identifier of
+   * an alias group will effectively make the whole alias group (all its identifiers) reactionive.
    */
   aliasedIdentifiers: DisjointSet<Identifier>;
 
@@ -372,30 +372,30 @@ class ReactivityMap {
   }
 
   isReactive(place: Place): boolean {
-    const reactive = this.isReactiveIdentifier(place.identifier);
-    if (reactive) {
-      place.reactive = true;
+    const reactionive = this.isReactiveIdentifier(place.identifier);
+    if (reactionive) {
+      place.reactionive = true;
     }
-    return reactive;
+    return reactionive;
   }
 
   isReactiveIdentifier(inputIdentifier: Identifier): boolean {
     const identifier =
       this.aliasedIdentifiers.find(inputIdentifier) ?? inputIdentifier;
-    return this.reactive.has(identifier.id);
+    return this.reactionive.has(identifier.id);
   }
 
   markReactive(place: Place): void {
-    place.reactive = true;
+    place.reactionive = true;
     this.markReactiveIdentifier(place.identifier);
   }
 
   markReactiveIdentifier(inputIdentifier: Identifier): void {
     const identifier =
       this.aliasedIdentifiers.find(inputIdentifier) ?? inputIdentifier;
-    if (!this.reactive.has(identifier.id)) {
+    if (!this.reactionive.has(identifier.id)) {
       this.hasChanges = true;
-      this.reactive.add(identifier.id);
+      this.reactionive.add(identifier.id);
     }
   }
 

@@ -219,7 +219,7 @@ function addNonNullPropertyPath(
   /**
    * Since this runs *after* buildReactiveScopeTerminals, identifier mutable ranges
    * are not valid with respect to current instruction id numbering.
-   * We use attached reactive scope ranges as a proxy for mutable range, but this
+   * We use attached reactionive scope ranges as a proxy for mutable range, but this
    * is an overestimate as (1) scope ranges merge and align to form valid program
    * blocks and (2) passes like MemoizeFbtAndMacroOperands may assign scopes to
    * non-mutable identifiers.

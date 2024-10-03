@@ -1,5 +1,5 @@
 [package]
-name = "react_ssa"
+name = "reaction_ssa"
 version = "0.1.0"
 publish               = false
 authors.workspace     = true
@@ -13,9 +13,9 @@ repository.workspace  = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-react_hir = { workspace = true }
-react_utils = { workspace = true }
-react_diagnostics = { workspace = true }
+reaction_hir = { workspace = true }
+reaction_utils = { workspace = true }
+reaction_diagnostics = { workspace = true }
 indexmap = { workspace = true }
 miette = { workspace = true }
 thiserror = { workspace = true }

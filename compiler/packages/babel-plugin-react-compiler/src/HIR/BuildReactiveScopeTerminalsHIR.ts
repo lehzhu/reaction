@@ -23,7 +23,7 @@ import {
 /**
  * This pass assumes that all program blocks are properly nested with respect to fallthroughs
  * (e.g. a valid javascript AST).
- * Given a function whose reactive scope ranges have been correctly aligned and merged,
+ * Given a function whose reactionive scope ranges have been correctly aligned and merged,
  * this pass rewrites blocks to introduce ReactiveScopeTerminals and their fallthrough blocks.
  * e.g.
  * ```js

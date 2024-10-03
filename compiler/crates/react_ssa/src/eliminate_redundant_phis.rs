@@ -7,7 +7,7 @@
 
 use std::collections::{HashMap, HashSet};
 
-use react_hir::{BlockId, Environment, Function, Identifier, IdentifierId, InstructionValue};
+use reaction_hir::{BlockId, Environment, Function, Identifier, IdentifierId, InstructionValue};
 
 /// Pass to eliminate redundant phi nodes:
 /// all operands are the same identifier, ie `x2 = phi(x1, x1, x1)`.

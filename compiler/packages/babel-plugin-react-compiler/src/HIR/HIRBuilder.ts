@@ -894,7 +894,7 @@ export function createTemporaryPlace(
   return {
     kind: 'Identifier',
     identifier: makeTemporaryIdentifier(env.nextIdentifierId, loc),
-    reactive: false,
+    reactionive: false,
     effect: Effect.Unknown,
     loc: GeneratedSource,
   };
@@ -902,14 +902,14 @@ export function createTemporaryPlace(
 
 /**
  * Clones an existing Place, returning a new temporary Place that shares the
- * same metadata properties as the original place (effect, reactive flag, type)
+ * same metadata properties as the original place (effect, reactionive flag, type)
  * but has a new, temporary Identifier.
  */
 export function clonePlaceToTemporary(env: Environment, place: Place): Place {
   const temp = createTemporaryPlace(env, place.loc);
   temp.effect = place.effect;
   temp.identifier.type = place.identifier.type;
-  temp.reactive = place.reactive;
+  temp.reactionive = place.reactionive;
   return temp;
 }
 

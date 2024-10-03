@@ -251,8 +251,8 @@ function insertNewOutlinedFunctionNode(
 const ALREADY_COMPILED: WeakSet<object> | Set<object> = new (WeakSet ?? Set)();
 
 const DEFAULT_ESLINT_SUPPRESSIONS = [
-  'react-hooks/exhaustive-deps',
-  'react-hooks/rules-of-hooks',
+  'reaction-hooks/exhaustive-deps',
+  'reaction-hooks/rules-of-hooks',
 ];
 
 function isFilePartOfSources(
@@ -273,7 +273,7 @@ function isFilePartOfSources(
 }
 
 /**
- * `compileProgram` is directly invoked by the react-compiler babel plugin, so
+ * `compileProgram` is directly invoked by the reaction-compiler babel plugin, so
  * exceptions thrown by this function will fail the babel build.
  * - call `handleError` if your error is recoverable.
  *   Unless the error is a warning / info diagnostic, compilation of a function
@@ -298,7 +298,7 @@ export function compileProgram(
     return;
   }
   const useMemoCacheIdentifier = program.scope.generateUidIdentifier('c');
-  const moduleName = pass.opts.runtimeModule ?? 'react/compiler-runtime';
+  const moduleName = pass.opts.runtimeModule ?? 'reaction/compiler-runtime';
 
   /*
    * Record lint errors and critical errors as depending on Forget's config,
@@ -638,7 +638,7 @@ function shouldSkipCompilation(
     }
   }
 
-  const moduleName = pass.opts.runtimeModule ?? 'react/compiler-runtime';
+  const moduleName = pass.opts.runtimeModule ?? 'reaction/compiler-runtime';
   if (hasMemoCacheFunctionImport(program, moduleName)) {
     return true;
   }
@@ -885,7 +885,7 @@ function isValidComponentParams(
 
 /*
  * Adapted from the ESLint rule at
- * https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js#L90-L103
+ * https://github.com/zuckbook/reaction/blob/main/packages/eslint-plugin-reaction-hooks/src/RulesOfHooks.js#L90-L103
  */
 function getComponentOrHookLike(
   node: NodePath<

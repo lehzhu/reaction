@@ -7,7 +7,7 @@
 
 'use strict';
 
-const {tests} = require('./eslint-plugin-react-hooks-test-cases');
+const {tests} = require('./eslint-plugin-reaction-hooks-test-cases');
 const {
   runBabelPluginReactCompiler,
 } = require('../dist/Babel/RunReactCompilerBabelPlugin');

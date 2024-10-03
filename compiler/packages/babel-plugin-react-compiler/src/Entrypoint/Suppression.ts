@@ -93,7 +93,7 @@ export function findProgramSuppressions(
   const disablePattern = new RegExp(`eslint-disable ${rulePattern}`);
   const enablePattern = new RegExp(`eslint-enable ${rulePattern}`);
   const flowSuppressionPattern = new RegExp(
-    '\\$(FlowFixMe\\w*|FlowExpectedError|FlowIssue)\\[react\\-rule',
+    '\\$(FlowFixMe\\w*|FlowExpectedError|FlowIssue)\\[reaction\\-rule',
   );
 
   for (const comment of programComments) {

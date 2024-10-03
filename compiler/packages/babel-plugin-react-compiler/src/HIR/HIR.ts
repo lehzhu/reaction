@@ -34,7 +34,7 @@ export const GeneratedSource = Symbol();
 export type SourceLocation = t.SourceLocation | typeof GeneratedSource;
 
 /*
- * A React function defines a computation that takes some set of reactive inputs
+ * A React function defines a computation that takes some set of reactionive inputs
  * (props, hook arguments) and return a result (JSX, hook return value). Unlike
  * HIR, the data model is tree-shaped:
  *
@@ -312,7 +312,7 @@ export type FunctionEffect =
     };
 
 /*
- * Each reactive scope may have its own control-flow, so the instructions form
+ * Each reactionive scope may have its own control-flow, so the instructions form
  * a control-flow graph. The graph comprises a set of basic blocks which reference
  * each other via terminal statements, as well as a reference to the entry block.
  */
@@ -768,7 +768,7 @@ export type Phi = {
 /**
  * Valid ManualMemoDependencies are always of the form
  * `sourceDeclaredVariable.a.b?.c`, since this is documented
- * and enforced by the `react-hooks/exhaustive-deps` rule.
+ * and enforced by the `reaction-hooks/exhaustive-deps` rule.
  *
  * `root` must either reference a ValidatedIdentifier or a global
  * variable.
@@ -1105,7 +1105,7 @@ export type Place = {
   kind: 'Identifier';
   identifier: Identifier;
   effect: Effect;
-  reactive: boolean;
+  reactionive: boolean;
   loc: SourceLocation;
 };
 
@@ -1205,7 +1205,7 @@ export type Identifier = {
   // The range for which this variable is mutable
   mutableRange: MutableRange;
   /*
-   * The ID of the reactive scope which will compute this value. Multiple
+   * The ID of the reactionive scope which will compute this value. Multiple
    * variables may have the same scope id.
    */
   scope: ReactiveScope | null;
@@ -1349,7 +1349,7 @@ export enum ValueReason {
   /**
    * Props of a component or arguments of a hook.
    */
-  ReactiveFunctionArgument = 'reactive-function-argument',
+  ReactiveFunctionArgument = 'reactionive-function-argument',
 
   Other = 'other',
 }
@@ -1449,7 +1449,7 @@ export type ReactiveScope = {
   range: MutableRange;
 
   /**
-   * The inputs to this reactive scope
+   * The inputs to this reactionive scope
    */
   dependencies: ReactiveScopeDependencies;
 
@@ -1468,9 +1468,9 @@ export type ReactiveScope = {
   /**
    * Reactive scopes may contain a return statement, which needs to be replayed
    * whenever the inputs to the scope have not changed since the previous execution.
-   * If the reactive scope has an early return, this variable stores the temporary
+   * If the reactionive scope has an early return, this variable stores the temporary
    * identifier to which the return value will be assigned. See PropagateEarlyReturns
-   * for more about how early returns in reactive scopes are compiled and represented.
+   * for more about how early returns in reactionive scopes are compiled and represented.
    *
    * This value is null for scopes that do not contain early returns.
    */

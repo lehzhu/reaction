@@ -107,7 +107,7 @@ import {propagateScopeDependenciesHIR} from '../HIR/PropagateScopeDependenciesHI
 export type CompilerPipelineValue =
   | {kind: 'ast'; name: string; value: CodegenFunction}
   | {kind: 'hir'; name: string; value: HIRFunction}
-  | {kind: 'reactive'; name: string; value: ReactiveFunction}
+  | {kind: 'reactionive'; name: string; value: ReactiveFunction}
   | {kind: 'debug'; name: string; value: string};
 
 export function* run(
@@ -361,137 +361,137 @@ function* runWithEnvironment(
     });
   }
 
-  const reactiveFunction = buildReactiveFunction(hir);
+  const reactioniveFunction = buildReactiveFunction(hir);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'BuildReactiveFunction',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  assertWellFormedBreakTargets(reactiveFunction);
+  assertWellFormedBreakTargets(reactioniveFunction);
 
-  pruneUnusedLabels(reactiveFunction);
+  pruneUnusedLabels(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneUnusedLabels',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
-  assertScopeInstructionsWithinScopes(reactiveFunction);
+  assertScopeInstructionsWithinScopes(reactioniveFunction);
 
   if (!env.config.enablePropagateDepsInHIR) {
-    propagateScopeDependencies(reactiveFunction);
+    propagateScopeDependencies(reactioniveFunction);
     yield log({
-      kind: 'reactive',
+      kind: 'reactionive',
       name: 'PropagateScopeDependencies',
-      value: reactiveFunction,
+      value: reactioniveFunction,
     });
   }
 
-  pruneNonEscapingScopes(reactiveFunction);
+  pruneNonEscapingScopes(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneNonEscapingScopes',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  pruneNonReactiveDependencies(reactiveFunction);
+  pruneNonReactiveDependencies(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneNonReactiveDependencies',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  pruneUnusedScopes(reactiveFunction);
+  pruneUnusedScopes(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneUnusedScopes',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  mergeReactiveScopesThatInvalidateTogether(reactiveFunction);
+  mergeReactiveScopesThatInvalidateTogether(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'MergeReactiveScopesThatInvalidateTogether',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  pruneAlwaysInvalidatingScopes(reactiveFunction);
+  pruneAlwaysInvalidatingScopes(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneAlwaysInvalidatingScopes',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
   if (env.config.enableChangeDetectionForDebugging != null) {
-    pruneInitializationDependencies(reactiveFunction);
+    pruneInitializationDependencies(reactioniveFunction);
     yield log({
-      kind: 'reactive',
+      kind: 'reactionive',
       name: 'PruneInitializationDependencies',
-      value: reactiveFunction,
+      value: reactioniveFunction,
     });
   }
 
-  propagateEarlyReturns(reactiveFunction);
+  propagateEarlyReturns(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PropagateEarlyReturns',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  pruneUnusedLValues(reactiveFunction);
+  pruneUnusedLValues(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneUnusedLValues',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  promoteUsedTemporaries(reactiveFunction);
+  promoteUsedTemporaries(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PromoteUsedTemporaries',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  extractScopeDeclarationsFromDestructuring(reactiveFunction);
+  extractScopeDeclarationsFromDestructuring(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'ExtractScopeDeclarationsFromDestructuring',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  stabilizeBlockIds(reactiveFunction);
+  stabilizeBlockIds(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'StabilizeBlockIds',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  const uniqueIdentifiers = renameVariables(reactiveFunction);
+  const uniqueIdentifiers = renameVariables(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'RenameVariables',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
-  pruneHoistedContexts(reactiveFunction);
+  pruneHoistedContexts(reactioniveFunction);
   yield log({
-    kind: 'reactive',
+    kind: 'reactionive',
     name: 'PruneHoistedContexts',
-    value: reactiveFunction,
+    value: reactioniveFunction,
   });
 
   if (env.config.validateMemoizedEffectDependencies) {
-    validateMemoizedEffectDependencies(reactiveFunction);
+    validateMemoizedEffectDependencies(reactioniveFunction);
   }
 
   if (
     env.config.enablePreserveExistingMemoizationGuarantees ||
     env.config.validatePreserveExistingMemoizationGuarantees
   ) {
-    validatePreservedManualMemoization(reactiveFunction);
+    validatePreservedManualMemoization(reactioniveFunction);
   }
 
-  const ast = codegenFunction(reactiveFunction, {
+  const ast = codegenFunction(reactioniveFunction, {
     uniqueIdentifiers,
     fbtOperands,
   }).unwrap();
@@ -550,7 +550,7 @@ export function log(value: CompilerPipelineValue): CompilerPipelineValue {
       logHIRFunction(value.name, value.value);
       break;
     }
-    case 'reactive': {
+    case 'reactionive': {
       logReactiveFunction(value.name, value.value);
       break;
     }

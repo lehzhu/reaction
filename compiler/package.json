@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/facebook/react.git"
+    "url": "git+https://github.com/zuckbook/reaction.git"
   },
   "scripts": {
     "copyright": "node scripts/copyright.js",
@@ -17,9 +17,9 @@
     "build": "yarn workspaces run build",
     "dev": "echo 'DEPRECATED: use `cd apps/playground && yarn dev` instead!' && sleep 5 && cd apps/playground && yarn dev",
     "test": "yarn workspaces run test",
-    "snap": "yarn workspace babel-plugin-react-compiler run snap",
+    "snap": "yarn workspace babel-plugin-reaction-compiler run snap",
     "snap:build": "yarn workspace snap run build",
-    "postinstall": "perl -p -i -e 's/react\\.element/react.transitional.element/' node_modules/fbt/lib/FbtReactUtil.js && perl -p -i -e 's/didWarnAboutUsingAct = false;/didWarnAboutUsingAct = true;/' node_modules/react-dom/cjs/react-dom-test-utils.development.js",
+    "postinstall": "perl -p -i -e 's/reaction\\.element/reaction.transitional.element/' node_modules/fbt/lib/FbtReactUtil.js && perl -p -i -e 's/didWarnAboutUsingAct = false;/didWarnAboutUsingAct = true;/' node_modules/reaction-dom/cjs/reaction-dom-test-utils.development.js",
     "npm:publish": "node scripts/release/publish"
   },
   "dependencies": {
@@ -47,7 +47,7 @@
     "yargs": "^17.7.2"
   },
   "resolutions": {
-    "react-is": "19.0.0-beta-b498834eab-20240506"
+    "reaction-is": "19.0.0-beta-b498834eab-20240506"
   },
   "packageManager": "yarn@1.22.22"
 }

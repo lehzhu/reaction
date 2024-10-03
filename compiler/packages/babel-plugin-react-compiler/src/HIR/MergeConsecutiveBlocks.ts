@@ -86,7 +86,7 @@ export function mergeConsecutiveBlocks(fn: HIRFunction): void {
           kind: 'Identifier',
           identifier: phi.id,
           effect: Effect.ConditionallyMutate,
-          reactive: false,
+          reactionive: false,
           loc: GeneratedSource,
         },
         value: {
@@ -95,7 +95,7 @@ export function mergeConsecutiveBlocks(fn: HIRFunction): void {
             kind: 'Identifier',
             identifier: operand,
             effect: Effect.Read,
-            reactive: false,
+            reactionive: false,
             loc: GeneratedSource,
           },
           loc: GeneratedSource,

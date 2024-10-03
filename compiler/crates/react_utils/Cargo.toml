@@ -1,5 +1,5 @@
 [package]
-name = "react_utils"
+name = "reaction_utils"
 version = "0.1.0"
 publish               = false
 authors.workspace     = true

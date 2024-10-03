@@ -13,7 +13,7 @@ export default function AnnotateReactCodeBabelPlugin(
   _babel: typeof BabelCore,
 ): BabelCore.PluginObj {
   return {
-    name: 'annotate-react-code',
+    name: 'annotate-reaction-code',
     visitor: {
       Program(prog): void {
         annotate(prog);
@@ -53,7 +53,7 @@ function shouldVisit(fn: BabelFn): boolean {
 }
 
 function buildTypeOfReactForget(): t.Statement {
-  // typeof globalThis[Symbol.for("react_forget")]
+  // typeof globalThis[Symbol.for("reaction_forget")]
   return t.expressionStatement(
     t.unaryExpression(
       'typeof',
@@ -66,7 +66,7 @@ function buildTypeOfReactForget(): t.Statement {
             false,
             false,
           ),
-          [t.stringLiteral('react_forget')],
+          [t.stringLiteral('reaction_forget')],
         ),
         true,
         false,
@@ -77,7 +77,7 @@ function buildTypeOfReactForget(): t.Statement {
 }
 
 /**
- * COPIED FROM babel-plugin-react-compiler/src/Entrypoint/BabelUtils.ts
+ * COPIED FROM babel-plugin-reaction-compiler/src/Entrypoint/BabelUtils.ts
  */
 type ComponentDeclaration = t.FunctionDeclaration & {
   __componentDeclaration: boolean;
@@ -96,7 +96,7 @@ export function isComponentDeclaration(
 
 /*
  * Adapted from the ESLint rule at
- * https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js#L90-L103
+ * https://github.com/zuckbook/reaction/blob/main/packages/eslint-plugin-reaction-hooks/src/RulesOfHooks.js#L90-L103
  */
 function isComponentOrHookLike(
   node: NodePath<

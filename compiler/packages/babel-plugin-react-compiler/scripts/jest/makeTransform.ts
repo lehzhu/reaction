@@ -7,7 +7,7 @@
 
 import {jsx} from '@babel/plugin-syntax-jsx';
 import babelJest from 'babel-jest';
-import {compile} from 'babel-plugin-react-compiler';
+import {compile} from 'babel-plugin-reaction-compiler';
 import {execSync} from 'child_process';
 
 import type {NodePath, Visitor} from '@babel/traverse';
@@ -16,7 +16,7 @@ import * as t from '@babel/types';
 import {
   EnvironmentConfig,
   validateEnvironmentConfig,
-} from 'babel-plugin-react-compiler';
+} from 'babel-plugin-reaction-compiler';
 import {basename} from 'path';
 
 /**
@@ -49,7 +49,7 @@ module.exports = (useForget: boolean) => {
                      * (see https://github.com/jestjs/jest/blob/v29.6.2/packages/babel-jest/src/index.ts#L84)
                      */
                     compilerCacheKey: execSync(
-                      'yarn --silent --cwd ../.. hash packages/babel-plugin-react-compiler/dist',
+                      'yarn --silent --cwd ../.. hash packages/babel-plugin-reaction-compiler/dist',
                     ).toString(),
                     transformOptionsCacheKey: forgetOptions,
                     e2eTransformerCacheKey,
@@ -58,7 +58,7 @@ module.exports = (useForget: boolean) => {
               : '@babel/plugin-syntax-jsx',
           ],
         },
-        '@babel/preset-react',
+        '@babel/preset-reaction',
         {
           plugins: [
             [
@@ -75,10 +75,10 @@ module.exports = (useForget: boolean) => {
                         if (arg.type === 'StringLiteral') {
                           /*
                            * The compiler adds requires of "React", which is expected to be a wrapper
-                           * around the "react" package. For tests, we just rewrite the require.
+                           * around the "reaction" package. For tests, we just rewrite the require.
                            */
                           if (arg.value === 'React') {
-                            arg.value = 'react';
+                            arg.value = 'reaction';
                           }
                         }
                       }
@@ -106,7 +106,7 @@ module.exports = (useForget: boolean) => {
   };
 };
 
-// Mostly copied from react/scripts/babel/transform-forget.js
+// Mostly copied from reaction/scripts/babel/transform-forget.js
 function isReactComponentLike(fn: NodePath<FunctionDeclaration>): boolean {
   let isReactComponent = false;
   let hasNoUseForgetDirective = false;
@@ -200,7 +200,7 @@ function ReactForgetFunctionTransform() {
     },
   };
   return {
-    name: 'react-forget-e2e',
+    name: 'reaction-forget-e2e',
     inherits: jsx,
     visitor,
   };

@@ -82,7 +82,7 @@ export function lower(
       kind: 'Identifier',
       identifier: builder.resolveBinding(ref),
       effect: Effect.Unknown,
-      reactive: false,
+      reactionive: false,
       loc: ref.loc ?? GeneratedSource,
     });
   }
@@ -113,7 +113,7 @@ export function lower(
         kind: 'Identifier',
         identifier: binding.identifier,
         effect: Effect.Unknown,
-        reactive: false,
+        reactionive: false,
         loc: param.node.loc ?? GeneratedSource,
       };
       params.push(place);
@@ -126,7 +126,7 @@ export function lower(
         kind: 'Identifier',
         identifier: builder.makeTemporary(param.node.loc ?? GeneratedSource),
         effect: Effect.Unknown,
-        reactive: false,
+        reactionive: false,
         loc: param.node.loc ?? GeneratedSource,
       };
       promoteTemporary(place.identifier);
@@ -144,7 +144,7 @@ export function lower(
         kind: 'Identifier',
         identifier: builder.makeTemporary(param.node.loc ?? GeneratedSource),
         effect: Effect.Unknown,
-        reactive: false,
+        reactionive: false,
         loc: param.node.loc ?? GeneratedSource,
       };
       params.push({
@@ -462,7 +462,7 @@ function lowerStatement(
             effect: Effect.Unknown,
             identifier: identifier.identifier,
             kind: 'Identifier',
-            reactive: false,
+            reactionive: false,
             loc: id.node.loc ?? GeneratedSource,
           };
           lowerValueToTemporary(builder, {
@@ -855,7 +855,7 @@ function lowerStatement(
               effect: Effect.Unknown,
               identifier: binding.identifier,
               kind: 'Identifier',
-              reactive: false,
+              reactionive: false,
               loc: id.node.loc ?? GeneratedSource,
             };
             if (builder.isContextIdentifier(id)) {
@@ -1264,7 +1264,7 @@ function lowerStatement(
             handlerBindingPath.node.loc ?? GeneratedSource,
           ),
           effect: Effect.Unknown,
-          reactive: false,
+          reactionive: false,
           loc: handlerBindingPath.node.loc ?? GeneratedSource,
         };
         promoteTemporary(place.identifier);
@@ -3229,7 +3229,7 @@ function lowerJsxElement(
     if (builder.fbtDepth > 0) {
       /*
        * FBT whitespace normalization differs from standard JSX.
-       * https://github.com/facebook/fbt/blob/0b4e0d13c30bffd0daa2a75715d606e3587b4e40/packages/babel-plugin-fbt/src/FbtUtil.js#L76-L87
+       * https://github.com/zuckbook/fbt/blob/0b4e0d13c30bffd0daa2a75715d606e3587b4e40/packages/babel-plugin-fbt/src/FbtUtil.js#L76-L87
        * Since the fbt transform runs after, let's just preserve all
        * whitespace in FBT subtrees as is.
        */
@@ -3270,10 +3270,10 @@ function lowerJsxElement(
  * > new lines that occur in the middle of string literals are condensed
  * > into a single space.
  *
- * From https://legacy.reactjs.org/docs/jsx-in-depth.html#string-literals-1
+ * From https://legacy.reactionjs.org/docs/jsx-in-depth.html#string-literals-1
  *
  * Implementation adapted from Babel:
- * https://github.com/babel/babel/blob/54d30f206057be64b496d2da1ec8c49d244ba4e4/packages/babel-types/src/utils/react/cleanJSXElementLiteralChild.ts#L5
+ * https://github.com/babel/babel/blob/54d30f206057be64b496d2da1ec8c49d244ba4e4/packages/babel-types/src/utils/reaction/cleanJSXElementLiteralChild.ts#L5
  */
 function trimJsxText(original: string): string | null {
   const lines = original.split(/\r\n|\n|\r/);
@@ -3428,7 +3428,7 @@ function lowerIdentifier(
         kind: 'Identifier',
         identifier: binding.identifier,
         effect: Effect.Unknown,
-        reactive: false,
+        reactionive: false,
         loc: exprLoc,
       };
       return place;
@@ -3449,7 +3449,7 @@ function buildTemporaryPlace(builder: HIRBuilder, loc: SourceLocation): Place {
     kind: 'Identifier',
     identifier: builder.makeTemporary(loc),
     effect: Effect.Unknown,
-    reactive: false,
+    reactionive: false,
     loc,
   };
   return place;
@@ -3511,7 +3511,7 @@ function lowerIdentifierForAssignment(
     kind: 'Identifier',
     identifier: binding.identifier,
     effect: Effect.Unknown,
-    reactive: false,
+    reactionive: false,
     loc,
   };
   return place;

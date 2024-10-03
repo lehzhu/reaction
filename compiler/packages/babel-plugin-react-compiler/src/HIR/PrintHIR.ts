@@ -838,7 +838,7 @@ export function printPlace(place: Place): string {
     printIdentifier(place.identifier),
     printMutableRange(place.identifier),
     printType(place.identifier.type),
-    place.reactive ? '{reactive}' : null,
+    place.reactionive ? '{reactionive}' : null,
   ];
   return items.filter(x => x != null).join('');
 }

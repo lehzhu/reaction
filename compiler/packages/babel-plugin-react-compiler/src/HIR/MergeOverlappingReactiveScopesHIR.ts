@@ -16,8 +16,8 @@ import {
 } from './visitors';
 
 /**
- * While previous passes ensure that reactive scopes span valid sets of program
- * blocks, pairs of reactive scopes may still be inconsistent with respect to
+ * While previous passes ensure that reactionive scopes span valid sets of program
+ * blocks, pairs of reactionive scopes may still be inconsistent with respect to
  * each other.
  *
  * (a) Reactive scopes ranges must form valid blocks in the resulting javascript
@@ -43,7 +43,7 @@ import {
  *   ```
  *
  * (b) A scope's own instructions may only mutate that scope.
- * For each reactive scope, we currently produce exactly one if-block which
+ * For each reactionive scope, we currently produce exactly one if-block which
  * spans the instruction range of the scope. In this simple example, instr [2]
  * does not mutate any values but is included within scope @0.
  * ```js
@@ -92,7 +92,7 @@ import {
  * - instruction ordering is preserved (otherwise, disjoint ranges for scopes
  *   may be produced by reordering their mutating instructions)
  * - exactly one if-else block per scope, which does not allow the composition
- *   of a reactive scope from disconnected instruction ranges.
+ *   of a reactionive scope from disconnected instruction ranges.
  */
 
 export function mergeOverlappingReactiveScopesHIR(fn: HIRFunction): void {
@@ -232,7 +232,7 @@ function visitInstructionId(
     activeScopes.push(...scopesSortedEndDescending);
     /**
      * Merge all identical scopes (ones with the same start and end),
-     * as they end up with the same reactive block
+     * as they end up with the same reactionive block
      */
     for (let i = 1; i < scopesSortedEndDescending.length; i++) {
       const prev = scopesSortedEndDescending[i - 1];

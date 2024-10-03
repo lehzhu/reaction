@@ -177,7 +177,7 @@ function findTemporariesUsedOutsideDeclaringScope(
  * Only map LoadLocal and PropertyLoad lvalues to their source if we know that
  * reordering the read (from the time-of-load to time-of-use) is valid.
  *
- * If a LoadLocal or PropertyLoad instruction is within the reactive scope range
+ * If a LoadLocal or PropertyLoad instruction is within the reactionive scope range
  * (a proxy for mutable range) of the load source, later instructions may
  * reassign / mutate the source value. Since it's incorrect to reorder these
  * load instructions to after their scope ranges, we also do not store them in
@@ -301,7 +301,7 @@ class Context {
   #reassignments: Map<Identifier, Decl> = new Map();
 
   #scopes: Stack<ReactiveScope> = empty();
-  // Reactive dependencies used in the current reactive scope.
+  // Reactive dependencies used in the current reactionive scope.
   #dependencies: Stack<Array<ReactiveScopeDependency>> = empty();
   deps: Map<ReactiveScope, Array<ReactiveScopeDependency>> = new Map();
 
@@ -533,7 +533,7 @@ function handleInstruction(instr: Instruction, context: Context): void {
     /*
      * Some variables may be declared and never initialized. We need
      * to retain (and hoist) these declarations if they are included
-     * in a reactive scope. One approach is to simply add all `DeclareLocal`s
+     * in a reactionive scope. One approach is to simply add all `DeclareLocal`s
      * as scope declarations.
      */
 

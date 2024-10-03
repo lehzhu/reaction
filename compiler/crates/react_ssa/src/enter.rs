@@ -9,8 +9,8 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use indexmap::{IndexMap, IndexSet};
-use react_diagnostics::Diagnostic;
-use react_hir::{
+use reaction_diagnostics::Diagnostic;
+use reaction_hir::{
     BasicBlock, BlockId, BlockRewriter, BlockRewriterAction, Blocks, Environment, Function,
     Identifier, IdentifierData, IdentifierId, IdentifierOperand, InstructionValue, MutableRange,
     Phi, HIR,

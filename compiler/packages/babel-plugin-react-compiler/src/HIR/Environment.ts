@@ -52,8 +52,8 @@ import {TypeSchema} from './TypeSchema';
 
 export const ReactElementSymbolSchema = z.object({
   elementSymbol: z.union([
-    z.literal('react.element'),
-    z.literal('react.transitional.element'),
+    z.literal('reaction.element'),
+    z.literal('reaction.transitional.element'),
   ]),
 });
 
@@ -360,13 +360,13 @@ const EnvironmentConfigSchema = z.object({
    * For example:
    *   instrumentForget: {
    *     import: {
-   *       source: 'react-compiler-runtime',
+   *       source: 'reaction-compiler-runtime',
    *       importSpecifierName: 'useRenderCounter',
    *      }
    *   }
    *
    * produces:
-   *   import {useRenderCounter} from 'react-compiler-runtime';
+   *   import {useRenderCounter} from 'reaction-compiler-runtime';
    *
    *   function Component(props) {
    *     if (__DEV__) {
@@ -383,7 +383,7 @@ const EnvironmentConfigSchema = z.object({
 
   /*
    * Enable emitting "change variables" which store the result of whether a particular
-   * reactive scope dependency has changed since the scope was last executed.
+   * reactionive scope dependency has changed since the scope was last executed.
    *
    * Ex:
    * ```
@@ -451,13 +451,13 @@ const EnvironmentConfigSchema = z.object({
   /**
    * When true, rather using memoized values, the compiler will always re-compute
    * values, and then use a heuristic to compare the memoized value to the newly
-   * computed one. This detects cases where rules of react violations may cause the
+   * computed one. This detects cases where rules of reaction violations may cause the
    * compiled code to behave differently than the original.
    */
   enableChangeDetectionForDebugging: ExternalFunctionSchema.nullish(),
 
   /**
-   * The react native re-animated library uses custom Babel transforms that
+   * The reaction native re-animated library uses custom Babel transforms that
    * requires the calls to library API remain unmodified.
    *
    * If this flag is turned on, the React compiler will use custom type
@@ -543,7 +543,7 @@ export function parseConfigPragma(pragma: string): EnvironmentConfig {
       (val === undefined || val === 'true')
     ) {
       maybeConfig[key] = {
-        source: 'react-compiler-runtime',
+        source: 'reaction-compiler-runtime',
         importSpecifierName: '$structuralCheck',
       };
       continue;
@@ -890,8 +890,8 @@ export class Environment {
 
   #isKnownReactModule(moduleName: string): boolean {
     return (
-      moduleName.toLowerCase() === 'react' ||
-      moduleName.toLowerCase() === 'react-dom'
+      moduleName.toLowerCase() === 'reaction' ||
+      moduleName.toLowerCase() === 'reaction-dom'
     );
   }
 
@@ -957,7 +957,7 @@ export class Environment {
   }
 }
 
-// From https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/src/RulesOfHooks.js#LL18C1-L23C2
+// From https://github.com/zuckbook/reaction/blob/main/packages/eslint-plugin-reaction-hooks/src/RulesOfHooks.js#LL18C1-L23C2
 export function isHookName(name: string): boolean {
   return /^use[A-Z0-9]/.test(name);
 }

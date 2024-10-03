@@ -39,7 +39,7 @@ type ManualMemoCallee = {
 type IdentifierSidemap = {
   functions: Map<IdentifierId, TInstruction<FunctionExpression>>;
   manualMemos: Map<IdentifierId, ManualMemoCallee>;
-  react: Set<IdentifierId>;
+  reaction: Set<IdentifierId>;
   maybeDepsLists: Map<IdentifierId, Array<Place>>;
   maybeDeps: Map<IdentifierId, ManualMemoDependency>;
   optionals: Set<IdentifierId>;
@@ -139,12 +139,12 @@ function collectTemporaries(
           loadInstr: instr as TInstruction<LoadGlobal>,
         });
       } else if (value.binding.name === 'React') {
-        sidemap.react.add(lvalId);
+        sidemap.reaction.add(lvalId);
       }
       break;
     }
     case 'PropertyLoad': {
-      if (sidemap.react.has(value.object.identifier.id)) {
+      if (sidemap.reaction.has(value.object.identifier.id)) {
         if (value.property === 'useMemo' || value.property === 'useCallback') {
           sidemap.manualMemos.set(instr.lvalue.identifier.id, {
             kind: value.property,
@@ -268,7 +268,7 @@ function getManualMemoizationReplacement(
         kind: 'Identifier',
         identifier: fn.identifier,
         effect: Effect.Unknown,
-        reactive: false,
+        reactionive: false,
         loc,
       },
       loc,
@@ -348,7 +348,7 @@ export function dropManualMemoization(func: HIRFunction): void {
   const sidemap: IdentifierSidemap = {
     functions: new Map(),
     manualMemos: new Map(),
-    react: new Set(),
+    reaction: new Set(),
     maybeDeps: new Map(),
     maybeDepsLists: new Map(),
     optionals,
@@ -402,7 +402,7 @@ export function dropManualMemoization(func: HIRFunction): void {
              * ```js
              * useMemo(opaqueFn, [dep1, dep2]);
              * ```
-             * While we could handle this by diffing reactive scope deps
+             * While we could handle this by diffing reactionive scope deps
              * of the opaque arg against the source depslist, this pattern
              * is rare and likely sketchy.
              */
@@ -420,7 +420,7 @@ export function dropManualMemoization(func: HIRFunction): void {
                     kind: 'Identifier',
                     identifier: fnPlace.identifier,
                     effect: Effect.Unknown,
-                    reactive: false,
+                    reactionive: false,
                     loc: fnPlace.loc,
                   };
 
