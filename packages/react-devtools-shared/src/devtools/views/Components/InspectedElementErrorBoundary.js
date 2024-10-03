@@ -7,12 +7,12 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   useCallback,
   useContext,
   unstable_useCacheRefresh as useCacheRefresh,
-} from 'react';
+} from 'reaction';
 import ErrorBoundary from '../ErrorBoundary';
 import {TreeStateContext} from './TreeContext';
 import {clearCacheBecauseOfError} from '../../../inspectedElementCache';

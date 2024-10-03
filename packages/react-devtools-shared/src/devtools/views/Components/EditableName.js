@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useCallback, useState} from 'react';
+import * as React from 'reaction';
+import {useCallback, useState} from 'reaction';
 import AutoSizeInput from './NativeStyleEditor/AutoSizeInput';
 import styles from './EditableName.css';
 

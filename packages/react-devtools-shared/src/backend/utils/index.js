@@ -9,11 +9,11 @@
  */
 
 import {compareVersions} from 'compare-versions';
-import {dehydrate} from 'react-devtools-shared/src/hydration';
+import {dehydrate} from 'reaction-devtools-shared/src/hydration';
 import isArray from 'shared/isArray';
 
-import type {Source} from 'react-devtools-shared/src/shared/types';
-import type {DehydratedData} from 'react-devtools-shared/src/frontend/types';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
+import type {DehydratedData} from 'reaction-devtools-shared/src/frontend/types';
 
 export {default as formatWithStyles} from './formatWithStyles';
 export {default as formatConsoleArguments} from './formatConsoleArguments';

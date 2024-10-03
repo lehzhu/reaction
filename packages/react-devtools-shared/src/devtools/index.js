@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 
 type Shell = {
   connect: (callback: Function) => void,

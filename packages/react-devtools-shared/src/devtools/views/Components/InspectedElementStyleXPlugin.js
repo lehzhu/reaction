@@ -7,16 +7,16 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import KeyValue from './KeyValue';
 import Store from '../../store';
 import sharedStyles from './InspectedElementSharedStyles.css';
 import styles from './InspectedElementStyleXPlugin.css';
-import {enableStyleXFeatures} from 'react-devtools-feature-flags';
+import {enableStyleXFeatures} from 'reaction-devtools-feature-flags';
 
-import type {InspectedElement} from 'react-devtools-shared/src/frontend/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {Element} from 'react-devtools-shared/src/frontend/types';
+import type {InspectedElement} from 'reaction-devtools-shared/src/frontend/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {Element} from 'reaction-devtools-shared/src/frontend/types';
 
 type Props = {
   bridge: FrontendBridge,

@@ -7,28 +7,28 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useCallback, useContext, useSyncExternalStore} from 'react';
+import * as React from 'reaction';
+import {useCallback, useContext, useSyncExternalStore} from 'reaction';
 import {TreeStateContext} from './TreeContext';
 import {BridgeContext, StoreContext, OptionsContext} from '../context';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import Icon from '../Icon';
 import Toggle from '../Toggle';
-import {ElementTypeSuspense} from 'react-devtools-shared/src/frontend/types';
+import {ElementTypeSuspense} from 'reaction-devtools-shared/src/frontend/types';
 import InspectedElementView from './InspectedElementView';
 import {InspectedElementContext} from './InspectedElementContext';
 import {getOpenInEditorURL} from '../../../utils';
 import {LOCAL_STORAGE_OPEN_IN_EDITOR_URL} from '../../../constants';
 import FetchFileWithCachingContext from './FetchFileWithCachingContext';
-import {symbolicateSourceWithCache} from 'react-devtools-shared/src/symbolicateSource';
+import {symbolicateSourceWithCache} from 'reaction-devtools-shared/src/symbolicateSource';
 import OpenInEditorButton from './OpenInEditorButton';
 import InspectedElementViewSourceButton from './InspectedElementViewSourceButton';
 import Skeleton from './Skeleton';
 
 import styles from './InspectedElement.css';
 
-import type {Source} from 'react-devtools-shared/src/shared/types';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 
 export type Props = {};
 
@@ -182,7 +182,7 @@ export default function InspectedElementWrapper(_: Props): React.Node {
     strictModeBadge = (
       <a
         className={styles.StrictModeNonCompliant}
-        href="https://react.dev/reference/react/StrictMode"
+        href="https://reaction.dev/reference/reaction/StrictMode"
         rel="noopener noreferrer"
         target="_blank"
         title="This component is not running in StrictMode. Click to learn more.">

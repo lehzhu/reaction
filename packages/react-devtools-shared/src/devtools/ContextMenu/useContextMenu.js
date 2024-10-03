@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useState, useEffect, useCallback} from 'react';
+import * as React from 'reaction';
+import {useState, useEffect, useCallback} from 'reaction';
 
 import type {ContextMenuPosition} from './types';
 
@@ -43,7 +43,7 @@ export default function useContextMenu(anchorElementRef: {
 
       const ownerDocument = anchor?.ownerDocument;
       const portalContainer = ownerDocument?.querySelector(
-        '[data-react-devtools-portal-root]',
+        '[data-reaction-devtools-portal-root]',
       );
 
       if (portalContainer == null) {

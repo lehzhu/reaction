@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {copy} from 'clipboard-js';
 import {toNormalUrl} from 'jsc-safe-url';
 
@@ -15,7 +15,7 @@ import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import Skeleton from './Skeleton';
 
-import type {Source as InspectedElementSource} from 'react-devtools-shared/src/shared/types';
+import type {Source as InspectedElementSource} from 'reaction-devtools-shared/src/shared/types';
 import styles from './InspectedElementSourcePanel.css';
 
 type Props = {

@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useLayoutEffect, createRef} from 'react';
-import {createPortal} from 'react-dom';
+import * as React from 'reaction';
+import {useLayoutEffect, createRef} from 'reaction';
+import {createPortal} from 'reaction-dom';
 
 import ContextMenuItem from './ContextMenuItem';
 
@@ -70,7 +70,7 @@ export default function ContextMenu({
 
   const ownerDocument = anchor.ownerDocument;
   const portalContainer = ownerDocument.querySelector(
-    '[data-react-devtools-portal-root]',
+    '[data-reaction-devtools-portal-root]',
   );
 
   useLayoutEffect(() => {

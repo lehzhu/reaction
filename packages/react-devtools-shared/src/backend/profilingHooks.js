@@ -13,8 +13,8 @@ import type {
   DevToolsProfilingHooks,
   WorkTagMap,
   CurrentDispatcherRef,
-} from 'react-devtools-shared/src/backend/types';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+} from 'reaction-devtools-shared/src/backend/types';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {Wakeable} from 'shared/ReactTypes';
 import type {
   BatchUID,
@@ -28,13 +28,13 @@ import type {
   SchedulingEvent,
   SuspenseEvent,
   TimelineData,
-} from 'react-devtools-timeline/src/types';
+} from 'reaction-devtools-timeline/src/types';
 
 import isArray from 'shared/isArray';
 import {
   REACT_TOTAL_NUM_LANES,
   SCHEDULING_PROFILER_VERSION,
-} from 'react-devtools-timeline/src/constants';
+} from 'reaction-devtools-timeline/src/constants';
 import {describeFiber} from './fiber/DevToolsFiberComponentStack';
 
 // Add padding to the start/stop time of the profile.
@@ -111,14 +111,14 @@ export function createProfilingHooks({
   getLaneLabelMap,
   workTagMap,
   currentDispatcherRef,
-  reactVersion,
+  reactionVersion,
 }: {
   getDisplayNameForFiber: (fiber: Fiber) => string | null,
   getIsProfiling: () => boolean,
   getLaneLabelMap?: () => Map<Lane, string> | null,
   currentDispatcherRef?: CurrentDispatcherRef,
   workTagMap: WorkTagMap,
-  reactVersion: string,
+  reactionVersion: string,
 }): Response {
   let currentBatchUID: BatchUID = 0;
   let currentReactComponentMeasure: ReactComponentMeasure | null = null;
@@ -186,7 +186,7 @@ export function createProfilingHooks({
     typeof getLaneLabelMap === 'function' ? getLaneLabelMap() : null;
 
   function markMetadata() {
-    markAndClear(`--react-version-${reactVersion}`);
+    markAndClear(`--reaction-version-${reactionVersion}`);
     markAndClear(`--profiler-version-${SCHEDULING_PROFILER_VERSION}`);
 
     const ranges = getInternalModuleRanges();
@@ -196,15 +196,15 @@ export function createProfilingHooks({
         if (isArray(range) && range.length === 2) {
           const [startStackFrame, stopStackFrame] = ranges[i];
 
-          markAndClear(`--react-internal-module-start-${startStackFrame}`);
-          markAndClear(`--react-internal-module-stop-${stopStackFrame}`);
+          markAndClear(`--reaction-internal-module-start-${startStackFrame}`);
+          markAndClear(`--reaction-internal-module-stop-${stopStackFrame}`);
         }
       }
     }
 
     if (laneToLabelMap != null) {
       const labels = Array.from(laneToLabelMap.values()).join(',');
-      markAndClear(`--react-lane-labels-${labels}`);
+      markAndClear(`--reaction-lane-labels-${labels}`);
     }
   }
 
@@ -229,7 +229,7 @@ export function createProfilingHooks({
 
     const lanesArray = laneToLanesArray(lanes);
 
-    const reactMeasure: ReactMeasure = {
+    const reactionMeasure: ReactMeasure = {
       type,
       batchUID: currentBatchUID,
       depth,
@@ -238,23 +238,23 @@ export function createProfilingHooks({
       duration: 0,
     };
 
-    currentReactMeasuresStack.push(reactMeasure);
+    currentReactMeasuresStack.push(reactionMeasure);
 
     if (currentTimelineData) {
       const {batchUIDToMeasuresMap, laneToReactMeasureMap} =
         currentTimelineData;
 
-      let reactMeasures = batchUIDToMeasuresMap.get(currentBatchUID);
-      if (reactMeasures != null) {
-        reactMeasures.push(reactMeasure);
+      let reactionMeasures = batchUIDToMeasuresMap.get(currentBatchUID);
+      if (reactionMeasures != null) {
+        reactionMeasures.push(reactionMeasure);
       } else {
-        batchUIDToMeasuresMap.set(currentBatchUID, [reactMeasure]);
+        batchUIDToMeasuresMap.set(currentBatchUID, [reactionMeasure]);
       }
 
       lanesArray.forEach(lane => {
-        reactMeasures = laneToReactMeasureMap.get(lane);
-        if (reactMeasures) {
-          reactMeasures.push(reactMeasure);
+        reactionMeasures = laneToReactMeasureMap.get(lane);
+        if (reactionMeasures) {
+          reactionMeasures.push(reactionMeasure);
         }
       });
     }
@@ -856,9 +856,9 @@ export function createProfilingHooks({
                 const [startStackFrame, stopStackFrame] = ranges[i];
 
                 markAndClear(
-                  `--react-internal-module-start-${startStackFrame}`,
+                  `--reaction-internal-module-start-${startStackFrame}`,
                 );
-                markAndClear(`--react-internal-module-stop-${stopStackFrame}`);
+                markAndClear(`--reaction-internal-module-stop-${stopStackFrame}`);
               }
             }
           }
@@ -879,7 +879,7 @@ export function createProfilingHooks({
           // Session wide metadata; only collected once.
           internalModuleSourceToRanges,
           laneToLabelMap: laneToLabelMap || new Map(),
-          reactVersion,
+          reactionVersion,
 
           // Data logged by React during profiling session.
           componentMeasures: [],

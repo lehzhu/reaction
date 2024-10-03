@@ -7,11 +7,11 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   unstable_useCacheRefresh as useCacheRefresh,
   useTransition,
-} from 'react';
+} from 'reaction';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import Store from '../../store';
@@ -20,10 +20,10 @@ import styles from './InspectedElementErrorsAndWarningsTree.css';
 import {
   clearErrorsForElement as clearErrorsForElementAPI,
   clearWarningsForElement as clearWarningsForElementAPI,
-} from 'react-devtools-shared/src/backendAPI';
+} from 'reaction-devtools-shared/src/backendAPI';
 
-import type {InspectedElement} from 'react-devtools-shared/src/frontend/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {InspectedElement} from 'reaction-devtools-shared/src/frontend/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 
 type Props = {
   bridge: FrontendBridge,

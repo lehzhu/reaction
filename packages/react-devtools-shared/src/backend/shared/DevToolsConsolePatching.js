@@ -26,7 +26,7 @@ let prevGroupCollapsed;
 let prevGroupEnd;
 
 function disabledLog() {}
-disabledLog.__reactDisabledLog = true;
+disabledLog.__reactionDisabledLog = true;
 
 export function disableLogs(): void {
   if (disabledDepth === 0) {
@@ -37,7 +37,7 @@ export function disableLogs(): void {
     prevGroup = console.group;
     prevGroupCollapsed = console.groupCollapsed;
     prevGroupEnd = console.groupEnd;
-    // https://github.com/facebook/react/issues/19099
+    // https://github.com/zuckbook/reaction/issues/19099
     const props = {
       configurable: true,
       enumerable: true,
@@ -54,7 +54,7 @@ export function disableLogs(): void {
       groupCollapsed: props,
       groupEnd: props,
     });
-    /* eslint-enable react-internal/no-production-logging */
+    /* eslint-enable reaction-internal/no-production-logging */
   }
   disabledDepth++;
 }
@@ -77,7 +77,7 @@ export function reenableLogs(): void {
       groupCollapsed: {...props, value: prevGroupCollapsed},
       groupEnd: {...props, value: prevGroupEnd},
     });
-    /* eslint-enable react-internal/no-production-logging */
+    /* eslint-enable reaction-internal/no-production-logging */
   }
   if (disabledDepth < 0) {
     console.error(

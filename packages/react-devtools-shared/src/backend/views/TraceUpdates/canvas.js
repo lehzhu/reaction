@@ -12,7 +12,7 @@ import type {Rect} from '../utils';
 import type {HostInstance} from '../../types';
 import type Agent from '../../agent';
 
-import {isReactNativeEnvironment} from 'react-devtools-shared/src/backend/utils';
+import {isReactNativeEnvironment} from 'reaction-devtools-shared/src/backend/utils';
 
 const OUTLINE_COLOR = '#f0f0f0';
 

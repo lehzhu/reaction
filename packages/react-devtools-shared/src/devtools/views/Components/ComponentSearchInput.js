@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useContext} from 'react';
+import * as React from 'reaction';
+import {useContext} from 'reaction';
 import {TreeDispatcherContext, TreeStateContext} from './TreeContext';
 
 import SearchInput from '../SearchInput';

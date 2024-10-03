@@ -7,19 +7,19 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useMemo, useState} from 'react';
-import Store from 'react-devtools-shared/src/devtools/store';
+import * as React from 'reaction';
+import {Fragment, useContext, useMemo, useState} from 'reaction';
+import Store from 'reaction-devtools-shared/src/devtools/store';
 import ButtonIcon from '../ButtonIcon';
 import {TreeDispatcherContext, TreeStateContext} from './TreeContext';
 import {StoreContext} from '../context';
 import {useSubscription} from '../hooks';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 import IndexableElementBadges from './IndexableElementBadges';
 import IndexableDisplayName from './IndexableDisplayName';
 
 import type {ItemData} from './Tree';
-import type {Element as ElementType} from 'react-devtools-shared/src/frontend/types';
+import type {Element as ElementType} from 'reaction-devtools-shared/src/frontend/types';
 
 import styles from './Element.css';
 import Icon from '../Icon';

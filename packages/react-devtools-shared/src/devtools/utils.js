@@ -9,7 +9,7 @@
 
 import JSON5 from 'json5';
 
-import type {Element} from 'react-devtools-shared/src/frontend/types';
+import type {Element} from 'reaction-devtools-shared/src/frontend/types';
 import type {StateContext} from './views/Components/TreeContext';
 import type Store from './store';
 

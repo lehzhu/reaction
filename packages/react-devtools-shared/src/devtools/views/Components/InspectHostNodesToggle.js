@@ -7,12 +7,12 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useCallback, useContext, useEffect, useState} from 'react';
+import * as React from 'reaction';
+import {useCallback, useContext, useEffect, useState} from 'reaction';
 import {BridgeContext} from '../context';
 import Toggle from '../Toggle';
 import ButtonIcon from '../ButtonIcon';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 
 export default function InspectHostNodesToggle(): React.Node {
   const [isInspecting, setIsInspecting] = useState(false);

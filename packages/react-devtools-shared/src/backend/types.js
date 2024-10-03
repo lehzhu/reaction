@@ -19,20 +19,20 @@ import type {
   Wakeable,
   ReactComponentInfo,
 } from 'shared/ReactTypes';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {
   ComponentFilter,
   ElementType,
   Plugins,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import type {
   ResolveNativeStyle,
   SetupNativeStyleEditor,
-} from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
-import type {InitBackend} from 'react-devtools-shared/src/backend';
-import type {TimelineDataExport} from 'react-devtools-timeline/src/types';
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
-import type {Source} from 'react-devtools-shared/src/shared/types';
+} from 'reaction-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+import type {InitBackend} from 'reaction-devtools-shared/src/backend';
+import type {TimelineDataExport} from 'reaction-devtools-timeline/src/types';
+import type {BackendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 import type Agent from './agent';
 
 type BundleType =
@@ -511,10 +511,10 @@ export type DevToolsHook = {
   inject: (renderer: ReactRenderer) => number | null,
   on: (event: string, handler: Handler) => void,
   off: (event: string, handler: Handler) => void,
-  reactDevtoolsAgent?: ?Object,
+  reactionDevtoolsAgent?: ?Object,
   sub: (event: string, handler: Handler) => () => void,
 
-  // Used by react-native-web and Flipper/Inspector
+  // Used by reaction-native-web and Flipper/Inspector
   resolveRNStyle?: ResolveNativeStyle,
   nativeStyleEditorValidAttributes?: $ReadOnlyArray<string>,
 

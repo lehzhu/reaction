@@ -7,15 +7,15 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {OptionsContext} from '../context';
 import EditableValue from './EditableValue';
 import Store from '../../store';
-import {ElementTypeSuspense} from 'react-devtools-shared/src/frontend/types';
+import {ElementTypeSuspense} from 'reaction-devtools-shared/src/frontend/types';
 import styles from './InspectedElementSharedStyles.css';
 
-import type {InspectedElement} from 'react-devtools-shared/src/frontend/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {InspectedElement} from 'reaction-devtools-shared/src/frontend/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 
 type Props = {
   bridge: FrontendBridge,

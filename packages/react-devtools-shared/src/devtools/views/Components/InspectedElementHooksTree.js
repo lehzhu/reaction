@@ -8,8 +8,8 @@
  */
 
 import {copy} from 'clipboard-js';
-import * as React from 'react';
-import {useCallback, useContext, useState} from 'react';
+import * as React from 'reaction';
+import {useCallback, useContext, useState} from 'reaction';
 import {BridgeContext, StoreContext} from '../context';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
@@ -20,15 +20,15 @@ import {getMetaValueLabel, serializeHooksForCopy} from '../utils';
 import Store from '../../store';
 import styles from './InspectedElementHooksTree.css';
 import {meta} from '../../../hydration';
-import {getHookSourceLocationKey} from 'react-devtools-shared/src/hookNamesCache';
-import HookNamesModuleLoaderContext from 'react-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
-import isArray from 'react-devtools-shared/src/isArray';
+import {getHookSourceLocationKey} from 'reaction-devtools-shared/src/hookNamesCache';
+import HookNamesModuleLoaderContext from 'reaction-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
+import isArray from 'reaction-devtools-shared/src/isArray';
 
-import type {InspectedElement} from 'react-devtools-shared/src/frontend/types';
-import type {HooksNode, HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {HookNames} from 'react-devtools-shared/src/frontend/types';
-import type {Element} from 'react-devtools-shared/src/frontend/types';
+import type {InspectedElement} from 'reaction-devtools-shared/src/frontend/types';
+import type {HooksNode, HooksTree} from 'reaction-debug-tools/src/ReactDebugHooks';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {HookNames} from 'reaction-devtools-shared/src/frontend/types';
+import type {Element} from 'reaction-devtools-shared/src/frontend/types';
 import type {ToggleParseHookNames} from './InspectedElementContext';
 
 type HooksTreeViewProps = {
@@ -193,7 +193,7 @@ function HookView({
     );
   }
 
-  // Certain hooks are not editable at all (as identified by react-debug-tools).
+  // Certain hooks are not editable at all (as identified by reaction-debug-tools).
   // Primitive hook names (e.g. the "State" name for useState) are also never editable.
   // $FlowFixMe[missing-local-annot]
   const canRenamePathsAtDepth = depth => isStateEditable && depth > 1;

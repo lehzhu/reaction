@@ -13,7 +13,7 @@ import {
   ElementTypeRoot,
   ElementTypeHostComponent,
   ElementTypeOtherOrUnknown,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import {getUID, utfEncodeString, printOperationsArray} from '../../utils';
 import {
   cleanForBridge,
@@ -28,7 +28,7 @@ import {
   getInObject,
   renamePathInObject,
   setInObject,
-} from 'react-devtools-shared/src/utils';
+} from 'reaction-devtools-shared/src/utils';
 import {
   __DEBUG__,
   TREE_OPERATION_ADD,
@@ -50,7 +50,7 @@ import type {
 import type {
   ComponentFilter,
   ElementType,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import type {InspectedElement, SerializedElement} from '../types';
 
 export type InternalInstance = Object;
@@ -693,7 +693,7 @@ export function attach(
     const inspectedElement = inspectElementRaw(id);
     if (inspectedElement !== null) {
       const value = getInObject(inspectedElement, path);
-      const key = `$reactTemp${count}`;
+      const key = `$reactionTemp${count}`;
 
       window[key] = value;
 

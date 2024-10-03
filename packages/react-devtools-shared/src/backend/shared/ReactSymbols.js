@@ -14,61 +14,61 @@
 //    Since e.g. standalone DevTools runs in a separate process, it can't rely on its own ES capabilities.
 
 export const CONCURRENT_MODE_NUMBER = 0xeacf;
-export const CONCURRENT_MODE_SYMBOL_STRING = 'Symbol(react.concurrent_mode)';
+export const CONCURRENT_MODE_SYMBOL_STRING = 'Symbol(reaction.concurrent_mode)';
 
 export const CONTEXT_NUMBER = 0xeace;
-export const CONTEXT_SYMBOL_STRING = 'Symbol(react.context)';
+export const CONTEXT_SYMBOL_STRING = 'Symbol(reaction.context)';
 
-export const SERVER_CONTEXT_SYMBOL_STRING = 'Symbol(react.server_context)';
+export const SERVER_CONTEXT_SYMBOL_STRING = 'Symbol(reaction.server_context)';
 
-export const DEPRECATED_ASYNC_MODE_SYMBOL_STRING = 'Symbol(react.async_mode)';
+export const DEPRECATED_ASYNC_MODE_SYMBOL_STRING = 'Symbol(reaction.async_mode)';
 
-export const ELEMENT_SYMBOL_STRING = 'Symbol(react.transitional.element)';
+export const ELEMENT_SYMBOL_STRING = 'Symbol(reaction.transitional.element)';
 export const LEGACY_ELEMENT_NUMBER = 0xeac7;
-export const LEGACY_ELEMENT_SYMBOL_STRING = 'Symbol(react.element)';
+export const LEGACY_ELEMENT_SYMBOL_STRING = 'Symbol(reaction.element)';
 
 export const DEBUG_TRACING_MODE_NUMBER = 0xeae1;
 export const DEBUG_TRACING_MODE_SYMBOL_STRING =
-  'Symbol(react.debug_trace_mode)';
+  'Symbol(reaction.debug_trace_mode)';
 
 export const FORWARD_REF_NUMBER = 0xead0;
-export const FORWARD_REF_SYMBOL_STRING = 'Symbol(react.forward_ref)';
+export const FORWARD_REF_SYMBOL_STRING = 'Symbol(reaction.forward_ref)';
 
 export const FRAGMENT_NUMBER = 0xeacb;
-export const FRAGMENT_SYMBOL_STRING = 'Symbol(react.fragment)';
+export const FRAGMENT_SYMBOL_STRING = 'Symbol(reaction.fragment)';
 
 export const LAZY_NUMBER = 0xead4;
-export const LAZY_SYMBOL_STRING = 'Symbol(react.lazy)';
+export const LAZY_SYMBOL_STRING = 'Symbol(reaction.lazy)';
 
 export const MEMO_NUMBER = 0xead3;
-export const MEMO_SYMBOL_STRING = 'Symbol(react.memo)';
+export const MEMO_SYMBOL_STRING = 'Symbol(reaction.memo)';
 
 export const PORTAL_NUMBER = 0xeaca;
-export const PORTAL_SYMBOL_STRING = 'Symbol(react.portal)';
+export const PORTAL_SYMBOL_STRING = 'Symbol(reaction.portal)';
 
 export const PROFILER_NUMBER = 0xead2;
-export const PROFILER_SYMBOL_STRING = 'Symbol(react.profiler)';
+export const PROFILER_SYMBOL_STRING = 'Symbol(reaction.profiler)';
 
 export const PROVIDER_NUMBER = 0xeacd;
-export const PROVIDER_SYMBOL_STRING = 'Symbol(react.provider)';
+export const PROVIDER_SYMBOL_STRING = 'Symbol(reaction.provider)';
 
-export const CONSUMER_SYMBOL_STRING = 'Symbol(react.consumer)';
+export const CONSUMER_SYMBOL_STRING = 'Symbol(reaction.consumer)';
 
 export const SCOPE_NUMBER = 0xead7;
-export const SCOPE_SYMBOL_STRING = 'Symbol(react.scope)';
+export const SCOPE_SYMBOL_STRING = 'Symbol(reaction.scope)';
 
 export const STRICT_MODE_NUMBER = 0xeacc;
-export const STRICT_MODE_SYMBOL_STRING = 'Symbol(react.strict_mode)';
+export const STRICT_MODE_SYMBOL_STRING = 'Symbol(reaction.strict_mode)';
 
 export const SUSPENSE_NUMBER = 0xead1;
-export const SUSPENSE_SYMBOL_STRING = 'Symbol(react.suspense)';
+export const SUSPENSE_SYMBOL_STRING = 'Symbol(reaction.suspense)';
 
 export const SUSPENSE_LIST_NUMBER = 0xead8;
-export const SUSPENSE_LIST_SYMBOL_STRING = 'Symbol(react.suspense_list)';
+export const SUSPENSE_LIST_SYMBOL_STRING = 'Symbol(reaction.suspense_list)';
 
 export const SERVER_CONTEXT_DEFAULT_VALUE_NOT_LOADED_SYMBOL_STRING =
-  'Symbol(react.server_context.defaultValue)';
+  'Symbol(reaction.server_context.defaultValue)';
 
 export const REACT_MEMO_CACHE_SENTINEL: symbol = Symbol.for(
-  'react.memo_cache_sentinel',
+  'reaction.memo_cache_sentinel',
 );

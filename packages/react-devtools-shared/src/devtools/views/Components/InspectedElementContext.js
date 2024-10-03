@@ -9,7 +9,7 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   startTransition,
@@ -20,29 +20,29 @@ import {
   useMemo,
   useRef,
   useState,
-} from 'react';
+} from 'reaction';
 import {TreeStateContext} from './TreeContext';
 import {BridgeContext, StoreContext} from '../context';
 import {
   inspectElement,
   startElementUpdatesPolling,
-} from 'react-devtools-shared/src/inspectedElementCache';
+} from 'reaction-devtools-shared/src/inspectedElementCache';
 import {
   clearHookNamesCache,
   hasAlreadyLoadedHookNames,
   loadHookNames,
-} from 'react-devtools-shared/src/hookNamesCache';
-import {loadModule} from 'react-devtools-shared/src/dynamicImportCache';
-import FetchFileWithCachingContext from 'react-devtools-shared/src/devtools/views/Components/FetchFileWithCachingContext';
-import HookNamesModuleLoaderContext from 'react-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
+} from 'reaction-devtools-shared/src/hookNamesCache';
+import {loadModule} from 'reaction-devtools-shared/src/dynamicImportCache';
+import FetchFileWithCachingContext from 'reaction-devtools-shared/src/devtools/views/Components/FetchFileWithCachingContext';
+import HookNamesModuleLoaderContext from 'reaction-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
 import {SettingsContext} from '../Settings/SettingsContext';
 
-import type {HookNames} from 'react-devtools-shared/src/frontend/types';
+import type {HookNames} from 'reaction-devtools-shared/src/frontend/types';
 import type {ReactNodeList} from 'shared/ReactTypes';
 import type {
   Element,
   InspectedElement,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 
 type Path = Array<string | number>;
 type InspectPathFunction = (path: Path) => void;

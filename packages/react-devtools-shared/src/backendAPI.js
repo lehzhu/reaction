@@ -7,25 +7,25 @@
  * @flow
  */
 
-import {hydrate, fillInPath} from 'react-devtools-shared/src/hydration';
-import {backendToFrontendSerializedElementMapper} from 'react-devtools-shared/src/utils';
-import Store from 'react-devtools-shared/src/devtools/store';
-import TimeoutError from 'react-devtools-shared/src/errors/TimeoutError';
-import ElementPollingCancellationError from 'react-devtools-shared/src/errors/ElementPollingCancellationError';
+import {hydrate, fillInPath} from 'reaction-devtools-shared/src/hydration';
+import {backendToFrontendSerializedElementMapper} from 'reaction-devtools-shared/src/utils';
+import Store from 'reaction-devtools-shared/src/devtools/store';
+import TimeoutError from 'reaction-devtools-shared/src/errors/TimeoutError';
+import ElementPollingCancellationError from 'reaction-devtools-shared/src/errors/ElementPollingCancellationError';
 
 import type {
   InspectedElement as InspectedElementBackend,
   InspectedElementPayload,
-} from 'react-devtools-shared/src/backend/types';
+} from 'reaction-devtools-shared/src/backend/types';
 import type {
   BackendEvents,
   FrontendBridge,
-} from 'react-devtools-shared/src/bridge';
+} from 'reaction-devtools-shared/src/bridge';
 import type {
   DehydratedData,
   InspectedElement as InspectedElementFrontend,
-} from 'react-devtools-shared/src/frontend/types';
-import type {InspectedElementPath} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
+import type {InspectedElementPath} from 'reaction-devtools-shared/src/frontend/types';
 
 export function clearErrorsAndWarnings({
   bridge,

@@ -7,10 +7,10 @@
  * @flow
  */
 
-import type Agent from 'react-devtools-shared/src/backend/agent';
+import type Agent from 'reaction-devtools-shared/src/backend/agent';
 import type {HostInstance} from '../../types';
 
-import {isReactNativeEnvironment} from 'react-devtools-shared/src/backend/utils';
+import {isReactNativeEnvironment} from 'reaction-devtools-shared/src/backend/utils';
 
 import Overlay from './Overlay';
 

@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useCallback, useContext} from 'react';
+import * as React from 'reaction';
+import {Fragment, useCallback, useContext} from 'reaction';
 import {TreeDispatcherContext} from './TreeContext';
 import {BridgeContext, StoreContext} from '../context';
 import Button from '../Button';
@@ -23,8 +23,8 @@ import InspectedElementSuspenseToggle from './InspectedElementSuspenseToggle';
 import NativeStyleEditor from './NativeStyleEditor';
 import ElementBadges from './ElementBadges';
 import {useHighlightHostInstance} from '../hooks';
-import {enableStyleXFeatures} from 'react-devtools-feature-flags';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import {enableStyleXFeatures} from 'reaction-devtools-feature-flags';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 import InspectedElementSourcePanel from './InspectedElementSourcePanel';
 
 import styles from './InspectedElementView.css';
@@ -32,10 +32,10 @@ import styles from './InspectedElementView.css';
 import type {
   Element,
   InspectedElement,
-} from 'react-devtools-shared/src/frontend/types';
-import type {HookNames} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
+import type {HookNames} from 'reaction-devtools-shared/src/frontend/types';
 import type {ToggleParseHookNames} from './InspectedElementContext';
-import type {Source} from 'react-devtools-shared/src/shared/types';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 
 type Props = {
   element: Element,

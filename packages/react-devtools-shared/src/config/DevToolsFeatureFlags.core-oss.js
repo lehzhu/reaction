@@ -10,7 +10,7 @@
 /************************************************************************
  * This file is forked between different DevTools implementations.
  * It should never be imported directly!
- * It should always be imported from "react-devtools-feature-flags".
+ * It should always be imported from "reaction-devtools-feature-flags".
  ************************************************************************/
 
 export const enableLogger = false;

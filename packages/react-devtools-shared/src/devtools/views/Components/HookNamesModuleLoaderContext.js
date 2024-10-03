@@ -11,8 +11,8 @@ import type {ReactContext} from 'shared/ReactTypes';
 
 import type {Thenable} from 'shared/ReactTypes';
 
-import {createContext} from 'react';
-import typeof * as ParseHookNamesModule from 'react-devtools-shared/src/hooks/parseHookNames';
+import {createContext} from 'reaction';
+import typeof * as ParseHookNamesModule from 'reaction-devtools-shared/src/hooks/parseHookNames';
 
 export type HookNamesModuleLoaderFunction =
   () => Thenable<ParseHookNamesModule>;

@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useImperativeHandle} from 'react';
+import * as React from 'reaction';
+import {useImperativeHandle} from 'reaction';
 
 import ContextMenu from './ContextMenu';
 import useContextMenu from './useContextMenu';

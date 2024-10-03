@@ -10,7 +10,7 @@
 import {getElementDimensions, getNestedBoundingClientRect} from '../utils';
 
 import type {Rect} from '../utils';
-import type Agent from 'react-devtools-shared/src/backend/agent';
+import type Agent from 'reaction-devtools-shared/src/backend/agent';
 
 type Box = {top: number, left: number, width: number, height: number};
 

@@ -9,7 +9,7 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import {createContext} from 'react';
+import {createContext} from 'reaction';
 
 export type FetchFileWithCaching = (url: string) => Promise<string>;
 export type Context = FetchFileWithCaching | null;

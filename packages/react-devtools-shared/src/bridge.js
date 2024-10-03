@@ -16,8 +16,8 @@ import type {
   ProfilingDataBackend,
   RendererID,
   DevToolsHookSettings,
-} from 'react-devtools-shared/src/backend/types';
-import type {StyleAndLayout as StyleAndLayoutPayload} from 'react-devtools-shared/src/backend/NativeStyleEditor/types';
+} from 'reaction-devtools-shared/src/backend/types';
+import type {StyleAndLayout as StyleAndLayoutPayload} from 'reaction-devtools-shared/src/backend/NativeStyleEditor/types';
 
 // This message specifies the version of the DevTools protocol currently supported by the backend,
 // as well as the earliest NPM version (e.g. "4.13.0") that protocol is supported by on the frontend.

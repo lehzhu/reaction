@@ -7,14 +7,14 @@
  * @flow
  */
 
-import type {Node as ReactNode, AbstractComponent, ElementRef} from 'react';
+import type {Node as ReactNode, AbstractComponent, ElementRef} from 'reaction';
 
 export type ContextMenuItem = {
   onClick: () => void,
   content: ReactNode,
 };
 
-// Relative to [data-react-devtools-portal-root]
+// Relative to [data-reaction-devtools-portal-root]
 export type ContextMenuPosition = {
   x: number,
   y: number,

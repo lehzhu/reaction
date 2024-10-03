@@ -7,18 +7,18 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 
 import ButtonIcon from '../ButtonIcon';
 import Button from '../Button';
 import ViewElementSourceContext from './ViewElementSourceContext';
 import Skeleton from './Skeleton';
 
-import type {Source as InspectedElementSource} from 'react-devtools-shared/src/shared/types';
+import type {Source as InspectedElementSource} from 'reaction-devtools-shared/src/shared/types';
 import type {
   CanViewElementSource,
   ViewElementSource,
-} from 'react-devtools-shared/src/devtools/views/DevTools';
+} from 'reaction-devtools-shared/src/devtools/views/DevTools';
 
 const {useCallback, useContext} = React;
 

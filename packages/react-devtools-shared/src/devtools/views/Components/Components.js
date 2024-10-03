@@ -7,21 +7,21 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useEffect, useLayoutEffect, useReducer, useRef} from 'react';
+import * as React from 'reaction';
+import {Fragment, useEffect, useLayoutEffect, useReducer, useRef} from 'reaction';
 import Tree from './Tree';
 import {OwnersListContextController} from './OwnersListContext';
 import portaledContent from '../portaledContent';
-import {SettingsModalContextController} from 'react-devtools-shared/src/devtools/views/Settings/SettingsModalContext';
+import {SettingsModalContextController} from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsModalContext';
 import {
   localStorageGetItem,
   localStorageSetItem,
-} from 'react-devtools-shared/src/storage';
+} from 'reaction-devtools-shared/src/storage';
 import InspectedElementErrorBoundary from './InspectedElementErrorBoundary';
 import InspectedElement from './InspectedElement';
 import {InspectedElementContextController} from './InspectedElementContext';
 import {ModalDialog} from '../ModalDialog';
-import SettingsModal from 'react-devtools-shared/src/devtools/views/Settings/SettingsModal';
+import SettingsModal from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsModal';
 import {NativeStyleContextController} from './NativeStyleEditor/context';
 
 import styles from './Components.css';

@@ -9,15 +9,15 @@
 
 import type {ReactContext, Thenable} from 'shared/ReactTypes';
 
-import * as React from 'react';
-import {createContext} from 'react';
+import * as React from 'reaction';
+import {createContext} from 'reaction';
 
 // TODO (cache) Remove this cache; it is outdated and will not work with newer APIs like startTransition.
 
 // Cache implementation was forked from the React repo:
-// https://github.com/facebook/react/blob/main/packages/react-cache/src/ReactCacheOld.js
+// https://github.com/zuckbook/reaction/blob/main/packages/reaction-cache/src/ReactCacheOld.js
 //
-// This cache is simpler than react-cache in that:
+// This cache is simpler than reaction-cache in that:
 // 1. Individual items don't need to be invalidated.
 //    Profiling data is invalidated as a whole.
 // 2. We didn't need the added overhead of an LRU cache.
@@ -74,7 +74,7 @@ if (typeof React.use === 'function') {
     const dispatcher = ReactCurrentDispatcher.current;
     if (dispatcher === null) {
       throw new Error(
-        'react-cache: read and preload may only be called from within a ' +
+        'reaction-cache: read and preload may only be called from within a ' +
           "component's render. They are not supported in event handlers or " +
           'lifecycle methods.',
       );
@@ -82,7 +82,7 @@ if (typeof React.use === 'function') {
     return dispatcher.readContext(Context);
   };
 } else {
-  throw new Error('react-cache: Unsupported React version');
+  throw new Error('reaction-cache: Unsupported React version');
 }
 
 const CacheContext = createContext(null);
