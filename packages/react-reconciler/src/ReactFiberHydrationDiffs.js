@@ -230,7 +230,7 @@ function describeValue(value: mixed, maxLength: number): string {
       return name ? 'function ' + name : 'function';
     }
     default:
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       return String(value);
   }
 }

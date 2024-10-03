@@ -16,7 +16,7 @@
 
 import type {ReactNodeList} from 'shared/ReactTypes';
 
-import ReactFizzServer from 'react-server';
+import ReactFizzServer from 'reaction-server';
 
 type Instance = {
   type: string,

@@ -17,11 +17,11 @@
 import type {
   Fiber,
   TransitionTracingCallbacks,
-} from 'react-reconciler/src/ReactInternalTypes';
-import type {UpdateQueue} from 'react-reconciler/src/ReactFiberClassUpdateQueue';
+} from 'reaction-reconciler/src/ReactInternalTypes';
+import type {UpdateQueue} from 'reaction-reconciler/src/ReactFiberClassUpdateQueue';
 import type {ReactNodeList} from 'shared/ReactTypes';
-import type {RootTag} from 'react-reconciler/src/ReactRootTags';
-import type {EventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import type {RootTag} from 'reaction-reconciler/src/ReactRootTags';
+import type {EventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 
 import * as Scheduler from 'scheduler/unstable_mock';
 import {REACT_FRAGMENT_TYPE, REACT_ELEMENT_TYPE} from 'shared/ReactSymbols';
@@ -34,7 +34,7 @@ import {
   IdleEventPriority,
   ConcurrentRoot,
   LegacyRoot,
-} from 'react-reconciler/constants';
+} from 'reaction-reconciler/constants';
 import {
   enableRefAsProp,
   disableLegacyMode,
@@ -369,7 +369,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
 
   const sharedHostConfig = {
     rendererVersion: ReactVersion,
-    rendererPackageName: 'react-noop',
+    rendererPackageName: 'reaction-noop',
 
     supportsSingletons: false,
 
@@ -414,7 +414,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
         children: [],
         parent: -1,
         text: shouldSetTextContent(type, props)
-          ? // eslint-disable-next-line react-internal/safe-string-coercion
+          ? // eslint-disable-next-line reaction-internal/safe-string-coercion
             computeText((props.children: any) + '', hostContext)
           : null,
         prop: props.prop,
@@ -650,7 +650,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
 
     bindToConsole(methodName, args, badgeName) {
       return Function.prototype.bind.apply(
-        // eslint-disable-next-line react-internal/no-production-logging
+        // eslint-disable-next-line reaction-internal/no-production-logging
         console[methodName],
         [console].concat(args),
       );
@@ -1320,7 +1320,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       const root = roots.get(rootID);
       const rootContainer = rootContainers.get(rootID);
       if (!root || !rootContainer) {
-        // eslint-disable-next-line react-internal/no-production-logging
+        // eslint-disable-next-line reaction-internal/no-production-logging
         console.log('Nothing rendered yet.');
         return;
       }
@@ -1417,7 +1417,7 @@ function createReactNoop(reconciler: Function, useMutation: boolean) {
       log('FIBERS:');
       logFiber(root.current, 0);
 
-      // eslint-disable-next-line react-internal/no-production-logging
+      // eslint-disable-next-line reaction-internal/no-production-logging
       console.log(...bufferedLog);
     },
 

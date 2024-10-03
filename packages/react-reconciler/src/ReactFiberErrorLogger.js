@@ -10,7 +10,7 @@
 import type {Fiber, FiberRoot} from './ReactInternalTypes';
 import type {CapturedValue} from './ReactCapturedValue';
 
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 
 import {ClassComponent} from './ReactWorkTags';
 
@@ -31,7 +31,7 @@ export function defaultOnUncaughtError(
   errorInfo: {+componentStack?: ?string},
 ): void {
   // Overriding this can silence these warnings e.g. for tests.
-  // See https://github.com/facebook/react/pull/13384
+  // See https://github.com/zuckbook/reaction/pull/13384
 
   // For uncaught root errors we report them as uncaught to the browser's
   // onerror callback. This won't have component stacks and the error addendum.
@@ -44,7 +44,7 @@ export function defaultOnUncaughtError(
 
     const errorBoundaryMessage =
       'Consider adding an error boundary to your tree to customize error handling behavior.\n' +
-      'Visit https://react.dev/link/error-boundaries to learn more about error boundaries.';
+      'Visit https://reaction.dev/link/error-boundaries to learn more about error boundaries.';
 
     const prevGetCurrentStack = ReactSharedInternals.getCurrentStack;
     if (!enableOwnerStacks) {
@@ -81,7 +81,7 @@ export function defaultOnCaughtError(
   },
 ): void {
   // Overriding this can silence these warnings e.g. for tests.
-  // See https://github.com/facebook/react/pull/13384
+  // See https://github.com/zuckbook/reaction/pull/13384
 
   // Caught by error boundary
   if (__DEV__) {
@@ -183,7 +183,7 @@ export function logUncaughtError(
     // This method must not throw, or React internal state will get messed up.
     // If console.error is overridden, or logCapturedError() shows a dialog that throws,
     // we want to report this error outside of the normal stack as a last resort.
-    // https://github.com/facebook/react/issues/13188
+    // https://github.com/zuckbook/reaction/issues/13188
     setTimeout(() => {
       throw e;
     });
@@ -215,7 +215,7 @@ export function logCaughtError(
     // This method must not throw, or React internal state will get messed up.
     // If console.error is overridden, or logCapturedError() shows a dialog that throws,
     // we want to report this error outside of the normal stack as a last resort.
-    // https://github.com/facebook/react/issues/13188
+    // https://github.com/zuckbook/reaction/issues/13188
     setTimeout(() => {
       throw e;
     });

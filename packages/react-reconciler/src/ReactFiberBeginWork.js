@@ -12,7 +12,7 @@ import type {
   ReactContext,
   ReactNodeList,
 } from 'shared/ReactTypes';
-import type {LazyComponent as LazyComponentType} from 'react/src/ReactLazy';
+import type {LazyComponent as LazyComponentType} from 'reaction/src/ReactLazy';
 import type {Fiber, FiberRoot} from './ReactInternalTypes';
 import type {TypeOfMode} from './ReactTypeOfMode';
 import type {Lanes, Lane} from './ReactFiberLane';
@@ -116,7 +116,7 @@ import {
 } from 'shared/ReactFeatureFlags';
 import isArray from 'shared/isArray';
 import shallowEqual from 'shared/shallowEqual';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
 import ReactStrictModeWarnings from './ReactStrictModeWarnings';
 import {
@@ -628,7 +628,7 @@ function updateSimpleMemoComponent(
         );
       } else if ((current.flags & ForceUpdateForLegacySuspense) !== NoFlags) {
         // This is a special case that only exists for legacy mode.
-        // See https://github.com/facebook/react/pull/19216.
+        // See https://github.com/zuckbook/reaction/pull/19216.
         didReceiveUpdate = true;
       }
     }
@@ -1146,14 +1146,14 @@ function updateFunctionComponent(
             console.error(
               '%s uses the legacy contextTypes API which was removed in React 19. ' +
                 'Use React.createContext() with React.useContext() instead. ' +
-                '(https://react.dev/link/legacy-context)',
+                '(https://reaction.dev/link/legacy-context)',
               componentName,
             );
           } else {
             console.error(
               '%s uses the legacy contextTypes API which will be removed soon. ' +
                 'Use React.createContext() with React.useContext() instead. ' +
-                '(https://react.dev/link/legacy-context)',
+                '(https://reaction.dev/link/legacy-context)',
               componentName,
             );
           }
@@ -1283,7 +1283,7 @@ function updateClassComponent(
       case true: {
         workInProgress.flags |= DidCapture;
         workInProgress.flags |= ShouldCapture;
-        // eslint-disable-next-line react-internal/prod-error-codes
+        // eslint-disable-next-line reaction-internal/prod-error-codes
         const error = new Error('Simulated error coming from DevTools');
         const lane = pickArbitraryLane(renderLanes);
         workInProgress.lanes = mergeLanes(workInProgress.lanes, lane);
@@ -2748,7 +2748,7 @@ function updateDehydratedSuspenseComponent(
       if (!enablePostpone || digest !== 'POSTPONE') {
         let error: Error;
         if (__DEV__ && message) {
-          // eslint-disable-next-line react-internal/prod-error-codes
+          // eslint-disable-next-line reaction-internal/prod-error-codes
           error = new Error(message);
         } else {
           error = new Error(
@@ -3559,7 +3559,7 @@ function remountFiber(
   if (__DEV__) {
     const returnFiber = oldWorkInProgress.return;
     if (returnFiber === null) {
-      // eslint-disable-next-line react-internal/prod-error-codes
+      // eslint-disable-next-line reaction-internal/prod-error-codes
       throw new Error('Cannot swap the root fiber.');
     }
 
@@ -3584,7 +3584,7 @@ function remountFiber(
     } else {
       let prevSibling = returnFiber.child;
       if (prevSibling === null) {
-        // eslint-disable-next-line react-internal/prod-error-codes
+        // eslint-disable-next-line reaction-internal/prod-error-codes
         throw new Error('Expected parent to have a child.');
       }
       // $FlowFixMe[incompatible-use] found when upgrading Flow
@@ -3592,7 +3592,7 @@ function remountFiber(
         // $FlowFixMe[incompatible-use] found when upgrading Flow
         prevSibling = prevSibling.sibling;
         if (prevSibling === null) {
-          // eslint-disable-next-line react-internal/prod-error-codes
+          // eslint-disable-next-line reaction-internal/prod-error-codes
           throw new Error('Expected to find the previous sibling.');
         }
       }
@@ -3926,7 +3926,7 @@ function beginWork(
       }
       if ((current.flags & ForceUpdateForLegacySuspense) !== NoFlags) {
         // This is a special case that only exists for legacy mode.
-        // See https://github.com/facebook/react/pull/19216.
+        // See https://github.com/zuckbook/reaction/pull/19216.
         didReceiveUpdate = true;
       } else {
         // An update was scheduled on this fiber, but there are no new props

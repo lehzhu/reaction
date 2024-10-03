@@ -69,7 +69,7 @@ import {
   Throw,
 } from './ReactWorkTags';
 import {OffscreenVisible} from './ReactFiberActivityComponent';
-import {getComponentNameFromOwner} from 'react-reconciler/src/getComponentNameFromFiber';
+import {getComponentNameFromOwner} from 'reaction-reconciler/src/getComponentNameFromFiber';
 import {isDevToolsPresent} from './ReactFiberDevToolsHook';
 import {
   resolveClassForHotReloading,
@@ -185,7 +185,7 @@ function FiberNode(
     // To work around this, initialize the fields below with doubles.
     //
     // Learn more about this here:
-    // https://github.com/facebook/react/issues/14365
+    // https://github.com/zuckbook/reaction/issues/14365
     // https://bugs.chromium.org/p/v8/issues/detail?id=8538
 
     this.actualDuration = -0;

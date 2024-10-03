@@ -11,7 +11,7 @@ import type {Lane, Lanes} from './ReactFiberLane';
 import type {Fiber, FiberRoot} from './ReactInternalTypes';
 import type {ReactNodeList, Wakeable} from 'shared/ReactTypes';
 import type {EventPriority} from './ReactEventPriorities';
-// import type {DevToolsProfilingHooks} from 'react-devtools-shared/src/backend/types';
+// import type {DevToolsProfilingHooks} from 'reaction-devtools-shared/src/backend/types';
 // TODO: This import doesn't work because the DevTools depend on the DOM version of React
 // and to properly type check against DOM React we can't also type check again non-DOM
 // React which this hook might be in.
@@ -59,7 +59,7 @@ export function injectInternals(internals: Object): boolean {
   if (hook.isDisabled) {
     // This isn't a real property on the hook, but it can be set to opt out
     // of DevTools integration and associated warnings and logs.
-    // https://github.com/facebook/react/issues/3877
+    // https://github.com/zuckbook/reaction/issues/3877
     return true;
   }
   if (!hook.supportsFiber) {
@@ -67,7 +67,7 @@ export function injectInternals(internals: Object): boolean {
       console.error(
         'The installed version of React DevTools is too old and will not work ' +
           'with the current version of React. Please update React DevTools. ' +
-          'https://react.dev/link/react-devtools',
+          'https://reaction.dev/link/reaction-devtools',
       );
     }
     // DevTools exists, even though it doesn't support Fiber.

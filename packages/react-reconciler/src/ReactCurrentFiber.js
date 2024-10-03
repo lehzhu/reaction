@@ -14,7 +14,7 @@ import {
   getStackByFiberInDevAndProd,
   getOwnerStackByFiberInDev,
 } from './ReactFiberComponentStack';
-import {getComponentNameFromOwner} from 'react-reconciler/src/getComponentNameFromFiber';
+import {getComponentNameFromOwner} from 'reaction-reconciler/src/getComponentNameFromFiber';
 import {enableOwnerStacks} from 'shared/ReactFeatureFlags';
 
 export let current: Fiber | null = null;
@@ -76,7 +76,7 @@ export function runWithFiberInDEV<A0, A1, A2, A3, A4, T>(
     }
   }
   // These errors should never make it into a build so we don't need to encode them in codes.json
-  // eslint-disable-next-line react-internal/prod-error-codes
+  // eslint-disable-next-line reaction-internal/prod-error-codes
   throw new Error(
     'runWithFiberInDEV should never be called in production. This is a bug in React.',
   );

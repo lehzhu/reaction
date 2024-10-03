@@ -36,7 +36,7 @@ import {
   HostRoot,
   SuspenseComponent,
 } from './ReactWorkTags';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import isArray from 'shared/isArray';
 import {enableSchedulingProfiler} from 'shared/ReactFeatureFlags';
 import ReactSharedInternals from 'shared/ReactSharedInternals';
@@ -118,7 +118,7 @@ export {
   defaultOnCaughtError,
   defaultOnRecoverableError,
 } from './ReactFiberErrorLogger';
-import {getLabelForLane, TotalLanes} from 'react-reconciler/src/ReactFiberLane';
+import {getLabelForLane, TotalLanes} from 'reaction-reconciler/src/ReactFiberLane';
 
 type OpaqueRoot = FiberRoot;
 
@@ -200,7 +200,7 @@ function findHostInstanceWithWarning(
                 '%s was passed an instance of %s which is inside StrictMode. ' +
                 'Instead, add a ref directly to the element you want to reference. ' +
                 'Learn more about using refs safely here: ' +
-                'https://react.dev/link/strict-mode-find-node',
+                'https://reaction.dev/link/strict-mode-find-node',
               methodName,
               methodName,
               componentName,
@@ -211,7 +211,7 @@ function findHostInstanceWithWarning(
                 '%s was passed an instance of %s which renders StrictMode children. ' +
                 'Instead, add a ref directly to the element you want to reference. ' +
                 'Learn more about using refs safely here: ' +
-                'https://react.dev/link/strict-mode-find-node',
+                'https://reaction.dev/link/strict-mode-find-node',
               methodName,
               methodName,
               componentName,

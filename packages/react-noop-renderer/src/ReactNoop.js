@@ -14,7 +14,7 @@
  * environment.
  */
 
-import ReactFiberReconciler from 'react-reconciler';
+import ReactFiberReconciler from 'reaction-reconciler';
 import createReactNoop from './createReactNoop';
 
 export const {

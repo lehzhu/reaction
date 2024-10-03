@@ -30,7 +30,7 @@ import ReactStrictModeWarnings from './ReactStrictModeWarnings';
 import {isMounted} from './ReactFiberTreeReflection';
 import {get as getInstance, set as setInstance} from 'shared/ReactInstanceMap';
 import shallowEqual from 'shared/shallowEqual';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
 import assign from 'shared/assign';
 import isArray from 'shared/isArray';
@@ -109,7 +109,7 @@ function warnOnInvalidCallback(callback: mixed) {
     if (callback === null || typeof callback === 'function') {
       return;
     }
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     const key = String(callback);
     if (!didWarnOnInvalidCallback.has(key)) {
       didWarnOnInvalidCallback.add(key);
@@ -397,7 +397,7 @@ function checkClassInstance(workInProgress: Fiber, ctor: any, newProps: any) {
         didWarnAboutChildContextTypes.add(ctor);
         console.error(
           '%s uses the legacy childContextTypes API which was removed in React 19. ' +
-            'Use React.createContext() instead. (https://react.dev/link/legacy-context)',
+            'Use React.createContext() instead. (https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -406,7 +406,7 @@ function checkClassInstance(workInProgress: Fiber, ctor: any, newProps: any) {
         console.error(
           '%s uses the legacy contextTypes API which was removed in React 19. ' +
             'Use React.createContext() with static contextType instead. ' +
-            '(https://react.dev/link/legacy-context)',
+            '(https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -435,7 +435,7 @@ function checkClassInstance(workInProgress: Fiber, ctor: any, newProps: any) {
         didWarnAboutChildContextTypes.add(ctor);
         console.error(
           '%s uses the legacy childContextTypes API which will soon be removed. ' +
-            'Use React.createContext() instead. (https://react.dev/link/legacy-context)',
+            'Use React.createContext() instead. (https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -444,7 +444,7 @@ function checkClassInstance(workInProgress: Fiber, ctor: any, newProps: any) {
         console.error(
           '%s uses the legacy contextTypes API which will soon be removed. ' +
             'Use React.createContext() with static contextType instead. ' +
-            '(https://react.dev/link/legacy-context)',
+            '(https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -656,7 +656,7 @@ function constructClassInstance(
   // The instance needs access to the fiber so that it can schedule updates
   setInstance(instance, workInProgress);
   if (__DEV__) {
-    instance._reactInternalInstance = fakeInternalInstance;
+    instance._reactionInternalInstance = fakeInternalInstance;
   }
 
   if (__DEV__) {
@@ -678,7 +678,7 @@ function constructClassInstance(
 
     // If new component APIs are defined, "unsafe" lifecycles won't be called.
     // Warn about these lifecycles if they are present.
-    // Don't warn about react-lifecycles-compat polyfilled methods though.
+    // Don't warn about reaction-lifecycles-compat polyfilled methods though.
     if (
       typeof ctor.getDerivedStateFromProps === 'function' ||
       typeof instance.getSnapshotBeforeUpdate === 'function'
@@ -728,7 +728,7 @@ function constructClassInstance(
             'Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' +
               '%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\n' +
               'The above lifecycles should be removed. Learn more about this warning here:\n' +
-              'https://react.dev/link/unsafe-component-lifecycles',
+              'https://reaction.dev/link/unsafe-component-lifecycles',
             componentName,
             newApiName,
             foundWillMountName !== null ? `\n  ${foundWillMountName}` : '',
@@ -874,7 +874,7 @@ function mountClassInstance(
     instance.state = workInProgress.memoizedState;
   }
 
-  // In order to support react-lifecycles-compat polyfilled components,
+  // In order to support reaction-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
   if (
     typeof ctor.getDerivedStateFromProps !== 'function' &&
@@ -944,7 +944,7 @@ function resumeMountClassInstance(
   // ever the previously attempted to render - not the "current". However,
   // during componentDidUpdate we pass the "current" props.
 
-  // In order to support react-lifecycles-compat polyfilled components,
+  // In order to support reaction-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
   if (
     !hasNewLifecycles &&
@@ -1008,7 +1008,7 @@ function resumeMountClassInstance(
     );
 
   if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
+    // In order to support reaction-lifecycles-compat polyfilled components,
     // Unsafe lifecycles should not be invoked for components using the new APIs.
     if (
       !hasNewLifecycles &&
@@ -1093,7 +1093,7 @@ function updateClassInstance(
   // ever the previously attempted to render - not the "current". However,
   // during componentDidUpdate we pass the "current" props.
 
-  // In order to support react-lifecycles-compat polyfilled components,
+  // In order to support reaction-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
   if (
     !hasNewLifecycles &&
@@ -1185,7 +1185,7 @@ function updateClassInstance(
       checkIfContextChanged(current.dependencies));
 
   if (shouldUpdate) {
-    // In order to support react-lifecycles-compat polyfilled components,
+    // In order to support reaction-lifecycles-compat polyfilled components,
     // Unsafe lifecycles should not be invoked for components using the new APIs.
     if (
       !hasNewLifecycles &&

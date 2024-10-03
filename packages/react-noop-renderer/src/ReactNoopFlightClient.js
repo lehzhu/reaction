@@ -14,11 +14,11 @@
  * environment.
  */
 
-import type {FindSourceMapURLCallback} from 'react-client/flight';
+import type {FindSourceMapURLCallback} from 'reaction-client/flight';
 
-import {readModule} from 'react-noop-renderer/flight-modules';
+import {readModule} from 'reaction-noop-renderer/flight-modules';
 
-import ReactFlightClient from 'react-client/flight';
+import ReactFlightClient from 'reaction-client/flight';
 
 type Source = Array<Uint8Array>;
 
@@ -47,7 +47,7 @@ const {createResponse, processBinaryChunk, getRoot, close} = ReactFlightClient({
   },
   bindToConsole(methodName, args, badgeName) {
     return Function.prototype.bind.apply(
-      // eslint-disable-next-line react-internal/no-production-logging
+      // eslint-disable-next-line reaction-internal/no-production-logging
       console[methodName],
       [console].concat(args),
     );

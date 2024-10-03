@@ -28,7 +28,7 @@ import {
   ScopeComponent,
 } from './ReactWorkTags';
 import {NoFlags} from './ReactFiberFlags';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import {resolveClassComponentProps} from './ReactFiberClassComponent';
 import {
   recordEffectDuration,
@@ -201,7 +201,7 @@ export function commitHookEffectListMount(
                   '  }\n' +
                   '  fetchData();\n' +
                   `}, [someId]); // Or [] if effect doesn't need props or state\n\n` +
-                  'Learn more about data fetching with Hooks: https://react.dev/link/hooks-data-fetching';
+                  'Learn more about data fetching with Hooks: https://reaction.dev/link/hooks-data-fetching';
               } else {
                 addendum = ' You returned: ' + destroy;
               }
@@ -438,14 +438,14 @@ export function commitClassLayoutLifecycles(
           instance,
           prevProps,
           prevState,
-          instance.__reactInternalSnapshotBeforeUpdate,
+          instance.__reactionInternalSnapshotBeforeUpdate,
         );
       } else {
         try {
           instance.componentDidUpdate(
             prevProps,
             prevState,
-            instance.__reactInternalSnapshotBeforeUpdate,
+            instance.__reactionInternalSnapshotBeforeUpdate,
           );
         } catch (error) {
           captureCommitPhaseError(finishedWork, finishedWork.return, error);
@@ -461,14 +461,14 @@ export function commitClassLayoutLifecycles(
           instance,
           prevProps,
           prevState,
-          instance.__reactInternalSnapshotBeforeUpdate,
+          instance.__reactionInternalSnapshotBeforeUpdate,
         );
       } else {
         try {
           instance.componentDidUpdate(
             prevProps,
             prevState,
-            instance.__reactInternalSnapshotBeforeUpdate,
+            instance.__reactionInternalSnapshotBeforeUpdate,
           );
         } catch (error) {
           captureCommitPhaseError(finishedWork, finishedWork.return, error);
@@ -685,7 +685,7 @@ export function commitClassSnapshot(finishedWork: Fiber, current: Fiber) {
         prevState,
       );
     }
-    instance.__reactInternalSnapshotBeforeUpdate = snapshot;
+    instance.__reactionInternalSnapshotBeforeUpdate = snapshot;
   } catch (error) {
     captureCommitPhaseError(finishedWork, finishedWork.return, error);
   }

@@ -115,7 +115,7 @@ import {
   isInvalidExecutionContextForEventFunction,
 } from './ReactFiberWorkLoop';
 
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import is from 'shared/objectIs';
 import isArray from 'shared/isArray';
 import {
@@ -381,7 +381,7 @@ function warnOnHookMismatchInDev(currentHookName: HookType): void {
         console.error(
           'React has detected a change in the order of Hooks called by %s. ' +
             'This will lead to bugs and errors if not fixed. ' +
-            'For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks\n\n' +
+            'For more information, read the Rules of Hooks: https://reaction.dev/link/rules-of-hooks\n\n' +
             '   Previous render            Next render\n' +
             '   ------------------------------------------------------\n' +
             '%s' +
@@ -445,7 +445,7 @@ function throwInvalidHookError() {
       '1. You might have mismatching versions of React and the renderer (such as React DOM)\n' +
       '2. You might be breaking the Rules of Hooks\n' +
       '3. You might have more than one copy of React in the same app\n' +
-      'See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.',
+      'See https://reaction.dev/link/invalid-hook-call for tips about how to debug and fix this problem.',
   );
 }
 
@@ -583,8 +583,8 @@ export function renderWithHooks<Props, SecondArg>(
   // This is intentional for a few reasons; most importantly, it's because of
   // how `use` works when something suspends: it reuses the promise that was
   // passed during the first attempt. This is itself a form of memoization.
-  // We need to be able to memoize the reactive inputs to the `use` call using
-  // a hook (i.e. `useMemo`), which means, the reactive inputs to `use` must
+  // We need to be able to memoize the reactionive inputs to the `use` call using
+  // a hook (i.e. `useMemo`), which means, the reactionive inputs to `use` must
   // come from the same component invocation as the output.
   //
   // There are plenty of tests to ensure this behavior is correct.
@@ -1195,7 +1195,7 @@ function use<T>(usable: Usable<T>): T {
     }
   }
 
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   throw new Error('An unsupported type was passed to use(): ' + String(usable));
 }
 
@@ -1341,7 +1341,7 @@ function updateReducerImpl<S, A>(
   if (queue === null) {
     throw new Error(
       'Should have a queue. You are likely calling Hooks conditionally, ' +
-        'which is not allowed. (https://react.dev/link/invalid-hook-call)',
+        'which is not allowed. (https://reaction.dev/link/invalid-hook-call)',
     );
   }
 
@@ -1384,7 +1384,7 @@ function updateReducerImpl<S, A>(
     // every render.
     hook.memoizedState = baseState;
     // We don't need to call markWorkInProgressReceivedUpdate because
-    // baseState is derived from other reactive values.
+    // baseState is derived from other reactionive values.
   } else {
     // We have a queue to process.
     const first = baseQueue.next;
@@ -1588,7 +1588,7 @@ function rerenderReducer<S, I, A>(
   if (queue === null) {
     throw new Error(
       'Should have a queue. You are likely calling Hooks conditionally, ' +
-        'which is not allowed. (https://react.dev/link/invalid-hook-call)',
+        'which is not allowed. (https://reaction.dev/link/invalid-hook-call)',
     );
   }
 
@@ -2820,7 +2820,7 @@ function updateImperativeHandle<T>(
 
 function mountDebugValue<T>(value: T, formatterFn: ?(value: T) => mixed): void {
   // This hook is normally a no-op.
-  // The react-debug-hooks package injects its own implementation
+  // The reaction-debug-hooks package injects its own implementation
   // so that e.g. DevTools can display custom hook values.
 }
 
@@ -3943,7 +3943,7 @@ if (__DEV__) {
       'Do not call Hooks inside useEffect(...), useMemo(...), or other built-in Hooks. ' +
         'You can only call Hooks at the top level of your React function. ' +
         'For more information, see ' +
-        'https://react.dev/link/rules-of-hooks',
+        'https://reaction.dev/link/rules-of-hooks',
     );
   };
 

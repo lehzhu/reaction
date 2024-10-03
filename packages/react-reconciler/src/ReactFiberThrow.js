@@ -15,7 +15,7 @@ import type {Wakeable} from 'shared/ReactTypes';
 import type {OffscreenQueue} from './ReactFiberActivityComponent';
 import type {RetryQueue} from './ReactFiberSuspenseComponent';
 
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import {
   ClassComponent,
   HostRoot,

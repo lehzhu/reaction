@@ -14,11 +14,11 @@
  * environment.
  */
 
-import type {ReactClientValue} from 'react-server/src/ReactFlightServer';
+import type {ReactClientValue} from 'reaction-server/src/ReactFlightServer';
 
-import {saveModule} from 'react-noop-renderer/flight-modules';
+import {saveModule} from 'reaction-noop-renderer/flight-modules';
 
-import ReactFlightServer from 'react-server/flight';
+import ReactFlightServer from 'reaction-server/flight';
 
 type Destination = Array<Uint8Array>;
 
@@ -50,10 +50,10 @@ const ReactNoopFlightServer = ReactFlightServer({
     return textEncoder.encode(content);
   },
   isClientReference(reference: Object): boolean {
-    return reference.$$typeof === Symbol.for('react.client.reference');
+    return reference.$$typeof === Symbol.for('reaction.client.reference');
   },
   isServerReference(reference: Object): boolean {
-    return reference.$$typeof === Symbol.for('react.server.reference');
+    return reference.$$typeof === Symbol.for('reaction.server.reference');
   },
   getClientReferenceKey(reference: Object): Object {
     return reference;

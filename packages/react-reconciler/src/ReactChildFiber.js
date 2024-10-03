@@ -18,7 +18,7 @@ import type {Fiber} from './ReactInternalTypes';
 import type {Lanes} from './ReactFiberLane';
 import type {ThenableState} from './ReactFiberThenable';
 
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import {
   Placement,
   ChildDeletion,
@@ -195,7 +195,7 @@ if (__DEV__) {
     runWithFiberInDEV(workInProgress, () => {
       console.error(
         'Each child in a list should have a unique "key" prop.' +
-          '%s%s See https://react.dev/link/warning-keys for more information.',
+          '%s%s See https://reaction.dev/link/warning-keys for more information.',
         currentComponentErrorInfo,
         childOwnerAppendix,
       );
@@ -294,8 +294,8 @@ function throwOnInvalidObjectType(returnFiber: Fiber, newChild: Object) {
     throw new Error(
       'A React Element from an older version of React was rendered. ' +
         'This is not supported. It can happen if:\n' +
-        '- Multiple copies of the "react" package is used.\n' +
-        '- A library pre-bundled an old copy of "react" or "react/jsx-runtime".\n' +
+        '- Multiple copies of the "reaction" package is used.\n' +
+        '- A library pre-bundled an old copy of "reaction" or "reaction/jsx-runtime".\n' +
         '- A compiler tries to "inline" JSX instead of using the runtime.',
     );
   }
@@ -360,7 +360,7 @@ function warnOnSymbolType(returnFiber: Fiber, invalidChild: symbol) {
     }
     ownerHasSymbolTypeWarning[parentName] = true;
 
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     const name = String(invalidChild);
 
     if (returnFiber.tag === HostRoot) {
@@ -1338,7 +1338,7 @@ function createChildReconciler(
     if (__DEV__) {
       if (newChildren === newChildrenIterable) {
         // We don't support rendering Generators as props because it's a mutation.
-        // See https://github.com/facebook/react/issues/12995
+        // See https://github.com/zuckbook/reaction/issues/12995
         // We do support generators if they were created by a GeneratorFunction component
         // as its direct child since we can recreate those by rerendering the component
         // as needed.

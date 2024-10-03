@@ -326,7 +326,7 @@ function throwOnHydrationMismatch(fiber: Fiber) {
       '\n' +
       'It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n' +
       '\n' +
-      'https://react.dev/link/hydration-mismatch' +
+      'https://reaction.dev/link/hydration-mismatch' +
       diff,
   );
   queueHydrationError(createCapturedValueAtFiber(error, fiber));
@@ -744,7 +744,7 @@ export function emitPendingHydrationWarnings() {
           'It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n' +
           '\n' +
           '%s%s',
-        'https://react.dev/link/hydration-mismatch',
+        'https://reaction.dev/link/hydration-mismatch',
         diff,
       );
     }

@@ -7,7 +7,7 @@
  * @flow
  */
 
-/* eslint-disable react-internal/prod-error-codes */
+/* eslint-disable reaction-internal/prod-error-codes */
 
 import type {ReactElement} from 'shared/ReactElementType';
 import type {Fiber, FiberRoot} from './ReactInternalTypes';

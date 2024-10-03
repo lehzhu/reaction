@@ -13,7 +13,7 @@ import type {StackCursor} from './ReactFiberStack';
 import {isFiberMounted} from './ReactFiberTreeReflection';
 import {disableLegacyContext} from 'shared/ReactFeatureFlags';
 import {ClassComponent, HostRoot} from './ReactWorkTags';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 
 import {createCursor, push, pop} from './ReactFiberStack';
 
@@ -66,8 +66,8 @@ function cacheContext(
     return;
   } else {
     const instance = workInProgress.stateNode;
-    instance.__reactInternalMemoizedUnmaskedChildContext = unmaskedContext;
-    instance.__reactInternalMemoizedMaskedChildContext = maskedContext;
+    instance.__reactionInternalMemoizedUnmaskedChildContext = unmaskedContext;
+    instance.__reactionInternalMemoizedMaskedChildContext = maskedContext;
   }
 }
 
@@ -90,9 +90,9 @@ function getMaskedContext(
     const instance = workInProgress.stateNode;
     if (
       instance &&
-      instance.__reactInternalMemoizedUnmaskedChildContext === unmaskedContext
+      instance.__reactionInternalMemoizedUnmaskedChildContext === unmaskedContext
     ) {
-      return instance.__reactInternalMemoizedMaskedChildContext;
+      return instance.__reactionInternalMemoizedMaskedChildContext;
     }
 
     const context: {[string]: $FlowFixMe} = {};
@@ -220,7 +220,7 @@ function pushContextProvider(workInProgress: Fiber): boolean {
     // If the instance does not exist yet, we will push null at first,
     // and replace it on the stack later when invalidating the context.
     const memoizedMergedChildContext =
-      (instance && instance.__reactInternalMemoizedMergedChildContext) ||
+      (instance && instance.__reactionInternalMemoizedMergedChildContext) ||
       emptyContextObject;
 
     // Remember the parent context so we can merge with it later.
@@ -263,7 +263,7 @@ function invalidateContextProvider(
         type,
         previousContext,
       );
-      instance.__reactInternalMemoizedMergedChildContext = mergedContext;
+      instance.__reactionInternalMemoizedMergedChildContext = mergedContext;
 
       // Replace the old (or empty) context with the new one.
       // It is important to unwind the context in the reverse order.
@@ -300,7 +300,7 @@ function findCurrentUnmaskedContext(fiber: Fiber): Object {
         case ClassComponent: {
           const Component = node.type;
           if (isContextProvider(Component)) {
-            return node.stateNode.__reactInternalMemoizedMergedChildContext;
+            return node.stateNode.__reactionInternalMemoizedMergedChildContext;
           }
           break;
         }

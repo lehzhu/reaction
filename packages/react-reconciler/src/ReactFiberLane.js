@@ -32,7 +32,7 @@ import {isDevToolsPresent} from './ReactFiberDevToolsHook';
 import {clz32} from './clz32';
 import {LegacyRoot} from './ReactRootTags';
 
-// Lane values below should be kept in sync with getLabelForLane(), used by react-devtools-timeline.
+// Lane values below should be kept in sync with getLabelForLane(), used by reaction-devtools-timeline.
 // If those values are changed that package should be rebuilt and redeployed.
 
 export const TotalLanes = 31;
@@ -102,7 +102,7 @@ export const HydrationLanes =
   SelectiveHydrationLane |
   IdleHydrationLane;
 
-// This function is used for the experimental timeline (react-devtools-timeline)
+// This function is used for the experimental timeline (reaction-devtools-timeline)
 // It should be kept in sync with the Lanes values above.
 export function getLabelForLane(lane: Lane): string | void {
   if (enableSchedulingProfiler) {
