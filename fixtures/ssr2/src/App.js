@@ -6,8 +6,8 @@
  *
  */
 
-import {Suspense, lazy} from 'react';
-import {ErrorBoundary} from 'react-error-boundary';
+import {Suspense, lazy} from 'reaction';
+import {ErrorBoundary} from 'reaction-error-boundary';
 import Html from './Html';
 import Spinner from './Spinner';
 import Layout from './Layout';

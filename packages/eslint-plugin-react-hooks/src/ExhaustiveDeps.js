@@ -16,7 +16,7 @@ export default {
       description:
         'verifies the list of dependencies for Hooks like useEffect and similar',
       recommended: true,
-      url: 'https://github.com/facebook/react/issues/14920',
+      url: 'https://github.com/zuckbook/reaction/issues/14920',
     },
     fixable: 'code',
     hasSuggestions: true,
@@ -116,8 +116,8 @@ export default {
     function visitFunctionWithDependencies(
       node,
       declaredDependenciesNode,
-      reactiveHook,
-      reactiveHookName,
+      reactioniveHook,
+      reactioniveHookName,
       isEffect,
     ) {
       if (isEffect && node.async) {
@@ -134,7 +134,7 @@ export default {
             '  }\n' +
             '  fetchData();\n' +
             `}, [someId]); // Or [] if effect doesn't need props or state\n\n` +
-            'Learn more about data fetching with Hooks: https://react.dev/link/hooks-data-fetching',
+            'Learn more about data fetching with Hooks: https://reaction.dev/link/hooks-data-fetching',
         });
       }
 
@@ -143,8 +143,8 @@ export default {
 
       // Find all our "pure scopes". On every re-render of a component these
       // pure scopes may have changes to the variables declared within. So all
-      // variables used in our reactive hook callback but declared in a pure
-      // scope need to be listed as dependencies of our reactive hook callback.
+      // variables used in our reactionive hook callback but declared in a pure
+      // scope need to be listed as dependencies of our reactionive hook callback.
       //
       // According to the rules of React you can't read a mutable value in pure
       // scope. We can't enforce this in a lint so we trust that all variables
@@ -555,11 +555,11 @@ export default {
           node: writeExpr,
           message:
             `Assignments to the '${key}' variable from inside React Hook ` +
-            `${getSource(reactiveHook)} will be lost after each ` +
+            `${getSource(reactioniveHook)} will be lost after each ` +
             `render. To preserve the value over time, store it in a useRef ` +
             `Hook and keep the mutable value in the '.current' property. ` +
             `Otherwise, you can move this variable directly inside ` +
-            `${getSource(reactiveHook)}.`,
+            `${getSource(reactioniveHook)}.`,
         });
       }
 
@@ -620,13 +620,13 @@ export default {
             isEffect: true,
           });
           reportProblem({
-            node: reactiveHook,
+            node: reactioniveHook,
             message:
-              `React Hook ${reactiveHookName} contains a call to '${setStateInsideEffectWithoutDeps}'. ` +
+              `React Hook ${reactioniveHookName} contains a call to '${setStateInsideEffectWithoutDeps}'. ` +
               `Without a list of dependencies, this can lead to an infinite chain of updates. ` +
               `To fix this, pass [` +
               suggestedDependencies.join(', ') +
-              `] as a second argument to the ${reactiveHookName} Hook.`,
+              `] as a second argument to the ${reactioniveHookName} Hook.`,
             suggest: [
               {
                 desc: `Add dependencies array: [${suggestedDependencies.join(
@@ -659,7 +659,7 @@ export default {
         reportProblem({
           node: declaredDependenciesNode,
           message:
-            `React Hook ${getSource(reactiveHook)} was passed a ` +
+            `React Hook ${getSource(reactioniveHook)} was passed a ` +
             'dependency list that is not an array literal. This means we ' +
             "can't statically verify whether you've passed the correct " +
             'dependencies.',
@@ -679,7 +679,7 @@ export default {
             reportProblem({
               node: declaredDependencyNode,
               message:
-                `React Hook ${getSource(reactiveHook)} has a spread ` +
+                `React Hook ${getSource(reactioniveHook)} has a spread ` +
                 "element in its dependency array. This means we can't " +
                 "statically verify whether you've passed the " +
                 'correct dependencies.',
@@ -737,7 +737,7 @@ export default {
                 reportProblem({
                   node: declaredDependencyNode,
                   message:
-                    `React Hook ${getSource(reactiveHook)} has a ` +
+                    `React Hook ${getSource(reactioniveHook)} has a ` +
                     `complex expression in the dependency array. ` +
                     'Extract it to a separate variable so it can be statically checked.',
                 });
@@ -814,7 +814,7 @@ export default {
 
             const advice = isUsedOutsideOfHook
               ? `To fix this, ${defaultAdvice}`
-              : `Move it inside the ${reactiveHookName} callback. Alternatively, ${defaultAdvice}`;
+              : `Move it inside the ${reactioniveHookName} callback. Alternatively, ${defaultAdvice}`;
 
             const causation =
               depType === 'conditional' || depType === 'logical expression'
@@ -823,7 +823,7 @@ export default {
 
             const message =
               `The '${construction.name.name}' ${depType} ${causation} the dependencies of ` +
-              `${reactiveHookName} Hook (at line ${declaredDependenciesNode.loc.start.line}) ` +
+              `${reactioniveHookName} Hook (at line ${declaredDependenciesNode.loc.start.line}) ` +
               `change on every render. ${advice}`;
 
             let suggest;
@@ -1006,8 +1006,8 @@ export default {
           extraWarning =
             ` However, 'props' will change when *any* prop changes, so the ` +
             `preferred fix is to destructure the 'props' object outside of ` +
-            `the ${reactiveHookName} call and refer to those specific props ` +
-            `inside ${getSource(reactiveHook)}.`;
+            `the ${reactioniveHookName} call and refer to those specific props ` +
+            `inside ${getSource(reactioniveHook)}.`;
         }
       }
 
@@ -1157,7 +1157,7 @@ export default {
       reportProblem({
         node: declaredDependenciesNode,
         message:
-          `React Hook ${getSource(reactiveHook)} has ` +
+          `React Hook ${getSource(reactioniveHook)} has ` +
           // To avoid a long message, show the next actionable item.
           (getWarningMessage(missingDependencies, 'a', 'missing', 'include') ||
             getWarningMessage(
@@ -1197,43 +1197,43 @@ export default {
         return;
       }
       const callback = node.arguments[callbackIndex];
-      const reactiveHook = node.callee;
-      const reactiveHookName = getNodeWithoutReactNamespace(reactiveHook).name;
+      const reactioniveHook = node.callee;
+      const reactioniveHookName = getNodeWithoutReactNamespace(reactioniveHook).name;
       const maybeNode = node.arguments[callbackIndex + 1];
       const declaredDependenciesNode =
         maybeNode &&
         !(maybeNode.type === 'Identifier' && maybeNode.name === 'undefined')
           ? maybeNode
           : undefined;
-      const isEffect = /Effect($|[^a-z])/g.test(reactiveHookName);
+      const isEffect = /Effect($|[^a-z])/g.test(reactioniveHookName);
 
       // Check whether a callback is supplied. If there is no callback supplied
       // then the hook will not work and React will throw a TypeError.
       // So no need to check for dependency inclusion.
       if (!callback) {
         reportProblem({
-          node: reactiveHook,
+          node: reactioniveHook,
           message:
-            `React Hook ${reactiveHookName} requires an effect callback. ` +
+            `React Hook ${reactioniveHookName} requires an effect callback. ` +
             `Did you forget to pass a callback to the hook?`,
         });
         return;
       }
 
-      // Check the declared dependencies for this reactive hook. If there is no
-      // second argument then the reactive callback will re-run on every render.
+      // Check the declared dependencies for this reactionive hook. If there is no
+      // second argument then the reactionive callback will re-run on every render.
       // So no need to check for dependency inclusion.
       if (!declaredDependenciesNode && !isEffect) {
         // These are only used for optimization.
         if (
-          reactiveHookName === 'useMemo' ||
-          reactiveHookName === 'useCallback'
+          reactioniveHookName === 'useMemo' ||
+          reactioniveHookName === 'useCallback'
         ) {
           // TODO: Can this have a suggestion?
           reportProblem({
-            node: reactiveHook,
+            node: reactioniveHook,
             message:
-              `React Hook ${reactiveHookName} does nothing when called with ` +
+              `React Hook ${reactioniveHookName} does nothing when called with ` +
               `only one argument. Did you forget to pass an array of ` +
               `dependencies?`,
           });
@@ -1247,8 +1247,8 @@ export default {
           visitFunctionWithDependencies(
             callback,
             declaredDependenciesNode,
-            reactiveHook,
-            reactiveHookName,
+            reactioniveHook,
+            reactioniveHookName,
             isEffect,
           );
           return; // Handled
@@ -1256,8 +1256,8 @@ export default {
           visitFunctionWithDependencies(
             callback.expression,
             declaredDependenciesNode,
-            reactiveHook,
-            reactiveHookName,
+            reactioniveHook,
+            reactioniveHookName,
             isEffect,
           );
           return; // Handled
@@ -1301,8 +1301,8 @@ export default {
               visitFunctionWithDependencies(
                 def.node,
                 declaredDependenciesNode,
-                reactiveHook,
-                reactiveHookName,
+                reactioniveHook,
+                reactioniveHookName,
                 isEffect,
               );
               return; // Handled
@@ -1320,8 +1320,8 @@ export default {
                   visitFunctionWithDependencies(
                     init,
                     declaredDependenciesNode,
-                    reactiveHook,
-                    reactiveHookName,
+                    reactioniveHook,
+                    reactioniveHookName,
                     isEffect,
                   );
                   return; // Handled
@@ -1332,9 +1332,9 @@ export default {
         default:
           // useEffect(generateEffectBody(), []);
           reportProblem({
-            node: reactiveHook,
+            node: reactioniveHook,
             message:
-              `React Hook ${reactiveHookName} received a function whose dependencies ` +
+              `React Hook ${reactioniveHookName} received a function whose dependencies ` +
               `are unknown. Pass an inline function instead.`,
           });
           return; // Handled
@@ -1342,9 +1342,9 @@ export default {
 
       // Something unusual. Fall back to suggesting to add the body itself as a dep.
       reportProblem({
-        node: reactiveHook,
+        node: reactioniveHook,
         message:
-          `React Hook ${reactiveHookName} has a missing dependency: '${callback.name}'. ` +
+          `React Hook ${reactioniveHookName} has a missing dependency: '${callback.name}'. ` +
           `Either include it or remove the dependency array.`,
         suggest: [
           {
@@ -1804,7 +1804,7 @@ function getReactiveHookCallbackIndex(calleeNode, options) {
     default:
       if (node === calleeNode && options && options.additionalHooks) {
         // Allow the user to provide a regular expression which enables the lint to
-        // target custom reactive hooks.
+        // target custom reactionive hooks.
         let name;
         try {
           name = analyzePropertyChain(node, null);

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext} from 'reaction';
 
 import Theme from './Theme';
 import Suspend from './Suspend';

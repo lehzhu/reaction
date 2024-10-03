@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'reaction';
 
 import Theme from './Theme';
 import Suspend from './Suspend';

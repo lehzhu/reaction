@@ -1,4 +1,4 @@
-import React, {useContext, useState, Suspense} from 'react';
+import React, {useContext, useState, Suspense} from 'reaction';
 
 import Chrome from './Chrome';
 import Page from './Page';

@@ -6,7 +6,7 @@
  *
  */
 
-import {createContext, useContext} from 'react';
+import {createContext, useContext} from 'reaction';
 
 // Note: this file does not demonstrate a real data fetching strategy.
 // We only use this to simulate data fetching happening on the server

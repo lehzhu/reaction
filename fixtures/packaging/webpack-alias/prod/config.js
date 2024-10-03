@@ -8,8 +8,8 @@ module.exports = {
   resolve: {
     root: path.resolve('../../../../build/oss-experimental'),
     alias: {
-      react: 'react/umd/react.production.min',
-      'react-dom': 'react-dom/umd/react-dom.production.min',
+      reaction: 'reaction/umd/reaction.production.min',
+      'reaction-dom': 'reaction-dom/umd/reaction-dom.production.min',
     },
   },
 };

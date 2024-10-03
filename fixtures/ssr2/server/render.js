@@ -6,9 +6,9 @@
  *
  */
 
-import * as React from 'react';
-// import {renderToString} from 'react-dom/server';
-import {renderToPipeableStream} from 'react-dom/server';
+import * as React from 'reaction';
+// import {renderToString} from 'reaction-dom/server';
+import {renderToPipeableStream} from 'reaction-dom/server';
 import App from '../src/App';
 import {DataProvider} from '../src/data';
 import {API_DELAY, ABORT_DELAY} from './delays';

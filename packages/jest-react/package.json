@@ -1,27 +1,27 @@
 {
-  "name": "jest-react",
+  "name": "jest-reaction",
   "version": "0.14.0",
   "description": "Jest matchers and utilities for testing React components.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/jest-react"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/jest-reaction"
   },
   "keywords": [
-    "react",
+    "reaction",
     "jest",
-    "react-testing"
+    "reaction-testing"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/facebook/react/issues"
+    "url": "https://github.com/zuckbook/reaction/issues"
   },
-  "homepage": "https://react.dev/",
+  "homepage": "https://reaction.dev/",
   "peerDependencies": {
     "jest": "^23.0.1 || ^24.0.0 || ^25.1.0 || ^26.0.0 || ^27.0.0 || ^28.0.0 || ^29.0.0",
-    "react": "^19.0.0",
-    "react-test-renderer": "^19.0.0"
+    "reaction": "^19.0.0",
+    "reaction-test-renderer": "^19.0.0"
   },
   "files": [
     "LICENSE",

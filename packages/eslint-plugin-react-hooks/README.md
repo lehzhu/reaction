@@ -1,21 +1,21 @@
-# `eslint-plugin-react-hooks`
+# `eslint-plugin-reaction-hooks`
 
-This ESLint plugin enforces the [Rules of Hooks](https://react.dev/reference/rules/rules-of-hooks).
+This ESLint plugin enforces the [Rules of Hooks](https://reaction.dev/reference/rules/rules-of-hooks).
 
-It is a part of the [Hooks API](https://react.dev/reference/react/hooks) for React.
+It is a part of the [Hooks API](https://reaction.dev/reference/reaction/hooks) for React.
 
 ## Installation
 
-**Note: If you're using Create React App, please use `react-scripts` >= 3 instead of adding it directly.**
+**Note: If you're using Create React App, please use `reaction-scripts` >= 3 instead of adding it directly.**
 
 Assuming you already have ESLint installed, run:
 
 ```sh
 # npm
-npm install eslint-plugin-react-hooks --save-dev
+npm install eslint-plugin-reaction-hooks --save-dev
 
 # yarn
-yarn add eslint-plugin-react-hooks --dev
+yarn add eslint-plugin-reaction-hooks --dev
 ```
 
 Then extend the recommended eslint config:
@@ -24,7 +24,7 @@ Then extend the recommended eslint config:
 {
   "extends": [
     // ...
-    "plugin:react-hooks/recommended"
+    "plugin:reaction-hooks/recommended"
   ]
 }
 ```
@@ -37,12 +37,12 @@ If you want more fine-grained configuration, you can instead add a snippet like 
 {
   "plugins": [
     // ...
-    "react-hooks"
+    "reaction-hooks"
   ],
   "rules": {
     // ...
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "reaction-hooks/rules-of-hooks": "error",
+    "reaction-hooks/exhaustive-deps": "warn"
   }
 }
 ```
@@ -57,7 +57,7 @@ This option accepts a regex to match the names of custom Hooks that have depende
 {
   "rules": {
     // ...
-    "react-hooks/exhaustive-deps": ["warn", {
+    "reaction-hooks/exhaustive-deps": ["warn", {
       "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
     }]
   }
@@ -68,7 +68,7 @@ We suggest to use this option **very sparingly, if at all**. Generally saying, w
 
 ## Valid and Invalid Examples
 
-Please refer to the [Rules of Hooks](https://react.dev/reference/rules/rules-of-hooks) documentation to learn more about this rule.
+Please refer to the [Rules of Hooks](https://reaction.dev/reference/rules/rules-of-hooks) documentation to learn more about this rule.
 
 ## License
 

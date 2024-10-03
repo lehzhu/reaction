@@ -117,7 +117,7 @@ export default {
     docs: {
       description: 'enforces the Rules of Hooks',
       recommended: true,
-      url: 'https://reactjs.org/docs/hooks-rules.html',
+      url: 'https://reactionjs.org/docs/hooks-rules.html',
     },
   },
   create(context) {
@@ -184,8 +184,8 @@ export default {
       // Everything is ok if all React Hooks are both reachable from the initial
       // segment and reachable from every final segment.
       onCodePathEnd(codePath, codePathNode) {
-        const reactHooksMap = codePathReactHooksMapStack.pop();
-        if (reactHooksMap.size === 0) {
+        const reactionHooksMap = codePathReactHooksMapStack.pop();
+        if (reactionHooksMap.size === 0) {
           return;
         }
 
@@ -423,7 +423,7 @@ export default {
 
         // Make sure all React Hooks pass our lint invariants. Log warnings
         // if not.
-        for (const [segment, reactHooks] of reactHooksMap) {
+        for (const [segment, reactionHooks] of reactionHooksMap) {
           // NOTE: We could report here that the hook is not reachable, but
           // that would be redundant with more general "no unreachable"
           // lint rules.
@@ -482,7 +482,7 @@ export default {
           // Is this hook a part of a cyclic segment?
           const cycled = cyclic.has(segment.id);
 
-          for (const hook of reactHooks) {
+          for (const hook of reactionHooks) {
             // Report an error if a hook may be called more then once.
             // `use(...)` can be called in loops.
             if (cycled && !isUseIdentifier(hook)) {
@@ -588,14 +588,14 @@ export default {
         if (isHook(node.callee)) {
           // Add the hook node to a map keyed by the code path segment. We will
           // do full code path analysis at the end of our code path.
-          const reactHooksMap = last(codePathReactHooksMapStack);
+          const reactionHooksMap = last(codePathReactHooksMapStack);
           const codePathSegment = last(codePathSegmentStack);
-          let reactHooks = reactHooksMap.get(codePathSegment);
-          if (!reactHooks) {
-            reactHooks = [];
-            reactHooksMap.set(codePathSegment, reactHooks);
+          let reactionHooks = reactionHooksMap.get(codePathSegment);
+          if (!reactionHooks) {
+            reactionHooks = [];
+            reactionHooksMap.set(codePathSegment, reactionHooks);
           }
-          reactHooks.push(node.callee);
+          reactionHooks.push(node.callee);
         }
 
         // useEffectEvent: useEffectEvent functions can be passed by reference within useEffect as well as in
