@@ -15,7 +15,7 @@ import type {
   ReactStackTrace,
   ReactCallSite,
 } from 'shared/ReactTypes';
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 
 import type {
   ClientReference,
@@ -28,14 +28,14 @@ import type {
 import type {
   HintCode,
   HintModel,
-} from 'react-server/src/ReactFlightServerConfig';
+} from 'reaction-server/src/ReactFlightServerConfig';
 
 import type {
   CallServerCallback,
   EncodeFormActionCallback,
 } from './ReactFlightReplyClient';
 
-import type {Postpone} from 'react/src/ReactPostpone';
+import type {Postpone} from 'reaction/src/ReactPostpone';
 
 import type {TemporaryReferenceSet} from './ReactFlightTemporaryReferences';
 
@@ -84,10 +84,10 @@ import ReactVersion from 'shared/ReactVersion';
 
 import isArray from 'shared/isArray';
 
-import * as React from 'react';
+import * as React from 'reaction';
 
-import type {SharedStateServer} from 'react/src/ReactSharedInternalsServer';
-import type {SharedStateClient} from 'react/src/ReactSharedInternalsClient';
+import type {SharedStateServer} from 'reaction/src/ReactSharedInternalsServer';
+import type {SharedStateClient} from 'reaction/src/ReactSharedInternalsClient';
 
 // TODO: This is an unfortunate hack. We shouldn't feature detect the internals
 // like this. It's just that for now we support the same build of the Flight
@@ -1463,7 +1463,7 @@ function ResponseInstance(
     this._debugRootStack =
       rootOwner !== null
         ? // TODO: Consider passing the top frame in so we can avoid internals showing up.
-          new Error('react-stack-top-frame')
+          new Error('reaction-stack-top-frame')
         : null;
 
     const rootEnv = environmentName === undefined ? 'Server' : environmentName;
@@ -1899,7 +1899,7 @@ type ErrorWithDigest = Error & {digest?: string};
 function resolveErrorProd(response: Response): Error {
   if (__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'resolveErrorProd should never be called in development mode. Use resolveErrorDev instead. This is a bug in React.',
     );
@@ -1923,7 +1923,7 @@ function resolveErrorDev(
 
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'resolveErrorDev should never be called in production mode. Use resolveErrorProd instead. This is a bug in React.',
     );
@@ -1933,7 +1933,7 @@ function resolveErrorDev(
   if (!enableOwnerStacks) {
     // Executing Error within a native stack isn't really limited to owner stacks
     // but we gate it behind the same flag for now while iterating.
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     error = Error(
       message ||
         'An error occurred in the Server Components render but no message was provided',
@@ -1967,7 +1967,7 @@ function resolveErrorDev(
 function resolvePostponeProd(response: Response, id: number): void {
   if (__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'resolvePostponeProd should never be called in development mode. Use resolvePostponeDev instead. This is a bug in React.',
     );
@@ -1997,7 +1997,7 @@ function resolvePostponeDev(
 ): void {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'resolvePostponeDev should never be called in production mode. Use resolvePostponeProd instead. This is a bug in React.',
     );
@@ -2006,7 +2006,7 @@ function resolvePostponeDev(
   if (!enableOwnerStacks) {
     // Executing Error within a native stack isn't really limited to owner stacks
     // but we gate it behind the same flag for now while iterating.
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     postponeInstance = (Error(reason || ''): any);
     postponeInstance.$$typeof = REACT_POSTPONE_TYPE;
     // For backwards compat we use the V8 formatting when the flag is off.
@@ -2274,7 +2274,7 @@ function buildFakeTask(
 }
 
 const createFakeJSXCallStack = {
-  'react-stack-bottom-frame': function (
+  'reaction-stack-bottom-frame': function (
     response: Response,
     stack: ReactStackTrace,
     environmentName: string,
@@ -2295,7 +2295,7 @@ const createFakeJSXCallStackInDEV: (
   environmentName: string,
 ) => Error = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (createFakeJSXCallStack['react-stack-bottom-frame'].bind(
+    (createFakeJSXCallStack['reaction-stack-bottom-frame'].bind(
       createFakeJSXCallStack,
     ): any)
   : (null: any);
@@ -2304,7 +2304,7 @@ const createFakeJSXCallStackInDEV: (
 function fakeJSXCallSite() {
   // This extra call frame represents the JSX creation function. We always pop this frame
   // off before presenting so it needs to be part of the stack.
-  return new Error('react-stack-top-frame');
+  return new Error('reaction-stack-top-frame');
 }
 
 function initializeFakeStack(
@@ -2335,7 +2335,7 @@ function resolveDebugInfo(
 ): void {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'resolveDebugInfo should never be called in production mode. This is a bug in React.',
     );
@@ -2380,7 +2380,7 @@ function getCurrentStackInDEV(): string {
 }
 
 const replayConsoleWithCallStack = {
-  'react-stack-bottom-frame': function (
+  'reaction-stack-bottom-frame': function (
     response: Response,
     methodName: string,
     stackTrace: ReactStackTrace,
@@ -2431,7 +2431,7 @@ const replayConsoleWithCallStackInDEV: (
   args: Array<mixed>,
 ) => void = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (replayConsoleWithCallStack['react-stack-bottom-frame'].bind(
+    (replayConsoleWithCallStack['reaction-stack-bottom-frame'].bind(
       replayConsoleWithCallStack,
     ): any)
   : (null: any);
@@ -2442,7 +2442,7 @@ function resolveConsoleEntry(
 ): void {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'resolveConsoleEntry should never be called in production mode. This is a bug in React.',
     );

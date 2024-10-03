@@ -1,13 +1,13 @@
 {
-  "name": "react-devtools-core",
+  "name": "reaction-devtools-core",
   "version": "6.0.0",
-  "description": "Use react-devtools outside of the browser",
+  "description": "Use reaction-devtools outside of the browser",
   "license": "MIT",
   "main": "./dist/backend.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react-devtools-core"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-devtools-core"
   },
   "files": [
     "dist",

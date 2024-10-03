@@ -15,7 +15,7 @@ const STATIC_FILES = ['icons', 'popups', 'main.html', 'panel.html'];
 
 /**
  * Ensures that a local build of the dependencies exist either by downloading
- * or running a local build via one of the `react-build-fordevtools*` scripts.
+ * or running a local build via one of the `reaction-build-fordevtools*` scripts.
  */
 const ensureLocalBuild = async () => {
   const buildDir = resolve(__dirname, '..', '..', 'build');
@@ -104,7 +104,7 @@ const build = async (tempPath, manifestPath, envExtension = {}) => {
     // By specifying a key in the built manifest.json file,
     // we can make it so the generated extension ID is stable.
     // For more details see the docs here: https://developer.chrome.com/docs/extensions/mv2/manifest/key/
-    manifest.key = 'reactdevtoolslocalbuilduniquekey';
+    manifest.key = 'reactiondevtoolslocalbuilduniquekey';
   }
 
   writeFileSync(copiedManifestPath, JSON.stringify(manifest, null, 2));

@@ -8,11 +8,11 @@
  */
 
 export {default as rendererVersion} from 'shared/ReactVersion';
-export const rendererPackageName = 'react-server-dom-esm';
+export const rendererPackageName = 'reaction-server-dom-esm';
 
-export * from 'react-client/src/ReactFlightClientStreamConfigNode';
-export * from 'react-client/src/ReactClientConsoleConfigServer';
-export * from 'react-server-dom-esm/src/client/ReactFlightClientConfigBundlerESM';
-export * from 'react-server-dom-esm/src/client/ReactFlightClientConfigTargetESMServer';
-export * from 'react-dom-bindings/src/shared/ReactFlightClientConfigDOM';
+export * from 'reaction-client/src/ReactFlightClientStreamConfigNode';
+export * from 'reaction-client/src/ReactClientConsoleConfigServer';
+export * from 'reaction-server-dom-esm/src/client/ReactFlightClientConfigBundlerESM';
+export * from 'reaction-server-dom-esm/src/client/ReactFlightClientConfigTargetESMServer';
+export * from 'reaction-dom-bindings/src/shared/ReactFlightClientConfigDOM';
 export const usedWithSSR = true;

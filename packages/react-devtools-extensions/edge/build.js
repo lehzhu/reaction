@@ -32,7 +32,7 @@ const main = async () => {
   console.log(chalk.yellow('Select extension folder - ' + cwd + '\\unpacked'));
 
   console.log(chalk.green('\nYou can test this build by running:'));
-  console.log(chalk.gray('\n# From the react-devtools root directory:'));
+  console.log(chalk.gray('\n# From the reaction-devtools root directory:'));
   console.log('yarn run test:edge\n');
 };
 

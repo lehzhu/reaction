@@ -9,7 +9,7 @@
 
 import type {ReactContext, Thenable} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 
 import {createLRU} from './LRU';
 
@@ -51,9 +51,9 @@ function readContext(Context: ReactContext<mixed>) {
   const dispatcher = SharedInternals.H;
   if (dispatcher === null) {
     // This wasn't being minified but we're going to retire this package anyway.
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
-      'react-cache: read and preload may only be called from within a ' +
+      'reaction-cache: read and preload may only be called from within a ' +
         "component's render. They are not supported in event handlers or " +
         'lifecycle methods.',
     );
@@ -151,7 +151,7 @@ export function unstable_createResource<I, K: string | number, V>(
 
   const resource = {
     read(input: I): V {
-      // react-cache currently doesn't rely on context, but it may in the
+      // reaction-cache currently doesn't rely on context, but it may in the
       // future, so we read anyway to prevent access outside of render.
       readContext(CacheContext);
       const key = hashInput(input);
@@ -176,7 +176,7 @@ export function unstable_createResource<I, K: string | number, V>(
     },
 
     preload(input: I): void {
-      // react-cache currently doesn't rely on context, but it may in the
+      // reaction-cache currently doesn't rely on context, but it may in the
       // future, so we read anyway to prevent access outside of render.
       readContext(CacheContext);
       const key = hashInput(input);

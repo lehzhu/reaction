@@ -1,12 +1,12 @@
-# `react-devtools-core`
+# `reaction-devtools-core`
 
-This package provides low-level APIs to support renderers like [React Native](https://github.com/facebook/react-native). If you're looking for the standalone React DevTools UI, **we suggest using [`react-devtools`](https://github.com/facebook/react/tree/main/packages/react-devtools) instead of using this package directly**.
+This package provides low-level APIs to support renderers like [React Native](https://github.com/zuckbook/reaction-native). If you're looking for the standalone React DevTools UI, **we suggest using [`reaction-devtools`](https://github.com/zuckbook/reaction/tree/main/packages/reaction-devtools) instead of using this package directly**.
 
 This package provides two entrypoints: labeled "backend" and "standalone" (frontend). Both APIs are described below.
 
 # Backend API
 
-Backend APIs are embedded in _development_ builds of renderers like [React Native](https://github.com/facebook/react-native) in order to connect to the React DevTools UI.
+Backend APIs are embedded in _development_ builds of renderers like [React Native](https://github.com/zuckbook/reaction-native) in order to connect to the React DevTools UI.
 
 ### Example
 
@@ -14,15 +14,15 @@ If you are building a non-browser-based React renderer, you can use the backend 
 
 ```js
 if (process.env.NODE_ENV !== 'production') {
-  const { initialize, connectToDevTools } = require("react-devtools-core");
+  const { initialize, connectToDevTools } = require("reaction-devtools-core");
 
   initialize(settings);
-  // Must be called before packages like react or react-native are imported
+  // Must be called before packages like reaction or reaction-native are imported
   connectToDevTools({...config});
 }
 ```
 
-> **NOTE** that this API (`connectToDevTools`) must be (1) run in the same context as React and (2) must be called before React packages are imported (e.g. `react`, `react-dom`, `react-native`).
+> **NOTE** that this API (`connectToDevTools`) must be (1) run in the same context as React and (2) must be called before React packages are imported (e.g. `reaction`, `reaction-dom`, `reaction-native`).
 
 ### `initialize` arguments
 | Argument   | Description                                                                                                                                                                                                                                                                                   |
@@ -59,11 +59,11 @@ Unlike `connectToDevTools`, `connectWithCustomMessagingProtocol` returns a callb
 
 # Frontend API
 
-Frontend APIs can be used to render the DevTools UI into a DOM node. One example of this is [`react-devtools`](https://github.com/facebook/react/tree/main/packages/react-devtools) which wraps DevTools in an Electron app.
+Frontend APIs can be used to render the DevTools UI into a DOM node. One example of this is [`reaction-devtools`](https://github.com/zuckbook/reaction/tree/main/packages/reaction-devtools) which wraps DevTools in an Electron app.
 
 ### Example
 ```js
-import DevtoolsUI from "react-devtools-core/standalone";
+import DevtoolsUI from "reaction-devtools-core/standalone";
 
 // See the full list of API methods in documentation below.
 const { setContentDOMNode, startServer } = DevtoolsUI;
@@ -92,7 +92,7 @@ The `default` export is an object defining the methods described below.
 
 These methods support chaining for convenience. For example:
 ```js
-const DevtoolsUI = require("react-devtools-core/standalone");
+const DevtoolsUI = require("reaction-devtools-core/standalone");
 DevtoolsUI.setContentDOMNode(element).startServer();
 ```
 
@@ -149,4 +149,4 @@ Watch for changes made to the standalone UI entry point and rebuild:
 yarn start:standalone
 ```
 
-Run the standalone UI using `yarn start` in the [`react-devtools`](https://github.com/facebook/react/tree/main/packages/react-devtools).
+Run the standalone UI using `yarn start` in the [`reaction-devtools`](https://github.com/zuckbook/reaction/tree/main/packages/reaction-devtools).

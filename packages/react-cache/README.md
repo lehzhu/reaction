@@ -1,4 +1,4 @@
-# react-cache
+# reaction-cache
 
 A basic cache for React applications. It also serves as a reference for more
 advanced caching implementations.

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {EventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import type {EventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 
 import Transform from 'art/core/transform';
 import Mode from 'art/modes/current';
@@ -15,12 +15,12 @@ import {TYPES, EVENT_TYPES, childrenAsString} from './ReactARTInternals';
 import {
   DefaultEventPriority,
   NoEventPriority,
-} from 'react-reconciler/src/ReactEventPriorities';
+} from 'reaction-reconciler/src/ReactEventPriorities';
 import type {ReactContext} from 'shared/ReactTypes';
 import {REACT_CONTEXT_TYPE} from 'shared/ReactSymbols';
 
 export {default as rendererVersion} from 'shared/ReactVersion';
-export const rendererPackageName = 'react-art';
+export const rendererPackageName = 'reaction-art';
 export const extraDevToolsConfig = null;
 
 const pooledTransform = new Transform();
@@ -249,13 +249,13 @@ function applyTextProps(instance, props, prevProps = {}) {
   }
 }
 
-export * from 'react-reconciler/src/ReactFiberConfigWithNoPersistence';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoHydration';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoScopes';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoTestSelectors';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoMicrotasks';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoResources';
-export * from 'react-reconciler/src/ReactFiberConfigWithNoSingletons';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoPersistence';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoHydration';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoScopes';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoTestSelectors';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoMicrotasks';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoResources';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoSingletons';
 
 export function appendInitialChild(parentInstance, child) {
   if (typeof child === 'string') {

@@ -8,12 +8,12 @@
  */
 
 export {default as rendererVersion} from 'shared/ReactVersion';
-export const rendererPackageName = 'react-server-dom-webpack';
+export const rendererPackageName = 'reaction-server-dom-webpack';
 
-export * from 'react-client/src/ReactFlightClientStreamConfigWeb';
-export * from 'react-client/src/ReactClientConsoleConfigBrowser';
-export * from 'react-server-dom-webpack/src/client/ReactFlightClientConfigBundlerWebpack';
-export * from 'react-server-dom-webpack/src/client/ReactFlightClientConfigBundlerWebpackBrowser';
-export * from 'react-server-dom-webpack/src/client/ReactFlightClientConfigTargetWebpackBrowser';
-export * from 'react-dom-bindings/src/shared/ReactFlightClientConfigDOM';
+export * from 'reaction-client/src/ReactFlightClientStreamConfigWeb';
+export * from 'reaction-client/src/ReactClientConsoleConfigBrowser';
+export * from 'reaction-server-dom-webpack/src/client/ReactFlightClientConfigBundlerWebpack';
+export * from 'reaction-server-dom-webpack/src/client/ReactFlightClientConfigBundlerWebpackBrowser';
+export * from 'reaction-server-dom-webpack/src/client/ReactFlightClientConfigTargetWebpackBrowser';
+export * from 'reaction-dom-bindings/src/shared/ReactFlightClientConfigDOM';
 export const usedWithSSR = false;

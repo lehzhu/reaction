@@ -21,8 +21,8 @@ import type {
   Fiber,
   Dispatcher as DispatcherType,
   ContextDependencyWithSelect,
-} from 'react-reconciler/src/ReactInternalTypes';
-import type {TransitionStatus} from 'react-reconciler/src/ReactFiberConfig';
+} from 'reaction-reconciler/src/ReactInternalTypes';
+import type {TransitionStatus} from 'reaction-reconciler/src/ReactFiberConfig';
 
 import ErrorStackParser from 'error-stack-parser';
 import assign from 'shared/assign';
@@ -32,7 +32,7 @@ import {
   SimpleMemoComponent,
   ContextProvider,
   ForwardRef,
-} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactWorkTags';
 import {
   REACT_MEMO_CACHE_SENTINEL,
   REACT_CONTEXT_TYPE,
@@ -270,7 +270,7 @@ function use<T>(usable: Usable<T>): T {
     }
   }
 
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   throw new Error('An unsupported type was passed to use(): ' + String(usable));
 }
 
@@ -807,7 +807,7 @@ const DispatcherProxyHandler = {
       return target[prop];
     }
     const error = new Error('Missing method in Dispatcher: ' + prop);
-    // Note: This error name needs to stay in sync with react-devtools-shared
+    // Note: This error name needs to stay in sync with reaction-devtools-shared
     // TODO: refactor this if we ever combine the devtools and debug tools packages
     error.name = 'ReactDebugToolsUnsupportedHookError';
     throw error;
@@ -1171,7 +1171,7 @@ function handleRenderFunctionError(error: any): void {
   const wrapperError = new Error('Error rendering inspected component', {
     cause: error,
   });
-  // Note: This error name needs to stay in sync with react-devtools-shared
+  // Note: This error name needs to stay in sync with reaction-devtools-shared
   // TODO: refactor this if we ever combine the devtools and debug tools packages
   wrapperError.name = 'ReactDebugToolsRenderError';
   // this stage-4 proposal is not supported by all environments yet.

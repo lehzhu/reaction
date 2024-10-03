@@ -1,4 +1,4 @@
-# react-client
+# reaction-client
 
 This is an experimental package for consuming custom React streaming models.
 

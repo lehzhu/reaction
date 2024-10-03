@@ -1,15 +1,15 @@
 {
-  "name": "react-art",
-  "description": "React ART is a JavaScript library for drawing vector graphics using React. It provides declarative and reactive bindings to the ART library. Using the same declarative API you can render the output to either Canvas, SVG or VML (IE8).",
+  "name": "reaction-art",
+  "description": "React ART is a JavaScript library for drawing vector graphics using React. It provides declarative and reactionive bindings to the ART library. Using the same declarative API you can render the output to either Canvas, SVG or VML (IE8).",
   "version": "19.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react-art"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-art"
   },
   "keywords": [
-    "react",
+    "reaction",
     "art",
     "svg",
     "vml",
@@ -18,16 +18,16 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/facebook/react/issues"
+    "url": "https://github.com/zuckbook/reaction/issues"
   },
-  "homepage": "https://react.dev/",
+  "homepage": "https://reaction.dev/",
   "dependencies": {
     "art": "^0.10.1",
-    "create-react-class": "^15.6.2",
+    "create-reaction-class": "^15.6.2",
     "scheduler": "^0.23.0"
   },
   "peerDependencies": {
-    "react": "^19.0.0"
+    "reaction": "^19.0.0"
   },
   "files": [
     "LICENSE",

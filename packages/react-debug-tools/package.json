@@ -1,13 +1,13 @@
 {
   "private": true,
-  "name": "react-debug-tools",
+  "name": "reaction-debug-tools",
   "description": "React package for debugging React trees.",
   "version": "0.16.0",
   "keywords": [
-    "react"
+    "reaction"
   ],
-  "homepage": "https://react.dev/",
-  "bugs": "https://github.com/facebook/react/issues",
+  "homepage": "https://reaction.dev/",
+  "bugs": "https://github.com/zuckbook/reaction/issues",
   "license": "MIT",
   "files": [
     "LICENSE",
@@ -18,14 +18,14 @@
   "main": "index.js",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/facebook/react.git",
-    "directory": "packages/react-debug-tools"
+    "url" : "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-debug-tools"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "reaction": "^17.0.0"
   },
   "dependencies": {
     "error-stack-parser": "^2.1.4"

@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import ReactVersion from 'shared/ReactVersion';
-import {LegacyRoot, ConcurrentRoot} from 'react-reconciler/src/ReactRootTags';
+import {LegacyRoot, ConcurrentRoot} from 'reaction-reconciler/src/ReactRootTags';
 import {
   createContainer,
   updateContainerSync,
   injectIntoDevTools,
   flushSyncWork,
-} from 'react-reconciler/src/ReactFiberReconciler';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
 import Transform from 'art/core/transform';
 import Mode from 'art/modes/current';
 import FastNoSideEffects from 'art/modes/fast-noSideEffects';

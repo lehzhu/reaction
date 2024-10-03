@@ -1,12 +1,12 @@
 {
   "private": true,
-  "name": "react-cache",
+  "name": "reaction-cache",
   "description": "A basic cache for React applications",
   "version": "2.0.0-alpha.0",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/facebook/react.git",
-    "directory": "packages/react-cache"
+    "url" : "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-cache"
   },
   "files": [
     "LICENSE",
@@ -15,6 +15,6 @@
     "cjs/"
   ],
   "peerDependencies": {
-    "react": "^17.0.0"
+    "reaction": "^17.0.0"
   }
 }

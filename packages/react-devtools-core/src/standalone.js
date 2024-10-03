@@ -7,26 +7,26 @@
  * @flow
  */
 
-import {createElement} from 'react';
-import {flushSync} from 'react-dom';
-import {createRoot} from 'react-dom/client';
-import Bridge from 'react-devtools-shared/src/bridge';
-import Store from 'react-devtools-shared/src/devtools/store';
-import {getSavedComponentFilters} from 'react-devtools-shared/src/utils';
-import {registerDevToolsEventLogger} from 'react-devtools-shared/src/registerDevToolsEventLogger';
+import {createElement} from 'reaction';
+import {flushSync} from 'reaction-dom';
+import {createRoot} from 'reaction-dom/client';
+import Bridge from 'reaction-devtools-shared/src/bridge';
+import Store from 'reaction-devtools-shared/src/devtools/store';
+import {getSavedComponentFilters} from 'reaction-devtools-shared/src/utils';
+import {registerDevToolsEventLogger} from 'reaction-devtools-shared/src/registerDevToolsEventLogger';
 import {Server} from 'ws';
 import {join} from 'path';
 import {readFileSync} from 'fs';
-import DevTools from 'react-devtools-shared/src/devtools/views/DevTools';
+import DevTools from 'reaction-devtools-shared/src/devtools/views/DevTools';
 import {doesFilePathExist, launchEditor} from './editor';
 import {
   __DEBUG__,
   LOCAL_STORAGE_DEFAULT_TAB_KEY,
-} from 'react-devtools-shared/src/constants';
-import {localStorageSetItem} from 'react-devtools-shared/src/storage';
+} from 'reaction-devtools-shared/src/constants';
+import {localStorageSetItem} from 'reaction-devtools-shared/src/storage';
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {Source} from 'react-devtools-shared/src/shared/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 
 export type StatusTypes = 'server-connected' | 'devtools-connected' | 'error';
 export type StatusListener = (message: string, status: StatusTypes) => void;
@@ -44,7 +44,7 @@ let disconnectedCallback: OnDisconnectedCallback = () => {};
 // TODO (Webpack 5) Hopefully we can remove this prop after the Webpack 5 migration.
 function hookNamesModuleLoaderFunction() {
   return import(
-    /* webpackChunkName: 'parseHookNames' */ 'react-devtools-shared/src/hooks/parseHookNames'
+    /* webpackChunkName: 'parseHookNames' */ 'reaction-devtools-shared/src/hooks/parseHookNames'
   );
 }
 

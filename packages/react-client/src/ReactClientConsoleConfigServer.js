@@ -36,7 +36,7 @@ export function bindToConsole(
     case 'table': {
       // These methods cannot be colorized because they don't take a formatting string.
       // $FlowFixMe
-      return bind.apply(console[methodName], [console].concat(args)); // eslint-disable-line react-internal/no-production-logging
+      return bind.apply(console[methodName], [console].concat(args)); // eslint-disable-line reaction-internal/no-production-logging
     }
     case 'assert': {
       // assert takes formatting options as the second argument.
@@ -69,5 +69,5 @@ export function bindToConsole(
   newArgs.unshift(console);
 
   // $FlowFixMe
-  return bind.apply(console[methodName], newArgs); // eslint-disable-line react-internal/no-production-logging
+  return bind.apply(console[methodName], newArgs); // eslint-disable-line reaction-internal/no-production-logging
 }

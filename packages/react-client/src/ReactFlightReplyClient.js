@@ -15,7 +15,7 @@ import type {
   ReactCustomFormAction,
   ReactCallSite,
 } from 'shared/ReactTypes';
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 import type {TemporaryReferenceSet} from './ReactFlightTemporaryReferences';
 
 import {
@@ -1287,7 +1287,7 @@ function parseStackLocation(error: Error): null | ReactCallSite {
   // cross-browser so not worth a Config. It's DEV only so not super code size
   // sensitive but also a non-essential feature.
   let stack = error.stack;
-  if (stack.startsWith('Error: react-stack-top-frame\n')) {
+  if (stack.startsWith('Error: reaction-stack-top-frame\n')) {
     // V8's default formatting prefixes with the error message which we
     // don't want/need.
     stack = stack.slice(29);
@@ -1344,7 +1344,7 @@ export function createServerReference<A: Iterable<any>, T>(
     // Let's see if we can find a source map for the file which contained the
     // server action. We extract it from the runtime so that it's resilient to
     // multiple passes of compilation as long as we can find the final source map.
-    const location = parseStackLocation(new Error('react-stack-top-frame'));
+    const location = parseStackLocation(new Error('reaction-stack-top-frame'));
     if (location !== null) {
       const [, filename, line, col] = location;
       // While the environment that the Server Reference points to can be

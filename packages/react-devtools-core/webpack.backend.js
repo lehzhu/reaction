@@ -3,8 +3,8 @@ const Webpack = require('webpack');
 const {
   GITHUB_URL,
   getVersionString,
-} = require('react-devtools-extensions/utils');
-const {resolveFeatureFlags} = require('react-devtools-shared/buildUtils');
+} = require('reaction-devtools-extensions/utils');
+const {resolveFeatureFlags} = require('reaction-devtools-shared/buildUtils');
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
@@ -47,11 +47,11 @@ module.exports = {
   },
   resolve: {
     alias: {
-      react: resolve(builtModulesDir, 'react'),
-      'react-debug-tools': resolve(builtModulesDir, 'react-debug-tools'),
-      'react-devtools-feature-flags': resolveFeatureFlags(featureFlagTarget),
-      'react-dom': resolve(builtModulesDir, 'react-dom'),
-      'react-is': resolve(builtModulesDir, 'react-is'),
+      reaction: resolve(builtModulesDir, 'reaction'),
+      'reaction-debug-tools': resolve(builtModulesDir, 'reaction-debug-tools'),
+      'reaction-devtools-feature-flags': resolveFeatureFlags(featureFlagTarget),
+      'reaction-dom': resolve(builtModulesDir, 'reaction-dom'),
+      'reaction-is': resolve(builtModulesDir, 'reaction-is'),
       scheduler: resolve(builtModulesDir, 'scheduler'),
     },
   },
@@ -72,7 +72,7 @@ module.exports = {
       __IS_CHROME__: false,
       __IS_EDGE__: false,
       __IS_NATIVE__: true,
-      'process.env.DEVTOOLS_PACKAGE': `"react-devtools-core"`,
+      'process.env.DEVTOOLS_PACKAGE': `"reaction-devtools-core"`,
       'process.env.DEVTOOLS_VERSION': `"${DEVTOOLS_VERSION}"`,
       'process.env.GITHUB_URL': `"${GITHUB_URL}"`,
     }),
@@ -89,7 +89,7 @@ module.exports = {
           configFile: resolve(
             __dirname,
             '..',
-            'react-devtools-shared',
+            'reaction-devtools-shared',
             'babel.config.js',
           ),
         },

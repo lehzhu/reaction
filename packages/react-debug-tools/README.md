@@ -1,4 +1,4 @@
-# react-debug-tools
+# reaction-debug-tools
 
 This is an experimental package for debugging React renderers.
 

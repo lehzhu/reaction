@@ -7,29 +7,29 @@
  * @flow
  */
 
-import Agent from 'react-devtools-shared/src/backend/agent';
-import Bridge from 'react-devtools-shared/src/bridge';
-import {installHook} from 'react-devtools-shared/src/hook';
-import {initBackend} from 'react-devtools-shared/src/backend';
-import {__DEBUG__} from 'react-devtools-shared/src/constants';
-import setupNativeStyleEditor from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+import Agent from 'reaction-devtools-shared/src/backend/agent';
+import Bridge from 'reaction-devtools-shared/src/bridge';
+import {installHook} from 'reaction-devtools-shared/src/hook';
+import {initBackend} from 'reaction-devtools-shared/src/backend';
+import {__DEBUG__} from 'reaction-devtools-shared/src/constants';
+import setupNativeStyleEditor from 'reaction-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 import {
   getDefaultComponentFilters,
   getIsReloadAndProfileSupported,
-} from 'react-devtools-shared/src/utils';
+} from 'reaction-devtools-shared/src/utils';
 
-import type {BackendBridge} from 'react-devtools-shared/src/bridge';
+import type {BackendBridge} from 'reaction-devtools-shared/src/bridge';
 import type {
   ComponentFilter,
   Wall,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import type {
   DevToolsHook,
   DevToolsHookSettings,
   ReloadAndProfileConfig,
   ReloadAndProfileConfigPersistence,
-} from 'react-devtools-shared/src/backend/types';
-import type {ResolveNativeStyle} from 'react-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
+} from 'reaction-devtools-shared/src/backend/types';
+import type {ResolveNativeStyle} from 'reaction-devtools-shared/src/backend/NativeStyleEditor/setupNativeStyleEditor';
 
 type ConnectOptions = {
   host?: string,

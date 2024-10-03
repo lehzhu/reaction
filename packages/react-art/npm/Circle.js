@@ -18,10 +18,10 @@
 'use strict';
 
 var assign = Object.assign;
-var React = require('react');
-var ReactART = require('react-art');
+var React = require('reaction');
+var ReactART = require('reaction-art');
 
-var createReactClass = require('create-react-class');
+var createReactClass = require('create-reaction-class');
 
 var Path = ReactART.Path;
 var Shape = ReactART.Shape;
