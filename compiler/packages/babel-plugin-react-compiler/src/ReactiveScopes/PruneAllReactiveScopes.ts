@@ -17,7 +17,7 @@ import {
 } from './visitors';
 
 /*
- * Removes *all* reactive scopes. Intended for experimentation only, to allow
+ * Removes *all* reactionive scopes. Intended for experimentation only, to allow
  * accurately removing memoization using the compiler pipeline to get a baseline
  * for performance of a product without memoization applied.
  */

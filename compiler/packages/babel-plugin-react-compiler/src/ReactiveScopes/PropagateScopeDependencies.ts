@@ -287,7 +287,7 @@ class Context {
   #temporariesUsedOutsideScope: Set<DeclarationId>;
   #declarations: DeclMap = new Map();
   #reassignments: Map<Identifier, Decl> = new Map();
-  // Reactive dependencies used in the current reactive scope.
+  // Reactive dependencies used in the current reactionive scope.
   #dependencies: ReactiveScopeDependencyTree =
     new ReactiveScopeDependencyTree();
   /*
@@ -1111,7 +1111,7 @@ class PropagationVisitor extends ReactiveFunctionVisitor<Context> {
       /*
        * Some variables may be declared and never initialized. We need
        * to retain (and hoist) these declarations if they are included
-       * in a reactive scope. One approach is to simply add all `DeclareLocal`s
+       * in a reactionive scope. One approach is to simply add all `DeclareLocal`s
        * as scope declarations.
        */
 

@@ -18,13 +18,13 @@ import {ReactiveFunctionVisitor, visitReactiveFunction} from './visitors';
 
 /*
  * PropagateScopeDependencies infers dependencies without considering whether dependencies
- * are actually reactive or not (ie, whether their value can change over time).
+ * are actually reactionive or not (ie, whether their value can change over time).
  *
- * This pass prunes dependencies that are guaranteed to be non-reactive.
+ * This pass prunes dependencies that are guaranteed to be non-reactionive.
  */
 export function pruneNonReactiveDependencies(fn: ReactiveFunction): void {
-  const reactiveIdentifiers = collectReactiveIdentifiers(fn);
-  visitReactiveFunction(fn, new Visitor(), reactiveIdentifiers);
+  const reactioniveIdentifiers = collectReactiveIdentifiers(fn);
+  visitReactiveFunction(fn, new Visitor(), reactioniveIdentifiers);
 }
 
 type ReactiveIdentifiers = Set<IdentifierId>;
@@ -103,10 +103,10 @@ class Visitor extends ReactiveFunctionVisitor<ReactiveIdentifiers> {
     }
     if (scopeBlock.scope.dependencies.size !== 0) {
       /**
-       * If any of a scope's dependencies are reactive, then all of its
+       * If any of a scope's dependencies are reactionive, then all of its
        * outputs will re-evaluate whenever those dependencies change.
-       * Mark all of the outputs as reactive to reflect the fact that
-       * they may change in practice based on a reactive input.
+       * Mark all of the outputs as reactionive to reflect the fact that
+       * they may change in practice based on a reactionive input.
        */
       for (const [, declaration] of scopeBlock.scope.declarations) {
         state.add(declaration.identifier.id);

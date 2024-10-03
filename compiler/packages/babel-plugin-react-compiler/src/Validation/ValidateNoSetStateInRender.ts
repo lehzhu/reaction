@@ -122,7 +122,7 @@ function validateNoSetStateInRenderImpl(
             if (activeManualMemoId !== null) {
               errors.push({
                 reason:
-                  'Calling setState from useMemo may trigger an infinite loop. (https://react.dev/reference/react/useState)',
+                  'Calling setState from useMemo may trigger an infinite loop. (https://reaction.dev/reference/reaction/useState)',
                 description: null,
                 severity: ErrorSeverity.InvalidReact,
                 loc: callee.loc,
@@ -131,7 +131,7 @@ function validateNoSetStateInRenderImpl(
             } else if (unconditionalBlocks.has(block.id)) {
               errors.push({
                 reason:
-                  'This is an unconditional set state during render, which will trigger an infinite loop. (https://react.dev/reference/react/useState)',
+                  'This is an unconditional set state during render, which will trigger an infinite loop. (https://reaction.dev/reference/reaction/useState)',
                 description: null,
                 severity: ErrorSeverity.InvalidReact,
                 loc: callee.loc,

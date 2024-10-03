@@ -53,8 +53,8 @@ import {SINGLE_CHILD_FBT_TAGS} from './MemoizeFbtAndMacroOperandsInSameScope';
 import {ReactiveFunctionVisitor, visitReactiveFunction} from './visitors';
 import {ReactFunctionType} from '../HIR/Environment';
 
-export const MEMO_CACHE_SENTINEL = 'react.memo_cache_sentinel';
-export const EARLY_RETURN_SENTINEL = 'react.early_return_sentinel';
+export const MEMO_CACHE_SENTINEL = 'reaction.memo_cache_sentinel';
+export const EARLY_RETURN_SENTINEL = 'reaction.early_return_sentinel';
 
 export type CodegenFunction = {
   type: 'CodegenFunction';
@@ -71,18 +71,18 @@ export type CodegenFunction = {
    */
   memoSlotsUsed: number;
   /*
-   * Number of memo *blocks* (reactive scopes) regardless of
+   * Number of memo *blocks* (reactionive scopes) regardless of
    * how many inputs/outputs each block has
    */
   memoBlocks: number;
 
   /**
-   * Number of memoized values across all reactive scopes
+   * Number of memoized values across all reactionive scopes
    */
   memoValues: number;
 
   /**
-   * The number of reactive scopes that were created but had to be discarded
+   * The number of reactionive scopes that were created but had to be discarded
    * because they contained hook calls.
    */
   prunedMemoBlocks: number;
@@ -284,20 +284,20 @@ export function codegenFunction(
 
   const outlined: CodegenFunction['outlined'] = [];
   for (const {fn: outlinedFunction, type} of cx.env.getOutlinedFunctions()) {
-    const reactiveFunction = buildReactiveFunction(outlinedFunction);
-    pruneUnusedLabels(reactiveFunction);
-    pruneUnusedLValues(reactiveFunction);
-    pruneHoistedContexts(reactiveFunction);
+    const reactioniveFunction = buildReactiveFunction(outlinedFunction);
+    pruneUnusedLabels(reactioniveFunction);
+    pruneUnusedLValues(reactioniveFunction);
+    pruneHoistedContexts(reactioniveFunction);
 
-    const identifiers = renameVariables(reactiveFunction);
+    const identifiers = renameVariables(reactioniveFunction);
     const codegen = codegenReactiveFunction(
       new Context(
         cx.env,
-        reactiveFunction.id ?? '[[ anonymous ]]',
+        reactioniveFunction.id ?? '[[ anonymous ]]',
         identifiers,
         cx.fbtOperands,
       ),
-      reactiveFunction,
+      reactioniveFunction,
     );
     if (codegen.isErr()) {
       return codegen;
@@ -1819,18 +1819,18 @@ function codegenInstructionValue(
                 suggestions: null,
               });
               const loweredFunc = method.loweredFunc;
-              const reactiveFunction = buildReactiveFunction(loweredFunc.func);
-              pruneUnusedLabels(reactiveFunction);
-              pruneUnusedLValues(reactiveFunction);
+              const reactioniveFunction = buildReactiveFunction(loweredFunc.func);
+              pruneUnusedLabels(reactioniveFunction);
+              pruneUnusedLValues(reactioniveFunction);
               const fn = codegenReactiveFunction(
                 new Context(
                   cx.env,
-                  reactiveFunction.id ?? '[[ anonymous ]]',
+                  reactioniveFunction.id ?? '[[ anonymous ]]',
                   cx.uniqueIdentifiers,
                   cx.fbtOperands,
                   cx.temp,
                 ),
-                reactiveFunction,
+                reactioniveFunction,
               ).unwrap();
 
               /*
@@ -2022,19 +2022,19 @@ function codegenInstructionValue(
     }
     case 'FunctionExpression': {
       const loweredFunc = instrValue.loweredFunc.func;
-      const reactiveFunction = buildReactiveFunction(loweredFunc);
-      pruneUnusedLabels(reactiveFunction);
-      pruneUnusedLValues(reactiveFunction);
-      pruneHoistedContexts(reactiveFunction);
+      const reactioniveFunction = buildReactiveFunction(loweredFunc);
+      pruneUnusedLabels(reactioniveFunction);
+      pruneUnusedLValues(reactioniveFunction);
+      pruneHoistedContexts(reactioniveFunction);
       const fn = codegenReactiveFunction(
         new Context(
           cx.env,
-          reactiveFunction.id ?? '[[ anonymous ]]',
+          reactioniveFunction.id ?? '[[ anonymous ]]',
           cx.uniqueIdentifiers,
           cx.fbtOperands,
           cx.temp,
         ),
-        reactiveFunction,
+        reactioniveFunction,
       ).unwrap();
       if (instrValue.type === 'ArrowFunctionExpression') {
         let body: t.BlockStatement | t.Expression = fn.body;
@@ -2295,7 +2295,7 @@ function codegenJsxAttribute(
            * NOTE JSXFragment is technically allowed as an attribute value per the spec
            * but many tools do not support this case. We emit fragments wrapped in an
            * expression container for compatibility purposes.
-           * spec: https://github.com/facebook/jsx/blob/main/AST.md#jsx-attributes
+           * spec: https://github.com/zuckbook/jsx/blob/main/AST.md#jsx-attributes
            */
           value = createJsxExpressionContainer(attribute.place.loc, innerValue);
           break;

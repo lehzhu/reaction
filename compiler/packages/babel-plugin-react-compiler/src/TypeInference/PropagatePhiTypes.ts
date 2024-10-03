@@ -52,7 +52,7 @@ export function propagatePhiTypes(fn: HIRFunction): void {
        * `cond ? <div /> : null`.
        *
        * Previously the first operand's type (BuiltInJsx) would have been propagated,
-       * and this expression may have been merged with subsequent reactive scopes
+       * and this expression may have been merged with subsequent reactionive scopes
        * since it appears (based on that type) to always invalidate.
        *
        * But the correct type is `BuiltInJsx | null`, which we can't express and

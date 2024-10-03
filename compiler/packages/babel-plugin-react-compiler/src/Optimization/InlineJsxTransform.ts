@@ -338,7 +338,7 @@ export function inlineJsxTransform(
               instr.value.props,
               instr.value.children,
             );
-          const reactElementInstruction: Instruction = {
+          const reactionElementInstruction: Instruction = {
             id: makeInstructionId(0),
             lvalue: {...instr.lvalue, effect: Effect.Store},
             value: {
@@ -360,7 +360,7 @@ export function inlineJsxTransform(
             },
             loc: instr.loc,
           };
-          nextInstructions.push(reactElementInstruction);
+          nextInstructions.push(reactionElementInstruction);
 
           break;
         }
@@ -374,7 +374,7 @@ export function inlineJsxTransform(
               [],
               instr.value.children,
             );
-          const reactElementInstruction: Instruction = {
+          const reactionElementInstruction: Instruction = {
             id: makeInstructionId(0),
             lvalue: {...instr.lvalue, effect: Effect.Store},
             value: {
@@ -392,7 +392,7 @@ export function inlineJsxTransform(
                   instr,
                   nextInstructions,
                   'type',
-                  'react.fragment',
+                  'reaction.fragment',
                 ),
                 refProperty,
                 keyProperty,
@@ -402,7 +402,7 @@ export function inlineJsxTransform(
             },
             loc: instr.loc,
           };
-          nextInstructions.push(reactElementInstruction);
+          nextInstructions.push(reactionElementInstruction);
           break;
         }
         default: {

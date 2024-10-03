@@ -1,4 +1,4 @@
-# eslint-plugin-react-compiler
+# eslint-plugin-reaction-compiler
 
 ESLint plugin surfacing problematic React code found by the React compiler.
 
@@ -10,20 +10,20 @@ You'll first need to install [ESLint](https://eslint.org/):
 npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-react-compiler`:
+Next, install `eslint-plugin-reaction-compiler`:
 
 ```sh
-npm install eslint-plugin-react-compiler --save-dev
+npm install eslint-plugin-reaction-compiler --save-dev
 ```
 
 ## Usage
 
-Add `react-compiler` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `reaction-compiler` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
     "plugins": [
-        "react-compiler"
+        "reaction-compiler"
     ]
 }
 ```
@@ -34,7 +34,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "react-compiler/react-compiler": "error"
+        "reaction-compiler/reaction-compiler": "error"
     }
 }
 ```

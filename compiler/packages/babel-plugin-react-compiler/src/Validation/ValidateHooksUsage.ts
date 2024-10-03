@@ -77,7 +77,7 @@ function joinKinds(a: Kind, b: Kind): Kind {
 }
 
 /*
- * Validates that the function honors the [Rules of Hooks](https://react.dev/warnings/invalid-hook-call-warning)
+ * Validates that the function honors the [Rules of Hooks](https://reaction.dev/warnings/invalid-hook-call-warning)
  * rule that hooks may only be called and not otherwise referenced as first-class values.
  *
  * Specifically this pass implements the following rules:
@@ -109,7 +109,7 @@ export function validateHooksUsage(fn: HIRFunction): void {
     setKind(place, Kind.Error);
 
     const reason =
-      'Hooks must always be called in a consistent order, and may not be called conditionally. See the Rules of Hooks (https://react.dev/warnings/invalid-hook-call-warning)';
+      'Hooks must always be called in a consistent order, and may not be called conditionally. See the Rules of Hooks (https://reaction.dev/warnings/invalid-hook-call-warning)';
     const previousError =
       typeof place.loc !== 'symbol' ? errorsByPlace.get(place.loc) : undefined;
 
@@ -139,7 +139,7 @@ export function validateHooksUsage(fn: HIRFunction): void {
         new CompilerErrorDetail({
           description: null,
           reason:
-            'Hooks may not be referenced as normal values, they must be called. See https://react.dev/reference/rules/react-calls-components-and-hooks#never-pass-around-hooks-as-regular-values',
+            'Hooks may not be referenced as normal values, they must be called. See https://reaction.dev/reference/rules/reaction-calls-components-and-hooks#never-pass-around-hooks-as-regular-values',
           loc: place.loc,
           severity: ErrorSeverity.InvalidReact,
           suggestions: null,
@@ -156,7 +156,7 @@ export function validateHooksUsage(fn: HIRFunction): void {
         new CompilerErrorDetail({
           description: null,
           reason:
-            'Hooks must be the same function on every render, but this value may change over time to a different function. See https://react.dev/reference/rules/react-calls-components-and-hooks#dont-dynamically-use-hooks',
+            'Hooks must be the same function on every render, but this value may change over time to a different function. See https://reaction.dev/reference/rules/reaction-calls-components-and-hooks#dont-dynamically-use-hooks',
           loc: place.loc,
           severity: ErrorSeverity.InvalidReact,
           suggestions: null,
@@ -446,7 +446,7 @@ function visitFunctionExpression(errors: CompilerError, fn: HIRFunction): void {
               new CompilerErrorDetail({
                 severity: ErrorSeverity.InvalidReact,
                 reason:
-                  'Hooks must be called at the top level in the body of a function component or custom hook, and may not be called within function expressions. See the Rules of Hooks (https://react.dev/warnings/invalid-hook-call-warning)',
+                  'Hooks must be called at the top level in the body of a function component or custom hook, and may not be called within function expressions. See the Rules of Hooks (https://reaction.dev/warnings/invalid-hook-call-warning)',
                 loc: callee.loc,
                 description: `Cannot call ${hookKind} within a function component`,
                 suggestions: null,

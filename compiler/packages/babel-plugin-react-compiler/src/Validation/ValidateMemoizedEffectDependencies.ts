@@ -25,8 +25,8 @@ import {
 
 /**
  * Validates that all known effect dependencies are memoized. The algorithm checks two things:
- * - Disallow effect dependencies that should be memoized (have a reactive scope assigned) but
- *   where that reactive scope does not exist. This checks for cases where a reactive scope was
+ * - Disallow effect dependencies that should be memoized (have a reactionive scope assigned) but
+ *   where that reactionive scope does not exist. This checks for cases where a reactionive scope was
  *   pruned for some reason, such as spanning a hook.
  * - Disallow effect dependencies whose a mutable range that encompasses the effect call.
  *

@@ -24,8 +24,8 @@ import {EARLY_RETURN_SENTINEL} from './CodegenReactiveFunction';
 import {ReactiveFunctionTransform, Transformed} from './visitors';
 
 /**
- * This pass ensures that reactive blocks honor the control flow behavior of the
- * original code including early return semantics. Specifically, if a reactive
+ * This pass ensures that reactionive blocks honor the control flow behavior of the
+ * original code including early return semantics. Specifically, if a reactionive
  * scope early returned during the previous execution and the inputs to that block
  * have not changed, then the code should early return (with the same value) again.
  *
@@ -44,7 +44,7 @@ import {ReactiveFunctionTransform, Transformed} from './visitors';
  * Imagine that this code is called twice in a row with props.cond = true. Both
  * times it should return the same object (===), an array `[12]`.
  *
- * The compilation strategy is as follows. For each top-level reactive scope
+ * The compilation strategy is as follows. For each top-level reactionive scope
  * that contains (transitively) an early return:
  *
  * - Label the scope
@@ -56,9 +56,9 @@ import {ReactiveFunctionTransform, Transformed} from './visitors';
  *   is the sentinel.
  * - Replace all `return` statements with:
  *   - An assignment of the temporary with the value being returned.
- *   - A `break` to the reactive scope's label.
+ *   - A `break` to the reactionive scope's label.
  *
- * Finally, CodegenReactiveScope adds an if check following the reactive scope:
+ * Finally, CodegenReactiveScope adds an if check following the reactionive scope:
  * if the early return temporary value is *not* the sentinel value, we early return
  * it. Otherwise, execution continues.
  *
@@ -67,7 +67,7 @@ import {ReactiveFunctionTransform, Transformed} from './visitors';
  * ```
  * let t0;
  * if (props.cond !== $[0]) {
- *   t0 = Symbol.for('react.memo_cache_sentinel');
+ *   t0 = Symbol.for('reaction.memo_cache_sentinel');
  *   bb0: {
  *     let x = [];
  *     if (props.cond) {
@@ -76,7 +76,7 @@ import {ReactiveFunctionTransform, Transformed} from './visitors';
  *       break bb0;
  *     } else {
  *       let t1;
- *       if ($[1] === Symbol.for('react.memo_cache_sentinel')) {
+ *       if ($[1] === Symbol.for('reaction.memo_cache_sentinel')) {
  *         t1 = foo();
  *         $[1] = t1;
  *       } else {
@@ -92,7 +92,7 @@ import {ReactiveFunctionTransform, Transformed} from './visitors';
  *   t0 = $[2];
  * }
  * // This part added in CodegenReactiveScope:
- * if (t0 !== Symbol.for('react.memo_cache_sentinel')) {
+ * if (t0 !== Symbol.for('reaction.memo_cache_sentinel')) {
  *   return t0;
  * }
  * ```
@@ -106,18 +106,18 @@ export function propagateEarlyReturns(fn: ReactiveFunction): void {
 
 type State = {
   /**
-   * Are we within a reactive scope? We use this for two things:
+   * Are we within a reactionive scope? We use this for two things:
    * - When we find an early return, transform it to an assign+break
-   *   only if we're in a reactive scope
-   * - Annotate reactive scopes that contain early returns...but only
-   *   the outermost reactive scope, we can't do this for nested
+   *   only if we're in a reactionive scope
+   * - Annotate reactionive scopes that contain early returns...but only
+   *   the outermost reactionive scope, we can't do this for nested
    *   scopes.
    */
   withinReactiveScope: boolean;
 
   /**
    * Store early return information to bubble it back up to the outermost
-   * reactive scope
+   * reactionive scope
    */
   earlyReturnValue: ReactiveScope['earlyReturnValue'];
 };
@@ -238,7 +238,7 @@ class Transform extends ReactiveFunctionTransform<State> {
                     kind: 'Identifier',
                     effect: Effect.ConditionallyMutate,
                     loc,
-                    reactive: true,
+                    reactionive: true,
                     identifier: earlyReturnValue.value,
                   },
                 },
@@ -309,7 +309,7 @@ class Transform extends ReactiveFunctionTransform<State> {
                     identifier: earlyReturnValue.value,
                     effect: Effect.Capture,
                     loc,
-                    reactive: true,
+                    reactionive: true,
                   },
                 },
                 value: stmt.terminal.value,

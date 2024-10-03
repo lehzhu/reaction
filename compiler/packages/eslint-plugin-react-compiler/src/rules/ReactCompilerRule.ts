@@ -17,8 +17,8 @@ import BabelPluginReactCompiler, {
   validateEnvironmentConfig,
   OPT_OUT_DIRECTIVES,
   type PluginOptions,
-} from 'babel-plugin-react-compiler/src';
-import {Logger} from 'babel-plugin-react-compiler/src/Entrypoint';
+} from 'babel-plugin-reaction-compiler/src';
+import {Logger} from 'babel-plugin-reaction-compiler/src/Entrypoint';
 import type {Rule} from 'eslint';
 import {Statement} from 'estree';
 import * as HermesParser from 'hermes-parser';
@@ -168,7 +168,7 @@ const rule: Rule.RuleModule = {
                 : '';
             /**
              * Report bailouts with a smaller span (just the first line).
-             * Compiler bailout lints only serve to flag that a react function
+             * Compiler bailout lints only serve to flag that a reaction function
              * has not been optimized by the compiler for codebases which depend
              * on compiler memo heavily for perf. These lints are also often not
              * actionable.
@@ -201,8 +201,8 @@ const rule: Rule.RuleModule = {
             return;
           }
           if (
-            hasFlowSuppression(detail.loc, 'react-rule-hook') ||
-            hasFlowSuppression(detail.loc, 'react-rule-unsafe-ref')
+            hasFlowSuppression(detail.loc, 'reaction-rule-hook') ||
+            hasFlowSuppression(detail.loc, 'reaction-rule-unsafe-ref')
           ) {
             // If Flow already caught this error, we don't need to report it again.
             return;

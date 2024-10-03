@@ -30,18 +30,18 @@ import {assertExhaustive} from '../Utils/utils';
 
 /*
  * Note: this is the 1st of 4 passes that determine how to break a function into discrete
- * reactive scopes (independently memoizeable units of code):
+ * reactionive scopes (independently memoizeable units of code):
  * 1. InferReactiveScopeVariables (this pass, on HIR) determines operands that mutate
- *     together and assigns them a unique reactive scope.
- * 2. AlignReactiveScopesToBlockScopes (on ReactiveFunction) aligns reactive scopes
+ *     together and assigns them a unique reactionive scope.
+ * 2. AlignReactiveScopesToBlockScopes (on ReactiveFunction) aligns reactionive scopes
  *     to block scopes.
- * 3. MergeOverlappingReactiveScopes (on ReactiveFunction) ensures that reactive
+ * 3. MergeOverlappingReactiveScopes (on ReactiveFunction) ensures that reactionive
  *     scopes do not overlap, merging any such scopes.
  * 4. BuildReactiveBlocks (on ReactiveFunction) groups the statements for each scope into
  *     a ReactiveScopeBlock.
  *
- * For each mutable variable, infers a reactive scope which will construct that
- * variable. Variables that co-mutate are assigned to the same reactive scope.
+ * For each mutable variable, infers a reactionive scope which will construct that
+ * variable. Variables that co-mutate are assigned to the same reactionive scope.
  * This pass does *not* infer the set of instructions necessary to compute each
  * variable/scope, only the set of variables that will be computed by each scope.
  *
@@ -86,7 +86,7 @@ import {assertExhaustive} from '../Utils/utils';
  */
 export function inferReactiveScopeVariables(fn: HIRFunction): void {
   /*
-   * Represents the set of reactive scopes as disjoint sets of identifiers
+   * Represents the set of reactionive scopes as disjoint sets of identifiers
    * that mutate together.
    */
   const scopeIdentifiers = findDisjointMutableValues(fn);

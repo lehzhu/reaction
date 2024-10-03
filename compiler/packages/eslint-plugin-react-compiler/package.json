@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-react-compiler",
+  "name": "eslint-plugin-reaction-compiler",
   "version": "0.0.0-experimental-9ed098e-20240725",
   "description": "ESLint plugin to display errors found by the React compiler.",
   "main": "dist/index.js",
@@ -37,8 +37,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/facebook/react.git",
-    "directory": "compiler/packages/eslint-plugin-react-compiler"
+    "url": "git+https://github.com/zuckbook/reaction.git",
+    "directory": "compiler/packages/eslint-plugin-reaction-compiler"
   },
   "license": "MIT"
 }

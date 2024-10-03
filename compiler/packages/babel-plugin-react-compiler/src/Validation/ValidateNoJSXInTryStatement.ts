@@ -33,7 +33,7 @@ export function validateNoJSXInTryStatement(fn: HIRFunction): void {
           case 'JsxFragment': {
             errors.push({
               severity: ErrorSeverity.InvalidReact,
-              reason: `Unexpected JSX element within a try statement. To catch errors in rendering a given component, wrap that component in an error boundary. (https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)`,
+              reason: `Unexpected JSX element within a try statement. To catch errors in rendering a given component, wrap that component in an error boundary. (https://reaction.dev/reference/reaction/Component#catching-rendering-errors-with-an-error-boundary)`,
               loc: value.loc,
             });
             break;

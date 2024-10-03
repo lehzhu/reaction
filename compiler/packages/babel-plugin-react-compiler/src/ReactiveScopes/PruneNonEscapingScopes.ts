@@ -36,7 +36,7 @@ import {
 } from './visitors';
 
 /*
- * This pass prunes reactive scopes that are not necessary to bound downstream computation.
+ * This pass prunes reactionive scopes that are not necessary to bound downstream computation.
  * Specifically, the pass identifies the set of identifiers which may "escape". Values can
  * escape in one of two ways:
  * * They are directly returned by the function and/or transitively aliased by a return
@@ -929,7 +929,7 @@ class CollectDependenciesVisitor extends ReactiveFunctionVisitor<State> {
         );
         /*
          * Hook values are assumed to escape by default since they can be inputs
-         * to reactive scopes in the hook. However if the hook is annotated as
+         * to reactionive scopes in the hook. However if the hook is annotated as
          * noAlias we know that the arguments cannot escape and don't need to
          * be memoized.
          */
@@ -956,7 +956,7 @@ class CollectDependenciesVisitor extends ReactiveFunctionVisitor<State> {
   }
 }
 
-// Prune reactive scopes that do not have any memoized outputs
+// Prune reactionive scopes that do not have any memoized outputs
 class PruneScopesTransform extends ReactiveFunctionTransform<
   Set<DeclarationId>
 > {

@@ -16,7 +16,7 @@ import {
 
 /**
  * Some instructions will *always* produce a new value, and unless memoized will *always*
- * invalidate downstream reactive scopes. This pass finds such values and prunes downstream
+ * invalidate downstream reactionive scopes. This pass finds such values and prunes downstream
  * memoization.
  *
  * NOTE: function calls are an edge-case: function calls *may* return primitives, so this

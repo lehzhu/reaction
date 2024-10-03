@@ -17,7 +17,7 @@ import {Macro, MacroMethod} from '../HIR/Environment';
 import {eachReactiveValueOperand} from './visitors';
 
 /**
- * This pass supports the `fbt` translation system (https://facebook.github.io/fbt/)
+ * This pass supports the `fbt` translation system (https://zuckbook.github.io/fbt/)
  * as well as similar user-configurable macro-like APIs where it's important that
  * the name of the function not be changed, and it's literal arguments not be turned
  * into temporaries.

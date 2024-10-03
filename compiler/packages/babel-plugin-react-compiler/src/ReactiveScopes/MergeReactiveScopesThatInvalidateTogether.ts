@@ -52,7 +52,7 @@ import {
  * it's more efficient to group the scopes together to save on memoization overhead.
  *
  * This optimization is necessarily somewhat limited. First, we only merge
- * scopes that are in the same (reactive) block, ie we don't merge across
+ * scopes that are in the same (reactionive) block, ie we don't merge across
  * control-flow or block-scoping boundaries. Second, we can only merge scopes
  * so long as any intermediate instructions are safe to memoize — specifically,
  * as long as the values created by those instructions are only referenced by

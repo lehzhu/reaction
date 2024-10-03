@@ -29,7 +29,7 @@ import {ReactiveFunctionVisitor} from './visitors';
  *    Instruction in scope 0
  *
  * Because ReactiveScopeBlocks are closed when their surrounding block ends, this
- * structure would create reactive scopes as follows:
+ * structure would create reactionive scopes as follows:
  *
  * Function
  *    LabelTerminal

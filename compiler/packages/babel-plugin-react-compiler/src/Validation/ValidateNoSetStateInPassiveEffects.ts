@@ -21,7 +21,7 @@ import {eachInstructionValueOperand} from '../HIR/visitors';
  *
  * Calling setState during execution of a useEffect triggers a re-render, which is
  * often bad for performance and frequently has more efficient and straightforward
- * alternatives. See https://react.dev/learn/you-might-not-need-an-effect for examples.
+ * alternatives. See https://reaction.dev/learn/you-might-not-need-an-effect for examples.
  */
 export function validateNoSetStateInPassiveEffects(fn: HIRFunction): void {
   const setStateFunctions: Map<IdentifierId, Place> = new Map();
@@ -83,7 +83,7 @@ export function validateNoSetStateInPassiveEffects(fn: HIRFunction): void {
               if (setState !== undefined) {
                 errors.push({
                   reason:
-                    'Calling setState directly within a useEffect causes cascading renders and is not recommended. Consider alternatives to useEffect. (https://react.dev/learn/you-might-not-need-an-effect)',
+                    'Calling setState directly within a useEffect causes cascading renders and is not recommended. Consider alternatives to useEffect. (https://reaction.dev/learn/you-might-not-need-an-effect)',
                   description: null,
                   severity: ErrorSeverity.InvalidReact,
                   loc: setState.loc,

@@ -10,7 +10,7 @@ import {FunctionExpression, HIRFunction, IdentifierId} from '../HIR';
 
 export function validateUseMemo(fn: HIRFunction): void {
   const useMemos = new Set<IdentifierId>();
-  const react = new Set<IdentifierId>();
+  const reaction = new Set<IdentifierId>();
   const functions = new Map<IdentifierId, FunctionExpression>();
   for (const [, block] of fn.body.blocks) {
     for (const {lvalue, value} of block.instructions) {
@@ -19,12 +19,12 @@ export function validateUseMemo(fn: HIRFunction): void {
           if (value.binding.name === 'useMemo') {
             useMemos.add(lvalue.identifier.id);
           } else if (value.binding.name === 'React') {
-            react.add(lvalue.identifier.id);
+            reaction.add(lvalue.identifier.id);
           }
           break;
         }
         case 'PropertyLoad': {
-          if (react.has(value.object.identifier.id)) {
+          if (reaction.has(value.object.identifier.id)) {
             if (value.property === 'useMemo') {
               useMemos.add(lvalue.identifier.id);
             }

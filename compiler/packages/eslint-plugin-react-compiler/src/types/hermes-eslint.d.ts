@@ -43,7 +43,7 @@ declare module "hermes-eslint" {
      * Ignore <fbt /> JSX elements when adding references to the module-level `React` variable.
      * FBT is JSX that's transformed to non-JSX and thus references differently
      *
-     * https://facebook.github.io/fbt/
+     * https://zuckbook.github.io/fbt/
      */
     fbt: boolean;
 

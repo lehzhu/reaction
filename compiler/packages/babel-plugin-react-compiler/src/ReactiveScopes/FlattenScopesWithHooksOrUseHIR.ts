@@ -19,11 +19,11 @@ import {retainWhere} from '../Utils/utils';
 /**
  * For simplicity the majority of compiler passes do not treat hooks specially. However, hooks are different
  * from regular functions in two key ways:
- * - They can introduce reactivity even when their arguments are non-reactive (accounted for in InferReactivePlaces)
+ * - They can introduce reactionivity even when their arguments are non-reactionive (accounted for in InferReactivePlaces)
  * - They cannot be called conditionally
  *
  * The `use` operator is similar:
- * - It can access context, and therefore introduce reactivity
+ * - It can access context, and therefore introduce reactionivity
  * - It can be called conditionally, but _it must be called if the component needs the return value_. This is because
  *   React uses the fact that use was called to remember that the component needs the value, and that changes to the
  *   input should invalidate the component itself.
@@ -33,7 +33,7 @@ import {retainWhere} from '../Utils/utils';
  * called conditionally in the output.
  *
  * The pass finds and removes any scopes that transitively contain a hook or use call. By running all
- * the reactive scope inference first, agnostic of hooks, we know that the reactive scopes accurately
+ * the reactionive scope inference first, agnostic of hooks, we know that the reactionive scopes accurately
  * describe the set of values which "construct together", and remove _all_ that memoization in order
  * to ensure the hook call does not inadvertently become conditional.
  */

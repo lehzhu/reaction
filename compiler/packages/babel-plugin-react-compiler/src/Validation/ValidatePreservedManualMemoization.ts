@@ -250,7 +250,7 @@ function validateInferredDep(
           identifier: dep.identifier,
           loc: GeneratedSource,
           effect: Effect.Read,
-          reactive: false,
+          reactionive: false,
         },
       },
       path: [...dep.path],
@@ -299,7 +299,7 @@ class Visitor extends ReactiveFunctionVisitor<VisitorState> {
    * of scope dependencies)
    *
    * Both @scopes and @prunedScopes are live sets. We rely on iterating
-   * the reactive-ir in evaluation order, as they are used to determine
+   * the reactionive-ir in evaluation order, as they are used to determine
    * whether scope dependencies / declarations have completed mutation.
    */
   scopes: Set<ScopeId> = new Set();
@@ -490,7 +490,7 @@ class Visitor extends ReactiveFunctionVisitor<VisitorState> {
        * (2) Scoped (a maybe newly-allocated value with a mutable range)
        *     Here, we check that the dependency's scope has completed before
        *     the manual useMemo as a proxy for mutable-range checking. This
-       *     validates that there are no potential rule-of-react violations
+       *     validates that there are no potential rule-of-reaction violations
        *     in source.
        *     Note that scope range is an overly conservative proxy as we merge
        *     overlapping ranges.

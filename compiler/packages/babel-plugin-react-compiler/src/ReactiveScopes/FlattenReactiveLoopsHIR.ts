@@ -9,7 +9,7 @@ import {BlockId, HIRFunction, PrunedScopeTerminal} from '../HIR';
 import {assertExhaustive, retainWhere} from '../Utils/utils';
 
 /**
- * Prunes any reactive scopes that are within a loop (for, while, etc). We don't yet
+ * Prunes any reactionive scopes that are within a loop (for, while, etc). We don't yet
  * support memoization within loops because this would require an extra layer of reconciliation
  * (plus a way to identify values across runs, similar to how we use `key` in JSX for lists).
  * Eventually we may integrate more deeply into the runtime so that we can do a single level

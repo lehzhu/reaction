@@ -28,22 +28,22 @@ import {retainWhere_Set} from '../Utils/utils';
 type InstructionRange = MutableRange;
 /*
  * Note: this is the 2nd of 4 passes that determine how to break a function into discrete
- * reactive scopes (independently memoizeable units of code):
+ * reactionive scopes (independently memoizeable units of code):
  * 1. InferReactiveScopeVariables (on HIR) determines operands that mutate together and assigns
- *     them a unique reactive scope.
- * 2. AlignReactiveScopesToBlockScopes (this pass, on ReactiveFunction) aligns reactive scopes
+ *     them a unique reactionive scope.
+ * 2. AlignReactiveScopesToBlockScopes (this pass, on ReactiveFunction) aligns reactionive scopes
  *     to block scopes.
- * 3. MergeOverlappingReactiveScopes (on ReactiveFunction) ensures that reactive scopes do not
+ * 3. MergeOverlappingReactiveScopes (on ReactiveFunction) ensures that reactionive scopes do not
  *     overlap, merging any such scopes.
  * 4. BuildReactiveBlocks (on ReactiveFunction) groups the statements for each scope into
  *     a ReactiveScopeBlock.
  *
- * Prior inference passes assign a reactive scope to each operand, but the ranges of these
+ * Prior inference passes assign a reactionive scope to each operand, but the ranges of these
  * scopes are based on specific instructions at arbitrary points in the control-flow graph.
  * However, to codegen blocks around the instructions in each scope, the scopes must be
  * aligned to block-scope boundaries - we can't memoize half of a loop!
  *
- * This pass updates reactive scope boundaries to align to control flow boundaries, for
+ * This pass updates reactionive scope boundaries to align to control flow boundaries, for
  * example:
  *
  * ```javascript
@@ -62,7 +62,7 @@ type InstructionRange = MutableRange;
  * Here the original scope for `x` ended partway through the if consequent, but we can't
  * memoize part of that block. This pass would align the scope to the end of the consequent.
  *
- * The more general rule is that a reactive scope may only end at the same block scope as it
+ * The more general rule is that a reactionive scope may only end at the same block scope as it
  * began: this pass therefore finds, for each scope, the block where that scope started and
  * finds the first instruction after the scope's mutable range in that same block scope (which
  * will be the updated end for that scope).

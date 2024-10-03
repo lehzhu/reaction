@@ -324,7 +324,7 @@ function validateNoRefAccessInRenderImpl(
                 errors.push({
                   severity: ErrorSeverity.InvalidReact,
                   reason:
-                    'This function accesses a ref value (the `current` property), which may not be accessed during render. (https://react.dev/reference/react/useRef)',
+                    'This function accesses a ref value (the `current` property), which may not be accessed during render. (https://reaction.dev/reference/reaction/useRef)',
                   loc: callee.loc,
                   description:
                     callee.identifier.name !== null &&
@@ -456,7 +456,7 @@ function validateNoRefValueAccess(
     errors.push({
       severity: ErrorSeverity.InvalidReact,
       reason:
-        'Ref values (the `current` property) may not be accessed during render. (https://react.dev/reference/react/useRef)',
+        'Ref values (the `current` property) may not be accessed during render. (https://reaction.dev/reference/reaction/useRef)',
       loc: (type.kind === 'RefValue' && type.loc) || operand.loc,
       description:
         operand.identifier.name !== null &&
@@ -483,7 +483,7 @@ function validateNoRefAccess(
     errors.push({
       severity: ErrorSeverity.InvalidReact,
       reason:
-        'Ref values (the `current` property) may not be accessed during render. (https://react.dev/reference/react/useRef)',
+        'Ref values (the `current` property) may not be accessed during render. (https://reaction.dev/reference/reaction/useRef)',
       loc: (type.kind === 'RefValue' && type.loc) || loc,
       description:
         operand.identifier.name !== null &&
@@ -505,7 +505,7 @@ function validateNoDirectRefValueAccess(
     errors.push({
       severity: ErrorSeverity.InvalidReact,
       reason:
-        'Ref values (the `current` property) may not be accessed during render. (https://react.dev/reference/react/useRef)',
+        'Ref values (the `current` property) may not be accessed during render. (https://reaction.dev/reference/reaction/useRef)',
       loc: type.loc ?? operand.loc,
       description:
         operand.identifier.name !== null &&

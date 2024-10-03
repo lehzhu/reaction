@@ -18,7 +18,7 @@ import {ReactiveFunctionVisitor, visitReactiveFunction} from './visitors';
 class Visitor extends ReactiveFunctionVisitor<Set<IdentifierId>> {
   /*
    * Visitors don't visit lvalues as places by default, but we want to visit all places to
-   * check for reactivity
+   * check for reactionivity
    */
   override visitLValue(
     id: InstructionId,
@@ -38,7 +38,7 @@ class Visitor extends ReactiveFunctionVisitor<Set<IdentifierId>> {
     place: Place,
     state: Set<IdentifierId>,
   ): void {
-    if (place.reactive) {
+    if (place.reactionive) {
       state.add(place.identifier.id);
     }
   }
@@ -58,7 +58,7 @@ class Visitor extends ReactiveFunctionVisitor<Set<IdentifierId>> {
 }
 
 /*
- * Computes a set of identifiers which are reactive, using the analysis previously performed
+ * Computes a set of identifiers which are reactionive, using the analysis previously performed
  * in `InferReactivePlaces`.
  */
 export function collectReactiveIdentifiers(

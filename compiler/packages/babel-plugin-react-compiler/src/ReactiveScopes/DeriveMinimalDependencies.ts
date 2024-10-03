@@ -29,7 +29,7 @@ export type ReactiveScopePropertyDependency = ReactiveScopeDependency;
  *     i.e. props.a === $[..] implies props.a.b === $[..]
  *
  *     Note the inverse is not true, but this only means a false positive (we run the
- *     reactive block more than needed).
+ *     reactionive block more than needed).
  *     i.e. props.a !== $[..] does not imply props.a.b !== $[..]
  *
  *   - The dependencies of a finalized ReactiveBlock must be all safe to access
@@ -536,7 +536,7 @@ function addSubtree(
  *
  * @param otherProperties (read-only) an array of node properties containing
  *         conditionally and unconditionally accessed nodes. Each element
- *         represents asubtree of reactive dependencies from a single CFG
+ *         represents asubtree of reactionive dependencies from a single CFG
  *         branch.
  *        otherProperties must represent all reachable branches.
  * @param currProperties (mutable) return by argument properties of a node
@@ -560,7 +560,7 @@ function addSubtreeIntersection(
    * otherProperties here may contain unconditional nodes as the result of
    * recursively merging exhaustively conditional children with unconditionally
    * accessed nodes (e.g. in the test condition itself)
-   * See `reduce-reactive-cond-deps-cfg-nested-testifelse` fixture for example
+   * See `reduce-reactionive-cond-deps-cfg-nested-testifelse` fixture for example
    */
 
   for (const [propertyName, currNode] of currProperties) {

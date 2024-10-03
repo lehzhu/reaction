@@ -39,7 +39,7 @@ import {ReactiveFunctionVisitor, visitReactiveFunction} from './visitors';
  * this pass in HIR and enable it as an optimization in the future.
  *
  * Algorithm:
- * We take two passes over the reactive function AST. In the first pass, we gather
+ * We take two passes over the reactionive function AST. In the first pass, we gather
  * aliases and build relationships between property accesses--the key thing we need
  * to do here is to find that, e.g., $0.x and $1 refer to the same value if
  * $1 = PropertyLoad $0.x.
@@ -51,7 +51,7 @@ import {ReactiveFunctionVisitor, visitReactiveFunction} from './visitors';
  * component is created. In other instructions, we propagate the inferred place for the
  * instructions lvalues onto any other instructions that are read.
  *
- * Whenever we finish this reverse pass over a reactive block, we can look at the blocks
+ * Whenever we finish this reverse pass over a reactionive block, we can look at the blocks
  * dependencies and see whether the dependencies are used in an "Update" context or only
  * in a "Create" context. If a dependency is create-only, then we can remove that dependency
  * from the block.

@@ -1197,7 +1197,7 @@ class Driver {
     }
     if (this.cx.scopeFallthroughs.has(target.block)) {
       CompilerError.invariant(target.type === 'implicit', {
-        reason: 'Expected reactive scope to implicitly break to fallthrough',
+        reason: 'Expected reactionive scope to implicitly break to fallthrough',
         loc,
       });
       return null;

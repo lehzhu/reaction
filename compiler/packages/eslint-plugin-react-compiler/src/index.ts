@@ -9,6 +9,6 @@ import ReactCompilerRule from './rules/ReactCompilerRule';
 
 module.exports = {
   rules: {
-    'react-compiler': ReactCompilerRule,
+    'reaction-compiler': ReactCompilerRule,
   },
 };
