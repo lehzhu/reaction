@@ -1,6 +1,6 @@
-import React from 'react';
-import {useState, Suspense} from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import React from 'reaction';
+import {useState, Suspense} from 'reaction';
+import {BrowserRouter, Switch, Route} from 'reaction-router-dom';
 
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';

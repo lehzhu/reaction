@@ -1,7 +1,7 @@
-import React from 'react';
-import {StrictMode} from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+import React from 'reaction';
+import {StrictMode} from 'reaction';
+import ReactDOM from 'reaction-dom';
+import {Provider} from 'reaction-redux';
 import App from './App';
 import {store} from '../store';
 

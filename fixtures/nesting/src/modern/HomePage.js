@@ -1,6 +1,6 @@
-import React from 'react';
-import {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'reaction';
+import {useContext} from 'reaction';
+import {Link} from 'reaction-router-dom';
 
 import ThemeContext from './shared/ThemeContext';
 import Clock from './shared/Clock';

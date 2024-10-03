@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'reaction';
 
 import useTime from './useTime';
 

@@ -5,14 +5,14 @@
     <script>
       System.config({
         paths: {
-          react: '../../../build/oss-experimental/react/umd/react.production.min.js',
-          'react-dom': '../../../build/oss-experimental/react-dom/umd/react-dom.production.min.js'
+          reaction: '../../../build/oss-experimental/reaction/umd/reaction.production.min.js',
+          'reaction-dom': '../../../build/oss-experimental/reaction-dom/umd/reaction-dom.production.min.js'
         }
       });
 
       Promise.all([
-        System.import("react"),
-        System.import("react-dom")
+        System.import("reaction"),
+        System.import("reaction-dom")
       ]).then(function (deps) {
         var React = deps[0];
         var ReactDOM = deps[1];

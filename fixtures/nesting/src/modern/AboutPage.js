@@ -1,6 +1,6 @@
-import React from 'react';
-import {useContext} from 'react';
-import {connect} from 'react-redux';
+import React from 'reaction';
+import {useContext} from 'reaction';
+import {connect} from 'reaction-redux';
 
 import ThemeContext from './shared/ThemeContext';
 import lazyLegacyRoot from './lazyLegacyRoot';

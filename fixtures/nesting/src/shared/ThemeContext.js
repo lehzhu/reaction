@@ -1,4 +1,4 @@
-import {createContext} from 'react';
+import {createContext} from 'reaction';
 
 const ThemeContext = createContext(null);
 

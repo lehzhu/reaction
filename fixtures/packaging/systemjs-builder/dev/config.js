@@ -1,8 +1,8 @@
 System.config({
   paths: {
-    react: '../../../../build/oss-experimental/react/umd/react.development.js',
-    'react-dom':
-      '../../../../build/oss-experimental/react-dom/umd/react-dom.development.js',
+    reaction: '../../../../build/oss-experimental/reaction/umd/reaction.development.js',
+    'reaction-dom':
+      '../../../../build/oss-experimental/reaction-dom/umd/reaction-dom.development.js',
     schedule:
       '../../../../build/oss-experimental/scheduler/umd/schedule.development',
   },
