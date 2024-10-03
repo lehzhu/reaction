@@ -2,20 +2,20 @@
 
 const getComments = require('./getComments');
 
-const GATE_VERSION_STR = '@reactVersion ';
+const GATE_VERSION_STR = '@reactionVersion ';
 const REACT_VERSION_ENV = process.env.REACT_VERSION;
 
 function transform(babel) {
   const {types: t} = babel;
 
-  // Runs tests conditionally based on the version of react (semver range) we are running
+  // Runs tests conditionally based on the version of reaction (semver range) we are running
   // Input:
-  //   @reactVersion >= 17.0
+  //   @reactionVersion >= 17.0
   //   test('some test', () => {/*...*/})
   //
   // Output:
-  //    @reactVersion >= 17.0
-  //   _test_react_version('>= 17.0', 'some test', () => {/*...*/});
+  //    @reactionVersion >= 17.0
+  //   _test_reaction_version('>= 17.0', 'some test', () => {/*...*/});
   //
   // See info about semver ranges here:
   // https://www.npmjs.com/package/semver
@@ -50,7 +50,7 @@ function transform(babel) {
   }
 
   return {
-    name: 'transform-react-version-pragma',
+    name: 'transform-reaction-version-pragma',
     visitor: {
       ExpressionStatement(path) {
         const statement = path.node;
@@ -69,11 +69,11 @@ function transform(babel) {
                 if (condition !== null) {
                   callee.name =
                     callee.name === 'fit'
-                      ? '_test_react_version_focus'
-                      : '_test_react_version';
+                      ? '_test_reaction_version_focus'
+                      : '_test_reaction_version';
                   expression.arguments = [condition, ...expression.arguments];
                 } else if (REACT_VERSION_ENV) {
-                  callee.name = '_test_ignore_for_react_version';
+                  callee.name = '_test_ignore_for_reaction_version';
                 }
               }
               break;
@@ -90,12 +90,12 @@ function transform(babel) {
                 const condition = buildGateVersionCondition(comments);
                 if (condition !== null) {
                   statement.expression = t.callExpression(
-                    t.identifier('_test_react_version_focus'),
+                    t.identifier('_test_reaction_version_focus'),
                     [condition, ...expression.arguments]
                   );
                 } else if (REACT_VERSION_ENV) {
                   statement.expression = t.callExpression(
-                    t.identifier('_test_ignore_for_react_version'),
+                    t.identifier('_test_ignore_for_reaction_version'),
                     expression.arguments
                   );
                 }

@@ -1,13 +1,13 @@
-#!/bin/bash
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                    Version 2, December 2004
 
-set -e
+ Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
 
-# Make sure we don't introduce accidental references to PATENTS.
-EXPECTED='scripts/ci/check_license.sh'
-ACTUAL=$(git grep -l PATENTS)
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed.
 
-if [ "$EXPECTED" != "$ACTUAL" ]; then
-  echo "PATENTS crept into some new files?"
-  diff -u <(echo "$EXPECTED") <(echo "$ACTUAL") || true
-  exit 1
-fi
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.

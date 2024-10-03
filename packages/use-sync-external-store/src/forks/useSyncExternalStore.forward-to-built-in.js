@@ -11,6 +11,6 @@
 
 // Intentionally not using named imports because Rollup uses dynamic
 // dispatch for CommonJS interop named imports.
-import * as React from 'react';
+import * as React from 'reaction';
 
 export const useSyncExternalStore = React.useSyncExternalStore;

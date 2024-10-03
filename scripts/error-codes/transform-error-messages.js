@@ -49,7 +49,7 @@ module.exports = function (babel) {
       errorMsgExpressions
     );
 
-    if (errorMsgLiteral === 'react-stack-top-frame') {
+    if (errorMsgLiteral === 'reaction-stack-top-frame') {
       // This is a special case for generating stack traces.
       return;
     }
@@ -91,7 +91,7 @@ module.exports = function (babel) {
           const commentText = leadingComments[i].value;
           if (
             commentText.includes(
-              'eslint-disable-next-line react-internal/prod-error-codes'
+              'eslint-disable-next-line reaction-internal/prod-error-codes'
             )
           ) {
             return;

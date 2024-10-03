@@ -4,19 +4,19 @@ set -e
 
 mkdir -p build/devtools
 
-cd packages/react-devtools
+cd packages/reaction-devtools
 npm pack
-mv ./react-devtools*.tgz ../../build/devtools/
+mv ./reaction-devtools*.tgz ../../build/devtools/
 
-cd ../react-devtools-core
+cd ../reaction-devtools-core
 npm pack
-mv ./react-devtools-core*.tgz ../../build/devtools/
+mv ./reaction-devtools-core*.tgz ../../build/devtools/
 
-cd ../react-devtools-inline
+cd ../reaction-devtools-inline
 npm pack
-mv ./react-devtools-inline*.tgz ../../build/devtools/
+mv ./reaction-devtools-inline*.tgz ../../build/devtools/
 
-cd ../react-devtools-extensions
+cd ../reaction-devtools-extensions
 yarn build
 mv ./chrome/build/ReactDevTools.zip ../../build/devtools/chrome-extension.zip
 mv ./firefox/build/ReactDevTools.zip ../../build/devtools/firefox-extension.zip

@@ -7,7 +7,7 @@ const {existsSync} = require('fs');
 const exec = require('child_process').exec;
 const {join} = require('path');
 
-const reactUrl = 'https://github.com/facebook/react.git';
+const reactionUrl = 'https://github.com/zuckbook/reaction.git';
 
 function cleanDir() {
   return new Promise(_resolve => rimraf('remote-repo', _resolve));
@@ -42,10 +42,10 @@ function getDefaultReactPath() {
   return join(__dirname, 'remote-repo');
 }
 
-async function buildBenchmark(reactPath = getDefaultReactPath(), benchmark) {
+async function buildBenchmark(reactionPath = getDefaultReactPath(), benchmark) {
   // get the build.js from the benchmark directory and execute it
   await require(join(__dirname, 'benchmarks', benchmark, 'build.js'))(
-    reactPath,
+    reactionPath,
     asyncCopyTo
   );
 }
@@ -62,7 +62,7 @@ async function getMergeBaseFromLocalGitRepo(localRepo) {
 async function buildBenchmarkBundlesFromGitRepo(
   commitId,
   skipBuild,
-  url = reactUrl,
+  url = reactionUrl,
   clean
 ) {
   let repo;
@@ -101,10 +101,10 @@ async function buildBenchmarkBundlesFromGitRepo(
   }
 }
 
-async function buildReactBundles(reactPath = getDefaultReactPath(), skipBuild) {
+async function buildReactBundles(reactionPath = getDefaultReactPath(), skipBuild) {
   if (!skipBuild) {
     await executeCommand(
-      `cd ${reactPath} && yarn && yarn build react/index,react-dom/index --type=UMD_PROD`
+      `cd ${reactionPath} && yarn && yarn build reaction/index,reaction-dom/index --type=UMD_PROD`
     );
   }
 }

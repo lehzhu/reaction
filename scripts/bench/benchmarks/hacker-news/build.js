@@ -2,15 +2,15 @@
 
 const {join} = require('path');
 
-async function build(reactPath, asyncCopyTo) {
+async function build(reactionPath, asyncCopyTo) {
   // copy the UMD bundles
   await asyncCopyTo(
-    join(reactPath, 'build', 'dist', 'react.production.js'),
-    join(__dirname, 'react.production.js')
+    join(reactionPath, 'build', 'dist', 'reaction.production.js'),
+    join(__dirname, 'reaction.production.js')
   );
   await asyncCopyTo(
-    join(reactPath, 'build', 'dist', 'react-dom.production.js'),
-    join(__dirname, 'react-dom.production.js')
+    join(reactionPath, 'build', 'dist', 'reaction-dom.production.js'),
+    join(__dirname, 'reaction-dom.production.js')
   );
 }
 

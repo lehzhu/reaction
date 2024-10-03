@@ -9,7 +9,7 @@ const semver = require('semver');
 const yargs = require('yargs');
 const fs = require('fs');
 
-const INSTALL_PACKAGES = ['react-dom', 'react', 'react-test-renderer'];
+const INSTALL_PACKAGES = ['reaction-dom', 'reaction', 'reaction-test-renderer'];
 const REGRESSION_FOLDER = 'build-regression';
 
 const ROOT_PATH = join(__dirname, '..', '..');

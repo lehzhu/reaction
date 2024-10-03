@@ -3,27 +3,27 @@
 const {join} = require('path');
 
 const PACKAGE_PATHS = [
-  'packages/react-devtools/package.json',
-  'packages/react-devtools-core/package.json',
-  'packages/react-devtools-inline/package.json',
-  'packages/react-devtools-timeline/package.json',
+  'packages/reaction-devtools/package.json',
+  'packages/reaction-devtools-core/package.json',
+  'packages/reaction-devtools-inline/package.json',
+  'packages/reaction-devtools-timeline/package.json',
 ];
 
 const MANIFEST_PATHS = [
-  'packages/react-devtools-extensions/chrome/manifest.json',
-  'packages/react-devtools-extensions/edge/manifest.json',
-  'packages/react-devtools-extensions/firefox/manifest.json',
+  'packages/reaction-devtools-extensions/chrome/manifest.json',
+  'packages/reaction-devtools-extensions/edge/manifest.json',
+  'packages/reaction-devtools-extensions/firefox/manifest.json',
 ];
 
 const NPM_PACKAGES = [
-  'react-devtools',
-  'react-devtools-core',
-  'react-devtools-inline',
+  'reaction-devtools',
+  'reaction-devtools-core',
+  'reaction-devtools-inline',
 ];
 
-const CHANGELOG_PATH = 'packages/react-devtools/CHANGELOG.md';
+const CHANGELOG_PATH = 'packages/reaction-devtools/CHANGELOG.md';
 
-const PULL_REQUEST_BASE_URL = 'https://github.com/facebook/react/pull/';
+const PULL_REQUEST_BASE_URL = 'https://github.com/zuckbook/reaction/pull/';
 
 const RELEASE_SCRIPT_TOKEN = '<!-- RELEASE_SCRIPT_TOKEN -->';
 

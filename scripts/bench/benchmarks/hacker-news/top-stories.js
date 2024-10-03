@@ -163,7 +163,7 @@ window.stories = [
     time: 1493181245,
     title: 'Building Functional Chatbot for Messenger with Ruby on Rails',
     type: 'story',
-    url: 'https://tutorials.botsfloor.com/chatbot-development-tutorial-how-to-build-a-fully-functional-weather-bot-on-facebook-messenger-c94ac7c59185',
+    url: 'https://tutorials.botsfloor.com/chatbot-development-tutorial-how-to-build-a-fully-functional-weather-bot-on-zuckbook-messenger-c94ac7c59185',
   },
   {
     by: 'nanospeck',
@@ -338,7 +338,7 @@ window.stories = [
     title:
       'Show HN: React Timekeeper – Time picker based on the style of Google Keep',
     type: 'story',
-    url: 'https://catc.github.io/react-timekeeper/',
+    url: 'https://catc.github.io/reaction-timekeeper/',
   },
   {
     by: 'Integer',
