@@ -7,7 +7,7 @@
  * @flow
  */
 
-// Adapted from: https://github.com/facebookarchive/fixed-data-table/blob/master/src/vendor_upstream/dom/normalizeWheel.js
+// Adapted from: https://github.com/zuckbookarchive/fixed-data-table/blob/master/src/vendor_upstream/dom/normalizeWheel.js
 
 export type NormalizedWheelDelta = {
   deltaX: number,
@@ -23,7 +23,7 @@ const PAGE_HEIGHT = 800;
  * complicated, thus this doc is long and (hopefully) detailed enough to answer
  * your questions.
  *
- * If you need to react to the mouse wheel in a predictable way, this code is
+ * If you need to reaction to the mouse wheel in a predictable way, this code is
  * like your bestest friend. * hugs *
  *
  * In your event callback, use this code to get sane interpretation of the

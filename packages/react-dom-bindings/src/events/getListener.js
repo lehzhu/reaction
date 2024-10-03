@@ -6,7 +6,7 @@
  * @flow
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {Props} from '../client/ReactFiberConfigDOM';
 
 import {getFiberCurrentPropsFromNode} from '../client/ReactDOMComponentTree';

@@ -14,7 +14,7 @@ import type {
   KnownReactSyntheticEvent,
   ReactSyntheticEvent,
 } from './ReactSyntheticEventType';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 
 import {allNativeEvents} from './EventRegistry';
 import {
@@ -35,7 +35,7 @@ import {
   HostSingleton,
   HostText,
   ScopeComponent,
-} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactWorkTags';
 
 import getEventTarget from './getEventTarget';
 import {
@@ -71,7 +71,7 @@ import * as FormActionEventPlugin from './plugins/FormActionEventPlugin';
 
 import reportGlobalError from 'shared/reportGlobalError';
 
-import {runWithFiberInDEV} from 'react-reconciler/src/ReactCurrentFiber';
+import {runWithFiberInDEV} from 'reaction-reconciler/src/ReactCurrentFiber';
 
 type DispatchListener = {
   instance: null | Fiber,
@@ -410,7 +410,7 @@ export function listenToNativeEventForNonManagedEventTarget(
   }
 }
 
-const listeningMarker = '_reactListening' + Math.random().toString(36).slice(2);
+const listeningMarker = '_reactionListening' + Math.random().toString(36).slice(2);
 
 export function listenToAllSupportedEvents(rootContainerElement: EventTarget) {
   if (!(rootContainerElement: any)[listeningMarker]) {
@@ -461,7 +461,7 @@ function addTrappedEventListener(
     // to document anymore, but changing this now would undo
     // the performance wins from the change. So we emulate
     // the existing behavior manually on the roots now.
-    // https://github.com/facebook/react/issues/19651
+    // https://github.com/zuckbook/reaction/issues/19651
     if (
       domEventName === 'touchstart' ||
       domEventName === 'touchmove' ||
@@ -693,14 +693,14 @@ function createDispatchListener(
 
 export function accumulateSinglePhaseListeners(
   targetFiber: Fiber | null,
-  reactName: string | null,
+  reactionName: string | null,
   nativeEventType: string,
   inCapturePhase: boolean,
   accumulateTargetOnly: boolean,
   nativeEvent: AnyNativeEvent,
 ): Array<DispatchListener> {
-  const captureName = reactName !== null ? reactName + 'Capture' : null;
-  const reactEventName = inCapturePhase ? captureName : reactName;
+  const captureName = reactionName !== null ? reactionName + 'Capture' : null;
+  const reactionEventName = inCapturePhase ? captureName : reactionName;
   let listeners: Array<DispatchListener> = [];
 
   let instance = targetFiber;
@@ -741,8 +741,8 @@ export function accumulateSinglePhaseListeners(
       }
 
       // Standard React on* listeners, i.e. onClick or onClickCapture
-      if (reactEventName !== null) {
-        const listener = getListener(instance, reactEventName);
+      if (reactionEventName !== null) {
+        const listener = getListener(instance, reactionEventName);
         if (listener != null) {
           listeners.push(
             createDispatchListener(instance, listener, lastHostComponent),
@@ -757,9 +757,9 @@ export function accumulateSinglePhaseListeners(
       stateNode !== null
     ) {
       // Scopes
-      const reactScopeInstance = stateNode;
+      const reactionScopeInstance = stateNode;
       const eventHandlerListeners =
-        getEventHandlerListeners(reactScopeInstance);
+        getEventHandlerListeners(reactionScopeInstance);
       if (eventHandlerListeners !== null) {
         eventHandlerListeners.forEach(entry => {
           if (
@@ -814,9 +814,9 @@ export function accumulateSinglePhaseListeners(
 // phase event listeners (via emulation).
 export function accumulateTwoPhaseListeners(
   targetFiber: Fiber | null,
-  reactName: string,
+  reactionName: string,
 ): Array<DispatchListener> {
-  const captureName = reactName + 'Capture';
+  const captureName = reactionName + 'Capture';
   const listeners: Array<DispatchListener> = [];
   let instance = targetFiber;
 
@@ -837,7 +837,7 @@ export function accumulateTwoPhaseListeners(
           createDispatchListener(instance, captureListener, currentTarget),
         );
       }
-      const bubbleListener = getListener(instance, reactName);
+      const bubbleListener = getListener(instance, reactionName);
       if (bubbleListener != null) {
         listeners.push(
           createDispatchListener(instance, bubbleListener, currentTarget),
@@ -915,7 +915,7 @@ function accumulateEnterLeaveListenersForEvent(
   common: Fiber | null,
   inCapturePhase: boolean,
 ): void {
-  const registrationName = event._reactName;
+  const registrationName = event._reactionName;
   const listeners: Array<DispatchListener> = [];
 
   let instance: null | Fiber = target;
@@ -992,7 +992,7 @@ export function accumulateEnterLeaveTwoPhaseListeners(
 }
 
 export function accumulateEventHandleNonManagedNodeListeners(
-  reactEventType: DOMEventName,
+  reactionEventType: DOMEventName,
   currentTarget: EventTarget,
   inCapturePhase: boolean,
 ): Array<DispatchListener> {
@@ -1001,7 +1001,7 @@ export function accumulateEventHandleNonManagedNodeListeners(
   const eventListeners = getEventHandlerListeners(currentTarget);
   if (eventListeners !== null) {
     eventListeners.forEach(entry => {
-      if (entry.type === reactEventType && entry.capture === inCapturePhase) {
+      if (entry.type === reactionEventType && entry.capture === inCapturePhase) {
         listeners.push(
           createDispatchListener(null, entry.callback, currentTarget),
         );

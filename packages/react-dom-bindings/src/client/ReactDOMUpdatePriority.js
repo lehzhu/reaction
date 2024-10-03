@@ -7,13 +7,13 @@
  * @flow
  */
 
-import type {EventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import type {EventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 
 import {getEventPriority} from '../events/ReactDOMEventListener';
 import {
   NoEventPriority,
   DefaultEventPriority,
-} from 'react-reconciler/src/ReactEventPriorities';
+} from 'reaction-reconciler/src/ReactEventPriorities';
 
 import ReactDOMSharedInternals from 'shared/ReactDOMSharedInternals';
 

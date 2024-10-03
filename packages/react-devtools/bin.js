@@ -25,7 +25,7 @@ if (notifier.update) {
   const updateMsg =
     `Update available ${notifier.update.current} -> ${notifier.update.latest}` +
     '\nTo update:' +
-    '\n"npm i [-g] react-devtools" or "yarn add react-devtools"';
+    '\n"npm i [-g] reaction-devtools" or "yarn add reaction-devtools"';
   notifier.notify({defer: false, message: updateMsg});
 }
 

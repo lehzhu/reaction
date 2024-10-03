@@ -8,7 +8,7 @@
  * @flow
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {DOMEventName} from './DOMEventNames';
 
 export type DispatchConfig = {
@@ -34,10 +34,10 @@ type BaseSyntheticEvent = {
 };
 
 export type KnownReactSyntheticEvent = BaseSyntheticEvent & {
-  _reactName: string,
+  _reactionName: string,
 };
 export type UnknownReactSyntheticEvent = BaseSyntheticEvent & {
-  _reactName: null,
+  _reactionName: null,
 };
 
 export type ReactSyntheticEvent =

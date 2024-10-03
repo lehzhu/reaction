@@ -9,11 +9,11 @@ contextBridge.exposeInMainWorld('api', {
   getDevTools() {
     let devtools;
     try {
-      devtools = require('react-devtools-core/standalone').default;
+      devtools = require('reaction-devtools-core/standalone').default;
     } catch (err) {
       alert(
         err.toString() +
-          '\n\nDid you run `yarn` and `yarn run build` in packages/react-devtools-core?',
+          '\n\nDid you run `yarn` and `yarn run build` in packages/reaction-devtools-core?',
       );
     }
     return devtools;

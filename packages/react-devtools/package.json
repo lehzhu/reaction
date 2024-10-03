@@ -1,15 +1,15 @@
 {
-  "name": "react-devtools",
+  "name": "reaction-devtools",
   "version": "6.0.0",
-  "description": "Use react-devtools outside of the browser",
+  "description": "Use reaction-devtools outside of the browser",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react-devtools"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-devtools"
   },
   "bin": {
-    "react-devtools": "./bin.js"
+    "reaction-devtools": "./bin.js"
   },
   "files": [
     "bin.js",
@@ -26,7 +26,7 @@
     "electron": "^23.1.2",
     "internal-ip": "^6.2.0",
     "minimist": "^1.2.3",
-    "react-devtools-core": "6.0.0",
+    "reaction-devtools-core": "6.0.0",
     "update-notifier": "^2.1.0"
   }
 }

@@ -8,15 +8,15 @@
  */
 
 import type {DOMEventName} from '../events/DOMEventNames';
-import type {Fiber, FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber, FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {
   BoundingRect,
   IntersectionObserverOptions,
   ObserveVisibleRectsCallback,
-} from 'react-reconciler/src/ReactTestSelectors';
+} from 'reaction-reconciler/src/ReactTestSelectors';
 import type {ReactContext, ReactScopeInstance} from 'shared/ReactTypes';
 import type {AncestorInfoDev} from './validateDOMNesting';
-import type {FormStatus} from 'react-dom-bindings/src/shared/ReactDOMFormActions';
+import type {FormStatus} from 'reaction-dom-bindings/src/shared/ReactDOMFormActions';
 import type {
   CrossOriginEnum,
   PreloadImplOptions,
@@ -24,11 +24,11 @@ import type {
   PreinitStyleOptions,
   PreinitScriptOptions,
   PreinitModuleScriptOptions,
-} from 'react-dom/src/shared/ReactDOMTypes';
+} from 'reaction-dom/src/shared/ReactDOMTypes';
 
 import {NotPending} from '../shared/ReactDOMFormActions';
 
-import {getCurrentRootHostContainer} from 'react-reconciler/src/ReactFiberHostContext';
+import {getCurrentRootHostContainer} from 'reaction-reconciler/src/ReactFiberHostContext';
 
 import hasOwnProperty from 'shared/hasOwnProperty';
 import {checkAttributeStringCoercion} from 'shared/CheckStringCoercion';
@@ -99,17 +99,17 @@ import {
   HostHoistable,
   HostText,
   HostSingleton,
-} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactWorkTags';
 import {listenToAllSupportedEvents} from '../events/DOMPluginEventSystem';
 import {validateLinkPropsForStyleResource} from '../shared/ReactDOMResourceValidation';
 import escapeSelectorAttributeValueInsideDoubleQuotes from './escapeSelectorAttributeValueInsideDoubleQuotes';
-import {flushSyncWork as flushSyncWorkOnAllRoots} from 'react-reconciler/src/ReactFiberWorkLoop';
-import {requestFormReset as requestFormResetOnFiber} from 'react-reconciler/src/ReactFiberHooks';
+import {flushSyncWork as flushSyncWorkOnAllRoots} from 'reaction-reconciler/src/ReactFiberWorkLoop';
+import {requestFormReset as requestFormResetOnFiber} from 'reaction-reconciler/src/ReactFiberHooks';
 
 import ReactDOMSharedInternals from 'shared/ReactDOMSharedInternals';
 
 export {default as rendererVersion} from 'shared/ReactVersion';
-export const rendererPackageName = 'react-dom';
+export const rendererPackageName = 'reaction-dom';
 export const extraDevToolsConfig = null;
 
 export type Type = string;
@@ -150,13 +150,13 @@ export type EventTargetChildElement = {
   ...
 };
 export type Container =
-  | interface extends Element {_reactRootContainer?: FiberRoot}
-  | interface extends Document {_reactRootContainer?: FiberRoot}
-  | interface extends DocumentFragment {_reactRootContainer?: FiberRoot};
+  | interface extends Element {_reactionRootContainer?: FiberRoot}
+  | interface extends Document {_reactionRootContainer?: FiberRoot}
+  | interface extends DocumentFragment {_reactionRootContainer?: FiberRoot};
 export type Instance = Element;
 export type TextInstance = Text;
 export interface SuspenseInstance extends Comment {
-  _reactRetry?: () => void;
+  _reactionRetry?: () => void;
 }
 type FormStateMarkerInstance = Comment;
 export type HydratableInstance =
@@ -203,7 +203,7 @@ const HostContextNamespaceMath: HostContextNamespace = 2;
 let eventsEnabled: ?boolean = null;
 let selectionInformation: null | SelectionInformation = null;
 
-export * from 'react-reconciler/src/ReactFiberConfigWithNoPersistence';
+export * from 'reaction-reconciler/src/ReactFiberConfigWithNoPersistence';
 
 function getOwnerDocumentFromRootContainer(
   rootContainerElement: Element | Document | DocumentFragment,
@@ -460,7 +460,7 @@ export function createInstance(
             domElement = ownerDocument.createElement('select', {is: props.is});
           } else {
             // Separate else branch instead of using `props.is || undefined` above because of a Firefox bug.
-            // See discussion in https://github.com/facebook/react/pull/6896
+            // See discussion in https://github.com/zuckbook/reaction/pull/6896
             // and discussion in https://bugzilla.mozilla.org/show_bug.cgi?id=1276240
             domElement = ownerDocument.createElement('select');
           }
@@ -480,7 +480,7 @@ export function createInstance(
             domElement = ownerDocument.createElement(type, {is: props.is});
           } else {
             // Separate else branch instead of using `props.is || undefined` above because of a Firefox bug.
-            // See discussion in https://github.com/facebook/react/pull/6896
+            // See discussion in https://github.com/zuckbook/reaction/pull/6896
             // and discussion in https://bugzilla.mozilla.org/show_bug.cgi?id=1276240
             domElement = ownerDocument.createElement(type);
           }
@@ -778,10 +778,10 @@ export function appendChildToContainer(
   // event exists. So we wouldn't see it and dispatch it.
   // This is why we ensure that non React root containers have inline onclick
   // defined.
-  // https://github.com/facebook/react/issues/11918
-  const reactRootContainer = container._reactRootContainer;
+  // https://github.com/zuckbook/reaction/issues/11918
+  const reactionRootContainer = container._reactionRootContainer;
   if (
-    (reactRootContainer === null || reactRootContainer === undefined) &&
+    (reactionRootContainer === null || reactionRootContainer === undefined) &&
     parentNode.onclick === null
   ) {
     // TODO: This cast may not be sound for SVG, MathML or custom elements.
@@ -943,7 +943,7 @@ export function unhideInstance(instance: Instance, props: Props): void {
     display == null || typeof display === 'boolean'
       ? ''
       : // The value would've errored already if it wasn't safe.
-        // eslint-disable-next-line react-internal/safe-string-coercion
+        // eslint-disable-next-line reaction-internal/safe-string-coercion
         ('' + display).trim();
 }
 
@@ -1280,7 +1280,7 @@ export function registerSuspenseInstanceRetry(
   instance: SuspenseInstance,
   callback: () => void,
 ) {
-  instance._reactRetry = callback;
+  instance._reactionRetry = callback;
 }
 
 export function canHydrateFormStateMarker(
@@ -1368,7 +1368,7 @@ export function getFirstHydratableChildWithinSuspenseInstance(
 export function describeHydratableInstanceForDevWarnings(
   instance: HydratableInstance,
 ): string | {type: string, props: $ReadOnly<Props>} {
-  // Reverse engineer a pseudo react-element from hydratable instnace
+  // Reverse engineer a pseudo reaction-element from hydratable instnace
   if (instance.nodeType === ELEMENT_NODE) {
     // Reverse engineer a set of props that can print for dev warnings
     return {

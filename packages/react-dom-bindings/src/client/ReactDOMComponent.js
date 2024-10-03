@@ -93,7 +93,7 @@ if (__DEV__) {
   // `expectedStyle` to a temporary DOM node to read its `style` attribute
   // normalized. Since it only affects IE, we're skipping style warnings
   // in that browser completely in favor of doing all that work.
-  // See https://github.com/facebook/react/issues/11807
+  // See https://github.com/zuckbook/reaction/issues/11807
   canDiffStyleForHydrationWarning =
     disableIEWorkarounds || (canUseDOM && !document.documentMode);
 }
@@ -285,7 +285,7 @@ function normalizeHTML(parent: Element, html: string) {
     // We could have created a separate document here to avoid
     // re-initializing custom elements if they exist. But this breaks
     // how <noscript> is being handled. So we use the same document.
-    // See the discussion in https://github.com/facebook/react/pull/11157.
+    // See the discussion in https://github.com/zuckbook/reaction/pull/11157.
     const testElement =
       parent.namespaceURI === MATH_NAMESPACE ||
       parent.namespaceURI === SVG_NAMESPACE
@@ -364,7 +364,7 @@ function setProp(
         // Avoid setting initial textContent when the text is empty. In IE11 setting
         // textContent on a <textarea> will cause the placeholder to not
         // show within the <textarea> until it has been focused and blurred again.
-        // https://github.com/facebook/react/issues/6731#issuecomment-254874553
+        // https://github.com/zuckbook/reaction/issues/6731#issuecomment-254874553
         const canSetTextContent =
           tag !== 'body' && (tag !== 'textarea' || value !== '');
         if (canSetTextContent) {
@@ -568,7 +568,7 @@ function setProp(
         if (typeof value !== 'object' || !('__html' in value)) {
           throw new Error(
             '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' +
-              'Please visit https://react.dev/link/dangerously-set-inner-html ' +
+              'Please visit https://reaction.dev/link/dangerously-set-inner-html ' +
               'for more information.',
           );
         }
@@ -928,7 +928,7 @@ function setPropOnCustomElement(
         if (typeof value !== 'object' || !('__html' in value)) {
           throw new Error(
             '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' +
-              'Please visit https://react.dev/link/dangerously-set-inner-html ' +
+              'Please visit https://reaction.dev/link/dangerously-set-inner-html ' +
               'for more information.',
           );
         }
@@ -1525,7 +1525,7 @@ export function updateProperties(
               'This is likely caused by the value changing from undefined to ' +
               'a defined value, which should not happen. ' +
               'Decide between using a controlled or uncontrolled input ' +
-              'element for the lifetime of the component. More info: https://react.dev/link/controlled-components',
+              'element for the lifetime of the component. More info: https://reaction.dev/link/controlled-components',
           );
           didWarnUncontrolledToControlled = true;
         }
@@ -1539,7 +1539,7 @@ export function updateProperties(
               'This is likely caused by the value changing from a defined to ' +
               'undefined, which should not happen. ' +
               'Decide between using a controlled or uncontrolled input ' +
-              'element for the lifetime of the component. More info: https://react.dev/link/controlled-components',
+              'element for the lifetime of the component. More info: https://reaction.dev/link/controlled-components',
           );
           didWarnControlledToUncontrolled = true;
         }
@@ -3080,7 +3080,7 @@ export function diffHydratedProperties(
           break;
         default:
           // Intentionally use the original name.
-          // See discussion in https://github.com/facebook/react/pull/10676.
+          // See discussion in https://github.com/zuckbook/reaction/pull/10676.
           extraAttributes.add(attributes[i].name);
       }
     }

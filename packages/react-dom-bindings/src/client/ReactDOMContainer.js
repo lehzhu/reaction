@@ -24,7 +24,7 @@ export function isValidContainer(node: any): boolean {
       node.nodeType === DOCUMENT_FRAGMENT_NODE ||
       (!disableCommentsAsDOMContainers &&
         node.nodeType === COMMENT_NODE &&
-        (node: any).nodeValue === ' react-mount-point-unstable '))
+        (node: any).nodeValue === ' reaction-mount-point-unstable '))
   );
 }
 
@@ -37,6 +37,6 @@ export function isValidContainerLegacy(node: any): boolean {
       node.nodeType === DOCUMENT_NODE ||
       node.nodeType === DOCUMENT_FRAGMENT_NODE ||
       (node.nodeType === COMMENT_NODE &&
-        (node: any).nodeValue === ' react-mount-point-unstable '))
+        (node: any).nodeValue === ' reaction-mount-point-unstable '))
   );
 }

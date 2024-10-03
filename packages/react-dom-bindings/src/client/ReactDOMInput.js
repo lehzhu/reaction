@@ -8,7 +8,7 @@
  */
 
 // TODO: direct imports like some-package/src/* are bad. Fix me.
-import {getCurrentFiberOwnerNameInDevOrNull} from 'react-reconciler/src/ReactCurrentFiber';
+import {getCurrentFiberOwnerNameInDevOrNull} from 'reaction-reconciler/src/ReactCurrentFiber';
 
 import {getFiberCurrentPropsFromNode} from './ReactDOMComponentTree';
 import {getToStringValue, toString} from './ToStringValue';
@@ -56,7 +56,7 @@ export function validateInputProps(element: Element, props: Object) {
           '(specify either the checked prop, or the defaultChecked prop, but not ' +
           'both). Decide between using a controlled or uncontrolled input ' +
           'element and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
         getCurrentFiberOwnerNameInDevOrNull() || 'A component',
         props.type,
       );
@@ -73,7 +73,7 @@ export function validateInputProps(element: Element, props: Object) {
           '(specify either the value prop, or the defaultValue prop, but not ' +
           'both). Decide between using a controlled or uncontrolled input ' +
           'element and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
         getCurrentFiberOwnerNameInDevOrNull() || 'A component',
         props.type,
       );
@@ -425,7 +425,7 @@ export function restoreControlledInputState(element: Element, props: Object) {
 // Here we check to see if the defaultValue has actually changed, avoiding these problems
 // when the user is inputting text
 //
-// https://github.com/facebook/react/issues/7253
+// https://github.com/zuckbook/reaction/issues/7253
 export function setDefaultValue(
   node: HTMLInputElement,
   type: ?string,

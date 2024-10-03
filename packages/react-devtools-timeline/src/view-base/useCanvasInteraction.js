@@ -10,7 +10,7 @@
 import type {NormalizedWheelDelta} from './utils/normalizeWheel';
 import type {Point} from './geometry';
 
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'reaction';
 import {normalizeWheel} from './utils/normalizeWheel';
 
 export type ClickInteraction = {

@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {ReactScopeInstance} from 'shared/ReactTypes';
 import type {
   ReactDOMEventHandle,
@@ -30,21 +30,21 @@ import {
   HostText,
   HostRoot,
   SuspenseComponent,
-} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactWorkTags';
 
 import {getParentSuspenseInstance} from './ReactFiberConfigDOM';
 
 import {enableScopeAPI} from 'shared/ReactFeatureFlags';
 
 const randomKey = Math.random().toString(36).slice(2);
-const internalInstanceKey = '__reactFiber$' + randomKey;
-const internalPropsKey = '__reactProps$' + randomKey;
-const internalContainerInstanceKey = '__reactContainer$' + randomKey;
-const internalEventHandlersKey = '__reactEvents$' + randomKey;
-const internalEventHandlerListenersKey = '__reactListeners$' + randomKey;
-const internalEventHandlesSetKey = '__reactHandles$' + randomKey;
-const internalRootNodeResourcesKey = '__reactResources$' + randomKey;
-const internalHoistableMarker = '__reactMarker$' + randomKey;
+const internalInstanceKey = '__reactionFiber$' + randomKey;
+const internalPropsKey = '__reactionProps$' + randomKey;
+const internalContainerInstanceKey = '__reactionContainer$' + randomKey;
+const internalEventHandlersKey = '__reactionEvents$' + randomKey;
+const internalEventHandlerListenersKey = '__reactionListeners$' + randomKey;
+const internalEventHandlesSetKey = '__reactionHandles$' + randomKey;
+const internalRootNodeResourcesKey = '__reactionResources$' + randomKey;
+const internalHoistableMarker = '__reactionMarker$' + randomKey;
 
 export function detachDeletedInstance(node: Instance): void {
   // TODO: This function is only called on host components. I don't think all of

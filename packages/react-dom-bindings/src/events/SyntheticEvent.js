@@ -9,7 +9,7 @@
 
 /* eslint valid-typeof: 0 */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 
 import assign from 'shared/assign';
 import getEventCharCode from './getEventCharCode';
@@ -44,15 +44,15 @@ function createSyntheticEvent(Interface: EventInterfaceType) {
    */
   // $FlowFixMe[missing-this-annot]
   function SyntheticBaseEvent(
-    reactName: string | null,
-    reactEventType: string,
+    reactionName: string | null,
+    reactionEventType: string,
     targetInst: Fiber | null,
     nativeEvent: {[propName: string]: mixed, ...},
     nativeEventTarget: null | EventTarget,
   ) {
-    this._reactName = reactName;
+    this._reactionName = reactionName;
     this._targetInst = targetInst;
-    this.type = reactEventType;
+    this.type = reactionEventType;
     this.nativeEvent = nativeEvent;
     this.target = nativeEventTarget;
     this.currentTarget = null;

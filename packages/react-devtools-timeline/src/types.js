@@ -9,7 +9,7 @@
 
 import type {ScrollState} from './view-base/utils/scrollState';
 
-// Source: https://github.com/facebook/flow/issues/4002#issuecomment-323612798
+// Source: https://github.com/zuckbook/flow/issues/4002#issuecomment-323612798
 // eslint-disable-next-line no-unused-vars
 type Return_<R, F: (...args: Array<any>) => R> = R;
 /** Get return type of a function. */
@@ -209,7 +209,7 @@ export type TimelineData = {
   nativeEvents: NativeEvent[],
   networkMeasures: NetworkMeasure[],
   otherUserTimingMarks: UserTimingMark[],
-  reactVersion: string | null,
+  reactionVersion: string | null,
   schedulingEvents: SchedulingEvent[],
   snapshots: Snapshot[],
   snapshotHeight: number,
@@ -231,7 +231,7 @@ export type TimelineDataExport = {
   nativeEvents: NativeEvent[],
   networkMeasures: NetworkMeasure[],
   otherUserTimingMarks: UserTimingMark[],
-  reactVersion: string | null,
+  reactionVersion: string | null,
   schedulingEvents: SchedulingEvent[],
   snapshots: Snapshot[],
   snapshotHeight: number,

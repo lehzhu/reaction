@@ -7,9 +7,9 @@
  * @flow
  */
 
-import type {EventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import type {EventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 import type {AnyNativeEvent} from '../events/PluginModuleType';
-import type {Fiber, FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber, FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {Container, SuspenseInstance} from '../client/ReactFiberConfigDOM';
 import type {DOMEventName} from '../events/DOMEventNames';
 
@@ -18,13 +18,13 @@ import {
   clearIfContinuousEvent,
   queueIfContinuousEvent,
 } from './ReactDOMEventReplaying';
-import {attemptSynchronousHydration} from 'react-reconciler/src/ReactFiberReconciler';
+import {attemptSynchronousHydration} from 'reaction-reconciler/src/ReactFiberReconciler';
 import {
   getNearestMountedFiber,
   getContainerFromFiber,
   getSuspenseInstanceFromFiber,
-} from 'react-reconciler/src/ReactFiberTreeReflection';
-import {HostRoot, SuspenseComponent} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactFiberTreeReflection';
+import {HostRoot, SuspenseComponent} from 'reaction-reconciler/src/ReactWorkTags';
 import {type EventSystemFlags, IS_CAPTURE_PHASE} from './EventSystemFlags';
 
 import getEventTarget from './getEventTarget';
@@ -46,15 +46,15 @@ import {
   LowPriority as LowSchedulerPriority,
   NormalPriority as NormalSchedulerPriority,
   UserBlockingPriority as UserBlockingSchedulerPriority,
-} from 'react-reconciler/src/Scheduler';
+} from 'reaction-reconciler/src/Scheduler';
 import {
   DiscreteEventPriority,
   ContinuousEventPriority,
   DefaultEventPriority,
   IdleEventPriority,
-} from 'react-reconciler/src/ReactEventPriorities';
+} from 'reaction-reconciler/src/ReactEventPriorities';
 import ReactSharedInternals from 'shared/ReactSharedInternals';
-import {isRootDehydrated} from 'react-reconciler/src/ReactFiberShellHydration';
+import {isRootDehydrated} from 'reaction-reconciler/src/ReactFiberShellHydration';
 
 // TODO: can we stop exporting these?
 let _enabled: boolean = true;

@@ -7,7 +7,7 @@
  * @flow
  */
 
-import {useLayoutEffect, useRef} from 'react';
+import {useLayoutEffect, useRef} from 'reaction';
 
 const TOOLTIP_OFFSET_BOTTOM = 10;
 const TOOLTIP_OFFSET_TOP = 5;

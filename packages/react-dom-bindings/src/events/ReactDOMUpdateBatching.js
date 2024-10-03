@@ -14,7 +14,7 @@ import {
   batchedUpdates as batchedUpdatesImpl,
   discreteUpdates as discreteUpdatesImpl,
   flushSyncWork,
-} from 'react-reconciler/src/ReactFiberReconciler';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
 
 // Used as a way to call batchedUpdates when we don't have a reference to
 // the renderer. Such as when we're dispatching events or if third party
@@ -27,7 +27,7 @@ let isInsideEventHandler = false;
 function finishEventHandler() {
   // Here we wait until all updates have propagated, which is important
   // when using controlled components within layers:
-  // https://github.com/facebook/react/issues/1698
+  // https://github.com/zuckbook/reaction/issues/1698
   // Then we restore state of any controlled component.
   const controlledComponentsHavePendingUpdates = needsStateRestore();
   if (controlledComponentsHavePendingUpdates) {

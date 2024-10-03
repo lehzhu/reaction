@@ -7,23 +7,23 @@
  * @flow
  */
 
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
-import type {HydrationDiffNode} from 'react-reconciler/src/ReactFiberHydrationDiffs';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
+import type {HydrationDiffNode} from 'reaction-reconciler/src/ReactFiberHydrationDiffs';
 
 import {enableOwnerStacks} from 'shared/ReactFeatureFlags';
 
 import {
   current,
   runWithFiberInDEV,
-} from 'react-reconciler/src/ReactCurrentFiber';
+} from 'reaction-reconciler/src/ReactCurrentFiber';
 import {
   HostComponent,
   HostHoistable,
   HostSingleton,
   HostText,
-} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactWorkTags';
 
-import {describeDiff} from 'react-reconciler/src/ReactFiberHydrationDiffs';
+import {describeDiff} from 'reaction-reconciler/src/ReactFiberHydrationDiffs';
 
 function describeAncestors(
   ancestor: Fiber,
@@ -525,7 +525,7 @@ function validateDOMNesting(
     const ancestorTag = invalidParentOrAncestor.tag;
 
     const warnKey =
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       String(!!invalidParent) + '|' + childTag + '|' + ancestorTag;
     if (didWarn[warnKey]) {
       return false;

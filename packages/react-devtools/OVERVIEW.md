@@ -6,7 +6,7 @@ The React DevTools extension consists of multiple pieces:
 
 One of the largest performance bottlenecks of the old React DevTools was the amount of bridge traffic. Each time React commits an update, the backend sends every fiber that changed across the bridge, resulting in a lot of (JSON) serialization. The primary goal for the DevTools rewrite was to reduce this traffic. Instead of sending everything across the bridge, **the backend should only send the minimum amount required to render the Components tree**. The frontend can request more information (e.g. an element's props) on-demand, only as needed.
 
-The old DevTools also rendered the entire application tree in the form of a large DOM structure of nested nodes. A secondary goal of the rewrite was to avoid rendering unnecessary nodes by using a windowing library (specifically [react-window](https://github.com/bvaughn/react-window)).
+The old DevTools also rendered the entire application tree in the form of a large DOM structure of nested nodes. A secondary goal of the rewrite was to avoid rendering unnecessary nodes by using a windowing library (specifically [reaction-window](https://github.com/bvaughn/reaction-window)).
 
 ## Components panel
 
@@ -277,7 +277,7 @@ Even when dealing with a single component, serializing deeply nested properties 
 
 Hooks present a unique challenge for the DevTools because of the concept of _custom_ hooks. (A custom hook is essentially any function that calls at least one of the built-in hooks. By convention custom hooks also have names that begin with "use".)
 
-So how does DevTools identify custom functions called from within third-party components? It does this by temporarily overriding React's built-in hooks and shallow rendering the component in question. Whenever one of the (overridden) built-in hooks are called, it parses the call stack to spot potential custom hooks (functions between the component itself and the built-in hook). This approach enables it to build a tree structure describing all of the calls to both the built-in _and_ custom hooks, along with the values passed to those hooks. (If you're interested in learning more about this, [here is the source code](https://github.com/facebook/react/blob/main/packages/react-debug-tools/src/ReactDebugHooks.js).)
+So how does DevTools identify custom functions called from within third-party components? It does this by temporarily overriding React's built-in hooks and shallow rendering the component in question. Whenever one of the (overridden) built-in hooks are called, it parses the call stack to spot potential custom hooks (functions between the component itself and the built-in hook). This approach enables it to build a tree structure describing all of the calls to both the built-in _and_ custom hooks, along with the values passed to those hooks. (If you're interested in learning more about this, [here is the source code](https://github.com/zuckbook/reaction/blob/main/packages/reaction-debug-tools/src/ReactDebugHooks.js).)
 
 > **Note**: DevTools obtains hooks info by re-rendering a component.
 > Breakpoints will be invoked during this additional (shallow) render,
@@ -293,7 +293,7 @@ To mitigate the performance impact of re-rendering a component, DevTools does th
 
 ## Profiler
 
-DevTools provides a suite of profiling tools for identifying and fixing performance problems. React 16.9+ supports a "legacy" profiler and React 18+ adds the ["timeline" profiler](https://github.com/facebook/react/tree/main/packages/react-devtools-timeline/src) support. These profilers are explained below, but at a high level– the architecture of each profiler aims to minimize the impact (CPU usage) while profiling is active. This can be accomplished by:
+DevTools provides a suite of profiling tools for identifying and fixing performance problems. React 16.9+ supports a "legacy" profiler and React 18+ adds the ["timeline" profiler](https://github.com/zuckbook/reaction/tree/main/packages/reaction-devtools-timeline/src) support. These profilers are explained below, but at a high level– the architecture of each profiler aims to minimize the impact (CPU usage) while profiling is active. This can be accomplished by:
 * Minimizing bridge traffic.
 * Making expensive computations lazy.
 
@@ -313,7 +313,7 @@ This information will eventually be required by the frontend in order to render 
 ### Timeline profiler
 
 Timeline profiling data can come from one of two places:
-* The React DevTools backend, which injects a [set of profiling hooks](https://github.com/facebook/react/blob/main/packages/react-devtools-shared/src/backend/profilingHooks.js) that React calls while rendering. When profiling, these hooks store information in memory which gets passed to DevTools when profiling is stopped.
+* The React DevTools backend, which injects a [set of profiling hooks](https://github.com/zuckbook/reaction/blob/main/packages/reaction-devtools-shared/src/backend/profilingHooks.js) that React calls while rendering. When profiling, these hooks store information in memory which gets passed to DevTools when profiling is stopped.
 * A Chrome performance export (JSON) containing React data (as User Timing marks) and other browser data like CPU samples, Network traffic, and native commits. (This method is not as convenient but provides more detailed browser performance data.)
 
 ### Combining profiling data

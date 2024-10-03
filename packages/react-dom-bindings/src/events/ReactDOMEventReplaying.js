@@ -11,8 +11,8 @@ import type {AnyNativeEvent} from '../events/PluginModuleType';
 import type {Container, SuspenseInstance} from '../client/ReactFiberConfigDOM';
 import type {DOMEventName} from '../events/DOMEventNames';
 import type {EventSystemFlags} from './EventSystemFlags';
-import type {FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
-import type {EventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import type {FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
+import type {EventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 
 import {
   unstable_scheduleCallback as scheduleCallback,
@@ -22,7 +22,7 @@ import {
   getNearestMountedFiber,
   getContainerFromFiber,
   getSuspenseInstanceFromFiber,
-} from 'react-reconciler/src/ReactFiberTreeReflection';
+} from 'reaction-reconciler/src/ReactFiberTreeReflection';
 import {
   findInstanceBlockingEvent,
   findInstanceBlockingTarget,
@@ -33,9 +33,9 @@ import {
   getClosestInstanceFromNode,
   getFiberCurrentPropsFromNode,
 } from '../client/ReactDOMComponentTree';
-import {HostRoot, SuspenseComponent} from 'react-reconciler/src/ReactWorkTags';
-import {isHigherEventPriority} from 'react-reconciler/src/ReactEventPriorities';
-import {isRootDehydrated} from 'react-reconciler/src/ReactFiberShellHydration';
+import {HostRoot, SuspenseComponent} from 'reaction-reconciler/src/ReactWorkTags';
+import {isHigherEventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
+import {isRootDehydrated} from 'reaction-reconciler/src/ReactFiberShellHydration';
 import {dispatchReplayedFormAction} from './plugins/FormActionEventPlugin';
 import {
   resolveUpdatePriority,
@@ -45,7 +45,7 @@ import {
 import {
   attemptContinuousHydration,
   attemptHydrationAtCurrentPriority,
-} from 'react-reconciler/src/ReactFiberReconciler';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
 
 // TODO: Upgrade this definition once we're on a newer version of Flow that
 // has this definition built-in.
@@ -535,7 +535,7 @@ export function retryIfBlockedOn(
   // If there's no ownerDocument, then this is the document.
   const root = unblocked.ownerDocument || unblocked;
   const formReplayingQueue: void | FormReplayingQueue = (root: any)
-    .$$reactFormReplay;
+    .$$reactionFormReplay;
   if (formReplayingQueue != null) {
     for (let i = 0; i < formReplayingQueue.length; i += 3) {
       const form: HTMLFormElement = formReplayingQueue[i];

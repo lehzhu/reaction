@@ -12,7 +12,7 @@ import {
   getFiberCurrentPropsFromNode,
 } from '../client/ReactDOMComponentTree';
 
-import {restoreControlledState} from 'react-dom-bindings/src/client/ReactDOMComponent';
+import {restoreControlledState} from 'reaction-dom-bindings/src/client/ReactDOMComponent';
 
 // Use to restore controlled state after a change event has fired.
 

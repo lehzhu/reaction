@@ -9,7 +9,7 @@
 
 import isArray from 'shared/isArray';
 
-import {getCurrentFiberOwnerNameInDevOrNull} from 'react-reconciler/src/ReactCurrentFiber';
+import {getCurrentFiberOwnerNameInDevOrNull} from 'reaction-reconciler/src/ReactCurrentFiber';
 import {getToStringValue, toString} from './ToStringValue';
 import {disableTextareaChildren} from 'shared/ReactFeatureFlags';
 
@@ -44,7 +44,7 @@ export function validateTextareaProps(element: Element, props: Object) {
           '(specify either the value prop, or the defaultValue prop, but not ' +
           'both). Decide between using a controlled or uncontrolled textarea ' +
           'and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
         getCurrentFiberOwnerNameInDevOrNull() || 'A component',
       );
       didWarnValDefaultVal = true;
