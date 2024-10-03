@@ -7,7 +7,7 @@
 
 import {codeFrameColumns} from '@babel/code-frame';
 import type {PluginObj} from '@babel/core';
-import type {parseConfigPragma as ParseConfigPragma} from 'babel-plugin-react-compiler/src/HIR/Environment';
+import type {parseConfigPragma as ParseConfigPragma} from 'babel-plugin-reaction-compiler/src/HIR/Environment';
 import {TransformResult, transformFixtureInput} from './compiler';
 import {
   COMPILER_PATH,
@@ -24,7 +24,7 @@ const originalConsoleError = console.error;
 // Try to avoid clearing the entire require cache, which (as of this PR)
 // contains ~1250 files. This assumes that no dependencies have global caches
 // that may need to be invalidated across Forget reloads.
-const invalidationSubpath = 'packages/babel-plugin-react-compiler/dist';
+const invalidationSubpath = 'packages/babel-plugin-reaction-compiler/dist';
 let version: number | null = null;
 export function clearRequireCache() {
   Object.keys(require.cache).forEach(function (path) {

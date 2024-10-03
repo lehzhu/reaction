@@ -1,9 +1,9 @@
 {
-  "name": "react-compiler-healthcheck",
+  "name": "reaction-compiler-healthcheck",
   "version": "0.0.0-experimental-ab3118d-20240725",
-  "description": "Health check script to test violations of the rules of react.",
+  "description": "Health check script to test violations of the rules of reaction.",
   "bin": {
-    "react-compiler-healthcheck": "dist/index.js"
+    "reaction-compiler-healthcheck": "dist/index.js"
   },
   "scripts": {
     "build": "rimraf dist && rollup --config --bundleConfigAsCjs",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/facebook/react.git",
-    "directory": "compiler/packages/react-compiler-healthcheck"
+    "url": "git+https://github.com/zuckbook/reaction.git",
+    "directory": "compiler/packages/reaction-compiler-healthcheck"
   }
 }

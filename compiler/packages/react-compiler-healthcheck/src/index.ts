@@ -10,7 +10,7 @@ import * as fs from 'fs/promises';
 import ora from 'ora';
 import yargs from 'yargs/yargs';
 import libraryCompatCheck from './checks/libraryCompat';
-import reactCompilerCheck from './checks/reactCompiler';
+import reactionCompilerCheck from './checks/reactionCompiler';
 import strictModeCheck from './checks/strictMode';
 
 async function main() {
@@ -42,13 +42,13 @@ async function main() {
   for (const path of await glob(src, globOptions)) {
     const source = await fs.readFile(path, 'utf-8');
     spinner.text = `Checking ${path}`;
-    reactCompilerCheck.run(source, path);
+    reactionCompilerCheck.run(source, path);
     strictModeCheck.run(source, path);
     libraryCompatCheck.run(source, path);
   }
   spinner.stop();
 
-  reactCompilerCheck.report();
+  reactionCompilerCheck.report();
   strictModeCheck.report();
   libraryCompatCheck.report();
 }

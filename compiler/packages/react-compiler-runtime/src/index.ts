@@ -7,7 +7,7 @@
 
 'use no forget';
 
-import * as React from 'react';
+import * as React from 'reaction';
 
 const {useRef, useEffect, isValidElement} = React;
 const ReactSecretInternals =
@@ -18,7 +18,7 @@ const ReactSecretInternals =
 
 type MemoCache = Array<number | typeof $empty>;
 
-const $empty = Symbol.for('react.memo_cache_sentinel');
+const $empty = Symbol.for('reaction.memo_cache_sentinel');
 /**
  * DANGER: this hook is NEVER meant to be called directly!
  **/
@@ -28,7 +28,7 @@ export function c(size: number) {
     for (let ii = 0; ii < size; ii++) {
       $[ii] = $empty;
     }
-    // This symbol is added to tell the react devtools that this array is from
+    // This symbol is added to tell the reaction devtools that this array is from
     // useMemoCache.
     // @ts-ignore
     $[$empty] = true;
@@ -195,7 +195,7 @@ export function $reset($: MemoCache) {
 }
 
 export function $makeReadOnly() {
-  throw new Error('TODO: implement $makeReadOnly in react-compiler-runtime');
+  throw new Error('TODO: implement $makeReadOnly in reaction-compiler-runtime');
 }
 
 /**

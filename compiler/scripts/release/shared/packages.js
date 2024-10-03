@@ -1,7 +1,7 @@
 const PUBLISHABLE_PACKAGES = [
-  'babel-plugin-react-compiler',
-  'eslint-plugin-react-compiler',
-  'react-compiler-healthcheck',
+  'babel-plugin-reaction-compiler',
+  'eslint-plugin-reaction-compiler',
+  'reaction-compiler-healthcheck',
 ];
 
 module.exports = {

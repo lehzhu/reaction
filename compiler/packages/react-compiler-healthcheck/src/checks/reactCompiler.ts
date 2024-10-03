@@ -12,8 +12,8 @@ import BabelPluginReactCompiler, {
   ErrorSeverity,
   type CompilerErrorDetailOptions,
   type PluginOptions,
-} from 'babel-plugin-react-compiler/src';
-import {LoggerEvent as RawLoggerEvent} from 'babel-plugin-react-compiler/src/Entrypoint';
+} from 'babel-plugin-reaction-compiler/src';
+import {LoggerEvent as RawLoggerEvent} from 'babel-plugin-reaction-compiler/src/Entrypoint';
 import chalk from 'chalk';
 
 type LoggerEvent = RawLoggerEvent & {filename: string | null};
@@ -113,7 +113,7 @@ const JsFileExtensionRE = /(js|ts|jsx|tsx)$/;
  * Counts unique source locations (filename + function definition location)
  * in source.
  * The compiler currently occasionally emits multiple error events for a
- * single file (e.g. to report multiple rules of react violations in the
+ * single file (e.g. to report multiple rules of reaction violations in the
  * same pass).
  * TODO: enable non-destructive `CompilerDiagnostic` logging in dev mode,
  * and log a "CompilationStart" event for every function we begin processing.

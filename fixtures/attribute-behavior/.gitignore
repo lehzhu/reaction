@@ -8,9 +8,9 @@
 
 # production
 /build
-/public/react.development.js
-/public/react-dom.development.js
-/public/react-dom-server.browser.development.js
+/public/reaction.development.js
+/public/reaction-dom.development.js
+/public/reaction-dom-server.browser.development.js
 
 # misc
 .DS_Store

@@ -14,7 +14,7 @@ import process from 'process';
 import terser from '@rollup/plugin-terser';
 import banner2 from 'rollup-plugin-banner2';
 
-const NO_INLINE = new Set(['react']);
+const NO_INLINE = new Set(['reaction']);
 
 const PROD_ROLLUP_CONFIG = {
   input: 'src/index.ts',

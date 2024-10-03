@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type {Effect, ValueKind} from 'babel-plugin-react-compiler/src';
-import type {TypeConfig} from 'babel-plugin-react-compiler/src/HIR/TypeSchema';
+import type {Effect, ValueKind} from 'babel-plugin-reaction-compiler/src';
+import type {TypeConfig} from 'babel-plugin-reaction-compiler/src/HIR/TypeSchema';
 
 export function makeSharedRuntimeTypeProvider({
   EffectEnum,

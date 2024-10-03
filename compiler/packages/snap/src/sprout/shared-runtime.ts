@@ -6,7 +6,7 @@
  */
 
 import {IntlVariations, IntlViewerContext, init} from 'fbt';
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent} from 'reaction';
 
 /**
  * This file is meant for use by `runner-evaluator` and fixture tests.

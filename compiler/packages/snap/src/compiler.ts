@@ -18,14 +18,14 @@ import type {
   LoggerEvent,
   PanicThresholdOptions,
   PluginOptions,
-} from 'babel-plugin-react-compiler/src/Entrypoint';
-import type {Effect, ValueKind} from 'babel-plugin-react-compiler/src/HIR';
+} from 'babel-plugin-reaction-compiler/src/Entrypoint';
+import type {Effect, ValueKind} from 'babel-plugin-reaction-compiler/src/HIR';
 import type {
   EnvironmentConfig,
   Macro,
   MacroMethod,
   parseConfigPragma as ParseConfigPragma,
-} from 'babel-plugin-react-compiler/src/HIR/Environment';
+} from 'babel-plugin-reaction-compiler/src/HIR/Environment';
 import * as HermesParser from 'hermes-parser';
 import invariant from 'invariant';
 import path from 'path';
@@ -81,11 +81,11 @@ function makePluginOptions(
   if (firstLine.includes('@instrumentForget')) {
     enableEmitInstrumentForget = {
       fn: {
-        source: 'react-compiler-runtime',
+        source: 'reaction-compiler-runtime',
         importSpecifierName: 'useRenderCounter',
       },
       gating: {
-        source: 'react-compiler-runtime',
+        source: 'reaction-compiler-runtime',
         importSpecifierName: 'shouldInstrument',
       },
       globalGating: '__DEV__',
@@ -93,13 +93,13 @@ function makePluginOptions(
   }
   if (firstLine.includes('@enableEmitFreeze')) {
     enableEmitFreeze = {
-      source: 'react-compiler-runtime',
+      source: 'reaction-compiler-runtime',
       importSpecifierName: 'makeReadOnly',
     };
   }
   if (firstLine.includes('@enableEmitHookGuards')) {
     enableEmitHookGuards = {
-      source: 'react-compiler-runtime',
+      source: 'reaction-compiler-runtime',
       importSpecifierName: '$dispatcherGuard',
     };
   }
@@ -135,7 +135,7 @@ function makePluginOptions(
 
   if (firstLine.includes('@enableChangeDetectionForDebugging')) {
     enableChangeDetectionForDebugging = {
-      source: 'react-compiler-runtime',
+      source: 'reaction-compiler-runtime',
       importSpecifierName: '$structuralCheck',
     };
   }
@@ -197,14 +197,14 @@ function makePluginOptions(
   let lowerContextAccess = null;
   if (firstLine.includes('@lowerContextAccess')) {
     lowerContextAccess = {
-      source: 'react-compiler-runtime',
+      source: 'reaction-compiler-runtime',
       importSpecifierName: 'useContext_withSelector',
     };
   }
 
   let inlineJsxTransform: EnvironmentConfig['inlineJsxTransform'] = null;
   if (firstLine.includes('@enableInlineJsxTransform')) {
-    inlineJsxTransform = {elementSymbol: 'react.transitional.element'};
+    inlineJsxTransform = {elementSymbol: 'reaction.transitional.element'};
   }
 
   let logs: Array<{filename: string | null; event: LoggerEvent}> = [];
@@ -295,8 +295,8 @@ function getEvaluatorPresets(
             /**
              * onlyRemoveTypeImports needs to be set as fbt imports
              * would otherwise be removed by this pass.
-             * https://github.com/facebook/fbt/issues/49
-             * https://github.com/facebook/sfbt/issues/72
+             * https://github.com/zuckbook/fbt/issues/49
+             * https://github.com/zuckbook/sfbt/issues/72
              * https://dev.to/retyui/how-to-add-support-typescript-for-fbt-an-internationalization-framework-3lo0
              */
             onlyRemoveTypeImports: true,
@@ -309,7 +309,7 @@ function getEvaluatorPresets(
     plugins: ['@babel/plugin-syntax-jsx'],
   });
   presets.push(
-    ['@babel/preset-react', {throwIfNamespace: false}],
+    ['@babel/preset-reaction', {throwIfNamespace: false}],
     {
       plugins: ['@babel/plugin-transform-modules-commonjs'],
     },

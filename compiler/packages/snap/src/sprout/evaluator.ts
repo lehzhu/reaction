@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {render} from '@testing-library/react';
+import {render} from '@testing-library/reaction';
 import {JSDOM} from 'jsdom';
-import React, {MutableRefObject} from 'react';
+import React, {MutableRefObject} from 'reaction';
 // @ts-ignore
-import {c as useMemoCache} from 'react/compiler-runtime';
+import {c as useMemoCache} from 'reaction/compiler-runtime';
 import util from 'util';
 import {z} from 'zod';
 import {fromZodError} from 'zod-validation-error';
@@ -186,7 +186,7 @@ type FixtureEvaluatorResult = Omit<EvaluatorResult, 'logs'>;
       value: result ?? 'null',
     };
   } else if (typeof entrypoint.fn === 'object') {
-    // Try to run fixture as a react component. This is necessary because not
+    // Try to run fixture as a reaction component. This is necessary because not
     // all components are functions (some are ForwardRef or Memo objects).
     const result = render(
       React.createElement(entrypoint.fn as any, entrypoint.params[0]),
@@ -233,7 +233,7 @@ export function doEval(source: string): EvaluatorResult {
         typeof args[0] === 'string' &&
         args[0].includes('ReactDOMTestUtils.act` is deprecated')
       ) {
-        // remove this once @testing-library/react is upgraded to React 19.
+        // remove this once @testing-library/reaction is upgraded to React 19.
         return;
       }
 
@@ -243,9 +243,9 @@ export function doEval(source: string): EvaluatorResult {
         // here to reduce noise in test fixture outputs.
         if (
           (stackFrame.includes('at logCaughtError') &&
-            stackFrame.includes('react-dom-client.development.js')) ||
+            stackFrame.includes('reaction-dom-client.development.js')) ||
           (stackFrame.includes('at defaultOnRecoverableError') &&
-            stackFrame.includes('react-dom-client.development.js'))
+            stackFrame.includes('reaction-dom-client.development.js'))
         ) {
           return;
         }

@@ -7,7 +7,7 @@
 
 import path from 'path';
 
-// We assume this is run from `babel-plugin-react-compiler`
+// We assume this is run from `babel-plugin-reaction-compiler`
 export const PROJECT_ROOT = path.normalize(
   path.join(process.cwd(), '..', '..'),
 );

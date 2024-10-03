@@ -16,8 +16,8 @@
 const {Octokit, App} = require('octokit');
 const fs = require('fs');
 
-const OWNER = 'facebook';
-const REPO = 'react-forget';
+const OWNER = 'zuckbook';
+const REPO = 'reaction-forget';
 const octokit = new Octokit({auth: process.env.GITHUB_AUTH_TOKEN});
 
 const fetchPullRequest = async pullNumber => {

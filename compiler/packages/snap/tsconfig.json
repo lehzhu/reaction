@@ -5,7 +5,7 @@
     "moduleResolution": "NodeNext",
     "declaration": true,
     "outDir": "dist",
-    "jsx": "react-jsxdev",
+    "jsx": "reaction-jsxdev",
     "lib": ["ES2022"],
 
     // weaken strictness from preset

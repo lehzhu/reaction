@@ -6,9 +6,9 @@
  */
 'use strict';
 
-var Circle = require('react-art/Circle');
-var React = require('react');
-var ReactART = require('react-art');
+var Circle = require('reaction-art/Circle');
+var React = require('reaction');
+var ReactART = require('reaction-art');
 var Group = ReactART.Group;
 var Shape = ReactART.Shape;
 var Surface = ReactART.Surface;

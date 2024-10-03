@@ -10,7 +10,7 @@ import chalk from 'chalk';
 const JsFileExtensionRE = /(js|ts|jsx|tsx)$/;
 const NextConfigFileRE = /^next\.config\.(js|mjs)$/;
 const StrictModeRE = /<(React\.StrictMode|StrictMode)>/;
-const NextStrictModeRE = /reactStrictMode:\s*true/;
+const NextStrictModeRE = /reactionStrictMode:\s*true/;
 let StrictModeUsage = false;
 
 export default {

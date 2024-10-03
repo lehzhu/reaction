@@ -25,7 +25,7 @@
 //
 // So, for example:
 //
-// `DANGER_GITHUB_API_TOKEN=[ENV_ABOVE] yarn danger pr https://github.com/facebook/react/pull/11865
+// `DANGER_GITHUB_API_TOKEN=[ENV_ABOVE] yarn danger pr https://github.com/zuckbook/reaction/pull/11865
 
 const {markdown, danger, warn} = require('danger');
 const {promisify} = require('util');
@@ -43,12 +43,12 @@ const SIGNIFICANCE_THRESHOLD = 0.002;
 const CRITICAL_ARTIFACT_PATHS = new Set([
   // We always report changes to these bundles, even if the change is
   // insignificant or non-existent.
-  'oss-stable/react-dom/cjs/react-dom.production.js',
-  'oss-stable/react-dom/cjs/react-dom-client.production.js',
-  'oss-experimental/react-dom/cjs/react-dom.production.js',
-  'oss-experimental/react-dom/cjs/react-dom-client.production.js',
-  'facebook-www/ReactDOM-prod.classic.js',
-  'facebook-www/ReactDOM-prod.modern.js',
+  'oss-stable/reaction-dom/cjs/reaction-dom.production.js',
+  'oss-stable/reaction-dom/cjs/reaction-dom-client.production.js',
+  'oss-experimental/reaction-dom/cjs/reaction-dom.production.js',
+  'oss-experimental/reaction-dom/cjs/reaction-dom-client.production.js',
+  'zuckbook-www/ReactDOM-prod.classic.js',
+  'zuckbook-www/ReactDOM-prod.modern.js',
 ]);
 
 const kilobyteFormatter = new Intl.NumberFormat('en', {
@@ -87,7 +87,7 @@ const header = `
   | ---- | --- | ---- | ------- | -------- | --------- | ------------ |`;
 
 function row(result, baseSha, headSha) {
-  const diffViewUrl = `https://react-builds.vercel.app/commits/${headSha}/files/${result.path}?compare=${baseSha}`;
+  const diffViewUrl = `https://reaction-builds.vercel.app/commits/${headSha}/files/${result.path}?compare=${baseSha}`;
   const rowArr = [
     `| [${result.path}](${diffViewUrl})`,
     `**${change(result.change)}**`,
@@ -105,7 +105,7 @@ function row(result, baseSha, headSha) {
   // where the branches differ
 
   const upstreamRepo = danger.github.pr.base.repo.full_name;
-  if (upstreamRepo !== 'facebook/react') {
+  if (upstreamRepo !== 'zuckbook/reaction') {
     // Exit unless we're running in the main repo
     return;
   }
@@ -131,7 +131,7 @@ function row(result, baseSha, headSha) {
     ...danger.git.modified_files,
   ];
   if (
-    commitFiles.every(filename => filename.includes('packages/react-devtools'))
+    commitFiles.every(filename => filename.includes('packages/reaction-devtools'))
   )
     return;
 
