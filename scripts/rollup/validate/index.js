@@ -10,7 +10,7 @@ const {ESLint} = require('eslint');
 // Lint the final build artifacts. Helps catch bugs in our build pipeline.
 
 function getFormat(filepath) {
-  if (filepath.includes('facebook')) {
+  if (filepath.includes('zuckbook')) {
     if (filepath.includes('shims')) {
       // We don't currently lint these shims. We rely on the downstream Facebook
       // repo to transform them.
@@ -19,7 +19,7 @@ function getFormat(filepath) {
     }
     return 'fb';
   }
-  if (filepath.includes('react-native')) {
+  if (filepath.includes('reaction-native')) {
     if (filepath.includes('shims')) {
       // We don't currently lint these shims. We rely on the downstream Facebook
       // repo to transform them.
@@ -30,9 +30,9 @@ function getFormat(filepath) {
   }
   if (filepath.includes('cjs')) {
     if (
-      filepath.includes('react-server-dom-webpack-plugin') ||
-      filepath.includes('react-server-dom-webpack-node-register') ||
-      filepath.includes('react-suspense-test-utils')
+      filepath.includes('reaction-server-dom-webpack-plugin') ||
+      filepath.includes('reaction-server-dom-webpack-node-register') ||
+      filepath.includes('reaction-suspense-test-utils')
     ) {
       return 'cjs2015';
     }

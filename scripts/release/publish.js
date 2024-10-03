@@ -24,7 +24,7 @@ const run = async () => {
     const params = parseParams();
 
     const version = readJsonSync(
-      './build/node_modules/react/package.json'
+      './build/node_modules/reaction/package.json'
     ).version;
     const isExperimental = version.includes('experimental');
 

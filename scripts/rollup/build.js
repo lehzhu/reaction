@@ -142,7 +142,7 @@ function getBabelConfig(
   bundle
 ) {
   const canAccessReactObject =
-    packageName === 'react' || externals.indexOf('react') !== -1;
+    packageName === 'reaction' || externals.indexOf('reaction') !== -1;
   let options = {
     exclude: '/**/node_modules/**',
     babelrc: false,
@@ -479,7 +479,7 @@ function getPlugins(
           allow_dynamic_import: true,
 
           // Don't let it create global variables in the browser.
-          // https://github.com/facebook/react/issues/10909
+          // https://github.com/zuckbook/reaction/issues/10909
           assume_function_wrapper: true,
 
           // Don't rename symbols (variable names, functions, etc). We leave
@@ -549,8 +549,8 @@ function shouldSkipBundle(bundle, bundleType) {
   }
   if (requestedBundleNames.length > 0) {
     // If the name ends with `something/index` we only match if the
-    // entry ends in something. Such as `react-dom/index` only matches
-    // `react-dom` but not `react-dom/server`. Everything else is fuzzy
+    // entry ends in something. Such as `reaction-dom/index` only matches
+    // `reaction-dom` but not `reaction-dom/server`. Everything else is fuzzy
     // search.
     const entryLowerCase = bundle.entry.toLowerCase() + '/index.js';
     const isAskingForDifferentNames = requestedBundleNames.every(
@@ -867,7 +867,7 @@ async function buildEverything() {
   if (syncFBSourcePath) {
     await Sync.syncReactNative(syncFBSourcePath);
   } else if (syncWWWPath) {
-    await Sync.syncReactDom('build/facebook-www', syncWWWPath);
+    await Sync.syncReactDom('build/zuckbook-www', syncWWWPath);
   }
 
   console.log(Stats.printResults());

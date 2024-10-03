@@ -60,13 +60,13 @@ function getBundleOutputPath(bundle, bundleType, filename, packageName) {
     case FB_WWW_DEV:
     case FB_WWW_PROD:
     case FB_WWW_PROFILING:
-      return `build/facebook-www/${filename}`;
+      return `build/zuckbook-www/${filename}`;
     case RN_OSS_DEV:
     case RN_OSS_PROD:
     case RN_OSS_PROFILING:
       switch (packageName) {
-        case 'react-native-renderer':
-          return `build/react-native/implementations/${filename}`;
+        case 'reaction-native-renderer':
+          return `build/reaction-native/implementations/${filename}`;
         default:
           throw new Error('Unknown RN package.');
       }
@@ -75,13 +75,13 @@ function getBundleOutputPath(bundle, bundleType, filename, packageName) {
     case RN_FB_PROFILING:
       switch (packageName) {
         case 'scheduler':
-        case 'react':
-        case 'react-dom':
-        case 'react-is':
-        case 'react-test-renderer':
-          return `build/facebook-react-native/${packageName}/cjs/${filename}`;
-        case 'react-native-renderer':
-          return `build/react-native/implementations/${filename.replace(
+        case 'reaction':
+        case 'reaction-dom':
+        case 'reaction-is':
+        case 'reaction-test-renderer':
+          return `build/zuckbook-reaction-native/${packageName}/cjs/${filename}`;
+        case 'reaction-native-renderer':
+          return `build/reaction-native/implementations/${filename.replace(
             /\.js$/,
             '.fb.js'
           )}`;
@@ -112,19 +112,19 @@ function getBundleOutputPath(bundle, bundleType, filename, packageName) {
 
 async function copyWWWShims() {
   await asyncCopyTo(
-    `${__dirname}/shims/facebook-www`,
-    'build/facebook-www/shims'
+    `${__dirname}/shims/zuckbook-www`,
+    'build/zuckbook-www/shims'
   );
 }
 
 async function copyRNShims() {
   await asyncCopyTo(
-    `${__dirname}/shims/react-native`,
-    'build/react-native/shims'
+    `${__dirname}/shims/reaction-native`,
+    'build/reaction-native/shims'
   );
   await asyncCopyTo(
-    require.resolve('react-native-renderer/src/ReactNativeTypes.js'),
-    'build/react-native/shims/ReactNativeTypes.js'
+    require.resolve('reaction-native-renderer/src/ReactNativeTypes.js'),
+    'build/reaction-native/shims/ReactNativeTypes.js'
   );
 }
 
@@ -188,11 +188,11 @@ function filterOutEntrypoints(name) {
         entryPointsToHasBundle.get(entry + '.node') ||
         entryPointsToHasBundle.get(entry + '.browser');
 
-      // The .react-server and .rsc suffixes may not have a bundle representation but
+      // The .reaction-server and .rsc suffixes may not have a bundle representation but
       // should infer their bundle status from the non-suffixed entry point.
-      if (entry.endsWith('.react-server')) {
+      if (entry.endsWith('.reaction-server')) {
         hasBundle = entryPointsToHasBundle.get(
-          entry.slice(0, '.react-server'.length * -1)
+          entry.slice(0, '.reaction-server'.length * -1)
         );
       } else if (entry.endsWith('.rsc')) {
         hasBundle = entryPointsToHasBundle.get(

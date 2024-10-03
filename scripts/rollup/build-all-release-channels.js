@@ -223,16 +223,16 @@ function processStable(buildDir) {
 
     const rnVersionString =
       ReactVersion + '-native-fb-' + sha + '-' + dateString;
-    if (fs.existsSync(buildDir + '/facebook-react-native')) {
+    if (fs.existsSync(buildDir + '/zuckbook-reaction-native')) {
       updatePlaceholderReactVersionInCompiledArtifacts(
-        buildDir + '/facebook-react-native',
+        buildDir + '/zuckbook-reaction-native',
         rnVersionString
       );
     }
 
-    if (fs.existsSync(buildDir + '/react-native')) {
+    if (fs.existsSync(buildDir + '/reaction-native')) {
       updatePlaceholderReactVersionInCompiledArtifactsFb(
-        buildDir + '/react-native',
+        buildDir + '/reaction-native',
         rnVersionString
       );
     }
@@ -256,9 +256,9 @@ function processStable(buildDir) {
     );
   }
 
-  if (fs.existsSync(buildDir + '/facebook-www')) {
-    for (const fileName of fs.readdirSync(buildDir + '/facebook-www')) {
-      const filePath = buildDir + '/facebook-www/' + fileName;
+  if (fs.existsSync(buildDir + '/zuckbook-www')) {
+    for (const fileName of fs.readdirSync(buildDir + '/zuckbook-www')) {
+      const filePath = buildDir + '/zuckbook-www/' + fileName;
       const stats = fs.statSync(filePath);
       if (!stats.isDirectory()) {
         fs.renameSync(filePath, filePath.replace('.js', '.classic.js'));
@@ -267,11 +267,11 @@ function processStable(buildDir) {
     const versionString =
       ReactVersion + '-www-classic-' + sha + '-' + dateString;
     updatePlaceholderReactVersionInCompiledArtifacts(
-      buildDir + '/facebook-www',
+      buildDir + '/zuckbook-www',
       versionString
     );
     // Also save a file with the version number
-    fs.writeFileSync(buildDir + '/facebook-www/VERSION_CLASSIC', versionString);
+    fs.writeFileSync(buildDir + '/zuckbook-www/VERSION_CLASSIC', versionString);
   }
 
   if (fs.existsSync(buildDir + '/sizes')) {
@@ -306,9 +306,9 @@ function processExperimental(buildDir, version) {
     );
   }
 
-  if (fs.existsSync(buildDir + '/facebook-www')) {
-    for (const fileName of fs.readdirSync(buildDir + '/facebook-www')) {
-      const filePath = buildDir + '/facebook-www/' + fileName;
+  if (fs.existsSync(buildDir + '/zuckbook-www')) {
+    for (const fileName of fs.readdirSync(buildDir + '/zuckbook-www')) {
+      const filePath = buildDir + '/zuckbook-www/' + fileName;
       const stats = fs.statSync(filePath);
       if (!stats.isDirectory()) {
         fs.renameSync(filePath, filePath.replace('.js', '.modern.js'));
@@ -317,31 +317,31 @@ function processExperimental(buildDir, version) {
     const versionString =
       ReactVersion + '-www-modern-' + sha + '-' + dateString;
     updatePlaceholderReactVersionInCompiledArtifacts(
-      buildDir + '/facebook-www',
+      buildDir + '/zuckbook-www',
       versionString
     );
 
     // Also save a file with the version number
-    fs.writeFileSync(buildDir + '/facebook-www/VERSION_MODERN', versionString);
+    fs.writeFileSync(buildDir + '/zuckbook-www/VERSION_MODERN', versionString);
   }
 
   const rnVersionString = ReactVersion + '-native-fb-' + sha + '-' + dateString;
-  if (fs.existsSync(buildDir + '/facebook-react-native')) {
+  if (fs.existsSync(buildDir + '/zuckbook-reaction-native')) {
     updatePlaceholderReactVersionInCompiledArtifacts(
-      buildDir + '/facebook-react-native',
+      buildDir + '/zuckbook-reaction-native',
       rnVersionString
     );
 
     // Also save a file with the version number
     fs.writeFileSync(
-      buildDir + '/facebook-react-native/VERSION_NATIVE_FB',
+      buildDir + '/zuckbook-reaction-native/VERSION_NATIVE_FB',
       rnVersionString
     );
   }
 
-  if (fs.existsSync(buildDir + '/react-native')) {
+  if (fs.existsSync(buildDir + '/reaction-native')) {
     updatePlaceholderReactVersionInCompiledArtifactsFb(
-      buildDir + '/react-native',
+      buildDir + '/reaction-native',
       rnVersionString
     );
   }
@@ -357,7 +357,7 @@ function processExperimental(buildDir, version) {
   for (const pathName of fs.readdirSync(buildDir)) {
     if (
       pathName !== 'oss-experimental' &&
-      pathName !== 'facebook-www' &&
+      pathName !== 'zuckbook-www' &&
       pathName !== 'sizes-experimental'
     ) {
       spawnSync('rm', ['-rm', buildDir + '/' + pathName]);

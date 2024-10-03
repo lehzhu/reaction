@@ -13,8 +13,8 @@ if (process.env.GH_TOKEN == null) {
   process.exit(1);
 }
 
-const OWNER = 'facebook';
-const REPO = 'react';
+const OWNER = 'zuckbook';
+const REPO = 'reaction';
 const WORKFLOW_ID = 'runtime_build_and_test.yml';
 const GITHUB_HEADERS = `
   -H "Accept: application/vnd.github+json" \
