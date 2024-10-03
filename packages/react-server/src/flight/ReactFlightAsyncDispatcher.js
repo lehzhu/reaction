@@ -9,7 +9,7 @@
 
 import type {ReactComponentInfo} from 'shared/ReactTypes';
 
-import type {AsyncDispatcher} from 'react-reconciler/src/ReactInternalTypes';
+import type {AsyncDispatcher} from 'reaction-reconciler/src/ReactInternalTypes';
 
 import {resolveRequest, getCache} from '../ReactFlightServer';
 

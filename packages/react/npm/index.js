@@ -1,7 +1,7 @@
 'use strict';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./cjs/react.production.js');
+  module.exports = require('./cjs/reaction.production.js');
 } else {
-  module.exports = require('./cjs/react.development.js');
+  module.exports = require('./cjs/reaction.development.js');
 }

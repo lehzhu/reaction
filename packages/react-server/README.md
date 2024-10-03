@@ -1,4 +1,4 @@
-# react-server
+# reaction-server
 
 This is an experimental package for creating custom React streaming server renderers.
 

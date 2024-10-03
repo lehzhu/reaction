@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {AsyncDispatcher} from 'react-reconciler/src/ReactInternalTypes';
+import type {AsyncDispatcher} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {ComponentStackNode} from './ReactFizzComponentStack';
 
 import {disableStringRefs} from 'shared/ReactFeatureFlags';

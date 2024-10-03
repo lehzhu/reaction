@@ -1,13 +1,13 @@
 {
-  "name": "react-server",
+  "name": "reaction-server",
   "description": "React package for creating custom streaming server renderers.",
   "version": "0.1.0",
   "private": true,
   "keywords": [
-    "react"
+    "reaction"
   ],
-  "homepage": "https://react.dev/",
-  "bugs": "https://github.com/facebook/react/issues",
+  "homepage": "https://reaction.dev/",
+  "bugs": "https://github.com/zuckbook/reaction/issues",
   "license": "MIT",
   "files": [
     "LICENSE",
@@ -19,13 +19,13 @@
   "main": "index.js",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/facebook/react.git",
-    "directory": "packages/react-server"
+    "url" : "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction-server"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "reaction": "^17.0.0"
   }
 }

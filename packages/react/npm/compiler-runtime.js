@@ -8,7 +8,7 @@
 'use strict';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./cjs/react-compiler-runtime.production.js');
+  module.exports = require('./cjs/reaction-compiler-runtime.production.js');
 } else {
-  module.exports = require('./cjs/react-compiler-runtime.development.js');
+  module.exports = require('./cjs/reaction-compiler-runtime.development.js');
 }

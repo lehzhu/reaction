@@ -23,7 +23,7 @@ import type {
   ReactComponentInfo,
   ReactDebugInfo,
 } from 'shared/ReactTypes';
-import type {LazyComponent as LazyComponentType} from 'react/src/ReactLazy';
+import type {LazyComponent as LazyComponentType} from 'reaction/src/ReactLazy';
 import type {
   RenderState,
   ResumableState,
@@ -171,7 +171,7 @@ import assign from 'shared/assign';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
 import isArray from 'shared/isArray';
 import {SuspenseException, getSuspendedThenable} from './ReactFizzThenable';
-import type {Postpone} from 'react/src/ReactPostpone';
+import type {Postpone} from 'reaction/src/ReactPostpone';
 
 // Linked list representing the identity of a component given the component/tag name and key.
 // The name might be minified but we assume that it's going to be the same generated name. Typically
@@ -873,7 +873,7 @@ function pushServerComponentStack(
   debugInfo: void | null | ReactDebugInfo,
 ): void {
   if (!__DEV__) {
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'pushServerComponentStack should never be called in production. This is a bug in React.',
     );
@@ -1005,15 +1005,15 @@ function encodeErrorForBoundary(
     let message, stack;
     // In dev we additionally encode the error message and component stack on the boundary
     if (error instanceof Error) {
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       message = String(error.message);
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       stack = String(error.stack);
     } else if (typeof error === 'object' && error !== null) {
       message = describeObjectForErrorMessage(error);
       stack = null;
     } else {
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       message = String(error);
       stack = null;
     }
@@ -1799,14 +1799,14 @@ function renderFunctionComponent(
           console.error(
             '%s uses the legacy contextTypes API which was removed in React 19. ' +
               'Use React.createContext() with React.useContext() instead. ' +
-              '(https://react.dev/link/legacy-context)',
+              '(https://reaction.dev/link/legacy-context)',
             componentName,
           );
         } else {
           console.error(
             '%s uses the legacy contextTypes API which will be removed soon. ' +
               'Use React.createContext() with React.useContext() instead. ' +
-              '(https://react.dev/link/legacy-context)',
+              '(https://reaction.dev/link/legacy-context)',
             componentName,
           );
         }
@@ -2449,7 +2449,7 @@ function validateIterable(
   if (__DEV__) {
     if (iterator === iterable) {
       // We don't support rendering Generators as props because it's a mutation.
-      // See https://github.com/facebook/react/issues/12995
+      // See https://github.com/zuckbook/reaction/issues/12995
       // We do support generators if they were created by a GeneratorFunction component
       // as its direct child since we can recreate those by rerendering the component
       // as needed.
@@ -2496,7 +2496,7 @@ function validateAsyncIterable(
   if (__DEV__) {
     if (iterator === iterable) {
       // We don't support rendering Generators as props because it's a mutation.
-      // See https://github.com/facebook/react/issues/12995
+      // See https://github.com/zuckbook/reaction/issues/12995
       // We do support generators if they were created by a GeneratorFunction component
       // as its direct child since we can recreate those by rerendering the component
       // as needed.
@@ -2539,7 +2539,7 @@ function warnOnFunctionType(invalidChild: Function) {
 
 function warnOnSymbolType(invalidChild: symbol) {
   if (__DEV__) {
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     const name = String(invalidChild);
     console.error('Symbols are not valid as a React child.\n' + '  %s', name);
   }
@@ -3016,7 +3016,7 @@ function warnForMissingKey(request: Request, task: Task, child: mixed): void {
     task.componentStack = stackFrame;
     console.error(
       'Each child in a list should have a unique "key" prop.' +
-        '%s%s See https://react.dev/link/warning-keys for more information.',
+        '%s%s See https://reaction.dev/link/warning-keys for more information.',
       currentComponentErrorInfo,
       childOwnerAppendix,
     );

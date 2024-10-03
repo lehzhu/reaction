@@ -7,4 +7,4 @@
  * @flow
  */
 
-export {prerenderToNodeStream} from './src/server/react-flight-dom-server.node.unbundled';
+export {prerenderToNodeStream} from './src/server/reaction-flight-dom-server.node.unbundled';

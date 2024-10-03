@@ -9,7 +9,7 @@
 
 import type {Chunk, BinaryChunk, Destination} from './ReactServerStreamConfig';
 
-import type {Postpone} from 'react/src/ReactPostpone';
+import type {Postpone} from 'reaction/src/ReactPostpone';
 
 import type {TemporaryReferenceSet} from './ReactFlightServerTemporaryReferences';
 
@@ -67,7 +67,7 @@ import type {
   ReactCallSite,
 } from 'shared/ReactTypes';
 import type {ReactElement} from 'shared/ReactElementType';
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 
 import {
   resolveClientReferenceMetadata,
@@ -207,7 +207,7 @@ function patchConsole(consoleInst: typeof console, methodName: string) {
         // one stack frame but keeping it simple for now and include all frames.
         const stack = filterStackTrace(
           request,
-          new Error('react-stack-top-frame'),
+          new Error('reaction-stack-top-frame'),
           1,
         );
         request.pendingChunks++;
@@ -405,7 +405,7 @@ const {
 } = ReactSharedInternals;
 
 function throwTaintViolation(message: string) {
-  // eslint-disable-next-line react-internal/prod-error-codes
+  // eslint-disable-next-line reaction-internal/prod-error-codes
   throw new Error(message);
 }
 
@@ -1389,7 +1389,7 @@ function warnForMissingKey(
     const logKeyError = () => {
       console.error(
         'Each child in a list should have a unique "key" prop.' +
-          '%s%s See https://react.dev/link/warning-keys for more information.',
+          '%s%s See https://reaction.dev/link/warning-keys for more information.',
         '',
         '',
       );
@@ -2570,8 +2570,8 @@ function renderModelDestructive(
         throw new Error(
           'A React Element from an older version of React was rendered. ' +
             'This is not supported. It can happen if:\n' +
-            '- Multiple copies of the "react" package is used.\n' +
-            '- A library pre-bundled an old copy of "react" or "react/jsx-runtime".\n' +
+            '- Multiple copies of the "reaction" package is used.\n' +
+            '- A library pre-bundled an old copy of "reaction" or "reaction/jsx-runtime".\n' +
             '- A compiler tries to "inline" JSX instead of using the runtime.',
         );
       }
@@ -3045,7 +3045,7 @@ function logRecoverableError(
     currentRequest = prevRequest;
   }
   if (errorDigest != null && typeof errorDigest !== 'string') {
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       `onError returned something with a type other than "string". onError should return a string and may return null or undefined but must not return anything else. It received something of type "${typeof errorDigest}" instead`,
     );
@@ -3080,7 +3080,7 @@ function emitPostponeChunk(
     let stack: ReactStackTrace;
     const env = request.environmentName();
     try {
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       reason = String(postponeInstance.message);
       stack = filterStackTrace(request, postponeInstance, 0);
     } catch (x) {
@@ -3101,7 +3101,7 @@ function serializeErrorValue(request: Request, error: Error): string {
     let stack: ReactStackTrace;
     let env = (0, request.environmentName)();
     try {
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       message = String(error.message);
       stack = filterStackTrace(request, error, 0);
       const errorEnv = (error: any).environmentName;
@@ -3138,7 +3138,7 @@ function emitErrorChunk(
     let env = (0, request.environmentName)();
     try {
       if (error instanceof Error) {
-        // eslint-disable-next-line react-internal/safe-string-coercion
+        // eslint-disable-next-line reaction-internal/safe-string-coercion
         message = String(error.message);
         stack = filterStackTrace(request, error, 0);
         const errorEnv = (error: any).environmentName;
@@ -3151,7 +3151,7 @@ function emitErrorChunk(
         message = describeObjectForErrorMessage(error);
         stack = [];
       } else {
-        // eslint-disable-next-line react-internal/safe-string-coercion
+        // eslint-disable-next-line reaction-internal/safe-string-coercion
         message = String(error);
         stack = [];
       }
@@ -3211,7 +3211,7 @@ function emitDebugChunk(
 ): void {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'emitDebugChunk should never be called in production mode. This is a bug in React.',
     );
@@ -3249,7 +3249,7 @@ function outlineComponentInfo(
 ): void {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'outlineComponentInfo should never be called in production mode. This is a bug in React.',
     );
@@ -3327,7 +3327,7 @@ function emitTypedArrayChunk(
 
 function emitTextChunk(request: Request, id: number, text: string): void {
   if (byteLengthOfChunk === null) {
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'Existence of byteLengthOfChunk should have already been checked. This is a bug in React.',
     );
@@ -3343,7 +3343,7 @@ function emitTextChunk(request: Request, id: number, text: string): void {
 function serializeEval(source: string): string {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'serializeEval should never be called in production mode. This is a bug in React.',
     );
@@ -3656,7 +3656,7 @@ function outlineConsoleValue(
 ): number {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'outlineConsoleValue should never be called in production mode. This is a bug in React.',
     );
@@ -3705,7 +3705,7 @@ function emitConsoleChunk(
 ): void {
   if (!__DEV__) {
     // These errors should never make it into a build so we don't need to encode them in codes.json
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     throw new Error(
       'emitConsoleChunk should never be called in production mode. This is a bug in React.',
     );

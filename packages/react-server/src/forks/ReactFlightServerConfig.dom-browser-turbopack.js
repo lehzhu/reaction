@@ -7,11 +7,11 @@
  * @flow
  */
 
-import type {Request} from 'react-server/src/ReactFlightServer';
+import type {Request} from 'reaction-server/src/ReactFlightServer';
 import type {ReactComponentInfo} from 'shared/ReactTypes';
 
-export * from 'react-server-dom-turbopack/src/server/ReactFlightServerConfigTurbopackBundler';
-export * from 'react-dom-bindings/src/server/ReactFlightServerConfigDOM';
+export * from 'reaction-server-dom-turbopack/src/server/ReactFlightServerConfigTurbopackBundler';
+export * from 'reaction-dom-bindings/src/server/ReactFlightServerConfigDOM';
 
 export const supportsRequestStorage = false;
 export const requestStorage: AsyncLocalStorage<Request | void> = (null: any);

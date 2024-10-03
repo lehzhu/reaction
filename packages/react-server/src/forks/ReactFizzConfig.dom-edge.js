@@ -6,11 +6,11 @@
  *
  * @flow
  */
-import type {Request} from 'react-server/src/ReactFizzServer';
+import type {Request} from 'reaction-server/src/ReactFizzServer';
 
-export * from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+export * from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
-export * from 'react-client/src/ReactClientConsoleConfigServer';
+export * from 'reaction-client/src/ReactClientConsoleConfigServer';
 
 // For now, we get this from the global scope, but this will likely move to a module.
 export const supportsRequestStorage = typeof AsyncLocalStorage === 'function';

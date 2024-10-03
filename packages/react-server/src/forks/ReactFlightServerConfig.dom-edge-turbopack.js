@@ -6,11 +6,11 @@
  *
  * @flow
  */
-import type {Request} from 'react-server/src/ReactFlightServer';
+import type {Request} from 'reaction-server/src/ReactFlightServer';
 import type {ReactComponentInfo} from 'shared/ReactTypes';
 
-export * from 'react-server-dom-turbopack/src/server/ReactFlightServerConfigTurbopackBundler';
-export * from 'react-dom-bindings/src/server/ReactFlightServerConfigDOM';
+export * from 'reaction-server-dom-turbopack/src/server/ReactFlightServerConfigTurbopackBundler';
+export * from 'reaction-dom-bindings/src/server/ReactFlightServerConfigDOM';
 
 // For now, we get this from the global scope, but this will likely move to a module.
 export const supportsRequestStorage = typeof AsyncLocalStorage === 'function';

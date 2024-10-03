@@ -12,13 +12,13 @@ import type {Thenable, ReactFormState} from 'shared/ReactTypes';
 import type {
   ServerManifest,
   ClientReference as ServerReference,
-} from 'react-client/src/ReactFlightClientConfig';
+} from 'reaction-client/src/ReactFlightClientConfig';
 
 import {
   resolveServerReference,
   preloadModule,
   requireModule,
-} from 'react-client/src/ReactFlightClientConfig';
+} from 'reaction-client/src/ReactFlightClientConfig';
 
 import {createResponse, close, getRoot} from './ReactFlightReplyServer';
 

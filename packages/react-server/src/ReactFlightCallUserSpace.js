@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 
 import type {ReactComponentInfo} from 'shared/ReactTypes';
 
@@ -19,7 +19,7 @@ import {setCurrentOwner} from './flight/ReactFlightCurrentOwner';
 // TODO: Consider marking the whole bundle instead of these boundaries.
 
 const callComponent = {
-  'react-stack-bottom-frame': function <Props, R>(
+  'reaction-stack-bottom-frame': function <Props, R>(
     Component: (p: Props, arg: void) => R,
     props: Props,
     componentDebugInfo: ReactComponentInfo,
@@ -41,11 +41,11 @@ export const callComponentInDEV: <Props, R>(
   componentDebugInfo: ReactComponentInfo,
 ) => R = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (callComponent['react-stack-bottom-frame'].bind(callComponent): any)
+    (callComponent['reaction-stack-bottom-frame'].bind(callComponent): any)
   : (null: any);
 
 const callLazyInit = {
-  'react-stack-bottom-frame': function (lazy: LazyComponent<any, any>): any {
+  'reaction-stack-bottom-frame': function (lazy: LazyComponent<any, any>): any {
     const payload = lazy._payload;
     const init = lazy._init;
     return init(payload);
@@ -54,11 +54,11 @@ const callLazyInit = {
 
 export const callLazyInitInDEV: (lazy: LazyComponent<any, any>) => any = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (callLazyInit['react-stack-bottom-frame'].bind(callLazyInit): any)
+    (callLazyInit['reaction-stack-bottom-frame'].bind(callLazyInit): any)
   : (null: any);
 
 const callIterator = {
-  'react-stack-bottom-frame': function (
+  'reaction-stack-bottom-frame': function (
     iterator: $AsyncIterator<ReactClientValue, ReactClientValue, void>,
     progress: (
       entry:
@@ -81,5 +81,5 @@ export const callIteratorInDEV: (
   error: (reason: mixed) => void,
 ) => void = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (callIterator['react-stack-bottom-frame'].bind(callIterator): any)
+    (callIterator['reaction-stack-bottom-frame'].bind(callIterator): any)
   : (null: any);

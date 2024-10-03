@@ -6,11 +6,11 @@
  *
  * @flow
  */
-import type {Request} from 'react-server/src/ReactFizzServer';
+import type {Request} from 'reaction-server/src/ReactFizzServer';
 
-export * from 'react-dom-bindings/src/server/ReactFizzConfigDOMLegacy';
+export * from 'reaction-dom-bindings/src/server/ReactFizzConfigDOMLegacy';
 
-export * from 'react-client/src/ReactClientConsoleConfigPlain';
+export * from 'reaction-client/src/ReactClientConsoleConfigPlain';
 
 export const supportsRequestStorage = false;
 export const requestStorage: AsyncLocalStorage<Request | void> = (null: any);

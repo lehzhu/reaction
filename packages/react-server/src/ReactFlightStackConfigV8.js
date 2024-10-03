@@ -32,7 +32,7 @@ function getStack(error: Error): string {
   const previousPrepare = Error.prepareStackTrace;
   Error.prepareStackTrace = prepareStackTrace;
   try {
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     return String(error.stack);
   } finally {
     Error.prepareStackTrace = previousPrepare;
@@ -51,12 +51,12 @@ export function parseStackTrace(
   skipFrames: number,
 ): ReactStackTrace {
   let stack = getStack(error);
-  if (stack.startsWith('Error: react-stack-top-frame\n')) {
+  if (stack.startsWith('Error: reaction-stack-top-frame\n')) {
     // V8's default formatting prefixes with the error message which we
     // don't want/need.
     stack = stack.slice(29);
   }
-  let idx = stack.indexOf('react-stack-bottom-frame');
+  let idx = stack.indexOf('reaction-stack-bottom-frame');
   if (idx !== -1) {
     idx = stack.lastIndexOf('\n', idx);
   }

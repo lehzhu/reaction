@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {Dispatcher} from 'react-reconciler/src/ReactInternalTypes';
+import type {Dispatcher} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {Request} from './ReactFlightServer';
 import type {Thenable, Usable, ReactComponentInfo} from 'shared/ReactTypes';
 import type {ThenableState} from './ReactFlightThenable';
@@ -146,7 +146,7 @@ function use<T>(usable: Usable<T>): T {
     }
   } else {
     throw new Error(
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       'An unsupported type was passed to use(): ' + String(usable),
     );
   }

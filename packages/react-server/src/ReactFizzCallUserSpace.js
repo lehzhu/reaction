@@ -7,13 +7,13 @@
  * @flow
  */
 
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 
 // These indirections exists so we can exclude its stack frame in DEV (and anything below it).
 // TODO: Consider marking the whole bundle instead of these boundaries.
 
 const callComponent = {
-  'react-stack-bottom-frame': function <Props, Arg, R>(
+  'reaction-stack-bottom-frame': function <Props, Arg, R>(
     Component: (p: Props, arg: Arg) => R,
     props: Props,
     secondArg: Arg,
@@ -28,7 +28,7 @@ export const callComponentInDEV: <Props, Arg, R>(
   secondArg: Arg,
 ) => R = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (callComponent['react-stack-bottom-frame'].bind(callComponent): any)
+    (callComponent['reaction-stack-bottom-frame'].bind(callComponent): any)
   : (null: any);
 
 interface ClassInstance<R> {
@@ -36,7 +36,7 @@ interface ClassInstance<R> {
 }
 
 const callRender = {
-  'react-stack-bottom-frame': function <R>(instance: ClassInstance<R>): R {
+  'reaction-stack-bottom-frame': function <R>(instance: ClassInstance<R>): R {
     return instance.render();
   },
 };
@@ -44,11 +44,11 @@ const callRender = {
 export const callRenderInDEV: <R>(instance: ClassInstance<R>) => R => R =
   __DEV__
     ? // We use this technique to trick minifiers to preserve the function name.
-      (callRender['react-stack-bottom-frame'].bind(callRender): any)
+      (callRender['reaction-stack-bottom-frame'].bind(callRender): any)
     : (null: any);
 
 const callLazyInit = {
-  'react-stack-bottom-frame': function (lazy: LazyComponent<any, any>): any {
+  'reaction-stack-bottom-frame': function (lazy: LazyComponent<any, any>): any {
     const payload = lazy._payload;
     const init = lazy._init;
     return init(payload);
@@ -57,5 +57,5 @@ const callLazyInit = {
 
 export const callLazyInitInDEV: (lazy: LazyComponent<any, any>) => any = __DEV__
   ? // We use this technique to trick minifiers to preserve the function name.
-    (callLazyInit['react-stack-bottom-frame'].bind(callLazyInit): any)
+    (callLazyInit['reaction-stack-bottom-frame'].bind(callLazyInit): any)
   : (null: any);

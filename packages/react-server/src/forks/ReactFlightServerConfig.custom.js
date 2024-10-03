@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {Request} from 'react-server/src/ReactFlightServer';
+import type {Request} from 'reaction-server/src/ReactFlightServer';
 import type {ReactComponentInfo} from 'shared/ReactTypes';
 
 export * from '../ReactFlightServerConfigBundlerCustom';

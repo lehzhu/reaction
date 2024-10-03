@@ -9,11 +9,11 @@
 
 import {AsyncLocalStorage} from 'async_hooks';
 
-import type {Request} from 'react-server/src/ReactFizzServer';
+import type {Request} from 'reaction-server/src/ReactFizzServer';
 
-export * from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+export * from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
-export * from 'react-client/src/ReactClientConsoleConfigServer';
+export * from 'reaction-client/src/ReactClientConsoleConfigServer';
 
 export const supportsRequestStorage = true;
 export const requestStorage: AsyncLocalStorage<Request | void> =

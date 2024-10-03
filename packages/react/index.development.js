@@ -7,7 +7,7 @@
  * @flow
  */
 
-// Keep in sync with https://github.com/facebook/flow/blob/main/lib/react.js
+// Keep in sync with https://github.com/zuckbook/flow/blob/main/lib/reaction.js
 export type ComponentType<-P> = React$ComponentType<P>;
 export type AbstractComponent<
   -Config,

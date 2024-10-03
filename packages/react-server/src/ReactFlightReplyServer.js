@@ -16,7 +16,7 @@ import type {
   ServerReferenceId,
   ServerManifest,
   ClientReference as ServerReference,
-} from 'react-client/src/ReactFlightClientConfig';
+} from 'reaction-client/src/ReactFlightClientConfig';
 
 import type {TemporaryReferenceSet} from './ReactFlightServerTemporaryReferences';
 
@@ -24,7 +24,7 @@ import {
   resolveServerReference,
   preloadModule,
   requireModule,
-} from 'react-client/src/ReactFlightClientConfig';
+} from 'reaction-client/src/ReactFlightClientConfig';
 
 import {
   createTemporaryReference,

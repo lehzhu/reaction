@@ -49,7 +49,7 @@ function warnOnInvalidCallback(callback: mixed) {
     if (callback === null || typeof callback === 'function') {
       return;
     }
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     const key = String(callback);
     if (!didWarnOnInvalidCallback.has(key)) {
       didWarnOnInvalidCallback.add(key);
@@ -246,7 +246,7 @@ export function constructClassInstance(
 
     // If new component APIs are defined, "unsafe" lifecycles won't be called.
     // Warn about these lifecycles if they are present.
-    // Don't warn about react-lifecycles-compat polyfilled methods though.
+    // Don't warn about reaction-lifecycles-compat polyfilled methods though.
     if (
       typeof ctor.getDerivedStateFromProps === 'function' ||
       typeof instance.getSnapshotBeforeUpdate === 'function'
@@ -296,7 +296,7 @@ export function constructClassInstance(
             'Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' +
               '%s uses %s but also contains the following legacy lifecycles:%s%s%s\n\n' +
               'The above lifecycles should be removed. Learn more about this warning here:\n' +
-              'https://react.dev/link/unsafe-component-lifecycles',
+              'https://reaction.dev/link/unsafe-component-lifecycles',
             componentName,
             newApiName,
             foundWillMountName !== null ? `\n  ${foundWillMountName}` : '',
@@ -370,7 +370,7 @@ function checkClassInstance(instance: any, ctor: any, newProps: any) {
         didWarnAboutChildContextTypes.add(ctor);
         console.error(
           '%s uses the legacy childContextTypes API which was removed in React 19. ' +
-            'Use React.createContext() instead. (https://react.dev/link/legacy-context)',
+            'Use React.createContext() instead. (https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -379,7 +379,7 @@ function checkClassInstance(instance: any, ctor: any, newProps: any) {
         console.error(
           '%s uses the legacy contextTypes API which was removed in React 19. ' +
             'Use React.createContext() with static contextType instead. ' +
-            '(https://react.dev/link/legacy-context)',
+            '(https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -387,7 +387,7 @@ function checkClassInstance(instance: any, ctor: any, newProps: any) {
       if (instance.contextTypes) {
         console.error(
           'contextTypes was defined as an instance property on %s. Use a static ' +
-            'property to define contextTypes instead. (https://react.dev/link/legacy-context)',
+            'property to define contextTypes instead. (https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -408,7 +408,7 @@ function checkClassInstance(instance: any, ctor: any, newProps: any) {
         didWarnAboutChildContextTypes.add(ctor);
         console.error(
           '%s uses the legacy childContextTypes API which will soon be removed. ' +
-            'Use React.createContext() instead. (https://react.dev/link/legacy-context)',
+            'Use React.createContext() instead. (https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -417,7 +417,7 @@ function checkClassInstance(instance: any, ctor: any, newProps: any) {
         console.error(
           '%s uses the legacy contextTypes API which will soon be removed. ' +
             'Use React.createContext() with static contextType instead. ' +
-            '(https://react.dev/link/legacy-context)',
+            '(https://reaction.dev/link/legacy-context)',
           name,
         );
       }
@@ -556,7 +556,7 @@ function callComponentWillMount(type: any, instance: any) {
           console.warn(
             // keep this warning in sync with ReactStrictModeWarning.js
             'componentWillMount has been renamed, and is not recommended for use. ' +
-              'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+              'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
               '* Move code from componentWillMount to componentDidMount (preferred in most cases) ' +
               'or the constructor.\n' +
               '\nPlease update the following components: %s',
@@ -685,7 +685,7 @@ export function mountClassInstance(
     );
   }
 
-  // In order to support react-lifecycles-compat polyfilled components,
+  // In order to support reaction-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
   if (
     typeof ctor.getDerivedStateFromProps !== 'function' &&

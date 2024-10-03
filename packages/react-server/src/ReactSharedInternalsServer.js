@@ -7,9 +7,9 @@
  * @flow
  */
 
-import type {SharedStateServer} from 'react/src/ReactSharedInternalsServer';
+import type {SharedStateServer} from 'reaction/src/ReactSharedInternalsServer';
 
-import * as React from 'react';
+import * as React from 'reaction';
 
 const ReactSharedInternalsServer: SharedStateServer =
   // $FlowFixMe: It's defined in the one we resolve to.
@@ -17,8 +17,8 @@ const ReactSharedInternalsServer: SharedStateServer =
 
 if (!ReactSharedInternalsServer) {
   throw new Error(
-    'The "react" package in this environment is not configured correctly. ' +
-      'The "react-server" condition must be enabled in any environment that ' +
+    'The "reaction" package in this environment is not configured correctly. ' +
+      'The "reaction-server" condition must be enabled in any environment that ' +
       'runs React Server Components.',
   );
 }

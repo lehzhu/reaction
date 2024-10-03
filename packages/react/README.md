@@ -1,16 +1,16 @@
-# `react`
+# `reaction`
 
 React is a JavaScript library for creating user interfaces.
 
-The `react` package contains only the functionality necessary to define React components. It is typically used together with a React renderer like `react-dom` for the web, or `react-native` for the native environments.
+The `reaction` package contains only the functionality necessary to define React components. It is typically used together with a React renderer like `reaction-dom` for the web, or `reaction-native` for the native environments.
 
-**Note:** by default, React will be in development mode. The development version includes extra warnings about common mistakes, whereas the production version includes extra performance optimizations and strips all error messages. Don't forget to use the [production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) when deploying your application.
+**Note:** by default, React will be in development mode. The development version includes extra warnings about common mistakes, whereas the production version includes extra performance optimizations and strips all error messages. Don't forget to use the [production build](https://reactionjs.org/docs/optimizing-performance.html#use-the-production-build) when deploying your application.
 
 ## Usage
 
 ```js
-import { useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { useState } from 'reaction';
+import { createRoot } from 'reaction-dom/client';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -30,8 +30,8 @@ root.render(<Counter />);
 
 ## Documentation
 
-See https://react.dev/
+See https://reaction.dev/
 
 ## API
 
-See https://react.dev/reference/react
+See https://reaction.dev/reference/reaction

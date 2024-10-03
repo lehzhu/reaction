@@ -8,7 +8,7 @@
  */
 
 import type {ReactComponentInfo} from 'shared/ReactTypes';
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 
 import {
   describeBuiltInComponentFrame,

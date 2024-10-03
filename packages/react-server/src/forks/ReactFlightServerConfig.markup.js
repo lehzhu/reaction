@@ -7,9 +7,9 @@
  * @flow
  */
 
-import type {Request} from 'react-server/src/ReactFlightServer';
+import type {Request} from 'reaction-server/src/ReactFlightServer';
 import type {ReactComponentInfo} from 'shared/ReactTypes';
-import type {ReactClientValue} from 'react-server/src/ReactFlightServer';
+import type {ReactClientValue} from 'reaction-server/src/ReactFlightServer';
 
 export type HintCode = string;
 export type HintModel<T: HintCode> = null; // eslint-disable-line no-unused-vars
@@ -37,8 +37,8 @@ export opaque type ClientReferenceMetadata: any = null;
 export opaque type ServerReferenceId: string = string;
 export opaque type ClientReferenceKey: any = string;
 
-const CLIENT_REFERENCE_TAG = Symbol.for('react.client.reference');
-const SERVER_REFERENCE_TAG = Symbol.for('react.server.reference');
+const CLIENT_REFERENCE_TAG = Symbol.for('reaction.client.reference');
+const SERVER_REFERENCE_TAG = Symbol.for('reaction.server.reference');
 
 export function isClientReference(reference: Object): boolean {
   return reference.$$typeof === CLIENT_REFERENCE_TAG;

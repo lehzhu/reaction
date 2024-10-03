@@ -7,7 +7,7 @@
  * @flow
  */
 
-const TEMPORARY_REFERENCE_TAG = Symbol.for('react.temporary.reference');
+const TEMPORARY_REFERENCE_TAG = Symbol.for('reaction.temporary.reference');
 
 export opaque type TemporaryReferenceSet = WeakMap<
   TemporaryReference<any>,
@@ -69,7 +69,7 @@ const proxyHandlers = {
         );
     }
     throw new Error(
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       `Cannot access ${String(name)} on the server. ` +
         'You cannot dot into a temporary client reference from a server component. ' +
         'You can only pass the value through to the client.',

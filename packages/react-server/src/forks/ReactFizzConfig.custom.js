@@ -7,14 +7,14 @@
  * @flow
  */
 
-// This is a host config that's used for the `react-server` package on npm.
+// This is a host config that's used for the `reaction-server` package on npm.
 // It is only used by third-party renderers.
 //
 // Its API lets you pass the host config as an argument.
-// However, inside the `react-server` we treat host config as a module.
+// However, inside the `reaction-server` we treat host config as a module.
 // This file is a shim between two worlds.
 //
-// It works because the `react-server` bundle is wrapped in something like:
+// It works because the `reaction-server` bundle is wrapped in something like:
 //
 // module.exports = function ($$$config) {
 //   /* renderer code */
@@ -23,8 +23,8 @@
 // So `$$$config` looks like a global variable, but it's
 // really an argument to a top-level wrapping function.
 
-import type {Request} from 'react-server/src/ReactFizzServer';
-import type {TransitionStatus} from 'react-reconciler/src/ReactFiberConfig';
+import type {Request} from 'reaction-server/src/ReactFizzServer';
+import type {TransitionStatus} from 'reaction-reconciler/src/ReactFiberConfig';
 
 declare const $$$config: any;
 export opaque type Destination = mixed;
