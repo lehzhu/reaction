@@ -14,8 +14,8 @@ const http = require('http');
 
 const DEPENDENCIES = [
   ['scheduler/umd/scheduler.development.js', 'scheduler.js'],
-  ['react/umd/react.development.js', 'react.js'],
-  ['react-dom/umd/react-dom.development.js', 'react-dom.js'],
+  ['reaction/umd/reaction.development.js', 'reaction.js'],
+  ['reaction-dom/umd/reaction-dom.development.js', 'reaction-dom.js'],
 ];
 
 const BUILD_DIRECTORY = '../../../build/oss-experimental/';
@@ -42,8 +42,8 @@ function initServer() {
   const requestListener = function (request, response) {
     let contents;
     switch (request.url) {
-      case '/react.js':
-      case '/react-dom.js':
+      case '/reaction.js':
+      case '/reaction-dom.js':
       case '/scheduler.js':
         response.setHeader('Content-Type', 'text/javascript');
         response.writeHead(200);

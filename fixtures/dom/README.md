@@ -13,5 +13,5 @@ yarn
 yarn dev
 ```
 
-The `dev` command runs a script that copies over the local build of react into
+The `dev` command runs a script that copies over the local build of reaction into
 the public directory.

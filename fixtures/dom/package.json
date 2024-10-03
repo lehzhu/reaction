@@ -1,9 +1,9 @@
 {
-  "name": "react-fixtures",
+  "name": "reaction-fixtures",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "^1.0.11"
+    "reaction-scripts": "^1.0.11"
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
@@ -14,15 +14,15 @@
     "jest-diff": "^29.4.1",
     "prop-types": "^15.6.0",
     "query-string": "^4.2.3",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "reaction": "^15.4.1",
+    "reaction-dom": "^15.4.1",
     "semver": "^5.5.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "reaction-scripts start",
     "predev": "cp -a ../../build/oss-stable/. node_modules",
-    "build": "react-scripts build && cp build/index.html build/200.html",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "reaction-scripts build && cp build/index.html build/200.html",
+    "test": "reaction-scripts test --env=jsdom",
+    "eject": "reaction-scripts eject"
   }
 }
