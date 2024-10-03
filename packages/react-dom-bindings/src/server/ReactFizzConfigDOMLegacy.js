@@ -29,7 +29,7 @@ import type {
   Destination,
   Chunk,
   PrecomputedChunk,
-} from 'react-server/src/ReactServerStreamConfig';
+} from 'reaction-server/src/ReactServerStreamConfig';
 
 import type {FormStatus} from '../shared/ReactDOMFormActions';
 
@@ -126,7 +126,7 @@ export function createRenderState(
 import {
   stringToChunk,
   stringToPrecomputedChunk,
-} from 'react-server/src/ReactServerStreamConfig';
+} from 'reaction-server/src/ReactServerStreamConfig';
 
 // this chunk is empty on purpose because we do not want to emit the DOCTYPE in legacy mode
 export const doctypeChunk: PrecomputedChunk = stringToPrecomputedChunk('');

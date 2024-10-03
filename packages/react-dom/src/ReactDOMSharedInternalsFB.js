@@ -7,10 +7,10 @@
  * @flow
  */
 
-import type {EventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import type {EventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 import type {HostDispatcher} from './shared/ReactDOMTypes';
 
-import {NoEventPriority} from 'react-reconciler/src/ReactEventPriorities';
+import {NoEventPriority} from 'reaction-reconciler/src/ReactEventPriorities';
 
 type ReactDOMInternals = {
   Events: [any, any, any, any, any, any],

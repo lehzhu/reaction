@@ -11,10 +11,10 @@ import type {ReactNodeList, ReactFormState} from 'shared/ReactTypes';
 import type {
   FiberRoot,
   TransitionTracingCallbacks,
-} from 'react-reconciler/src/ReactInternalTypes';
+} from 'reaction-reconciler/src/ReactInternalTypes';
 
-import {isValidContainer} from 'react-dom-bindings/src/client/ReactDOMContainer';
-import {queueExplicitHydrationTarget} from 'react-dom-bindings/src/events/ReactDOMEventReplaying';
+import {isValidContainer} from 'reaction-dom-bindings/src/client/ReactDOMContainer';
+import {queueExplicitHydrationTarget} from 'reaction-dom-bindings/src/events/ReactDOMEventReplaying';
 import {REACT_ELEMENT_TYPE} from 'shared/ReactSymbols';
 import {enableAsyncActions} from 'shared/ReactFeatureFlags';
 
@@ -75,9 +75,9 @@ import {
   isContainerMarkedAsRoot,
   markContainerAsRoot,
   unmarkContainerAsRoot,
-} from 'react-dom-bindings/src/client/ReactDOMComponentTree';
-import {listenToAllSupportedEvents} from 'react-dom-bindings/src/events/DOMPluginEventSystem';
-import {COMMENT_NODE} from 'react-dom-bindings/src/client/HTMLNodeType';
+} from 'reaction-dom-bindings/src/client/ReactDOMComponentTree';
+import {listenToAllSupportedEvents} from 'reaction-dom-bindings/src/events/DOMPluginEventSystem';
+import {COMMENT_NODE} from 'reaction-dom-bindings/src/client/HTMLNodeType';
 
 import {
   createContainer,
@@ -89,8 +89,8 @@ import {
   defaultOnUncaughtError,
   defaultOnCaughtError,
   defaultOnRecoverableError,
-} from 'react-reconciler/src/ReactFiberReconciler';
-import {ConcurrentRoot} from 'react-reconciler/src/ReactRootTags';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
+import {ConcurrentRoot} from 'reaction-reconciler/src/ReactRootTags';
 
 // $FlowFixMe[missing-this-annot]
 function ReactDOMRoot(internalRoot: FiberRoot) {
@@ -338,7 +338,7 @@ export function hydrateRoot(
 function warnIfReactDOMContainerInDEV(container: any) {
   if (__DEV__) {
     if (isContainerMarkedAsRoot(container)) {
-      if (container._reactRootContainer) {
+      if (container._reactionRootContainer) {
         console.error(
           'You are calling ReactDOMClient.createRoot() on a container that was previously ' +
             'passed to ReactDOM.render(). This is not supported.',

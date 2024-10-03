@@ -14,7 +14,7 @@ import type {
   PreinitStyleOptions,
   PreinitScriptOptions,
   PreinitModuleScriptOptions,
-} from 'react-dom/src/shared/ReactDOMTypes';
+} from 'reaction-dom/src/shared/ReactDOMTypes';
 
 // This module registers the host dispatcher so it needs to be imported
 // but it does not have any exports

@@ -25,14 +25,14 @@ export function renderToStaticMarkup() {
 }
 
 export function renderToReadableStream() {
-  return require('./src/server/react-dom-server.browser').renderToReadableStream.apply(
+  return require('./src/server/reaction-dom-server.browser').renderToReadableStream.apply(
     this,
     arguments,
   );
 }
 
 export function resume() {
-  return require('./src/server/react-dom-server.browser').resume.apply(
+  return require('./src/server/reaction-dom-server.browser').resume.apply(
     this,
     arguments,
   );

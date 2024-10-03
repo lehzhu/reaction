@@ -11,12 +11,12 @@ import type {ReactNodeList} from 'shared/ReactTypes';
 import type {
   BootstrapScriptDescriptor,
   HeadersDescriptor,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 import type {
   PostponedState,
   ErrorInfo,
   PostponeInfo,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 import type {ImportMap} from '../shared/ReactDOMTypes';
 
 import ReactVersion from 'shared/ReactVersion';
@@ -29,14 +29,14 @@ import {
   stopFlowing,
   abort,
   getPostponedState,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import {
   createResumableState,
   createRenderState,
   resumeRenderState,
   createRootFormatContext,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
 import {ensureCorrectIsomorphicReactVersion} from '../shared/ensureCorrectIsomorphicReactVersion';
 ensureCorrectIsomorphicReactVersion();

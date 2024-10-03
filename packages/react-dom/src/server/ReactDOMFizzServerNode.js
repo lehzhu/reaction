@@ -12,14 +12,14 @@ import type {
   PostponedState,
   ErrorInfo,
   PostponeInfo,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 import type {ReactNodeList, ReactFormState} from 'shared/ReactTypes';
 import type {Writable} from 'stream';
 import type {
   BootstrapScriptDescriptor,
   HeadersDescriptor,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
-import type {Destination} from 'react-server/src/ReactServerStreamConfigNode';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
+import type {Destination} from 'reaction-server/src/ReactServerStreamConfigNode';
 import type {ImportMap} from '../shared/ReactDOMTypes';
 
 import ReactVersion from 'shared/ReactVersion';
@@ -32,14 +32,14 @@ import {
   stopFlowing,
   abort,
   prepareForStartFlowingIfBeforeAllReady,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import {
   createResumableState,
   createRenderState,
   resumeRenderState,
   createRootFormatContext,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
 import {ensureCorrectIsomorphicReactVersion} from '../shared/ensureCorrectIsomorphicReactVersion';
 ensureCorrectIsomorphicReactVersion();
@@ -51,7 +51,7 @@ function createDrainHandler(destination: Destination, request: Request) {
 function createCancelHandler(request: Request, reason: string) {
   return () => {
     stopFlowing(request);
-    // eslint-disable-next-line react-internal/prod-error-codes
+    // eslint-disable-next-line reaction-internal/prod-error-codes
     abort(request, new Error(reason));
   };
 }

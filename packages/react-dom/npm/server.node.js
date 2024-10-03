@@ -2,11 +2,11 @@
 
 var l, s;
 if (process.env.NODE_ENV === 'production') {
-  l = require('./cjs/react-dom-server-legacy.node.production.js');
-  s = require('./cjs/react-dom-server.node.production.js');
+  l = require('./cjs/reaction-dom-server-legacy.node.production.js');
+  s = require('./cjs/reaction-dom-server.node.production.js');
 } else {
-  l = require('./cjs/react-dom-server-legacy.node.development.js');
-  s = require('./cjs/react-dom-server.node.development.js');
+  l = require('./cjs/reaction-dom-server-legacy.node.development.js');
+  s = require('./cjs/reaction-dom-server.node.development.js');
 }
 
 exports.version = l.version;

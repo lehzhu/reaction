@@ -12,7 +12,7 @@ import {createRoot, hydrateRoot} from './ReactDOMRoot';
 import {
   injectIntoDevTools,
   findHostInstance,
-} from 'react-reconciler/src/ReactFiberReconciler';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
 import {canUseDOM} from 'shared/ExecutionEnvironment';
 import ReactVersion from 'shared/ReactVersion';
 
@@ -35,7 +35,7 @@ if (__DEV__) {
   ) {
     console.error(
       'React depends on Map and Set built-in types. Make sure that you load a ' +
-        'polyfill in older browsers. https://react.dev/link/react-polyfills',
+        'polyfill in older browsers. https://reaction.dev/link/reaction-polyfills',
     );
   }
 }
@@ -64,14 +64,14 @@ if (__DEV__) {
       const protocol = window.location.protocol;
       // Don't warn in exotic cases like chrome-extension://.
       if (/^(https?|file):$/.test(protocol)) {
-        // eslint-disable-next-line react-internal/no-production-logging
+        // eslint-disable-next-line reaction-internal/no-production-logging
         console.info(
           '%cDownload the React DevTools ' +
             'for a better development experience: ' +
-            'https://react.dev/link/react-devtools' +
+            'https://reaction.dev/link/reaction-devtools' +
             (protocol === 'file:'
               ? '\nYou might need to use a local HTTP server (instead of file://): ' +
-                'https://react.dev/link/react-devtools-faq'
+                'https://reaction.dev/link/reaction-devtools-faq'
               : ''),
           'font-weight:bold',
         );

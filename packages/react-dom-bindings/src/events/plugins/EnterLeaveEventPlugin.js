@@ -11,7 +11,7 @@ import type {AnyNativeEvent} from '../PluginModuleType';
 import type {DOMEventName} from '../DOMEventNames';
 import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {KnownReactSyntheticEvent} from '../ReactSyntheticEventType';
 
 import {registerDirectEvent} from '../EventRegistry';
@@ -28,8 +28,8 @@ import {
   HostComponent,
   HostSingleton,
   HostText,
-} from 'react-reconciler/src/ReactWorkTags';
-import {getNearestMountedFiber} from 'react-reconciler/src/ReactFiberTreeReflection';
+} from 'reaction-reconciler/src/ReactWorkTags';
+import {getNearestMountedFiber} from 'reaction-reconciler/src/ReactFiberTreeReflection';
 
 function registerEvents() {
   registerDirectEvent('onMouseEnter', ['mouseout', 'mouseover']);

@@ -12,7 +12,7 @@ import ReactVersion from 'shared/ReactVersion';
 export {ReactVersion as version};
 
 export function renderToReadableStream() {
-  return require('./src/server/react-dom-server.edge').renderToReadableStream.apply(
+  return require('./src/server/reaction-dom-server.edge').renderToReadableStream.apply(
     this,
     arguments,
   );
@@ -33,7 +33,7 @@ export function renderToStaticMarkup() {
 }
 
 export function resume() {
-  return require('./src/server/react-dom-server.edge').resume.apply(
+  return require('./src/server/reaction-dom-server.edge').resume.apply(
     this,
     arguments,
   );

@@ -11,7 +11,7 @@ import type {AnyNativeEvent} from '../PluginModuleType';
 import type {DOMEventName} from '../DOMEventNames';
 import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {ReactSyntheticEvent} from '../ReactSyntheticEventType';
 
 import {canUseDOM} from 'shared/ExecutionEnvironment';

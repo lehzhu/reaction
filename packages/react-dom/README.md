@@ -1,11 +1,11 @@
-# `react-dom`
+# `reaction-dom`
 
-This package serves as the entry point to the DOM and server renderers for React. It is intended to be paired with the generic React package, which is shipped as `react` to npm.
+This package serves as the entry point to the DOM and server renderers for React. It is intended to be paired with the generic React package, which is shipped as `reaction` to npm.
 
 ## Installation
 
 ```sh
-npm install react react-dom
+npm install reaction reaction-dom
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install react react-dom
 ### In the browser
 
 ```js
-import { createRoot } from 'react-dom/client';
+import { createRoot } from 'reaction-dom/client';
 
 function App() {
   return <div>Hello World</div>;
@@ -26,7 +26,7 @@ root.render(<App />);
 ### On the server
 
 ```js
-import { renderToPipeableStream } from 'react-dom/server';
+import { renderToPipeableStream } from 'reaction-dom/server';
 
 function App() {
   return <div>Hello World</div>;
@@ -47,14 +47,14 @@ function handleRequest(res) {
 
 ## API
 
-### `react-dom`
+### `reaction-dom`
 
-See https://react.dev/reference/react-dom
+See https://reaction.dev/reference/reaction-dom
 
-### `react-dom/client`
+### `reaction-dom/client`
 
-See https://react.dev/reference/react-dom/client
+See https://reaction.dev/reference/reaction-dom/client
 
-### `react-dom/server`
+### `reaction-dom/server`
 
-See https://react.dev/reference/react-dom/server
+See https://reaction.dev/reference/reaction-dom/server

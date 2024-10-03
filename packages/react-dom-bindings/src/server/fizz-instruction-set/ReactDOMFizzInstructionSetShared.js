@@ -40,8 +40,8 @@ export function clientRenderBoundary(
   if (errorStack) dataset['stck'] = errorStack;
   if (errorComponentStack) dataset['cstck'] = errorComponentStack;
   // Tell React to retry it if the parent already hydrated.
-  if (suspenseNode['_reactRetry']) {
-    suspenseNode['_reactRetry']();
+  if (suspenseNode['_reactionRetry']) {
+    suspenseNode['_reactionRetry']();
   }
 }
 
@@ -107,8 +107,8 @@ export function completeBoundary(suspenseBoundaryID, contentID, errorDigest) {
     suspenseIdNode.setAttribute('data-dgst', errorDigest);
   }
 
-  if (suspenseNode['_reactRetry']) {
-    suspenseNode['_reactRetry']();
+  if (suspenseNode['_reactionRetry']) {
+    suspenseNode['_reactionRetry']();
   }
 }
 
@@ -200,7 +200,7 @@ export function listenToFormSubmissionsForReplaying() {
     // where we preserve sequencing and where we'll pick it up from during hydration.
     // If there's no ownerDocument, then this is the document.
     const root = form.ownerDocument || form;
-    (root['$$reactFormReplay'] = root['$$reactFormReplay'] || []).push(
+    (root['$$reactionFormReplay'] = root['$$reactionFormReplay'] || []).push(
       form,
       submitter,
       formData,

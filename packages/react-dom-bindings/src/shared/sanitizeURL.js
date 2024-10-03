@@ -21,7 +21,7 @@ const isJavaScriptProtocol =
 
 function sanitizeURL<T>(url: T): T | string {
   // We should never have symbols here because they get filtered out elsewhere.
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   if (isJavaScriptProtocol.test('' + (url: any))) {
     // Return a different javascript: url that doesn't cause any side-effects and just
     // throws if ever visited.

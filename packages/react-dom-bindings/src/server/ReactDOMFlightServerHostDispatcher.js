@@ -14,13 +14,13 @@ import type {
   PreinitStyleOptions,
   PreinitScriptOptions,
   PreinitModuleScriptOptions,
-} from 'react-dom/src/shared/ReactDOMTypes';
+} from 'reaction-dom/src/shared/ReactDOMTypes';
 
 import {
   emitHint,
   getHints,
   resolveRequest,
-} from 'react-server/src/ReactFlightServer';
+} from 'reaction-server/src/ReactFlightServer';
 
 import ReactDOMSharedInternals from 'shared/ReactDOMSharedInternals';
 

@@ -15,12 +15,12 @@ import type {
   HydrateRootOptions,
 } from './ReactDOMRoot';
 
-import type {FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 
 import type {
   Container,
   PublicInstance,
-} from 'react-dom-bindings/src/client/ReactFiberConfigDOM';
+} from 'reaction-dom-bindings/src/client/ReactFiberConfigDOM';
 
 import {
   createRoot as createRootImpl,
@@ -28,20 +28,20 @@ import {
 } from './ReactDOMRoot';
 
 import {disableLegacyMode} from 'shared/ReactFeatureFlags';
-import {clearContainer} from 'react-dom-bindings/src/client/ReactFiberConfigDOM';
+import {clearContainer} from 'reaction-dom-bindings/src/client/ReactFiberConfigDOM';
 import {
   getInstanceFromNode,
   isContainerMarkedAsRoot,
   markContainerAsRoot,
   unmarkContainerAsRoot,
-} from 'react-dom-bindings/src/client/ReactDOMComponentTree';
-import {listenToAllSupportedEvents} from 'react-dom-bindings/src/events/DOMPluginEventSystem';
-import {isValidContainerLegacy} from 'react-dom-bindings/src/client/ReactDOMContainer';
+} from 'reaction-dom-bindings/src/client/ReactDOMComponentTree';
+import {listenToAllSupportedEvents} from 'reaction-dom-bindings/src/events/DOMPluginEventSystem';
+import {isValidContainerLegacy} from 'reaction-dom-bindings/src/client/ReactDOMContainer';
 import {
   DOCUMENT_NODE,
   ELEMENT_NODE,
   COMMENT_NODE,
-} from 'react-dom-bindings/src/client/HTMLNodeType';
+} from 'reaction-dom-bindings/src/client/HTMLNodeType';
 
 import {
   batchedUpdates,
@@ -56,14 +56,14 @@ import {
   findHostInstanceWithWarning,
   defaultOnUncaughtError,
   defaultOnCaughtError,
-} from 'react-reconciler/src/ReactFiberReconciler';
-import {LegacyRoot} from 'react-reconciler/src/ReactRootTags';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
+import {LegacyRoot} from 'reaction-reconciler/src/ReactRootTags';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
 
 import {
   current as currentOwner,
   isRendering,
-} from 'react-reconciler/src/ReactCurrentFiber';
+} from 'reaction-reconciler/src/ReactCurrentFiber';
 
 import assign from 'shared/assign';
 
@@ -160,9 +160,9 @@ let topLevelUpdateWarnings;
 
 if (__DEV__) {
   topLevelUpdateWarnings = (container: Container) => {
-    if (container._reactRootContainer && container.nodeType !== COMMENT_NODE) {
+    if (container._reactionRootContainer && container.nodeType !== COMMENT_NODE) {
       const hostInstance = findHostInstanceWithNoPortals(
-        container._reactRootContainer.current,
+        container._reactionRootContainer.current,
       );
       if (hostInstance) {
         if (hostInstance.parentNode !== container) {
@@ -176,7 +176,7 @@ if (__DEV__) {
       }
     }
 
-    const isRootRenderedBySomeReact = !!container._reactRootContainer;
+    const isRootRenderedBySomeReact = !!container._reactionRootContainer;
     const rootEl = getReactRootElementInContainer(container);
     const hasNonRootReactChild = !!(rootEl && getInstanceFromNode(rootEl));
 
@@ -240,7 +240,7 @@ function legacyCreateRootFromDOMContainer(
       null,
       null,
     );
-    container._reactRootContainer = root;
+    container._reactionRootContainer = root;
     markContainerAsRoot(root.current, container);
 
     const rootContainerElement =
@@ -274,7 +274,7 @@ function legacyCreateRootFromDOMContainer(
       noopOnRecoverableError,
       null, // transitionCallbacks
     );
-    container._reactRootContainer = root;
+    container._reactionRootContainer = root;
     markContainerAsRoot(root.current, container);
 
     const rootContainerElement =
@@ -314,7 +314,7 @@ function legacyRenderSubtreeIntoContainer(
     warnOnInvalidCallback(callback === undefined ? null : callback);
   }
 
-  const maybeRoot = container._reactRootContainer;
+  const maybeRoot = container._reactionRootContainer;
   let root: FiberRoot;
   if (!maybeRoot) {
     // Initial mount
@@ -390,7 +390,7 @@ export function render(
       'ReactDOM.render has not been supported since React 18. Use createRoot ' +
         'instead. Until you switch to the new API, your app will behave as ' +
         "if it's running React 17. Learn " +
-        'more: https://react.dev/link/switch-to-createroot',
+        'more: https://reaction.dev/link/switch-to-createroot',
     );
   }
 
@@ -401,7 +401,7 @@ export function render(
   if (__DEV__) {
     const isModernRoot =
       isContainerMarkedAsRoot(container) &&
-      container._reactRootContainer === undefined;
+      container._reactionRootContainer === undefined;
     if (isModernRoot) {
       console.error(
         'You are calling ReactDOM.render() on a container that was previously ' +
@@ -435,7 +435,7 @@ export function unmountComponentAtNode(container: Container): boolean {
   if (__DEV__) {
     const isModernRoot =
       isContainerMarkedAsRoot(container) &&
-      container._reactRootContainer === undefined;
+      container._reactionRootContainer === undefined;
     if (isModernRoot) {
       console.error(
         'You are calling ReactDOM.unmountComponentAtNode() on a container that was previously ' +
@@ -444,8 +444,8 @@ export function unmountComponentAtNode(container: Container): boolean {
     }
   }
 
-  if (container._reactRootContainer) {
-    const root = container._reactRootContainer;
+  if (container._reactionRootContainer) {
+    const root = container._reactionRootContainer;
 
     if (__DEV__) {
       const rootEl = getReactRootElementInContainer(container);
@@ -460,8 +460,8 @@ export function unmountComponentAtNode(container: Container): boolean {
 
     updateContainerSync(null, root, null, null);
     flushSyncWork();
-    // $FlowFixMe[incompatible-type] This should probably use `delete container._reactRootContainer`
-    container._reactRootContainer = null;
+    // $FlowFixMe[incompatible-type] This should probably use `delete container._reactionRootContainer`
+    container._reactionRootContainer = null;
     unmarkContainerAsRoot(container);
     return true;
   } else {
@@ -475,7 +475,7 @@ export function unmountComponentAtNode(container: Container): boolean {
         isValidContainerLegacy(container.parentNode) &&
         // $FlowFixMe[prop-missing]
         // $FlowFixMe[incompatible-use]
-        !!container.parentNode._reactRootContainer;
+        !!container.parentNode._reactionRootContainer;
 
       if (hasNonRootReactChild) {
         console.error(

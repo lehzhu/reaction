@@ -10,9 +10,9 @@
 import type {ReactNodeList} from 'shared/ReactTypes';
 
 import {disableLegacyMode} from 'shared/ReactFeatureFlags';
-import {isValidContainer} from 'react-dom-bindings/src/client/ReactDOMContainer';
-import {createEventHandle} from 'react-dom-bindings/src/client/ReactDOMEventHandle';
-import {runWithPriority} from 'react-dom-bindings/src/client/ReactDOMUpdatePriority';
+import {isValidContainer} from 'reaction-dom-bindings/src/client/ReactDOMContainer';
+import {createEventHandle} from 'reaction-dom-bindings/src/client/ReactDOMEventHandle';
+import {runWithPriority} from 'reaction-dom-bindings/src/client/ReactDOMUpdatePriority';
 import {flushSync as flushSyncIsomorphic} from '../shared/ReactDOMFlushSync';
 
 import {
@@ -20,8 +20,8 @@ import {
   isAlreadyRendering,
   injectIntoDevTools,
   findHostInstance,
-} from 'react-reconciler/src/ReactFiberReconciler';
-import {createPortal as createPortalImpl} from 'react-reconciler/src/ReactPortal';
+} from 'reaction-reconciler/src/ReactFiberReconciler';
+import {createPortal as createPortalImpl} from 'reaction-reconciler/src/ReactPortal';
 import {canUseDOM} from 'shared/ExecutionEnvironment';
 import ReactVersion from 'shared/ReactVersion';
 
@@ -32,11 +32,11 @@ import {
   getInstanceFromNode,
   getNodeFromInstance,
   getFiberCurrentPropsFromNode,
-} from 'react-dom-bindings/src/client/ReactDOMComponentTree';
+} from 'reaction-dom-bindings/src/client/ReactDOMComponentTree';
 import {
   enqueueStateRestore,
   restoreStateIfNeeded,
-} from 'react-dom-bindings/src/events/ReactDOMControlledComponent';
+} from 'reaction-dom-bindings/src/events/ReactDOMControlledComponent';
 import Internals from '../ReactDOMSharedInternalsFB';
 
 export {
@@ -51,7 +51,7 @@ export {
   useFormStatus,
   useFormState,
   requestFormReset,
-} from 'react-dom-bindings/src/shared/ReactDOMFormActions';
+} from 'reaction-dom-bindings/src/shared/ReactDOMFormActions';
 
 if (__DEV__) {
   if (
@@ -67,7 +67,7 @@ if (__DEV__) {
   ) {
     console.error(
       'React depends on Map and Set built-in types. Make sure that you load a ' +
-        'polyfill in older browsers. https://react.dev/link/react-polyfills',
+        'polyfill in older browsers. https://reaction.dev/link/reaction-polyfills',
     );
   }
 }
@@ -160,14 +160,14 @@ if (__DEV__) {
       const protocol = window.location.protocol;
       // Don't warn in exotic cases like chrome-extension://.
       if (/^(https?|file):$/.test(protocol)) {
-        // eslint-disable-next-line react-internal/no-production-logging
+        // eslint-disable-next-line reaction-internal/no-production-logging
         console.info(
           '%cDownload the React DevTools ' +
             'for a better development experience: ' +
-            'https://react.dev/link/react-devtools' +
+            'https://reaction.dev/link/reaction-devtools' +
             (protocol === 'file:'
               ? '\nYou might need to use a local HTTP server (instead of file://): ' +
-                'https://react.dev/link/react-devtools-faq'
+                'https://reaction.dev/link/reaction-devtools-faq'
               : ''),
           'font-weight:bold',
         );

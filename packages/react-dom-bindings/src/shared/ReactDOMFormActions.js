@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {Dispatcher} from 'react-reconciler/src/ReactInternalTypes';
+import type {Dispatcher} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {Awaited} from 'shared/ReactTypes';
 
 import {enableAsyncActions} from 'shared/ReactFeatureFlags';
@@ -44,7 +44,7 @@ export const NotPending: FormStatus = __DEV__
   : sharedNotPendingObject;
 
 function resolveDispatcher() {
-  // Copied from react/src/ReactHooks.js. It's the same thing but in a
+  // Copied from reaction/src/ReactHooks.js. It's the same thing but in a
   // different package.
   const dispatcher = ReactSharedInternals.H;
   if (__DEV__) {
@@ -55,7 +55,7 @@ function resolveDispatcher() {
           '1. You might have mismatching versions of React and the renderer (such as React DOM)\n' +
           '2. You might be breaking the Rules of Hooks\n' +
           '3. You might have more than one copy of React in the same app\n' +
-          'See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.',
+          'See https://reaction.dev/link/invalid-hook-call for tips about how to debug and fix this problem.',
       );
     }
   }

@@ -11,7 +11,7 @@ import type {AnyNativeEvent} from '../PluginModuleType';
 import type {DOMEventName} from '../DOMEventNames';
 import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {ReactSyntheticEvent} from '../ReactSyntheticEventType';
 
 import {registerTwoPhaseEvent} from '../EventRegistry';
@@ -103,7 +103,7 @@ function manualDispatchChangeEvent(nativeEvent: AnyNativeEvent) {
   // elements instead of directly on the input). Without this, controlled
   // components don't work properly in conjunction with event bubbling because
   // the component is rerendered and the value reverted before all the event
-  // handlers can run. See https://github.com/facebook/react/issues/708.
+  // handlers can run. See https://github.com/zuckbook/reaction/issues/708.
   batchedUpdates(runEventInBatch, dispatchQueue);
 }
 

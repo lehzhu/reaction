@@ -16,7 +16,7 @@ import type {
   PreinitScriptOptions,
   PreinitModuleScriptOptions,
   ImportMap,
-} from 'react-dom/src/shared/ReactDOMTypes';
+} from 'reaction-dom/src/shared/ReactDOMTypes';
 
 import {
   checkHtmlStringCoercion,
@@ -25,7 +25,7 @@ import {
   checkOptionStringCoercion,
 } from 'shared/CheckStringCoercion';
 
-import {Children} from 'react';
+import {Children} from 'reaction';
 
 import {
   enableFilterEmptyStringAttributesDOM,
@@ -36,7 +36,7 @@ import type {
   Destination,
   Chunk,
   PrecomputedChunk,
-} from 'react-server/src/ReactServerStreamConfig';
+} from 'reaction-server/src/ReactServerStreamConfig';
 
 import type {FormStatus} from '../shared/ReactDOMFormActions';
 
@@ -45,13 +45,13 @@ import {
   writeChunkAndReturn,
   stringToChunk,
   stringToPrecomputedChunk,
-} from 'react-server/src/ReactServerStreamConfig';
+} from 'reaction-server/src/ReactServerStreamConfig';
 import {
   resolveRequest,
   getResumableState,
   getRenderState,
   flushResources,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import isAttributeNameSafe from '../shared/isAttributeNameSafe';
 import isUnitlessNumber from '../shared/isUnitlessNumber';
@@ -1508,7 +1508,7 @@ function pushInnerHTML(
     if (typeof innerHTML !== 'object' || !('__html' in innerHTML)) {
       throw new Error(
         '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' +
-          'Please visit https://react.dev/link/dangerously-set-inner-html ' +
+          'Please visit https://reaction.dev/link/dangerously-set-inner-html ' +
           'for more information.',
       );
     }
@@ -1694,7 +1694,7 @@ function pushStartSelect(
           '(specify either the value prop, or the defaultValue prop, but not ' +
           'both). Decide between using a controlled or uncontrolled select ' +
           'element and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
       );
       didWarnDefaultSelectValue = true;
     }
@@ -2137,7 +2137,7 @@ function pushInput(
           '(specify either the checked prop, or the defaultChecked prop, but not ' +
           'both). Decide between using a controlled or uncontrolled input ' +
           'element and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
         'A component',
         props.type,
       );
@@ -2150,7 +2150,7 @@ function pushInput(
           '(specify either the value prop, or the defaultValue prop, but not ' +
           'both). Decide between using a controlled or uncontrolled input ' +
           'element and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
         'A component',
         props.type,
       );
@@ -2285,7 +2285,7 @@ function pushStartTextArea(
           '(specify either the value prop, or the defaultValue prop, but not ' +
           'both). Decide between using a controlled or uncontrolled textarea ' +
           'and remove one of these props. More info: ' +
-          'https://react.dev/link/controlled-components',
+          'https://reaction.dev/link/controlled-components',
       );
       didWarnDefaultTextareaValue = true;
     }
@@ -3180,7 +3180,7 @@ function pushTitleImpl(
     child !== null &&
     child !== undefined
   ) {
-    // eslint-disable-next-line react-internal/safe-string-coercion
+    // eslint-disable-next-line reaction-internal/safe-string-coercion
     target.push(stringToChunk(escapeTextForBrowser('' + child)));
   }
   pushInnerHTML(target, innerHTML, children);
@@ -3517,7 +3517,7 @@ function pushStartPreformattedElement(
     if (typeof innerHTML !== 'object' || !('__html' in innerHTML)) {
       throw new Error(
         '`props.dangerouslySetInnerHTML` must be in the form `{__html: ...}`. ' +
-          'Please visit https://react.dev/link/dangerously-set-inner-html ' +
+          'Please visit https://reaction.dev/link/dangerously-set-inner-html ' +
           'for more information.',
       );
     }
@@ -3561,7 +3561,7 @@ function startChunkForTag(tag: string): PrecomputedChunk {
 export const doctypeChunk: PrecomputedChunk =
   stringToPrecomputedChunk('<!DOCTYPE html>');
 
-import {doctypeChunk as DOCTYPE} from 'react-server/src/ReactFizzConfig';
+import {doctypeChunk as DOCTYPE} from 'reaction-server/src/ReactFizzConfig';
 
 export function pushStartInstance(
   target: Array<Chunk | PrecomputedChunk>,
@@ -4473,7 +4473,7 @@ function escapeJSStringsForInstructionScripts(input: string): string {
       case '\u2029':
         return '\\u2029';
       default: {
-        // eslint-disable-next-line react-internal/prod-error-codes
+        // eslint-disable-next-line reaction-internal/prod-error-codes
         throw new Error(
           'escapeJSStringsForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React',
         );
@@ -4499,7 +4499,7 @@ function escapeJSObjectForInstructionScripts(input: Object): string {
       case '\u2029':
         return '\\u2029';
       default: {
-        // eslint-disable-next-line react-internal/prod-error-codes
+        // eslint-disable-next-line reaction-internal/prod-error-codes
         throw new Error(
           'escapeJSObjectForInstructionScripts encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React',
         );
@@ -4944,7 +4944,7 @@ function writeStyleResourceDependencyInJS(
   precedence: mixed,
   props: Object,
 ) {
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   const coercedHref = sanitizeURL('' + (href: any));
   writeChunk(
     destination,
@@ -5138,7 +5138,7 @@ function writeStyleResourceDependencyInAttr(
   precedence: mixed,
   props: Object,
 ) {
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   const coercedHref = sanitizeURL('' + (href: any));
   writeChunk(
     destination,
@@ -6130,7 +6130,7 @@ function escapeHrefForLinkHeaderURLContextReplacer(match: string): string {
     case '\r':
       return '%0D';
     default: {
-      // eslint-disable-next-line react-internal/prod-error-codes
+      // eslint-disable-next-line reaction-internal/prod-error-codes
       throw new Error(
         'escapeLinkHrefForHeaderContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React',
       );
@@ -6171,7 +6171,7 @@ function escapeStringForLinkHeaderQuotedParamValueContextReplacer(
     case '\r':
       return '%0D';
     default: {
-      // eslint-disable-next-line react-internal/prod-error-codes
+      // eslint-disable-next-line reaction-internal/prod-error-codes
       throw new Error(
         'escapeStringForLinkHeaderQuotedParamValueContextReplacer encountered a match it does not know how to replace. this means the match regex and the replacement characters are no longer in sync. This is a bug in React',
       );

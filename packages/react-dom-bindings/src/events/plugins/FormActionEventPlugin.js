@@ -11,14 +11,14 @@ import type {AnyNativeEvent} from '../PluginModuleType';
 import type {DOMEventName} from '../DOMEventNames';
 import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
-import type {FormStatus} from 'react-dom-bindings/src/shared/ReactDOMFormActions';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
+import type {FormStatus} from 'reaction-dom-bindings/src/shared/ReactDOMFormActions';
 
 import {enableTrustedTypesIntegration} from 'shared/ReactFeatureFlags';
 import {getFiberCurrentPropsFromNode} from '../../client/ReactDOMComponentTree';
-import {startHostTransition} from 'react-reconciler/src/ReactFiberReconciler';
-import {didCurrentEventScheduleTransition} from 'react-reconciler/src/ReactFiberRootScheduler';
-import sanitizeURL from 'react-dom-bindings/src/shared/sanitizeURL';
+import {startHostTransition} from 'reaction-reconciler/src/ReactFiberReconciler';
+import {didCurrentEventScheduleTransition} from 'reaction-reconciler/src/ReactFiberRootScheduler';
+import sanitizeURL from 'reaction-dom-bindings/src/shared/sanitizeURL';
 import {checkAttributeStringCoercion} from 'shared/CheckStringCoercion';
 
 import {SyntheticEvent} from '../SyntheticEvent';

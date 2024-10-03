@@ -16,13 +16,13 @@ import {
   startWork,
   startFlowing,
   abort,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import {
   createResumableState,
   createRenderState,
   createRootFormatContext,
-} from 'react-dom-bindings/src/server/ReactFizzConfigDOMLegacy';
+} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOMLegacy';
 
 type ServerOptions = {
   identifierPrefix?: string,

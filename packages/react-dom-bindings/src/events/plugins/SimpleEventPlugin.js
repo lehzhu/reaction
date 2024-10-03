@@ -8,7 +8,7 @@
  */
 
 import type {DOMEventName} from '../../events/DOMEventNames';
-import type {Fiber} from 'react-reconciler/src/ReactInternalTypes';
+import type {Fiber} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {AnyNativeEvent} from '../../events/PluginModuleType';
 import type {DispatchQueue} from '../DOMPluginEventSystem';
 import type {EventSystemFlags} from '../EventSystemFlags';
@@ -62,12 +62,12 @@ function extractEvents(
   eventSystemFlags: EventSystemFlags,
   targetContainer: EventTarget,
 ): void {
-  const reactName = topLevelEventsToReactNames.get(domEventName);
-  if (reactName === undefined) {
+  const reactionName = topLevelEventsToReactNames.get(domEventName);
+  if (reactionName === undefined) {
     return;
   }
   let SyntheticEventCtor = SyntheticEvent;
-  let reactEventType: string = domEventName;
+  let reactionEventType: string = domEventName;
   switch (domEventName) {
     case 'keypress':
       // Firefox creates a keypress event for function keys too. This removes
@@ -84,11 +84,11 @@ function extractEvents(
       SyntheticEventCtor = SyntheticKeyboardEvent;
       break;
     case 'focusin':
-      reactEventType = 'focus';
+      reactionEventType = 'focus';
       SyntheticEventCtor = SyntheticFocusEvent;
       break;
     case 'focusout':
-      reactEventType = 'blur';
+      reactionEventType = 'blur';
       SyntheticEventCtor = SyntheticFocusEvent;
       break;
     case 'beforeblur':
@@ -180,15 +180,15 @@ function extractEvents(
     const listeners = accumulateEventHandleNonManagedNodeListeners(
       // TODO: this cast may not make sense for events like
       // "focus" where React listens to e.g. "focusin".
-      ((reactEventType: any): DOMEventName),
+      ((reactionEventType: any): DOMEventName),
       targetContainer,
       inCapturePhase,
     );
     if (listeners.length > 0) {
       // Intentionally create event lazily.
       const event: ReactSyntheticEvent = new SyntheticEventCtor(
-        reactName,
-        reactEventType,
+        reactionName,
+        reactionEventType,
         null,
         nativeEvent,
         nativeEventTarget,
@@ -210,7 +210,7 @@ function extractEvents(
 
     const listeners = accumulateSinglePhaseListeners(
       targetInst,
-      reactName,
+      reactionName,
       nativeEvent.type,
       inCapturePhase,
       accumulateTargetOnly,
@@ -219,8 +219,8 @@ function extractEvents(
     if (listeners.length > 0) {
       // Intentionally create event lazily.
       const event: ReactSyntheticEvent = new SyntheticEventCtor(
-        reactName,
-        reactEventType,
+        reactionName,
+        reactionEventType,
         null,
         nativeEvent,
         nativeEventTarget,
