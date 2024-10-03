@@ -1,12 +1,12 @@
 {
-  "name": "react-refresh",
+  "name": "reaction-refresh",
   "description": "React is a JavaScript library for building user interfaces.",
   "keywords": [
-    "react"
+    "reaction"
   ],
   "version": "0.14.0",
-  "homepage": "https://react.dev/",
-  "bugs": "https://github.com/facebook/react/issues",
+  "homepage": "https://reaction.dev/",
+  "bugs": "https://github.com/zuckbook/reaction/issues",
   "license": "MIT",
   "files": [
     "LICENSE",
@@ -24,15 +24,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
-    "directory": "packages/react"
+    "url": "https://github.com/zuckbook/reaction.git",
+    "directory": "packages/reaction"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "devDependencies": {
-    "react-16-8": "npm:react@16.8.0",
-    "react-dom-16-8": "npm:react-dom@16.8.0",
+    "reaction-16-8": "npm:reaction@16.8.0",
+    "reaction-dom-16-8": "npm:reaction-dom@16.8.0",
     "scheduler-0-13": "npm:scheduler@0.13.0"
   }
 }

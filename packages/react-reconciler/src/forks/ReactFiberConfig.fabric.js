@@ -7,5 +7,5 @@
  * @flow
  */
 
-export * from 'react-native-renderer/src/ReactFiberConfigFabric';
-export * from 'react-client/src/ReactClientConsoleConfigPlain';
+export * from 'reaction-native-renderer/src/ReactFiberConfigFabric';
+export * from 'reaction-client/src/ReactClientConsoleConfigPlain';

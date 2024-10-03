@@ -1,4 +1,4 @@
-# react-server-dom-esm
+# reaction-server-dom-esm
 
 Experimental React Flight bindings for DOM using ESM.
 

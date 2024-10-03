@@ -12,7 +12,7 @@ import type {Thenable, ReactCustomFormAction} from 'shared/ReactTypes.js';
 import type {
   Response,
   FindSourceMapURLCallback,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
 import type {Readable} from 'stream';
 
@@ -22,9 +22,9 @@ import {
   reportGlobalError,
   processBinaryChunk,
   close,
-} from 'react-client/src/ReactFlightClient';
+} from 'reaction-client/src/ReactFlightClient';
 
-import {createServerReference as createServerReferenceImpl} from 'react-client/src/ReactFlightReplyClient';
+import {createServerReference as createServerReferenceImpl} from 'reaction-client/src/ReactFlightReplyClient';
 
 function noServerCall() {
   throw new Error(

@@ -9,10 +9,10 @@
 
 import type {ReactNodeList} from 'shared/ReactTypes';
 
-import type {Request} from 'react-server/src/ReactFizzServer';
+import type {Request} from 'reaction-server/src/ReactFizzServer';
 
-import type {Destination} from 'react-server/src/ReactServerStreamConfig';
-import type {BootstrapScriptDescriptor} from 'react-dom-bindings/src/server/ReactFizzConfigDOM';
+import type {Destination} from 'reaction-server/src/ReactServerStreamConfig';
+import type {BootstrapScriptDescriptor} from 'reaction-dom-bindings/src/server/ReactFizzConfigDOM';
 
 import {
   createRequest,
@@ -20,13 +20,13 @@ import {
   performWork,
   startFlowing,
   abort,
-} from 'react-server/src/ReactFizzServer';
+} from 'reaction-server/src/ReactFizzServer';
 
 import {
   createResumableState,
   createRenderState,
   createRootFormatContext,
-} from 'react-server/src/ReactFizzConfig';
+} from 'reaction-server/src/ReactFizzConfig';
 
 type Options = {
   identifierPrefix?: string,

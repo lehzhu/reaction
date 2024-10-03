@@ -7,4 +7,4 @@
  * @flow
  */
 
-throw new Error('Use react-server-dom-turbopack/client instead.');
+throw new Error('Use reaction-server-dom-turbopack/client instead.');

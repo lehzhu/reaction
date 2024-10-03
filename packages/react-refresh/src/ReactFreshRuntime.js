@@ -7,14 +7,14 @@
  * @flow
  */
 
-import type {FiberRoot} from 'react-reconciler/src/ReactInternalTypes';
+import type {FiberRoot} from 'reaction-reconciler/src/ReactInternalTypes';
 import type {
   Family,
   RefreshUpdate,
   ScheduleRefresh,
   ScheduleRoot,
   SetRefreshHandler,
-} from 'react-reconciler/src/ReactFiberHotReloading';
+} from 'reaction-reconciler/src/ReactFiberHotReloading';
 import type {ReactNodeList} from 'shared/ReactTypes';
 
 import {REACT_MEMO_TYPE, REACT_FORWARD_REF_TYPE} from 'shared/ReactSymbols';
@@ -413,7 +413,7 @@ export function getFamilyByType(type: any): Family | void {
 
 export function injectIntoGlobalHook(globalObject: any): void {
   if (__DEV__) {
-    // For React Native, the global hook will be set up by require('react-devtools-core').
+    // For React Native, the global hook will be set up by require('reaction-devtools-core').
     // That code will run before us. So we need to monkeypatch functions on existing hook.
 
     // For React Web, the global hook will be set up by the extension.
@@ -470,7 +470,7 @@ export function injectIntoGlobalHook(globalObject: any): void {
 
     // Do the same for any already injected roots.
     // This is useful if ReactDOM has already been initialized.
-    // https://github.com/facebook/react/issues/17626
+    // https://github.com/zuckbook/reaction/issues/17626
     hook.renderers.forEach((injected, id) => {
       if (
         typeof injected.scheduleRefresh === 'function' &&
@@ -631,7 +631,7 @@ export function createSignatureFunctionForTransform(): <T>(
         }
         // Set the signature for all types (even wrappers!) in case
         // they have no signatures of their own. This is to prevent
-        // problems like https://github.com/facebook/react/issues/20417.
+        // problems like https://github.com/zuckbook/reaction/issues/20417.
         if (
           type != null &&
           (typeof type === 'function' || typeof type === 'object')

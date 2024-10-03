@@ -7,10 +7,10 @@
  * @flow
  */
 
-// Re-exported just because we always type check react-reconciler even in
+// Re-exported just because we always type check reaction-reconciler even in
 // dimensions where it's not used.
-export * from 'react-dom-bindings/src/client/ReactFiberConfigDOM';
-export * from 'react-client/src/ReactClientConsoleConfigBrowser';
+export * from 'reaction-dom-bindings/src/client/ReactFiberConfigDOM';
+export * from 'reaction-client/src/ReactClientConsoleConfigBrowser';
 
-// eslint-disable-next-line react-internal/prod-error-codes
-throw new Error('Fiber is not used in react-markup');
+// eslint-disable-next-line reaction-internal/prod-error-codes
+throw new Error('Fiber is not used in reaction-markup');

@@ -7,5 +7,5 @@
  * @flow
  */
 
-export * from 'react-dom-bindings/src/client/ReactFiberConfigDOM';
-export * from 'react-client/src/ReactClientConsoleConfigBrowser';
+export * from 'reaction-dom-bindings/src/client/ReactFiberConfigDOM';
+export * from 'reaction-client/src/ReactClientConsoleConfigBrowser';

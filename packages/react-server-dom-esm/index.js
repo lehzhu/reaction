@@ -7,4 +7,4 @@
  * @flow
  */
 
-throw new Error('Use react-server-dom-esm/client instead.');
+throw new Error('Use reaction-server-dom-esm/client instead.');

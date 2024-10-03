@@ -12,7 +12,7 @@ import type {
   FulfilledThenable,
   RejectedThenable,
 } from 'shared/ReactTypes';
-import type {ModuleLoading} from 'react-client/src/ReactFlightClientConfig';
+import type {ModuleLoading} from 'reaction-client/src/ReactFlightClientConfig';
 
 export type SSRModuleMap = string; // Module root path
 
@@ -20,7 +20,7 @@ export type ServerManifest = string; // Module root path
 
 export type ServerReferenceId = string;
 
-import {prepareDestinationForModuleImpl} from 'react-client/src/ReactFlightClientConfig';
+import {prepareDestinationForModuleImpl} from 'reaction-client/src/ReactFlightClientConfig';
 
 export opaque type ClientReferenceMetadata = [
   string, // module path

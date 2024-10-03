@@ -7,14 +7,14 @@
  * @flow
  */
 
-// This is a host config that's used for the `react-reconciler` package on npm.
+// This is a host config that's used for the `reaction-reconciler` package on npm.
 // It is only used by third-party renderers.
 //
 // Its API lets you pass the host config as an argument.
-// However, inside the `react-reconciler` we treat host config as a module.
+// However, inside the `reaction-reconciler` we treat host config as a module.
 // This file is a shim between two worlds.
 //
-// It works because the `react-reconciler` bundle is wrapped in something like:
+// It works because the `reaction-reconciler` bundle is wrapped in something like:
 //
 // module.exports = function ($$$config) {
 //   /* reconciler code */

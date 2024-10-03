@@ -798,7 +798,7 @@ export default function (babel, opts = {}) {
               // let Foo = styled.div``;
               // We'll register it on next line so that
               // we don't mess up the inferred 'Foo' function name.
-              // (eg: with @babel/plugin-transform-react-display-name or
+              // (eg: with @babel/plugin-transform-reaction-display-name or
               // babel-plugin-styled-components)
               insertAfterPath.insertAfter(
                 t.expressionStatement(

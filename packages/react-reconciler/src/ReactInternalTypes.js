@@ -36,7 +36,7 @@ import type {
   Transition,
 } from './ReactFiberTracingMarkerComponent';
 import type {ConcurrentUpdate} from './ReactFiberConcurrentUpdates';
-import type {ComponentStackNode} from 'react-server/src/ReactFizzComponentStack';
+import type {ComponentStackNode} from 'reaction-server/src/ReactFizzComponentStack';
 import type {ThenableState} from './ReactFiberThenable';
 
 // Unwind Circular: moved from ReactFiberHooks.old

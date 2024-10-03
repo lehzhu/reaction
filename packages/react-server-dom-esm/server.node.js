@@ -16,4 +16,4 @@ export {
   registerServerReference,
   registerClientReference,
   createTemporaryReferenceSet,
-} from './src/server/react-flight-dom-server.node';
+} from './src/server/reaction-flight-dom-server.node';

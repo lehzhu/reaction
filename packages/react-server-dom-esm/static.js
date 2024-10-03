@@ -8,6 +8,6 @@
  */
 
 throw new Error(
-  'The React Server cannot be used outside a react-server environment. ' +
-    'You must configure Node.js using the `--conditions react-server` flag.',
+  'The React Server cannot be used outside a reaction-server environment. ' +
+    'You must configure Node.js using the `--conditions reaction-server` flag.',
 );

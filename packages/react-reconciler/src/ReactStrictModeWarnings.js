@@ -10,7 +10,7 @@
 import type {Fiber} from './ReactInternalTypes';
 
 import {runWithFiberInDEV} from './ReactCurrentFiber';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 import {StrictLegacyMode} from './ReactTypeOfMode';
 
 type FiberArray = Array<Fiber>;
@@ -68,7 +68,7 @@ if (__DEV__) {
 
     if (
       typeof instance.componentWillMount === 'function' &&
-      // Don't warn about react-lifecycles-compat polyfilled components.
+      // Don't warn about reaction-lifecycles-compat polyfilled components.
       instance.componentWillMount.__suppressDeprecationWarning !== true
     ) {
       pendingComponentWillMountWarnings.push(fiber);
@@ -190,7 +190,7 @@ if (__DEV__) {
       );
       console.error(
         'Using UNSAFE_componentWillMount in strict mode is not recommended and may indicate bugs in your code. ' +
-          'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+          'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
           '* Move code with side effects to componentDidMount, and set initial state in the constructor.\n' +
           '\nPlease update the following components: %s',
         sortedNames,
@@ -204,11 +204,11 @@ if (__DEV__) {
       console.error(
         'Using UNSAFE_componentWillReceiveProps in strict mode is not recommended ' +
           'and may indicate bugs in your code. ' +
-          'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+          'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
           '* Move data fetching code or side effects to componentDidUpdate.\n' +
           "* If you're updating state whenever props change, " +
           'refactor your code to use memoization techniques or move it to ' +
-          'static getDerivedStateFromProps. Learn more at: https://react.dev/link/derived-state\n' +
+          'static getDerivedStateFromProps. Learn more at: https://reaction.dev/link/derived-state\n' +
           '\nPlease update the following components: %s',
         sortedNames,
       );
@@ -221,7 +221,7 @@ if (__DEV__) {
       console.error(
         'Using UNSAFE_componentWillUpdate in strict mode is not recommended ' +
           'and may indicate bugs in your code. ' +
-          'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+          'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
           '* Move data fetching code or side effects to componentDidUpdate.\n' +
           '\nPlease update the following components: %s',
         sortedNames,
@@ -233,12 +233,12 @@ if (__DEV__) {
 
       console.warn(
         'componentWillMount has been renamed, and is not recommended for use. ' +
-          'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+          'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
           '* Move code with side effects to componentDidMount, and set initial state in the constructor.\n' +
           '* Rename componentWillMount to UNSAFE_componentWillMount to suppress ' +
           'this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. ' +
           'To rename all deprecated lifecycles to their new names, you can run ' +
-          '`npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n' +
+          '`npx reaction-codemod rename-unsafe-lifecycles` in your project source folder.\n' +
           '\nPlease update the following components: %s',
         sortedNames,
       );
@@ -251,15 +251,15 @@ if (__DEV__) {
 
       console.warn(
         'componentWillReceiveProps has been renamed, and is not recommended for use. ' +
-          'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+          'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
           '* Move data fetching code or side effects to componentDidUpdate.\n' +
           "* If you're updating state whenever props change, refactor your " +
           'code to use memoization techniques or move it to ' +
-          'static getDerivedStateFromProps. Learn more at: https://react.dev/link/derived-state\n' +
+          'static getDerivedStateFromProps. Learn more at: https://reaction.dev/link/derived-state\n' +
           '* Rename componentWillReceiveProps to UNSAFE_componentWillReceiveProps to suppress ' +
           'this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. ' +
           'To rename all deprecated lifecycles to their new names, you can run ' +
-          '`npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n' +
+          '`npx reaction-codemod rename-unsafe-lifecycles` in your project source folder.\n' +
           '\nPlease update the following components: %s',
         sortedNames,
       );
@@ -270,12 +270,12 @@ if (__DEV__) {
 
       console.warn(
         'componentWillUpdate has been renamed, and is not recommended for use. ' +
-          'See https://react.dev/link/unsafe-component-lifecycles for details.\n\n' +
+          'See https://reaction.dev/link/unsafe-component-lifecycles for details.\n\n' +
           '* Move data fetching code or side effects to componentDidUpdate.\n' +
           '* Rename componentWillUpdate to UNSAFE_componentWillUpdate to suppress ' +
           'this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. ' +
           'To rename all deprecated lifecycles to their new names, you can run ' +
-          '`npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n' +
+          '`npx reaction-codemod rename-unsafe-lifecycles` in your project source folder.\n' +
           '\nPlease update the following components: %s',
         sortedNames,
       );
@@ -342,7 +342,7 @@ if (__DEV__) {
               '\n\nThe old API will be supported in all 16.x releases, but applications ' +
               'using it should migrate to the new version.' +
               '\n\nPlease update the following components: %s' +
-              '\n\nLearn more about this warning here: https://react.dev/link/legacy-context',
+              '\n\nLearn more about this warning here: https://reaction.dev/link/legacy-context',
             sortedNames,
           );
         });

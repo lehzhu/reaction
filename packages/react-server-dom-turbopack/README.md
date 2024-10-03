@@ -1,4 +1,4 @@
-# react-server-dom-turbopack
+# reaction-server-dom-turbopack
 
 Experimental React Flight bindings for DOM using Turbopack.
 

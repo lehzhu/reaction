@@ -1,7 +1,7 @@
 'use strict';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./cjs/react-refresh-runtime.production.js');
+  module.exports = require('./cjs/reaction-refresh-runtime.production.js');
 } else {
-  module.exports = require('./cjs/react-refresh-runtime.development.js');
+  module.exports = require('./cjs/reaction-refresh-runtime.development.js');
 }

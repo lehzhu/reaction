@@ -45,7 +45,7 @@ import {
   CacheComponent,
   TracingMarkerComponent,
   Throw,
-} from 'react-reconciler/src/ReactWorkTags';
+} from 'reaction-reconciler/src/ReactWorkTags';
 import getComponentNameFromType from 'shared/getComponentNameFromType';
 import {REACT_STRICT_MODE_TYPE} from 'shared/ReactSymbols';
 import type {ReactComponentInfo} from '../../shared/ReactTypes';
