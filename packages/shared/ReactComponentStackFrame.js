@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {LazyComponent} from 'react/src/ReactLazy';
+import type {LazyComponent} from 'reaction/src/ReactLazy';
 
 import {enableComponentStackLocations} from 'shared/ReactFeatureFlags';
 

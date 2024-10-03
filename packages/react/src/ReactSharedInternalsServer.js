@@ -7,8 +7,8 @@
  * @flow
  */
 
-import type {Dispatcher} from 'react-reconciler/src/ReactInternalTypes';
-import type {AsyncDispatcher} from 'react-reconciler/src/ReactInternalTypes';
+import type {Dispatcher} from 'reaction-reconciler/src/ReactInternalTypes';
+import type {AsyncDispatcher} from 'reaction-reconciler/src/ReactInternalTypes';
 
 import type {
   Reference,

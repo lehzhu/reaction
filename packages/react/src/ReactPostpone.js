@@ -16,7 +16,7 @@ declare class Postpone extends Error {
 export type {Postpone};
 
 export function postpone(reason: string): void {
-  // eslint-disable-next-line react-internal/prod-error-codes
+  // eslint-disable-next-line reaction-internal/prod-error-codes
   const postponeInstance: Postpone = (new Error(reason): any);
   postponeInstance.$$typeof = REACT_POSTPONE_TYPE;
   throw postponeInstance;

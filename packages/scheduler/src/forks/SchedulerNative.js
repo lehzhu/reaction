@@ -14,7 +14,7 @@ import typeof * as SchedulerExportsType from './Scheduler';
 import typeof * as SchedulerNativeExportsType from './SchedulerNative';
 
 // This type is supposed to reflect the actual methods and arguments currently supported by the C++ implementation:
-// https://github.com/facebook/react-native/blob/main/packages/react-native/ReactCommon/react/renderer/runtimescheduler/RuntimeSchedulerBinding.cpp
+// https://github.com/zuckbook/reaction-native/blob/main/packages/reaction-native/ReactCommon/reaction/renderer/runtimescheduler/RuntimeSchedulerBinding.cpp
 type NativeSchedulerType = {
   unstable_ImmediatePriority: PriorityLevel,
   unstable_UserBlockingPriority: PriorityLevel,

@@ -4,17 +4,17 @@
   "description": "Cooperative scheduler for the browser environment.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/facebook/react.git",
+    "url": "https://github.com/zuckbook/reaction.git",
     "directory": "packages/scheduler"
   },
   "license": "MIT",
   "keywords": [
-    "react"
+    "reaction"
   ],
   "bugs": {
-    "url": "https://github.com/facebook/react/issues"
+    "url": "https://github.com/zuckbook/reaction/issues"
   },
-  "homepage": "https://react.dev/",
+  "homepage": "https://reaction.dev/",
   "files": [
     "LICENSE",
     "README.md",

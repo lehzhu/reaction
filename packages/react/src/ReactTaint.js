@@ -60,7 +60,7 @@ export function taintUniqueValue(
   if (!enableTaint) {
     throw new Error('Not implemented.');
   }
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   message = '' + (message || defaultMessage);
   if (
     lifetime === null ||
@@ -119,7 +119,7 @@ export function taintObjectReference(
   if (!enableTaint) {
     throw new Error('Not implemented.');
   }
-  // eslint-disable-next-line react-internal/safe-string-coercion
+  // eslint-disable-next-line reaction-internal/safe-string-coercion
   message = '' + (message || defaultMessage);
   if (typeof object === 'string' || typeof object === 'bigint') {
     throw new Error(

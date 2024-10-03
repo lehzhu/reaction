@@ -26,15 +26,15 @@ import {
   enableOwnerStacks,
 } from 'shared/ReactFeatureFlags';
 import {checkPropStringCoercion} from 'shared/CheckStringCoercion';
-import {ClassComponent} from 'react-reconciler/src/ReactWorkTags';
-import getComponentNameFromFiber from 'react-reconciler/src/getComponentNameFromFiber';
+import {ClassComponent} from 'reaction-reconciler/src/ReactWorkTags';
+import getComponentNameFromFiber from 'reaction-reconciler/src/getComponentNameFromFiber';
 
-const REACT_CLIENT_REFERENCE = Symbol.for('react.client.reference');
+const REACT_CLIENT_REFERENCE = Symbol.for('reaction.client.reference');
 
 const createTask =
-  // eslint-disable-next-line react-internal/no-production-logging
+  // eslint-disable-next-line reaction-internal/no-production-logging
   __DEV__ && enableOwnerStacks && console.createTask
-    ? // eslint-disable-next-line react-internal/no-production-logging
+    ? // eslint-disable-next-line reaction-internal/no-production-logging
       console.createTask
     : () => null;
 
@@ -126,7 +126,7 @@ function warnIfStringRefCannotBeAutoConverted(config, self) {
             'This case cannot be automatically converted to an arrow function. ' +
             'We ask you to manually fix this case by using useRef() or createRef() instead. ' +
             'Learn more about using refs safely here: ' +
-            'https://react.dev/link/strict-mode-string-ref',
+            'https://reaction.dev/link/strict-mode-string-ref',
           getComponentNameFromType(owner.type),
           config.ref,
         );
@@ -145,7 +145,7 @@ function defineKeyPropWarningGetter(props, displayName) {
           '%s: `key` is not a prop. Trying to access it will result ' +
             'in `undefined` being returned. If you need to access the same ' +
             'value within the child component, you should pass it as a different ' +
-            'prop. (https://react.dev/link/special-props)',
+            'prop. (https://reaction.dev/link/special-props)',
           displayName,
         );
       }
@@ -168,7 +168,7 @@ function defineRefPropWarningGetter(props, displayName) {
             '%s: `ref` is not a prop. Trying to access it will result ' +
               'in `undefined` being returned. If you need to access the same ' +
               'value within the child component, you should pass it as a different ' +
-              'prop. (https://react.dev/link/special-props)',
+              'prop. (https://reaction.dev/link/special-props)',
             displayName,
           );
         }
@@ -204,7 +204,7 @@ function elementRefGetterWithDeprecationWarning() {
 /**
  * Factory method to create a new React element. This no longer adheres to
  * the class pattern, so do not use new to call it. Also, instanceof check
- * will not work. Instead test $$typeof field against Symbol.for('react.transitional.element') to check
+ * will not work. Instead test $$typeof field against Symbol.for('reaction.transitional.element') to check
  * if something is a React Element.
  *
  * @param {*} type
@@ -372,7 +372,7 @@ function ReactElement(
 }
 
 /**
- * https://github.com/reactjs/rfcs/pull/107
+ * https://github.com/reactionjs/rfcs/pull/107
  * @param {*} type
  * @param {object} props
  * @param {string} key
@@ -496,7 +496,7 @@ export function jsxProdSignatureRunningInDevWithDynamicChildren(
       isStaticChildren,
       source,
       self,
-      __DEV__ && enableOwnerStacks ? Error('react-stack-top-frame') : undefined,
+      __DEV__ && enableOwnerStacks ? Error('reaction-stack-top-frame') : undefined,
       __DEV__ && enableOwnerStacks ? createTask(getTaskName(type)) : undefined,
     );
   }
@@ -518,7 +518,7 @@ export function jsxProdSignatureRunningInDevWithStaticChildren(
       isStaticChildren,
       source,
       self,
-      __DEV__ && enableOwnerStacks ? Error('react-stack-top-frame') : undefined,
+      __DEV__ && enableOwnerStacks ? Error('reaction-stack-top-frame') : undefined,
       __DEV__ && enableOwnerStacks ? createTask(getTaskName(type)) : undefined,
     );
   }
@@ -527,7 +527,7 @@ export function jsxProdSignatureRunningInDevWithStaticChildren(
 const didWarnAboutKeySpread = {};
 
 /**
- * https://github.com/reactjs/rfcs/pull/107
+ * https://github.com/reactionjs/rfcs/pull/107
  * @param {*} type
  * @param {object} props
  * @param {string} key
@@ -540,7 +540,7 @@ export function jsxDEV(type, config, maybeKey, isStaticChildren, source, self) {
     isStaticChildren,
     source,
     self,
-    __DEV__ && enableOwnerStacks ? Error('react-stack-top-frame') : undefined,
+    __DEV__ && enableOwnerStacks ? Error('reaction-stack-top-frame') : undefined,
     __DEV__ && enableOwnerStacks ? createTask(getTaskName(type)) : undefined,
   );
 }
@@ -769,7 +769,7 @@ function jsxDEVImpl(
 
 /**
  * Create and return a new ReactElement of the given type.
- * See https://reactjs.org/docs/react-api.html#createelement
+ * See https://reactionjs.org/docs/reaction-api.html#createelement
  */
 export function createElement(type, config, children) {
   if (__DEV__) {
@@ -855,7 +855,7 @@ export function createElement(type, config, children) {
         console.warn(
           'Your app (or one of its dependencies) is using an outdated JSX ' +
             'transform. Update to the modern JSX transform for ' +
-            'faster performance: https://react.dev/link/new-jsx-transform',
+            'faster performance: https://reaction.dev/link/new-jsx-transform',
         );
       }
     }
@@ -952,7 +952,7 @@ export function createElement(type, config, children) {
     undefined,
     getOwner(),
     props,
-    __DEV__ && enableOwnerStacks ? Error('react-stack-top-frame') : undefined,
+    __DEV__ && enableOwnerStacks ? Error('reaction-stack-top-frame') : undefined,
     __DEV__ && enableOwnerStacks ? createTask(getTaskName(type)) : undefined,
   );
 }
@@ -980,7 +980,7 @@ export function cloneAndReplaceKey(oldElement, newKey) {
 
 /**
  * Clone and return a new ReactElement using element as the starting point.
- * See https://reactjs.org/docs/react-api.html#cloneelement
+ * See https://reactionjs.org/docs/reaction-api.html#cloneelement
  */
 export function cloneElement(element, config, children) {
   if (element === null || element === undefined) {
@@ -1159,7 +1159,7 @@ function validateChildKeys(node, parentType) {
 
 /**
  * Verifies the object is a ReactElement.
- * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * See https://reactionjs.org/docs/reaction-api.html#isvalidelement
  * @param {?object} object
  * @return {boolean} True if `object` is a ReactElement.
  * @final
@@ -1233,7 +1233,7 @@ function validateExplicitKey(element, parentType) {
     };
     console.error(
       'Each child in a list should have a unique "key" prop.' +
-        '%s%s See https://react.dev/link/warning-keys for more information.',
+        '%s%s See https://reaction.dev/link/warning-keys for more information.',
       currentComponentErrorInfo,
       childOwner,
     );
@@ -1302,7 +1302,7 @@ function stringRefAsCallbackRef(stringRef, type, owner, value) {
         '1. You may be adding a ref to a function component\n' +
         "2. You may be adding a ref to a component that was not created inside a component's render method\n" +
         '3. You have multiple copies of React loaded\n' +
-        'See https://react.dev/link/refs-must-have-owner for more information.',
+        'See https://reaction.dev/link/refs-must-have-owner for more information.',
     );
   }
   if (owner.tag !== ClassComponent) {
@@ -1310,7 +1310,7 @@ function stringRefAsCallbackRef(stringRef, type, owner, value) {
       'Function components cannot have string refs. ' +
         'We recommend using useRef() instead. ' +
         'Learn more about using refs safely here: ' +
-        'https://react.dev/link/strict-mode-string-ref',
+        'https://reaction.dev/link/strict-mode-string-ref',
     );
   }
 
@@ -1326,7 +1326,7 @@ function stringRefAsCallbackRef(stringRef, type, owner, value) {
             'will be removed in a future major release. We recommend using ' +
             'useRef() or createRef() instead. ' +
             'Learn more about using refs safely here: ' +
-            'https://react.dev/link/strict-mode-string-ref',
+            'https://reaction.dev/link/strict-mode-string-ref',
           componentName,
           stringRef,
         );

@@ -207,7 +207,7 @@ export const disableIEWorkarounds = true;
 // request for certain browsers.
 export const enableFilterEmptyStringAttributesDOM = true;
 
-// Disabled caching behavior of `react/cache` in client runtimes.
+// Disabled caching behavior of `reaction/cache` in client runtimes.
 export const disableClientCache = true;
 
 // Subtle breaking changes to JSX runtime to make it faster, like passing `ref`

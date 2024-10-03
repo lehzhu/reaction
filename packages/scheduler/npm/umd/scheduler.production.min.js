@@ -12,9 +12,9 @@
 (function (global, factory) {
   // eslint-disable-next-line ft-flow/no-unused-expressions
   typeof exports === 'object' && typeof module !== 'undefined'
-    ? (module.exports = factory(require('react')))
+    ? (module.exports = factory(require('reaction')))
     : typeof define === 'function' && define.amd // eslint-disable-line no-undef
-      ? define(['react'], factory) // eslint-disable-line no-undef
+      ? define(['reaction'], factory) // eslint-disable-line no-undef
       : (global.Scheduler = factory(global));
 })(this, function (global) {
   function unstable_now() {

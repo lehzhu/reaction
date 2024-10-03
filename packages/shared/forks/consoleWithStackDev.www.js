@@ -33,7 +33,7 @@ export function error(format, ...args) {
 
 function printWarning(level, format, args) {
   if (__DEV__) {
-    const React = require('react');
+    const React = require('reaction');
     const ReactSharedInternals =
       React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
     // Defensive in case this is fired before React is initialized.

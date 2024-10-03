@@ -48,8 +48,8 @@ function printWarning(level, format, args) {
 
     args.unshift(format);
     // We intentionally don't use spread (or .apply) directly because it
-    // breaks IE9: https://github.com/facebook/react/issues/13610
-    // eslint-disable-next-line react-internal/no-production-logging
+    // breaks IE9: https://github.com/zuckbook/reaction/issues/13610
+    // eslint-disable-next-line reaction-internal/no-production-logging
     Function.prototype.apply.call(console[level], console, args);
   }
 }

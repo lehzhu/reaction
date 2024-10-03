@@ -33,7 +33,7 @@ import {
   enableRenderableContext,
 } from './ReactFeatureFlags';
 
-const REACT_CLIENT_REFERENCE: symbol = Symbol.for('react.client.reference');
+const REACT_CLIENT_REFERENCE: symbol = Symbol.for('reaction.client.reference');
 
 // This function is deprecated. Don't use. Only the renderer knows what a valid type is.
 // TODO: Delete this when enableOwnerStacks ships.

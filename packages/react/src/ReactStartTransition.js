@@ -6,7 +6,7 @@
  *
  * @flow
  */
-import type {BatchConfigTransition} from 'react-reconciler/src/ReactFiberTracingMarkerComponent';
+import type {BatchConfigTransition} from 'reaction-reconciler/src/ReactFiberTracingMarkerComponent';
 import type {StartTransitionOptions} from 'shared/ReactTypes';
 
 import ReactSharedInternals from 'shared/ReactSharedInternals';

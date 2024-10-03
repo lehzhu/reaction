@@ -30,7 +30,7 @@ const SEPARATOR = '.';
 const SUBSEPARATOR = ':';
 
 /**
- * Escape and wrap key so it is safe to use as a reactid
+ * Escape and wrap key so it is safe to use as a reactionid
  *
  * @param {string} key to be escaped.
  * @return {string} the escaped key.
@@ -224,7 +224,7 @@ function mapIntoArray(
             (!child || child.key !== mappedChild.key)
               ? escapeUserProvidedKey(
                   // $FlowFixMe[unsafe-addition]
-                  '' + mappedChild.key, // eslint-disable-line react-internal/safe-string-coercion
+                  '' + mappedChild.key, // eslint-disable-line reaction-internal/safe-string-coercion
                 ) + '/'
               : '') +
             childKey,
@@ -320,7 +320,7 @@ function mapIntoArray(
         );
       }
 
-      // eslint-disable-next-line react-internal/safe-string-coercion
+      // eslint-disable-next-line reaction-internal/safe-string-coercion
       const childrenString = String((children: any));
 
       throw new Error(
@@ -345,7 +345,7 @@ type MapFunc = (child: ?React$Node, index: number) => ?ReactNodeList;
 /**
  * Maps children that are typically specified as `props.children`.
  *
- * See https://reactjs.org/docs/react-api.html#reactchildrenmap
+ * See https://reactionjs.org/docs/reaction-api.html#reactionchildrenmap
  *
  * The provided mapFunction(child, index) will be called for each
  * leaf child.
@@ -376,7 +376,7 @@ function mapChildren(
  * Count the number of children that are typically specified as
  * `props.children`.
  *
- * See https://reactjs.org/docs/react-api.html#reactchildrencount
+ * See https://reactionjs.org/docs/reaction-api.html#reactionchildrencount
  *
  * @param {?*} children Children tree container.
  * @return {number} The number of children.
@@ -395,7 +395,7 @@ type ForEachFunc = (child: ?React$Node) => void;
 /**
  * Iterates through children that are typically specified as `props.children`.
  *
- * See https://reactjs.org/docs/react-api.html#reactchildrenforeach
+ * See https://reactionjs.org/docs/reaction-api.html#reactionchildrenforeach
  *
  * The provided forEachFunc(child, index) will be called for each
  * leaf child.
@@ -424,7 +424,7 @@ function forEachChildren(
  * Flatten a children object (typically specified as `props.children`) and
  * return an array with appropriately re-keyed children.
  *
- * See https://reactjs.org/docs/react-api.html#reactchildrentoarray
+ * See https://reactionjs.org/docs/reaction-api.html#reactionchildrentoarray
  */
 function toArray(children: ?ReactNodeList): Array<React$Node> {
   return mapChildren(children, child => child) || [];
@@ -434,7 +434,7 @@ function toArray(children: ?ReactNodeList): Array<React$Node> {
  * Returns the first child in a collection of children and verifies that there
  * is only one child in the collection.
  *
- * See https://reactjs.org/docs/react-api.html#reactchildrenonly
+ * See https://reactionjs.org/docs/reaction-api.html#reactionchildrenonly
  *
  * The current implementation of this function assumes that a single child gets
  * passed without a wrapper, but the purpose of this helper function is to
