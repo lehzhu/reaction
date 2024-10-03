@@ -16,20 +16,20 @@ import {
   TREE_OPERATION_SET_SUBTREE_MODE,
   TREE_OPERATION_UPDATE_TREE_BASE_DURATION,
   TREE_OPERATION_UPDATE_ERRORS_OR_WARNINGS,
-} from 'react-devtools-shared/src/constants';
+} from 'reaction-devtools-shared/src/constants';
 import {
   parseElementDisplayNameFromBackend,
   utfDecodeStringWithRanges,
-} from 'react-devtools-shared/src/utils';
-import {ElementTypeRoot} from 'react-devtools-shared/src/frontend/types';
-import ProfilerStore from 'react-devtools-shared/src/devtools/ProfilerStore';
+} from 'reaction-devtools-shared/src/utils';
+import {ElementTypeRoot} from 'reaction-devtools-shared/src/frontend/types';
+import ProfilerStore from 'reaction-devtools-shared/src/devtools/ProfilerStore';
 
-import type {ElementType} from 'react-devtools-shared/src/frontend/types';
+import type {ElementType} from 'reaction-devtools-shared/src/frontend/types';
 import type {
   CommitTree,
   CommitTreeNode,
   ProfilingDataForRootFrontend,
-} from 'react-devtools-shared/src/devtools/views/Profiler/types';
+} from 'reaction-devtools-shared/src/devtools/views/Profiler/types';
 
 const debug = (methodName: string, ...args: Array<string>) => {
   if (__DEBUG__) {

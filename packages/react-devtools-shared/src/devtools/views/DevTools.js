@@ -12,8 +12,8 @@
 import '@reach/menu-button/styles.css';
 import '@reach/tooltip/styles.css';
 
-import * as React from 'react';
-import {useCallback, useEffect, useLayoutEffect, useMemo, useRef} from 'react';
+import * as React from 'reaction';
+import {useCallback, useEffect, useLayoutEffect, useMemo, useRef} from 'reaction';
 import Store from '../store';
 import {
   BridgeContext,
@@ -28,9 +28,9 @@ import {SettingsContextController} from './Settings/SettingsContext';
 import {TreeContextController} from './Components/TreeContext';
 import ViewElementSourceContext from './Components/ViewElementSourceContext';
 import FetchFileWithCachingContext from './Components/FetchFileWithCachingContext';
-import HookNamesModuleLoaderContext from 'react-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
+import HookNamesModuleLoaderContext from 'reaction-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
 import {ProfilerContextController} from './Profiler/ProfilerContext';
-import {TimelineContextController} from 'react-devtools-timeline/src/TimelineContext';
+import {TimelineContextController} from 'reaction-devtools-timeline/src/TimelineContext';
 import {ModalDialogContextController} from './ModalDialog';
 import ReactLogo from './ReactLogo';
 import UnsupportedBridgeProtocolDialog from './UnsupportedBridgeProtocolDialog';
@@ -46,10 +46,10 @@ import styles from './DevTools.css';
 import './root.css';
 
 import type {FetchFileWithCaching} from './Components/FetchFileWithCachingContext';
-import type {HookNamesModuleLoaderFunction} from 'react-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type {BrowserTheme} from 'react-devtools-shared/src/frontend/types';
-import type {Source} from 'react-devtools-shared/src/shared/types';
+import type {HookNamesModuleLoaderFunction} from 'reaction-devtools-shared/src/devtools/views/Components/HookNamesModuleLoaderContext';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
+import type {BrowserTheme} from 'reaction-devtools-shared/src/frontend/types';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 
 export type TabID = 'components' | 'profiler';
 
@@ -280,7 +280,7 @@ export default function DevTools({
                               <div
                                 className={styles.DevTools}
                                 ref={devToolsRef}
-                                data-react-devtools-portal-root={true}>
+                                data-reaction-devtools-portal-root={true}>
                                 {showTabBar && (
                                   <div className={styles.TabBar}>
                                     <ReactLogo />

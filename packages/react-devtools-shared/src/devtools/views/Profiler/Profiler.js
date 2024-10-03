@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext} from 'react';
+import * as React from 'reaction';
+import {Fragment, useContext} from 'reaction';
 import {ModalDialog} from '../ModalDialog';
 import {ProfilerContext} from './ProfilerContext';
 import TabBar from '../TabBar';
@@ -16,7 +16,7 @@ import ClearProfilingDataButton from './ClearProfilingDataButton';
 import CommitFlamegraph from './CommitFlamegraph';
 import CommitRanked from './CommitRanked';
 import RootSelector from './RootSelector';
-import {Timeline} from 'react-devtools-timeline/src/Timeline';
+import {Timeline} from 'reaction-devtools-timeline/src/Timeline';
 import SidebarEventInfo from './SidebarEventInfo';
 import RecordToggle from './RecordToggle';
 import ReloadAndProfileButton from './ReloadAndProfileButton';
@@ -28,12 +28,12 @@ import RecordingInProgress from './RecordingInProgress';
 import ProcessingData from './ProcessingData';
 import ProfilingNotSupported from './ProfilingNotSupported';
 import SidebarSelectedFiberInfo from './SidebarSelectedFiberInfo';
-import SettingsModal from 'react-devtools-shared/src/devtools/views/Settings/SettingsModal';
-import SettingsModalContextToggle from 'react-devtools-shared/src/devtools/views/Settings/SettingsModalContextToggle';
-import {SettingsModalContextController} from 'react-devtools-shared/src/devtools/views/Settings/SettingsModalContext';
+import SettingsModal from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsModal';
+import SettingsModalContextToggle from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsModalContextToggle';
+import {SettingsModalContextController} from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsModalContext';
 import portaledContent from '../portaledContent';
 import {StoreContext} from '../context';
-import {TimelineContext} from 'react-devtools-timeline/src/TimelineContext';
+import {TimelineContext} from 'reaction-devtools-timeline/src/TimelineContext';
 
 import styles from './Profiler.css';
 

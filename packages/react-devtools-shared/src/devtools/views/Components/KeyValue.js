@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useTransition, useContext, useRef, useState, useMemo} from 'react';
+import * as React from 'reaction';
+import {useTransition, useContext, useRef, useState, useMemo} from 'reaction';
 import {OptionsContext} from '../context';
 import EditableName from './EditableName';
 import EditableValue from './EditableValue';
@@ -21,19 +21,19 @@ import {meta} from '../../../hydration';
 import Store from '../../store';
 import {parseHookPathForEdit} from './utils';
 import styles from './KeyValue.css';
-import Button from 'react-devtools-shared/src/devtools/views/Button';
-import ButtonIcon from 'react-devtools-shared/src/devtools/views/ButtonIcon';
-import isArray from 'react-devtools-shared/src/isArray';
+import Button from 'reaction-devtools-shared/src/devtools/views/Button';
+import ButtonIcon from 'reaction-devtools-shared/src/devtools/views/ButtonIcon';
+import isArray from 'reaction-devtools-shared/src/isArray';
 import {InspectedElementContext} from './InspectedElementContext';
 import {PROTOCOLS_SUPPORTED_AS_LINKS_IN_KEY_VALUE} from './constants';
 import KeyValueContextMenuContainer from './KeyValueContextMenuContainer';
 import {ContextMenuContext} from '../context';
 
 import type {ContextMenuContextType} from '../context';
-import type {InspectedElement} from 'react-devtools-shared/src/frontend/types';
-import type {Element} from 'react-devtools-shared/src/frontend/types';
-import type {Element as ReactElement} from 'react';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {InspectedElement} from 'reaction-devtools-shared/src/frontend/types';
+import type {Element} from 'reaction-devtools-shared/src/frontend/types';
+import type {Element as ReactElement} from 'reaction';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 
 // $FlowFixMe[method-unbinding]
 const hasOwnProperty = Object.prototype.hasOwnProperty;

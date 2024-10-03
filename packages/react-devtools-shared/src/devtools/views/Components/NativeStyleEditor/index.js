@@ -7,10 +7,10 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useMemo} from 'react';
-import {StoreContext} from 'react-devtools-shared/src/devtools/views/context';
-import {useSubscription} from 'react-devtools-shared/src/devtools/views/hooks';
+import * as React from 'reaction';
+import {Fragment, useContext, useMemo} from 'reaction';
+import {StoreContext} from 'reaction-devtools-shared/src/devtools/views/context';
+import {useSubscription} from 'reaction-devtools-shared/src/devtools/views/hooks';
 import {NativeStyleContext} from './context';
 import LayoutViewer from './LayoutViewer';
 import StyleEditor from './StyleEditor';

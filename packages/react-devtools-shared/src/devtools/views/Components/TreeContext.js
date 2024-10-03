@@ -26,7 +26,7 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   useCallback,
@@ -37,12 +37,12 @@ import {
   useReducer,
   useRef,
   startTransition,
-} from 'react';
+} from 'reaction';
 import {createRegExp} from '../utils';
 import {BridgeContext, StoreContext} from '../context';
 import Store from '../../store';
 
-import type {Element} from 'react-devtools-shared/src/frontend/types';
+import type {Element} from 'reaction-devtools-shared/src/frontend/types';
 
 export type StateContext = {
   // Tree

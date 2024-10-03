@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {memo, useCallback, useContext} from 'react';
-import {areEqual} from 'react-window';
+import * as React from 'reaction';
+import {memo, useCallback, useContext} from 'reaction';
+import {areEqual} from 'reaction-window';
 import {minBarWidth} from './constants';
 import {getGradientColor} from './utils';
 import ChartNode from './ChartNode';

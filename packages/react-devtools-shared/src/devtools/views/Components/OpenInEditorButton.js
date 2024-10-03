@@ -6,12 +6,12 @@
  *
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 
-import Button from 'react-devtools-shared/src/devtools/views/Button';
-import ButtonIcon from 'react-devtools-shared/src/devtools/views/ButtonIcon';
+import Button from 'reaction-devtools-shared/src/devtools/views/Button';
+import ButtonIcon from 'reaction-devtools-shared/src/devtools/views/ButtonIcon';
 
-import type {Source} from 'react-devtools-shared/src/shared/types';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 
 type Props = {
   editorURL: string,

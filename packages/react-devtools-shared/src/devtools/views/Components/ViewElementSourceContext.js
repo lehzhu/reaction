@@ -9,12 +9,12 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import {createContext} from 'react';
+import {createContext} from 'reaction';
 
 import type {
   CanViewElementSource,
   ViewElementSource,
-} from 'react-devtools-shared/src/devtools/views/DevTools';
+} from 'reaction-devtools-shared/src/devtools/views/DevTools';
 
 export type Context = {
   canViewElementSourceFunction: CanViewElementSource | null,

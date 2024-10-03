@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useContext} from 'react';
+import * as React from 'reaction';
+import {useContext} from 'reaction';
 
 import {ContextMenuContext} from '../context';
 import {
@@ -18,8 +18,8 @@ import {
 import Icon from '../Icon';
 import ContextMenuContainer from '../../ContextMenu/ContextMenuContainer';
 
-import type Store from 'react-devtools-shared/src/devtools/store';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type Store from 'reaction-devtools-shared/src/devtools/store';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 import type {ContextMenuContextType} from '../context';
 
 import styles from './KeyValueContextMenuContainer.css';

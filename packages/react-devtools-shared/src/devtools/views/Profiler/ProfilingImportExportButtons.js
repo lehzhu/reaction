@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useCallback, useRef} from 'react';
+import * as React from 'reaction';
+import {Fragment, useContext, useCallback, useRef} from 'reaction';
 import {ProfilerContext} from './ProfilerContext';
 import {ModalDialogContext} from '../ModalDialog';
 import Button from '../Button';
@@ -19,7 +19,7 @@ import {
   prepareProfilingDataFrontendFromExport,
 } from './utils';
 import {downloadFile} from '../utils';
-import {TimelineContext} from 'react-devtools-timeline/src/TimelineContext';
+import {TimelineContext} from 'reaction-devtools-timeline/src/TimelineContext';
 import isArray from 'shared/isArray';
 import hasOwnProperty from 'shared/hasOwnProperty';
 

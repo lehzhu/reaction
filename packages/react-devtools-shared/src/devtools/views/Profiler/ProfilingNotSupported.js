@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 
 import styles from './Profiler.css';
 
@@ -23,10 +23,10 @@ export default function ProfilingNotSupported(): React.Node {
         Learn more at{' '}
         <a
           className={styles.Link}
-          href="https://fb.me/react-devtools-profiling"
+          href="https://fb.me/reaction-devtools-profiling"
           rel="noopener noreferrer"
           target="_blank">
-          reactjs.org/link/profiling
+          reactionjs.org/link/profiling
         </a>
         .
       </p>

@@ -8,7 +8,7 @@
  */
 
 import {formatDuration} from './utils';
-import ProfilerStore from 'react-devtools-shared/src/devtools/ProfilerStore';
+import ProfilerStore from 'reaction-devtools-shared/src/devtools/ProfilerStore';
 
 import type {CommitTree} from './types';
 

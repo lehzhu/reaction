@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import ReachTooltip from '@reach/tooltip';
 import tooltipStyles from './Tooltip.css';
 import useThemeStyles from '../../useThemeStyles';

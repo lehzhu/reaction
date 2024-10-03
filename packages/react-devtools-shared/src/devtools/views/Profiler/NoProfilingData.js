@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import RecordToggle from './RecordToggle';
 
 import styles from './Profiler.css';
@@ -23,7 +23,7 @@ export default function NoProfilingData(): React.Node {
         Click{' '}
         <a
           className={styles.LearnMoreLink}
-          href="https://fb.me/react-devtools-profiling"
+          href="https://fb.me/reaction-devtools-profiling"
           rel="noopener noreferrer"
           target="_blank">
           here

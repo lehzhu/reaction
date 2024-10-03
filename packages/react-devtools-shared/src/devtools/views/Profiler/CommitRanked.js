@@ -7,10 +7,10 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useCallback, useContext, useMemo, useState} from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import {FixedSizeList} from 'react-window';
+import * as React from 'reaction';
+import {useCallback, useContext, useMemo, useState} from 'reaction';
+import AutoSizer from 'reaction-virtualized-auto-sizer';
+import {FixedSizeList} from 'reaction-window';
 import {ProfilerContext} from './ProfilerContext';
 import NoCommitData from './NoCommitData';
 import CommitRankedListItem from './CommitRankedListItem';

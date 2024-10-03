@@ -6,7 +6,7 @@
  *
  * @flow
  */
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   Fragment,
   useCallback,
@@ -15,7 +15,7 @@ import {
   useReducer,
   useRef,
   useState,
-} from 'react';
+} from 'reaction';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import Toggle from '../Toggle';
@@ -32,7 +32,7 @@ import {
   MenuItem,
 } from '../Components/reach-ui/menu-button';
 
-import type {SerializedElement} from 'react-devtools-shared/src/frontend/types';
+import type {SerializedElement} from 'reaction-devtools-shared/src/frontend/types';
 
 import styles from './OwnersStack.css';
 

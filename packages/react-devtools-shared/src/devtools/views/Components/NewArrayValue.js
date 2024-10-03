@@ -7,16 +7,16 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useState} from 'react';
+import * as React from 'reaction';
+import {useState} from 'reaction';
 import Store from '../../store';
 import EditableName from './EditableName';
 import {smartParse} from '../../utils';
 import {parseHookPathForEdit} from './utils';
 import styles from './NewArrayValue.css';
 
-import type {InspectedElement} from 'react-devtools-shared/src/frontend/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {InspectedElement} from 'reaction-devtools-shared/src/frontend/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 
 type Props = {
   bridge: FrontendBridge,

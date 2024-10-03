@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext} from 'react';
+import * as React from 'reaction';
+import {Fragment, useContext} from 'reaction';
 
 import InspectedElementBadges from '../Components/InspectedElementBadges';
 import {ProfilerContext} from './ProfilerContext';

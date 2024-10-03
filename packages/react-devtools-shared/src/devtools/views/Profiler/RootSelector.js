@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useCallback, useContext} from 'react';
+import * as React from 'reaction';
+import {Fragment, useCallback, useContext} from 'reaction';
 import {ProfilerContext} from './ProfilerContext';
 
 import styles from './RootSelector.css';

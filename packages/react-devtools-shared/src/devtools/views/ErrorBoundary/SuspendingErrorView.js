@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {findGitHubIssue} from './cache';
 import UpdateExistingIssue from './UpdateExistingIssue';
 import ReportNewIssue from './ReportNewIssue';

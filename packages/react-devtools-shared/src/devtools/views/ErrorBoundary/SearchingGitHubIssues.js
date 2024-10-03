@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import LoadingAnimation from 'react-devtools-shared/src/devtools/views/Components/LoadingAnimation';
+import * as React from 'reaction';
+import LoadingAnimation from 'reaction-devtools-shared/src/devtools/views/Components/LoadingAnimation';
 import styles from './shared.css';
 
 export default function SearchingGitHubIssues(): React.Node {

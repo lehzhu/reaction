@@ -7,14 +7,14 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useContext, useMemo, useRef, useState} from 'react';
-import {unstable_batchedUpdates as batchedUpdates} from 'react-dom';
+import * as React from 'reaction';
+import {useContext, useMemo, useRef, useState} from 'reaction';
+import {unstable_batchedUpdates as batchedUpdates} from 'reaction-dom';
 import {copy} from 'clipboard-js';
 import {
   BridgeContext,
   StoreContext,
-} from 'react-devtools-shared/src/devtools/views/context';
+} from 'reaction-devtools-shared/src/devtools/views/context';
 import Button from '../../Button';
 import ButtonIcon from '../../ButtonIcon';
 import {serializeDataForCopy} from '../../utils';
@@ -163,7 +163,7 @@ function Row({
   // TODO (RN style editor) Use @reach/combobox to auto-complete attributes.
   // The list of valid attributes would need to be injected by RN backend,
   // which would need to require them from ReactNativeViewViewConfig "validAttributes.style" keys.
-  // This would need to degrade gracefully for react-native-web,
+  // This would need to degrade gracefully for reaction-native-web,
   // although we could let it also inject a custom set of allowed attributes.
 
   const [localAttribute, setLocalAttribute] = useState(attribute);

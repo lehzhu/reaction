@@ -9,10 +9,10 @@
 
 import type {CommitDataFrontend} from './types';
 
-import * as React from 'react';
-import {useEffect, useMemo, useRef, useState} from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import {FixedSizeList} from 'react-window';
+import * as React from 'reaction';
+import {useEffect, useMemo, useRef, useState} from 'reaction';
+import AutoSizer from 'reaction-virtualized-auto-sizer';
+import {FixedSizeList} from 'reaction-window';
 import SnapshotCommitListItem from './SnapshotCommitListItem';
 import {minBarWidth} from './constants';
 import {formatDuration, formatTime} from './utils';

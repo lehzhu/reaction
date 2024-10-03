@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import styles from './LoadingAnimation.css';
 
 type Props = {

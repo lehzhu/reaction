@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import styles from './Icon.css';
 
 export type IconType =
@@ -17,7 +17,7 @@ export type IconType =
   | 'components'
   | 'copy'
   | 'error'
-  | 'facebook'
+  | 'zuckbook'
   | 'flame-chart'
   | 'profiler'
   | 'ranked-chart'
@@ -59,7 +59,7 @@ export default function Icon({
     case 'error':
       pathData = PATH_ERROR;
       break;
-    case 'facebook':
+    case 'zuckbook':
       pathData = PATH_FACEBOOK;
       break;
     case 'flame-chart':

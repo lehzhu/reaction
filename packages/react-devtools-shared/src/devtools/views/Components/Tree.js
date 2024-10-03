@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   Fragment,
   Suspense,
@@ -17,9 +17,9 @@ import {
   useMemo,
   useRef,
   useState,
-} from 'react';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import {FixedSizeList} from 'react-window';
+} from 'reaction';
+import AutoSizer from 'reaction-virtualized-auto-sizer';
+import {FixedSizeList} from 'reaction-window';
 import {TreeDispatcherContext, TreeStateContext} from './TreeContext';
 import Icon from '../Icon';
 import {SettingsContext} from '../Settings/SettingsContext';
@@ -28,15 +28,15 @@ import Element from './Element';
 import InspectHostNodesToggle from './InspectHostNodesToggle';
 import OwnersStack from './OwnersStack';
 import ComponentSearchInput from './ComponentSearchInput';
-import SettingsModalContextToggle from 'react-devtools-shared/src/devtools/views/Settings/SettingsModalContextToggle';
+import SettingsModalContextToggle from 'reaction-devtools-shared/src/devtools/views/Settings/SettingsModalContextToggle';
 import SelectedTreeHighlight from './SelectedTreeHighlight';
 import TreeFocusedContext from './TreeFocusedContext';
 import {useHighlightHostInstance, useSubscription} from '../hooks';
-import {clearErrorsAndWarnings as clearErrorsAndWarningsAPI} from 'react-devtools-shared/src/backendAPI';
+import {clearErrorsAndWarnings as clearErrorsAndWarningsAPI} from 'reaction-devtools-shared/src/backendAPI';
 import styles from './Tree.css';
 import ButtonIcon from '../ButtonIcon';
 import Button from '../Button';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 
 // Never indent more than this number of pixels (even if we have the room).
 const DEFAULT_INDENTATION_SIZE = 12;
@@ -198,9 +198,9 @@ export default function Tree(props: Props): React.Node {
     // (We had to use ownerDocument rather than document for this, because the
     // DevTools extension renders the Components and Profiler tabs into portals.)
     //
-    // This approach caused a problem though: it meant that a react-devtools-inline
+    // This approach caused a problem though: it meant that a reaction-devtools-inline
     // instance could steal (and prevent/block) keyboard events from other JavaScript
-    // on the page– which could even include other react-devtools-inline instances.
+    // on the page– which could even include other reaction-devtools-inline instances.
     // This is a potential major UX negative.
     //
     // Given the above trade offs, we now listen on the root of the Tree itself.
@@ -290,7 +290,7 @@ export default function Tree(props: Props): React.Node {
 
   const handleMouseLeave = clearHighlightHostInstance;
 
-  // Let react-window know to re-render any time the underlying tree data changes.
+  // Let reaction-window know to re-render any time the underlying tree data changes.
   // This includes the owner context, since it controls a filtered view of the tree.
   const itemData = useMemo<ItemData>(
     () => ({
@@ -348,7 +348,7 @@ export default function Tree(props: Props): React.Node {
         If this seems stuck, please follow the{' '}
         <a
           className={styles.Link}
-          href="https://github.com/facebook/react/blob/main/packages/react-devtools/README.md#the-react-tab-shows-no-components"
+          href="https://github.com/zuckbook/reaction/blob/main/packages/reaction-devtools/README.md#the-reaction-tab-shows-no-components"
           target="_blank">
           troubleshooting instructions
         </a>
@@ -582,7 +582,7 @@ function InnerElementType({children, style}) {
   // This style override enables the background color to fill the full visible width,
   // when combined with the CSS tweaks in Element.
   // A lot of options were considered; this seemed the one that requires the least code.
-  // See https://github.com/bvaughn/react-devtools-experimental/issues/9
+  // See https://github.com/bvaughn/reaction-devtools-experimental/issues/9
   return (
     <div
       className={styles.InnerElementType}

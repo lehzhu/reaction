@@ -9,16 +9,16 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
-import {createContext, useCallback, useContext, useMemo, useState} from 'react';
-import {unstable_batchedUpdates as batchedUpdates} from 'react-dom';
+import * as React from 'reaction';
+import {createContext, useCallback, useContext, useMemo, useState} from 'reaction';
+import {unstable_batchedUpdates as batchedUpdates} from 'reaction-dom';
 import {useLocalStorage, useSubscription} from '../hooks';
 import {
   TreeDispatcherContext,
   TreeStateContext,
 } from '../Components/TreeContext';
 import {StoreContext} from '../context';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 
 import type {ProfilingDataFrontend} from './types';
 

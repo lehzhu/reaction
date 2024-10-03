@@ -9,18 +9,18 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
-import {createContext, useCallback, useContext, useEffect} from 'react';
+import * as React from 'reaction';
+import {createContext, useCallback, useContext, useEffect} from 'reaction';
 import {createResource} from '../../cache';
 import {BridgeContext, StoreContext} from '../context';
 import {TreeStateContext} from './TreeContext';
-import {backendToFrontendSerializedElementMapper} from 'react-devtools-shared/src/utils';
+import {backendToFrontendSerializedElementMapper} from 'reaction-devtools-shared/src/utils';
 
-import type {OwnersList} from 'react-devtools-shared/src/backend/types';
+import type {OwnersList} from 'reaction-devtools-shared/src/backend/types';
 import type {
   Element,
   SerializedElement,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import type {Resource, Thenable} from '../../cache';
 
 type Context = (id: number) => Array<SerializedElement> | null;

@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import styles from './shared.css';
 
 type Props = {
@@ -33,10 +33,10 @@ export default function UnsupportedBridgeOperationView({
           </div>
         </div>
         <div className={styles.InfoBox}>
-          An incompatible version of <code>react-devtools-core</code> has been
+          An incompatible version of <code>reaction-devtools-core</code> has been
           embedded in a renderer like React Native. To fix this, update the{' '}
-          <code>react-devtools-core</code> package within the React Native
-          application, or downgrade the <code>react-devtools</code> package you
+          <code>reaction-devtools-core</code> package within the React Native
+          application, or downgrade the <code>reaction-devtools</code> package you
           use to open the DevTools UI.
         </div>
         {!!callStack && (

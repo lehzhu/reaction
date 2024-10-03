@@ -7,19 +7,19 @@
  * @flow
  */
 
-import type {SchedulingEvent} from 'react-devtools-timeline/src/types';
+import type {SchedulingEvent} from 'reaction-devtools-timeline/src/types';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import ViewElementSourceContext from '../Components/ViewElementSourceContext';
-import {useContext} from 'react';
-import {TimelineContext} from 'react-devtools-timeline/src/TimelineContext';
+import {useContext} from 'reaction';
+import {TimelineContext} from 'reaction-devtools-timeline/src/TimelineContext';
 import {
   formatTimestamp,
   getSchedulingEventLabel,
-} from 'react-devtools-timeline/src/utils/formatting';
-import {stackToComponentSources} from 'react-devtools-shared/src/devtools/utils';
+} from 'reaction-devtools-timeline/src/utils/formatting';
+import {stackToComponentSources} from 'reaction-devtools-shared/src/devtools/utils';
 import {copy} from 'clipboard-js';
 
 import styles from './SidebarEventInfo.css';

@@ -7,13 +7,13 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useContext} from 'react';
+import * as React from 'reaction';
+import {useContext} from 'reaction';
 import {ProfilerContext} from './ProfilerContext';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import {StoreContext} from '../context';
-import {TimelineContext} from 'react-devtools-timeline/src/TimelineContext';
+import {TimelineContext} from 'reaction-devtools-timeline/src/TimelineContext';
 
 export default function ClearProfilingDataButton(): React.Node {
   const store = useContext(StoreContext);

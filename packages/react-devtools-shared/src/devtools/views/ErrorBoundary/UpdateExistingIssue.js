@@ -9,7 +9,7 @@
 
 import type {GitHubIssue} from './githubAPI';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import Icon from '../Icon';
 import styles from './shared.css';
 

@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import Icon from '../Icon';
 import {searchGitHubIssuesURL} from './githubAPI';
 import styles from './shared.css';

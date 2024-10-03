@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {isInternalFacebookBuild} from 'react-devtools-feature-flags';
-import {REACT_DEVTOOLS_WORKPLACE_URL} from 'react-devtools-shared/src/devtools/constants';
+import * as React from 'reaction';
+import {isInternalFacebookBuild} from 'reaction-devtools-feature-flags';
+import {REACT_DEVTOOLS_WORKPLACE_URL} from 'reaction-devtools-shared/src/devtools/constants';
 import Icon from '../Icon';
 import styles from './shared.css';
 
@@ -20,7 +20,7 @@ export default function WorkplaceGroup(): React.Node {
 
   return (
     <div className={styles.WorkplaceGroupRow}>
-      <Icon className={styles.ReportIcon} type="facebook" />
+      <Icon className={styles.ReportIcon} type="zuckbook" />
       <a
         className={styles.ReportLink}
         href={REACT_DEVTOOLS_WORKPLACE_URL}

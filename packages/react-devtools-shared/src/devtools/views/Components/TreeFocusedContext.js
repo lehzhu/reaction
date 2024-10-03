@@ -9,7 +9,7 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import {createContext} from 'react';
+import {createContext} from 'reaction';
 
 const TreeFocusedContext: ReactContext<boolean> = createContext<boolean>(false);
 

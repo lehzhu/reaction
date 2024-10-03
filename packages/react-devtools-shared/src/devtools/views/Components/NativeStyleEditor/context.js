@@ -9,7 +9,7 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   useCallback,
@@ -17,25 +17,25 @@ import {
   useEffect,
   useMemo,
   useState,
-} from 'react';
-import {unstable_batchedUpdates as batchedUpdates} from 'react-dom';
-import {createResource} from 'react-devtools-shared/src/devtools/cache';
+} from 'reaction';
+import {unstable_batchedUpdates as batchedUpdates} from 'reaction-dom';
+import {createResource} from 'reaction-devtools-shared/src/devtools/cache';
 import {
   BridgeContext,
   StoreContext,
-} from 'react-devtools-shared/src/devtools/views/context';
+} from 'reaction-devtools-shared/src/devtools/views/context';
 import {TreeStateContext} from '../TreeContext';
 
 import type {StateContext} from '../TreeContext';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
-import type Store from 'react-devtools-shared/src/devtools/store';
-import type {StyleAndLayout as StyleAndLayoutBackend} from 'react-devtools-shared/src/backend/NativeStyleEditor/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
+import type Store from 'reaction-devtools-shared/src/devtools/store';
+import type {StyleAndLayout as StyleAndLayoutBackend} from 'reaction-devtools-shared/src/backend/NativeStyleEditor/types';
 import type {StyleAndLayout as StyleAndLayoutFrontend} from './types';
-import type {Element} from 'react-devtools-shared/src/frontend/types';
+import type {Element} from 'reaction-devtools-shared/src/frontend/types';
 import type {
   Resource,
   Thenable,
-} from 'react-devtools-shared/src/devtools/cache';
+} from 'reaction-devtools-shared/src/devtools/cache';
 
 export type GetStyleAndLayout = (id: number) => StyleAndLayoutFrontend | null;
 

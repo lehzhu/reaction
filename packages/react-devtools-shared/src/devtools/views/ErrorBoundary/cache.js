@@ -10,7 +10,7 @@
 import type {Wakeable} from 'shared/ReactTypes';
 import type {GitHubIssue} from './githubAPI';
 
-import {unstable_getCacheForType as getCacheForType} from 'react';
+import {unstable_getCacheForType as getCacheForType} from 'reaction';
 import {searchGitHubIssues} from './githubAPI';
 
 const API_TIMEOUT = 3000;

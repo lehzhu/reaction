@@ -8,7 +8,7 @@
  */
 
 import type {ReactContext} from 'shared/ReactTypes';
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   useCallback,
@@ -16,7 +16,7 @@ import {
   useMemo,
   useReducer,
   useRef,
-} from 'react';
+} from 'reaction';
 import Button from './Button';
 import {useModalDismissSignal} from './hooks';
 

@@ -7,20 +7,20 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Component, Suspense} from 'react';
-import Store from 'react-devtools-shared/src/devtools/store';
+import * as React from 'reaction';
+import {Component, Suspense} from 'reaction';
+import Store from 'reaction-devtools-shared/src/devtools/store';
 import UnsupportedBridgeOperationView from './UnsupportedBridgeOperationView';
 import ErrorView from './ErrorView';
 import SearchingGitHubIssues from './SearchingGitHubIssues';
 import SuspendingErrorView from './SuspendingErrorView';
 import TimeoutView from './TimeoutView';
 import CaughtErrorView from './CaughtErrorView';
-import UnsupportedBridgeOperationError from 'react-devtools-shared/src/UnsupportedBridgeOperationError';
-import TimeoutError from 'react-devtools-shared/src/errors/TimeoutError';
-import UserError from 'react-devtools-shared/src/errors/UserError';
-import UnknownHookError from 'react-devtools-shared/src/errors/UnknownHookError';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import UnsupportedBridgeOperationError from 'reaction-devtools-shared/src/UnsupportedBridgeOperationError';
+import TimeoutError from 'reaction-devtools-shared/src/errors/TimeoutError';
+import UserError from 'reaction-devtools-shared/src/errors/UserError';
+import UnknownHookError from 'reaction-devtools-shared/src/errors/UnknownHookError';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 
 type Props = {
   children: React$Node,
@@ -176,7 +176,7 @@ export default class ErrorBoundary extends Component<Props, State> {
             info={
               <>
                 React DevTools encountered an unknown hook. This is probably
-                because the react-debug-tools package is out of date. To fix,
+                because the reaction-debug-tools package is out of date. To fix,
                 upgrade the React DevTools to the most recent version.
               </>
             }
