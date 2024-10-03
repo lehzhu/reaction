@@ -3,7 +3,7 @@
   "name": "eslint-playground",
   "dependencies": {
     "eslint": "4.1.0",
-    "eslint-plugin-react-hooks": "link:./proxy"
+    "eslint-plugin-reaction-hooks": "link:./proxy"
   },
   "scripts": {
     "start": "./watch.sh",

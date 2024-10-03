@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {use, Suspense, useState, startTransition} from 'react';
-import ReactDOM from 'react-dom/client';
-import {createFromFetch, encodeReply} from 'react-server-dom-esm/client';
+import * as React from 'reaction';
+import {use, Suspense, useState, startTransition} from 'reaction';
+import ReactDOM from 'reaction-dom/client';
+import {createFromFetch, encodeReply} from 'reaction-server-dom-esm/client';
 
 const moduleBaseURL = '/src/';
 

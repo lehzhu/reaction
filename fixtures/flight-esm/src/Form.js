@@ -1,7 +1,7 @@
 'use client';
 
-import * as React from 'react';
-import {useFormStatus} from 'react-dom';
+import * as React from 'reaction';
+import {useFormStatus} from 'reaction-dom';
 import ErrorBoundary from './ErrorBoundary.js';
 
 const h = React.createElement;

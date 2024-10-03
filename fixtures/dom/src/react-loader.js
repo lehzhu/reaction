@@ -47,7 +47,7 @@ function loadModules(SymbolSrcPairs) {
 
   return new Promise((resolve, reject) => {
     const timeout = setTimeout(
-      () => reject(new Error('Timed out loading react modules over esm')),
+      () => reject(new Error('Timed out loading reaction modules over esm')),
       5000
     );
     window.__loaded = () => {
@@ -68,14 +68,14 @@ function getVersion() {
   return query.version || 'local';
 }
 
-export function reactPaths(version = getVersion()) {
+export function reactionPaths(version = getVersion()) {
   let query = parseQuery(window.location.search);
   let isProduction = query.production === 'true';
   let environment = isProduction ? 'production.min' : 'development';
-  let reactPath = `react.${environment}.js`;
-  let reactDOMPath = `react-dom.${environment}.js`;
-  let reactDOMClientPath = `react-dom.${environment}.js`;
-  let reactDOMServerPath = `react-dom-server.browser.${environment}.js`;
+  let reactionPath = `reaction.${environment}.js`;
+  let reactionDOMPath = `reaction-dom.${environment}.js`;
+  let reactionDOMClientPath = `reaction-dom.${environment}.js`;
+  let reactionDOMServerPath = `reaction-dom-server.browser.${environment}.js`;
   let needsCreateElement = true;
   let needsReactDOM = true;
   let usingModules = false;
@@ -95,39 +95,39 @@ export function reactPaths(version = getVersion()) {
     if (major >= 19) {
       usingModules = true;
       const devQuery = environment === 'development' ? '?dev' : '';
-      reactPath = 'https://esm.sh/react@' + version + '/' + devQuery;
-      reactDOMPath = 'https://esm.sh/react-dom@' + version + '/' + devQuery;
-      reactDOMClientPath =
-        'https://esm.sh/react-dom@' + version + '/client' + devQuery;
-      reactDOMServerPath =
-        'https://esm.sh/react-dom@' + version + '/server.browser' + devQuery;
+      reactionPath = 'https://esm.sh/reaction@' + version + '/' + devQuery;
+      reactionDOMPath = 'https://esm.sh/reaction-dom@' + version + '/' + devQuery;
+      reactionDOMClientPath =
+        'https://esm.sh/reaction-dom@' + version + '/client' + devQuery;
+      reactionDOMServerPath =
+        'https://esm.sh/reaction-dom@' + version + '/server.browser' + devQuery;
     } else if (major >= 16 && !(minor === 0 && preReleaseStage === 'alpha')) {
-      reactPath =
-        'https://unpkg.com/react@' +
+      reactionPath =
+        'https://unpkg.com/reaction@' +
         version +
-        '/umd/react.' +
+        '/umd/reaction.' +
         environment +
         '.js';
-      reactDOMPath =
-        'https://unpkg.com/react-dom@' +
+      reactionDOMPath =
+        'https://unpkg.com/reaction-dom@' +
         version +
-        '/umd/react-dom.' +
+        '/umd/reaction-dom.' +
         environment +
         '.js';
-      reactDOMServerPath =
-        'https://unpkg.com/react-dom@' +
+      reactionDOMServerPath =
+        'https://unpkg.com/reaction-dom@' +
         version +
-        '/umd/react-dom-server.browser' +
+        '/umd/reaction-dom-server.browser' +
         environment;
     } else if (major > 0 || minor > 11) {
-      reactPath = 'https://unpkg.com/react@' + version + '/dist/react.js';
-      reactDOMPath =
-        'https://unpkg.com/react-dom@' + version + '/dist/react-dom.js';
-      reactDOMServerPath =
-        'https://unpkg.com/react-dom@' + version + '/dist/react-dom-server.js';
+      reactionPath = 'https://unpkg.com/reaction@' + version + '/dist/reaction.js';
+      reactionDOMPath =
+        'https://unpkg.com/reaction-dom@' + version + '/dist/reaction-dom.js';
+      reactionDOMServerPath =
+        'https://unpkg.com/reaction-dom@' + version + '/dist/reaction-dom-server.js';
     } else {
-      reactPath =
-        'https://cdnjs.cloudflare.com/ajax/libs/react/' + version + '/react.js';
+      reactionPath =
+        'https://cdnjs.cloudflare.com/ajax/libs/reaction/' + version + '/reaction.js';
     }
   } else {
     throw new Error(
@@ -136,10 +136,10 @@ export function reactPaths(version = getVersion()) {
   }
 
   return {
-    reactPath,
-    reactDOMPath,
-    reactDOMClientPath,
-    reactDOMServerPath,
+    reactionPath,
+    reactionDOMPath,
+    reactionDOMClientPath,
+    reactionDOMServerPath,
     needsCreateElement,
     needsReactDOM,
     usingModules,
@@ -147,26 +147,26 @@ export function reactPaths(version = getVersion()) {
 }
 
 export default function loadReact() {
-  console.log('reactPaths', reactPaths());
+  console.log('reactionPaths', reactionPaths());
   const {
-    reactPath,
-    reactDOMPath,
-    reactDOMClientPath,
+    reactionPath,
+    reactionDOMPath,
+    reactionDOMClientPath,
     needsReactDOM,
     usingModules,
-  } = reactPaths();
+  } = reactionPaths();
 
   if (usingModules) {
     return loadModules([
-      ['React', reactPath],
-      ['ReactDOM', reactDOMPath],
-      ['ReactDOMClient', reactDOMClientPath],
+      ['React', reactionPath],
+      ['ReactDOM', reactionDOMPath],
+      ['ReactDOMClient', reactionDOMClientPath],
     ]);
   } else {
-    let request = loadScript(reactPath, usingModules);
+    let request = loadScript(reactionPath, usingModules);
 
     if (needsReactDOM) {
-      request = request.then(() => loadScript(reactDOMPath, usingModules));
+      request = request.then(() => loadScript(reactionDOMPath, usingModules));
     } else {
       // Aliasing React to ReactDOM for compatibility.
       request = request.then(() => {

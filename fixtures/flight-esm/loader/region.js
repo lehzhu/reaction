@@ -1,9 +1,9 @@
 import {
   resolve,
-  load as reactLoad,
+  load as reactionLoad,
   getSource as getSourceImpl,
-  transformSource as reactTransformSource,
-} from 'react-server-dom-esm/node-loader';
+  transformSource as reactionTransformSource,
+} from 'reaction-server-dom-esm/node-loader';
 
 export {resolve};
 
@@ -23,7 +23,7 @@ async function textLoad(url, context, defaultLoad) {
 }
 
 export async function load(url, context, defaultLoad) {
-  return await reactLoad(url, context, (u, c) => {
+  return await reactionLoad(url, context, (u, c) => {
     return textLoad(u, c, defaultLoad);
   });
 }
@@ -42,7 +42,7 @@ async function textTransformSource(source, context, defaultTransformSource) {
 }
 
 async function transformSourceImpl(source, context, defaultTransformSource) {
-  return await reactTransformSource(source, context, (s, c) => {
+  return await reactionTransformSource(source, context, (s, c) => {
     return textTransformSource(s, c, defaultTransformSource);
   });
 }

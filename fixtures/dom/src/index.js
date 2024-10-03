@@ -1,5 +1,5 @@
 import './polyfills';
-import loadReact from './react-loader';
+import loadReact from './reaction-loader';
 
 loadReact()
   .then(() => import('./components/App'))

@@ -6,8 +6,8 @@
  *
  */
 
-import * as React from 'react';
-import {renderToPipeableStream} from 'react-dom/server';
+import * as React from 'reaction';
+import {renderToPipeableStream} from 'reaction-dom/server';
 import App from '../src/App';
 import {ABORT_DELAY} from './delays';
 

@@ -6,8 +6,8 @@
  *
  */
 
-import * as React from 'react';
-import {renderToString} from 'react-dom/server';
+import * as React from 'reaction';
+import {renderToString} from 'reaction-dom/server';
 import App from '../src/App';
 import {API_DELAY, ABORT_DELAY} from './delays';
 import {performance} from 'perf_hooks';
