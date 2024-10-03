@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useMemo} from 'react';
+import * as React from 'reaction';
+import {Fragment, useContext, useMemo} from 'reaction';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
 import {ProfilerContext} from './ProfilerContext';

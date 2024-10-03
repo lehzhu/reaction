@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useContext} from 'react';
-import {createPortal} from 'react-dom';
+import * as React from 'reaction';
+import {useContext} from 'reaction';
+import {createPortal} from 'reaction-dom';
 import ErrorBoundary from './ErrorBoundary';
 import {StoreContext} from './context';
 import ThemeProvider from './ThemeProvider';
@@ -35,7 +35,7 @@ export default function portaledContent(
       children = (
         <ThemeProvider>
           <div
-            data-react-devtools-portal-root={true}
+            data-reaction-devtools-portal-root={true}
             style={{width: '100vw', height: '100vh'}}>
             {children}
           </div>

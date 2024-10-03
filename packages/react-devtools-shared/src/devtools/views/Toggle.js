@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useCallback} from 'react';
+import * as React from 'reaction';
+import {useCallback} from 'reaction';
 
 import styles from './Toggle.css';
 import Tooltip from './Components/reach-ui/tooltip';

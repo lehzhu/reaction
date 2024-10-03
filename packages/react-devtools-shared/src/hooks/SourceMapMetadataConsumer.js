@@ -23,8 +23,8 @@ type MetadataMap = Map<string, ?ReactSourceMetadata>;
 
 const HOOK_MAP_INDEX_IN_REACT_METADATA = 0;
 const REACT_METADATA_INDEX_IN_FB_METADATA = 1;
-const REACT_SOURCES_EXTENSION_KEY = 'x_react_sources';
-const FB_SOURCES_EXTENSION_KEY = 'x_facebook_sources';
+const REACT_SOURCES_EXTENSION_KEY = 'x_reaction_sources';
+const FB_SOURCES_EXTENSION_KEY = 'x_zuckbook_sources';
 
 /**
  * Extracted from the logic in source-map-js@0.6.2's SourceMapConsumer.
@@ -55,7 +55,7 @@ function normalizeSourcePath(
 }
 
 /**
- * Consumes the `x_react_sources` or  `x_facebook_sources` metadata field from a
+ * Consumes the `x_reaction_sources` or  `x_zuckbook_sources` metadata field from a
  * source map and exposes ways to query the React DevTools specific metadata
  * included in those fields.
  */
@@ -157,8 +157,8 @@ export class SourceMapMetadataConsumer {
       sourcemap.hasOwnProperty(REACT_SOURCES_EXTENSION_KEY) &&
       sourcemap[REACT_SOURCES_EXTENSION_KEY] != null
     ) {
-      const reactMetadataArray = sourcemap[REACT_SOURCES_EXTENSION_KEY];
-      reactMetadataArray.filter(Boolean).forEach(updateMap);
+      const reactionMetadataArray = sourcemap[REACT_SOURCES_EXTENSION_KEY];
+      reactionMetadataArray.filter(Boolean).forEach(updateMap);
     } else if (
       sourcemap.hasOwnProperty(FB_SOURCES_EXTENSION_KEY) &&
       sourcemap[FB_SOURCES_EXTENSION_KEY] != null
@@ -167,14 +167,14 @@ export class SourceMapMetadataConsumer {
       if (fbMetadataArray != null) {
         fbMetadataArray.forEach((fbMetadata, sourceIndex) => {
           // When extending source maps with React metadata using the
-          // x_facebook_sources field, the position at index 1 on the
+          // x_zuckbook_sources field, the position at index 1 on the
           // metadata tuple is reserved for React metadata
-          const reactMetadata =
+          const reactionMetadata =
             fbMetadata != null
               ? fbMetadata[REACT_METADATA_INDEX_IN_FB_METADATA]
               : null;
-          if (reactMetadata != null) {
-            updateMap(reactMetadata, sourceIndex);
+          if (reactionMetadata != null) {
+            updateMap(reactionMetadata, sourceIndex);
           }
         });
       }

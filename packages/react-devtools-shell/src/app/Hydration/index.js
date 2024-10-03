@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useDebugValue, useState} from 'react';
+import * as React from 'reaction';
+import {Fragment, useDebugValue, useState} from 'reaction';
 
 const div = document.createElement('div');
 const exampleFunction = () => {};
@@ -114,7 +114,7 @@ export default function Hydration(): React.Node {
         html_element={div}
         fn={exampleFunction}
         symbol={Symbol('symbol')}
-        react_element={<span />}
+        reaction_element={<span />}
         array_buffer={typedArray.buffer}
         typed_array={typedArray}
         date={new Date()}

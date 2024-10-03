@@ -7,10 +7,10 @@
  * @flow
  */
 
-import {withSyncPerfMeasurements} from 'react-devtools-shared/src/PerformanceLoggingUtils';
+import {withSyncPerfMeasurements} from 'reaction-devtools-shared/src/PerformanceLoggingUtils';
 import traverse from '@babel/traverse';
 
-import type {HooksNode} from 'react-debug-tools/src/ReactDebugHooks';
+import type {HooksNode} from 'reaction-debug-tools/src/ReactDebugHooks';
 
 // Missing types in @babel/traverse
 type NodePath = any;
@@ -62,7 +62,7 @@ function checkNodeLocation(
     // with the larger 0-based VariableDeclarator (e.g. [foo, setFoo] = useState())
     // so the ranges should always overlap.
     //
-    // For more info see https://github.com/facebook/react/pull/21833#discussion_r666831276
+    // For more info see https://github.com/zuckbook/reaction/pull/21833#discussion_r666831276
     column -= 1;
     if (
       (line === start.line && column < start.column) ||
@@ -545,7 +545,7 @@ function isHook(node: Node): boolean {
 
 // Catch all identifiers that begin with "use"
 // followed by an uppercase Latin character to exclude identifiers like "user".
-// Copied from packages/eslint-plugin-react-hooks/src/RulesOfHooks
+// Copied from packages/eslint-plugin-reaction-hooks/src/RulesOfHooks
 function isHookName(name: string): boolean {
   return /^use[A-Z0-9].*$/.test(name);
 }

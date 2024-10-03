@@ -7,7 +7,7 @@
  * @flow
  */
 
-import {useContext, useMemo} from 'react';
+import {useContext, useMemo} from 'reaction';
 import {SettingsContext} from './Settings/SettingsContext';
 import {THEME_STYLES} from '../constants';
 

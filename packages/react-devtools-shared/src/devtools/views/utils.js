@@ -10,9 +10,9 @@
 import escapeStringRegExp from 'escape-string-regexp';
 import {meta} from '../../hydration';
 import {formatDataForPreview} from '../../utils';
-import isArray from 'react-devtools-shared/src/isArray';
+import isArray from 'reaction-devtools-shared/src/isArray';
 
-import type {HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
+import type {HooksTree} from 'reaction-debug-tools/src/ReactDebugHooks';
 
 // $FlowFixMe[method-unbinding]
 const hasOwnProperty = Object.prototype.hasOwnProperty;

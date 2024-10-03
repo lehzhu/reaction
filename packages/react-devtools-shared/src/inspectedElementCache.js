@@ -10,19 +10,19 @@
 import {
   unstable_getCacheForType as getCacheForType,
   startTransition,
-} from 'react';
-import Store from 'react-devtools-shared/src/devtools/store';
-import {inspectElement as inspectElementMutableSource} from 'react-devtools-shared/src/inspectedElementMutableSource';
-import ElementPollingCancellationError from 'react-devtools-shared/src//errors/ElementPollingCancellationError';
+} from 'reaction';
+import Store from 'reaction-devtools-shared/src/devtools/store';
+import {inspectElement as inspectElementMutableSource} from 'reaction-devtools-shared/src/inspectedElementMutableSource';
+import ElementPollingCancellationError from 'reaction-devtools-shared/src//errors/ElementPollingCancellationError';
 
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 import type {Wakeable} from 'shared/ReactTypes';
 import type {
   Element,
   InspectedElement as InspectedElementFrontend,
   InspectedElementResponseType,
   InspectedElementPath,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 
 const Pending = 0;
 const Resolved = 1;

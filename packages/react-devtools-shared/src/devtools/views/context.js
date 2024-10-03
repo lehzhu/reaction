@@ -8,11 +8,11 @@
  */
 
 import type {ReactContext} from 'shared/ReactTypes';
-import {createContext} from 'react';
+import {createContext} from 'reaction';
 import Store from '../store';
 
-import type {ViewAttributeSource} from 'react-devtools-shared/src/devtools/views/DevTools';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {ViewAttributeSource} from 'reaction-devtools-shared/src/devtools/views/DevTools';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 
 export const BridgeContext: ReactContext<FrontendBridge> =
   createContext<FrontendBridge>(((null: any): FrontendBridge));

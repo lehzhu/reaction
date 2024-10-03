@@ -14,13 +14,13 @@ import {parse} from '@babel/parser';
 import LRU from 'lru-cache';
 import {getHookName} from '../astUtils';
 import {areSourceMapsAppliedToErrors} from '../ErrorTester';
-import {__DEBUG__} from 'react-devtools-shared/src/constants';
-import {getHookSourceLocationKey} from 'react-devtools-shared/src/hookNamesCache';
+import {__DEBUG__} from 'reaction-devtools-shared/src/constants';
+import {getHookSourceLocationKey} from 'reaction-devtools-shared/src/hookNamesCache';
 import {SourceMapMetadataConsumer} from '../SourceMapMetadataConsumer';
 import {
   withAsyncPerfMeasurements,
   withSyncPerfMeasurements,
-} from 'react-devtools-shared/src/PerformanceLoggingUtils';
+} from 'reaction-devtools-shared/src/PerformanceLoggingUtils';
 import SourceMapConsumer from '../SourceMapConsumer';
 
 import type {SourceMapConsumerType} from '../SourceMapConsumer';
@@ -28,11 +28,11 @@ import type {
   HooksList,
   LocationKeyToHookSourceAndMetadata,
 } from './loadSourceAndMetadata';
-import type {HookSource} from 'react-debug-tools/src/ReactDebugHooks';
+import type {HookSource} from 'reaction-debug-tools/src/ReactDebugHooks';
 import type {
   HookNames,
   LRUCache,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 
 type AST = mixed;
 

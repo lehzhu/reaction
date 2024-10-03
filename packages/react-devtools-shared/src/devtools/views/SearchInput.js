@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useEffect, useRef} from 'react';
+import * as React from 'reaction';
+import {useEffect, useRef} from 'reaction';
 import Button from './Button';
 import ButtonIcon from './ButtonIcon';
 import Icon from './Icon';

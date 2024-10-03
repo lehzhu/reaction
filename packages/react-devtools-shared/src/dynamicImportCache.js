@@ -7,7 +7,7 @@
  * @flow
  */
 
-import {__DEBUG__} from 'react-devtools-shared/src/constants';
+import {__DEBUG__} from 'reaction-devtools-shared/src/constants';
 
 import type {Thenable, Wakeable} from 'shared/ReactTypes';
 

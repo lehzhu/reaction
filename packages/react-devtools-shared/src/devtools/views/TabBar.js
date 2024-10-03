@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useCallback} from 'react';
+import * as React from 'reaction';
+import {Fragment, useCallback} from 'reaction';
 import Icon from './Icon';
 
 import styles from './TabBar.css';

@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   useCallback,
   useContext,
@@ -16,7 +16,7 @@ import {
   useRef,
   useState,
   use,
-} from 'react';
+} from 'reaction';
 import {
   LOCAL_STORAGE_OPEN_IN_EDITOR_URL,
   LOCAL_STORAGE_OPEN_IN_EDITOR_URL_PRESET,
@@ -42,8 +42,8 @@ import {
   ElementTypeOtherOrUnknown,
   ElementTypeProfiler,
   ElementTypeSuspense,
-} from 'react-devtools-shared/src/frontend/types';
-import {getDefaultOpenInEditorURL} from 'react-devtools-shared/src/utils';
+} from 'reaction-devtools-shared/src/frontend/types';
+import {getDefaultOpenInEditorURL} from 'reaction-devtools-shared/src/utils';
 
 import styles from './SettingsShared.css';
 
@@ -55,7 +55,7 @@ import type {
   ElementTypeComponentFilter,
   RegExpComponentFilter,
   EnvironmentNameComponentFilter,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 
 const vscodeFilepath = 'vscode://file/{path}:{line}';
 

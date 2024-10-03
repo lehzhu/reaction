@@ -6,7 +6,7 @@
  *
  * @flow
  */
-import {withSyncPerfMeasurements} from 'react-devtools-shared/src/PerformanceLoggingUtils';
+import {withSyncPerfMeasurements} from 'reaction-devtools-shared/src/PerformanceLoggingUtils';
 import {decode} from 'sourcemap-codec';
 
 import type {

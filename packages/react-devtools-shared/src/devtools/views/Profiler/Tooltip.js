@@ -1,7 +1,7 @@
 /** @flow */
 
-import * as React from 'react';
-import {useRef} from 'react';
+import * as React from 'reaction';
+import {useRef} from 'reaction';
 
 import styles from './Tooltip.css';
 

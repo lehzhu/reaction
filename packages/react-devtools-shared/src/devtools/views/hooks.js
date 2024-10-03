@@ -14,11 +14,11 @@ import {
   useReducer,
   useState,
   useContext,
-} from 'react';
+} from 'reaction';
 import {
   localStorageGetItem,
   localStorageSetItem,
-} from 'react-devtools-shared/src/storage';
+} from 'reaction-devtools-shared/src/storage';
 import {StoreContext, BridgeContext} from './context';
 import {sanitizeForParse, smartParse, smartStringify} from '../utils';
 
@@ -271,7 +271,7 @@ export function useModalDismissSignal(
   }, [modalRef, dismissCallback, dismissOnClickOutside]);
 }
 
-// Copied from https://github.com/facebook/react/pull/15022
+// Copied from https://github.com/zuckbook/reaction/pull/15022
 export function useSubscription<Value>({
   getCurrentValue,
   subscribe,

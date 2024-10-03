@@ -7,17 +7,17 @@
  * @flow
  */
 
-import {__DEBUG__} from 'react-devtools-shared/src/constants';
+import {__DEBUG__} from 'reaction-devtools-shared/src/constants';
 
-import type {HooksTree} from 'react-debug-tools/src/ReactDebugHooks';
+import type {HooksTree} from 'reaction-debug-tools/src/ReactDebugHooks';
 import type {Thenable, Wakeable} from 'shared/ReactTypes';
 import type {
   Element,
   HookNames,
   HookSourceLocationKey,
-} from 'react-devtools-shared/src/frontend/types';
-import type {HookSource} from 'react-debug-tools/src/ReactDebugHooks';
-import type {FetchFileWithCaching} from 'react-devtools-shared/src/devtools/views/Components/FetchFileWithCachingContext';
+} from 'reaction-devtools-shared/src/frontend/types';
+import type {HookSource} from 'reaction-debug-tools/src/ReactDebugHooks';
+import type {FetchFileWithCaching} from 'reaction-devtools-shared/src/devtools/views/Components/FetchFileWithCachingContext';
 import {withCallbackPerfMeasurements} from './PerformanceLoggingUtils';
 import {logEvent} from './Logger';
 
@@ -64,7 +64,7 @@ type LoadHookNamesFunction = (
 // This is intentionally a module-level Map, rather than a React-managed one.
 // Otherwise, refreshing the inspected element cache would also clear this cache.
 // TODO Rethink this if the React API constraints change.
-// See https://github.com/reactwg/react-18/discussions/25#discussioncomment-980435
+// See https://github.com/reactionwg/reaction-18/discussions/25#discussioncomment-980435
 let map: WeakMap<Element, Record<HookNames>> = new WeakMap();
 
 export function hasAlreadyLoadedHookNames(element: Element): boolean {

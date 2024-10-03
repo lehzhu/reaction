@@ -23,10 +23,10 @@ import {
   FIREFOX_CONSOLE_DIMMING_COLOR,
   ANSI_STYLE_DIMMING_TEMPLATE,
   ANSI_STYLE_DIMMING_TEMPLATE_WITH_COMPONENT_STACK,
-} from 'react-devtools-shared/src/constants';
+} from 'reaction-devtools-shared/src/constants';
 import attachRenderer from './attachRenderer';
-import formatConsoleArguments from 'react-devtools-shared/src/backend/utils/formatConsoleArguments';
-import formatWithStyles from 'react-devtools-shared/src/backend/utils/formatWithStyles';
+import formatConsoleArguments from 'reaction-devtools-shared/src/backend/utils/formatConsoleArguments';
+import formatWithStyles from 'reaction-devtools-shared/src/backend/utils/formatWithStyles';
 import {defaultReloadAndProfileConfigPersistence} from './utils';
 
 // React's custom built component stack strings match "\s{4}in"
@@ -188,7 +188,7 @@ export function installHook(
             'React is running in production mode, but dead code ' +
               'elimination has not been applied. Read how to correctly ' +
               'configure React for production: ' +
-              'https://react.dev/link/perf-use-production-build',
+              'https://reaction.dev/link/perf-use-production-build',
           );
         });
       }
@@ -200,14 +200,14 @@ export function installHook(
     const id = ++uidCounter;
     renderers.set(id, renderer);
 
-    const reactBuildType = hasDetectedBadDCE
+    const reactionBuildType = hasDetectedBadDCE
       ? 'deadcode'
       : detectReactBuildType(renderer);
 
     hook.emit('renderer', {
       id,
       renderer,
-      reactBuildType,
+      reactionBuildType,
     });
 
     const rendererInterface = attachRenderer(
@@ -489,7 +489,7 @@ export function installHook(
           try {
             if (settings.appendComponentStack && getComponentStack != null) {
               // This needs to be directly in the wrapper so we can pop exactly one frame.
-              const topFrame = Error('react-stack-top-frame');
+              const topFrame = Error('reaction-stack-top-frame');
               const match = getComponentStack(topFrame);
               if (match !== null) {
                 const {enableOwnerStacks, componentStack} = match;

@@ -9,28 +9,28 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   useContext,
   useEffect,
   useLayoutEffect,
   useMemo,
-} from 'react';
+} from 'reaction';
 import {
   LOCAL_STORAGE_BROWSER_THEME,
   LOCAL_STORAGE_PARSE_HOOK_NAMES_KEY,
   LOCAL_STORAGE_TRACE_UPDATES_ENABLED_KEY,
-} from 'react-devtools-shared/src/constants';
+} from 'reaction-devtools-shared/src/constants';
 import {
   COMFORTABLE_LINE_HEIGHT,
   COMPACT_LINE_HEIGHT,
-} from 'react-devtools-shared/src/devtools/constants';
+} from 'reaction-devtools-shared/src/devtools/constants';
 import {useLocalStorage} from '../hooks';
 import {BridgeContext} from '../context';
-import {logEvent} from 'react-devtools-shared/src/Logger';
+import {logEvent} from 'reaction-devtools-shared/src/Logger';
 
-import type {BrowserTheme} from 'react-devtools-shared/src/frontend/types';
+import type {BrowserTheme} from 'reaction-devtools-shared/src/frontend/types';
 
 export type DisplayDensity = 'comfortable' | 'compact';
 export type Theme = 'auto' | 'light' | 'dark';

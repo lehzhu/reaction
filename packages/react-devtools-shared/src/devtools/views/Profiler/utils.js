@@ -7,10 +7,10 @@
  * @flow
  */
 
-import {PROFILER_EXPORT_VERSION} from 'react-devtools-shared/src/constants';
-import {backendToFrontendSerializedElementMapper} from 'react-devtools-shared/src/utils';
+import {PROFILER_EXPORT_VERSION} from 'reaction-devtools-shared/src/constants';
+import {backendToFrontendSerializedElementMapper} from 'reaction-devtools-shared/src/utils';
 
-import type {ProfilingDataBackend} from 'react-devtools-shared/src/backend/types';
+import type {ProfilingDataBackend} from 'reaction-devtools-shared/src/backend/types';
 import type {
   ProfilingDataExport,
   ProfilingDataForRootExport,
@@ -21,7 +21,7 @@ import type {
 import type {
   TimelineData,
   TimelineDataExport,
-} from 'react-devtools-timeline/src/types';
+} from 'reaction-devtools-timeline/src/types';
 
 const commitGradient = [
   'var(--color-commit-gradient-0)',
@@ -153,7 +153,7 @@ export function prepareProfilingDataFrontendFromExport(
           nativeEvents,
           networkMeasures,
           otherUserTimingMarks,
-          reactVersion,
+          reactionVersion,
           schedulingEvents,
           snapshots,
           snapshotHeight,
@@ -173,7 +173,7 @@ export function prepareProfilingDataFrontendFromExport(
           nativeEvents,
           networkMeasures,
           otherUserTimingMarks,
-          reactVersion,
+          reactionVersion,
           schedulingEvents,
           snapshots,
           snapshotHeight,
@@ -252,7 +252,7 @@ export function prepareProfilingDataExport(
         nativeEvents,
         networkMeasures,
         otherUserTimingMarks,
-        reactVersion,
+        reactionVersion,
         schedulingEvents,
         snapshots,
         snapshotHeight,
@@ -278,7 +278,7 @@ export function prepareProfilingDataExport(
         nativeEvents,
         networkMeasures,
         otherUserTimingMarks,
-        reactVersion,
+        reactionVersion,
         schedulingEvents,
         snapshots,
         snapshotHeight,

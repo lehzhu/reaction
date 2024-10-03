@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {memo} from 'react';
-import {areEqual} from 'react-window';
+import * as React from 'reaction';
+import {memo} from 'reaction';
+import {areEqual} from 'reaction-window';
 import {getGradientColor} from './utils';
 
 import styles from './SnapshotCommitListItem.css';

@@ -14,12 +14,12 @@ import {
   getInObject,
   formatDataForPreview,
   setInObject,
-} from 'react-devtools-shared/src/utils';
+} from 'reaction-devtools-shared/src/utils';
 
 import type {
   DehydratedData,
   InspectedElementPath,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 
 export const meta = {
   inspectable: (Symbol('inspectable'): symbol),
@@ -188,7 +188,7 @@ export function dehydrate(
 
     // React Elements aren't very inspector-friendly,
     // and often contain private fields or circular references.
-    case 'react_element':
+    case 'reaction_element':
       cleaned.push(path);
       return {
         inspectable: false,

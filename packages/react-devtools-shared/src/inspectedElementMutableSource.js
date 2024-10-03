@@ -12,24 +12,24 @@ import {
   convertInspectedElementBackendToFrontend,
   hydrateHelper,
   inspectElement as inspectElementAPI,
-} from 'react-devtools-shared/src/backendAPI';
-import {fillInPath} from 'react-devtools-shared/src/hydration';
+} from 'reaction-devtools-shared/src/backendAPI';
+import {fillInPath} from 'reaction-devtools-shared/src/hydration';
 
-import type {LRUCache} from 'react-devtools-shared/src/frontend/types';
-import type {FrontendBridge} from 'react-devtools-shared/src/bridge';
+import type {LRUCache} from 'reaction-devtools-shared/src/frontend/types';
+import type {FrontendBridge} from 'reaction-devtools-shared/src/bridge';
 import type {
   InspectElementError,
   InspectElementFullData,
   InspectElementHydratedPath,
-} from 'react-devtools-shared/src/backend/types';
-import UserError from 'react-devtools-shared/src/errors/UserError';
-import UnknownHookError from 'react-devtools-shared/src/errors/UnknownHookError';
+} from 'reaction-devtools-shared/src/backend/types';
+import UserError from 'reaction-devtools-shared/src/errors/UserError';
+import UnknownHookError from 'reaction-devtools-shared/src/errors/UnknownHookError';
 import type {
   Element,
   InspectedElement as InspectedElementFrontend,
   InspectedElementResponseType,
   InspectedElementPath,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 
 // Maps element ID to inspected data.
 // We use an LRU for this rather than a WeakMap because of how the "no-change" optimization works.

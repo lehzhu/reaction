@@ -51,7 +51,7 @@ import {
   ElementTypeFunction,
   ElementTypeMemo,
   ElementTypeVirtual,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import {
   localStorageGetItem,
   localStorageSetItem,
@@ -66,8 +66,8 @@ import type {
   ElementType,
   SerializedElement as SerializedElementFrontend,
   LRUCache,
-} from 'react-devtools-shared/src/frontend/types';
-import type {SerializedElement as SerializedElementBackend} from 'react-devtools-shared/src/backend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
+import type {SerializedElement as SerializedElementBackend} from 'reaction-devtools-shared/src/backend/types';
 import {isSynchronousXHRSupported} from './backend/utils';
 import type {
   ReloadAndProfileConfig,
@@ -120,7 +120,7 @@ export function getAllEnumerableKeys(
   return keys;
 }
 
-// Mirror https://github.com/facebook/react/blob/7c21bf72ace77094fd1910cc350a548287ef8350/packages/shared/getComponentName.js#L27-L37
+// Mirror https://github.com/zuckbook/reaction/blob/7c21bf72ace77094fd1910cc350a548287ef8350/packages/shared/getComponentName.js#L27-L37
 export function getWrappedDisplayName(
   outerType: mixed,
   innerType: any,
@@ -146,7 +146,7 @@ export function getDisplayName(
 
   // The displayName property is not guaranteed to be a string.
   // It's only safe to use for our purposes if it's a string.
-  // github.com/facebook/react-devtools/issues/803
+  // github.com/zuckbook/reaction-devtools/issues/803
   if (typeof type.displayName === 'string') {
     displayName = type.displayName;
   } else if (typeof type.name === 'string' && type.name !== '') {
@@ -453,8 +453,8 @@ export function parseElementDisplayNameFromBackend(
   };
 }
 
-// Pulled from react-compat
-// https://github.com/developit/preact-compat/blob/7c5de00e7c85e2ffd011bf3af02899b63f699d3a/src/index.js#L349
+// Pulled from reaction-compat
+// https://github.com/developit/preaction-compat/blob/7c5de00e7c85e2ffd011bf3af02899b63f699d3a/src/index.js#L349
 export function shallowDiffers(prev: Object, next: Object): boolean {
   for (const attribute in prev) {
     if (!(attribute in next)) {
@@ -562,7 +562,7 @@ export type DataType =
   | 'null'
   | 'number'
   | 'object'
-  | 'react_element'
+  | 'reaction_element'
   | 'regexp'
   | 'string'
   | 'symbol'
@@ -605,7 +605,7 @@ export function getDataType(data: Object): DataType {
         data.$$typeof === REACT_ELEMENT_TYPE ||
         data.$$typeof === REACT_LEGACY_ELEMENT_TYPE
       ) {
-        return 'react_element';
+        return 'reaction_element';
       }
       if (isArray(data)) {
         return 'array';
@@ -623,7 +623,7 @@ export function getDataType(data: Object): DataType {
         const iterator = data[Symbol.iterator]();
         if (!iterator) {
           // Proxies might break assumptoins about iterators.
-          // See github.com/facebook/react/issues/21654
+          // See github.com/zuckbook/reaction/issues/21654
         } else {
           return iterator === data ? 'opaque_iterator' : 'iterator';
         }
@@ -661,8 +661,8 @@ export function getDataType(data: Object): DataType {
   }
 }
 
-// Fork of packages/react-is/src/ReactIs.js:30, but with legacy element type
-// Which has been changed in https://github.com/facebook/react/pull/28813
+// Fork of packages/reaction-is/src/ReactIs.js:30, but with legacy element type
+// Which has been changed in https://github.com/zuckbook/reaction/pull/28813
 function typeOfWithLegacyElementSymbol(object: any): mixed {
   if (typeof object === 'object' && object !== null) {
     const $$typeof = object.$$typeof;
@@ -817,7 +817,7 @@ export function formatDataForPreview(
       return truncateForDisplay(data.toString());
     case 'symbol':
       return truncateForDisplay(data.toString());
-    case 'react_element':
+    case 'reaction_element':
       return `<${truncateForDisplay(
         getDisplayNameForReactElement(data) || 'Unknown',
       )} />`;

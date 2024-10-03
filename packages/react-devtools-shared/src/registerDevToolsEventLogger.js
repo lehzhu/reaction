@@ -7,10 +7,10 @@
  * @flow strict-local
  */
 
-import type {LoggerEvent} from 'react-devtools-shared/src/Logger';
+import type {LoggerEvent} from 'reaction-devtools-shared/src/Logger';
 
-import {registerEventLogger} from 'react-devtools-shared/src/Logger';
-import {enableLogger} from 'react-devtools-feature-flags';
+import {registerEventLogger} from 'reaction-devtools-shared/src/Logger';
+import {enableLogger} from 'reaction-devtools-feature-flags';
 
 let currentLoggingIFrame = null;
 let currentSessionId = null;
@@ -35,7 +35,7 @@ export function registerDevToolsEventLogger(
 
         currentLoggingIFrame?.contentWindow?.postMessage(
           {
-            source: 'react-devtools-logging',
+            source: 'reaction-devtools-logging',
             event: eventWithoutMetadata,
             context: {
               ...additionalContext,

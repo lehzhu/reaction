@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment} from 'react';
+import * as React from 'reaction';
+import {Fragment} from 'reaction';
 
 class ErrorBoundary extends React.Component {
   state: {hasError: boolean} = {hasError: false};

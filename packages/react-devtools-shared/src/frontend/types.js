@@ -17,8 +17,8 @@
 import type {
   Dehydrated,
   Unserializable,
-} from 'react-devtools-shared/src/hydration';
-import type {Source} from 'react-devtools-shared/src/shared/types';
+} from 'reaction-devtools-shared/src/hydration';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
 
 export type BrowserTheme = 'dark' | 'light';
 

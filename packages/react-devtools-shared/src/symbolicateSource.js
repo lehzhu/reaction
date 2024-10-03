@@ -7,11 +7,11 @@
  * @flow
  */
 
-import {normalizeUrl} from 'react-devtools-shared/src/utils';
-import SourceMapConsumer from 'react-devtools-shared/src/hooks/SourceMapConsumer';
+import {normalizeUrl} from 'reaction-devtools-shared/src/utils';
+import SourceMapConsumer from 'reaction-devtools-shared/src/hooks/SourceMapConsumer';
 
-import type {Source} from 'react-devtools-shared/src/shared/types';
-import type {FetchFileWithCaching} from 'react-devtools-shared/src/devtools/views/Components/FetchFileWithCachingContext';
+import type {Source} from 'reaction-devtools-shared/src/shared/types';
+import type {FetchFileWithCaching} from 'reaction-devtools-shared/src/devtools/views/Components/FetchFileWithCachingContext';
 
 const symbolicationCache: Map<string, Promise<Source | null>> = new Map();
 
@@ -89,7 +89,7 @@ export async function symbolicateSource(
             return null;
           }
           try {
-            // sourceMapURL = https://react.dev/script.js.map
+            // sourceMapURL = https://reaction.dev/script.js.map
             void new URL(possiblyURL); // test if it is a valid URL
             const normalizedURL = normalizeUrl(possiblyURL);
 
@@ -107,7 +107,7 @@ export async function symbolicateSource(
             }
 
             // This is a relative path
-            // possiblyURL = x.js.map, sourceMapURL = https://react.dev/script.js.map
+            // possiblyURL = x.js.map, sourceMapURL = https://reaction.dev/script.js.map
             const absoluteSourcePath = new URL(
               possiblyURL,
               sourceMapURL,

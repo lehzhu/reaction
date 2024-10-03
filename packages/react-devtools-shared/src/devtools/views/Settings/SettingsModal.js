@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {useCallback, useContext, useEffect, useMemo, useRef} from 'react';
+import * as React from 'reaction';
+import {useCallback, useContext, useEffect, useMemo, useRef} from 'reaction';
 import {SettingsModalContext} from './SettingsModalContext';
 import Button from '../Button';
 import ButtonIcon from '../ButtonIcon';
@@ -26,7 +26,7 @@ import ProfilerSettings from './ProfilerSettings';
 
 import styles from './SettingsModal.css';
 
-import type Store from 'react-devtools-shared/src/devtools/store';
+import type Store from 'reaction-devtools-shared/src/devtools/store';
 
 type TabID = 'general' | 'debugging' | 'components' | 'profiler';
 

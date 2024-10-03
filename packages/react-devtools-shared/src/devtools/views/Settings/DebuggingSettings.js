@@ -7,11 +7,11 @@
  * @flow
  */
 
-import * as React from 'react';
-import {use, useState, useEffect} from 'react';
+import * as React from 'reaction';
+import {use, useState, useEffect} from 'reaction';
 
-import type {DevToolsHookSettings} from 'react-devtools-shared/src/backend/types';
-import type Store from 'react-devtools-shared/src/devtools/store';
+import type {DevToolsHookSettings} from 'reaction-devtools-shared/src/backend/types';
+import type Store from 'reaction-devtools-shared/src/devtools/store';
 
 import styles from './SettingsShared.css';
 
@@ -111,7 +111,7 @@ export default function DebuggingSettings({
             className={styles.StrictModeLink}
             target="_blank"
             rel="noopener noreferrer"
-            href="https://react.dev/reference/react/StrictMode">
+            href="https://reaction.dev/reference/reaction/StrictMode">
             Strict Mode
           </a>
         </label>

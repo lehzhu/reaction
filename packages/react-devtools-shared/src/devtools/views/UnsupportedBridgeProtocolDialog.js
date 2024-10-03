@@ -7,17 +7,17 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useEffect} from 'react';
+import * as React from 'reaction';
+import {Fragment, useContext, useEffect} from 'reaction';
 import {ModalDialogContext} from './ModalDialog';
 import {StoreContext} from './context';
-import {currentBridgeProtocol} from 'react-devtools-shared/src/bridge';
+import {currentBridgeProtocol} from 'reaction-devtools-shared/src/bridge';
 import Button from './Button';
 import ButtonIcon from './ButtonIcon';
 import {copy} from 'clipboard-js';
 import styles from './UnsupportedBridgeProtocolDialog.css';
 
-import type {BridgeProtocol} from 'react-devtools-shared/src/bridge';
+import type {BridgeProtocol} from 'reaction-devtools-shared/src/bridge';
 
 const DEVTOOLS_VERSION = process.env.DEVTOOLS_VERSION;
 const INSTRUCTIONS_FB_URL =
@@ -73,7 +73,7 @@ function DialogContent({
 
   let instructions;
   if (maxNpmVersion === null) {
-    const upgradeInstructions = `npm i -g react-devtools@^${minNpmVersion}`;
+    const upgradeInstructions = `npm i -g reaction-devtools@^${minNpmVersion}`;
     instructions = (
       <>
         <p className={styles.Paragraph}>
@@ -90,7 +90,7 @@ function DialogContent({
       </>
     );
   } else {
-    const downgradeInstructions = `npm i -g react-devtools@${maxNpmVersion}`;
+    const downgradeInstructions = `npm i -g reaction-devtools@${maxNpmVersion}`;
     instructions = (
       <>
         <p className={styles.Paragraph}>
@@ -113,7 +113,7 @@ function DialogContent({
       <div className={styles.Column}>
         <div className={styles.Title}>Unsupported DevTools backend version</div>
         <p className={styles.Paragraph}>
-          You are running <code>react-devtools</code> version{' '}
+          You are running <code>reaction-devtools</code> version{' '}
           <span className={styles.Version}>{DEVTOOLS_VERSION}</span>.
         </p>
         <p className={styles.Paragraph}>

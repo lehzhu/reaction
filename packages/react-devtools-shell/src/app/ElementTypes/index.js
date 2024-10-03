@@ -7,7 +7,7 @@
  * @flow
  */
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   forwardRef,
@@ -18,7 +18,7 @@ import {
   Profiler,
   StrictMode,
   Suspense,
-} from 'react';
+} from 'reaction';
 
 const Context = createContext('abc');
 Context.displayName = 'ExampleContext';

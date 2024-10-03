@@ -8,7 +8,7 @@
  */
 
 import type {ReactContext} from 'shared/ReactTypes';
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   Component,
@@ -20,7 +20,7 @@ import {
   useEffect,
   useReducer,
   useState,
-} from 'react';
+} from 'reaction';
 
 const initialData = {foo: 'FOO', bar: 'BAR'};
 

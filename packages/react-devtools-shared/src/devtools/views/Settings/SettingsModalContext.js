@@ -9,14 +9,14 @@
 
 import type {ReactContext} from 'shared/ReactTypes';
 
-import * as React from 'react';
+import * as React from 'reaction';
 import {
   createContext,
   useContext,
   useCallback,
   useState,
   startTransition,
-} from 'react';
+} from 'reaction';
 
 import {BridgeContext, StoreContext} from '../context';
 

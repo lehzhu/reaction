@@ -10,11 +10,11 @@
 import type {
   ElementType,
   SerializedElement,
-} from 'react-devtools-shared/src/frontend/types';
+} from 'reaction-devtools-shared/src/frontend/types';
 import type {
   TimelineData,
   TimelineDataExport,
-} from 'react-devtools-timeline/src/types';
+} from 'reaction-devtools-timeline/src/types';
 
 export type CommitTreeNode = {
   id: number,

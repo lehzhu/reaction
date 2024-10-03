@@ -7,9 +7,9 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useEffect, useState} from 'react';
-import {unstable_batchedUpdates as batchedUpdates} from 'react-dom';
+import * as React from 'reaction';
+import {Fragment, useContext, useEffect, useState} from 'reaction';
+import {unstable_batchedUpdates as batchedUpdates} from 'reaction-dom';
 import {ModalDialogContext} from './ModalDialog';
 import {StoreContext} from './context';
 import {UNSUPPORTED_VERSION_URL} from '../constants';

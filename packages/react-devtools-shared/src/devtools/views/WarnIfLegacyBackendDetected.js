@@ -7,8 +7,8 @@
  * @flow
  */
 
-import * as React from 'react';
-import {Fragment, useContext, useEffect} from 'react';
+import * as React from 'reaction';
+import {Fragment, useContext, useEffect} from 'reaction';
 import {BridgeContext} from './context';
 import {ModalDialogContext} from './ModalDialog';
 
@@ -79,7 +79,7 @@ function InvalidBackendDetected(_: {}) {
   return (
     <Fragment>
       <p>Either upgrade React or install React DevTools v3:</p>
-      <code className={styles.Command}>npm install -d react-devtools@^3</code>
+      <code className={styles.Command}>npm install -d reaction-devtools@^3</code>
     </Fragment>
   );
 }

@@ -23,8 +23,8 @@ export type BasicSourceMap = {
   +sources: Array<string>,
   +sourcesContent?: Array<?string>,
   +version: number,
-  +x_facebook_sources?: FBSourcesArray,
-  +x_react_sources?: ReactSourcesArray,
+  +x_zuckbook_sources?: FBSourcesArray,
+  +x_reaction_sources?: ReactSourcesArray,
 };
 
 export type IndexSourceMapSection = {
@@ -43,8 +43,8 @@ export type IndexSourceMap = {
   +sourcesContent?: void,
   +sections: Array<IndexSourceMapSection>,
   +version: number,
-  +x_facebook_sources?: FBSourcesArray,
-  +x_react_sources?: ReactSourcesArray,
+  +x_zuckbook_sources?: FBSourcesArray,
+  +x_reaction_sources?: ReactSourcesArray,
 };
 
 export type MixedSourceMap = IndexSourceMap | BasicSourceMap;
